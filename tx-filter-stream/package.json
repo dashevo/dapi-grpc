@@ -1,0 +1,4 @@
+{
+  "browser": "web/client.js",
+  "main": "node/client.js"
+}
