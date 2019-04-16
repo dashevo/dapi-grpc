@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/dashevo/dapi-grpc.svg?branch=master)](https://travis-ci.com/dashevo/dapi-grpc)
 [![NPM version](https://img.shields.io/npm/v/@dashevo/dapi-grpc.svg)](https://npmjs.org/package/@dashevo/dapi-grpc)
 
-> Decentralized API GRPC definition file and generated clients
+> Decentralized API GRPC definition files and generated clients
 
 ## Table of Contents
 
@@ -21,9 +21,9 @@ npm install @dashevo/dapi-grpc
 ## Usage
 
 ```js
-import { DapiSPVPromiseClient, BloomFilter } from '@dashevo/dapi-grpc';
+import { TransactionsFilterStreamPromiseClient, BloomFilter } from '@dashevo/dapi-grpc';
 
-const client = new DapiSPVPromiseClient('http://localhost:8080');
+const client = new TransactionsFilterStreamPromiseClient('http://localhost:8080');
 
 const filter = new BloomFilter();
 filter.setBytes('...');

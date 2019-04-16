@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # Build "grpcweb/common" until it is updated regularly on Docker Hub
+
 docker build -t grpcweb/common .
 
-# Generate GRPC-Web client for DapiTransactionsFilterStream service
+# Generate GRPC-Web client for `TransactionsFilterStream` service
+
 OUT_PATH="$PWD/dist/web"
 
 mkdir -p dist/web
