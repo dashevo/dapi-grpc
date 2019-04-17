@@ -4,7 +4,7 @@ const protoLoader = require('@grpc/proto-loader');
 
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
 
-const { BloomFilter } = require('./tx_filter_stream_pb');
+const { BloomFilter, RawTransaction } = require('./tx_filter_stream_pb');
 
 const protoPath = path.join(__dirname, '../tx_filter_stream.proto');
 
@@ -21,7 +21,7 @@ const descriptor = grpc.loadPackageDefinition(definition);
 const dapi = descriptor.org.dash.platform.dapi;
 
 const getNewTransactionsByFilterOptions = {
-  interceptors: [ jsonToProtobufInterceptorFactory(messages.RawTransaction) ]
+  interceptors: [ jsonToProtobufInterceptorFactory(RawTransaction) ]
 };
 
 class TransactionsFilterStreamClient {
@@ -37,7 +37,7 @@ class TransactionsFilterStreamClient {
   /**
    * @param {BloomFilter} bloomFilter The request proto
    * @param {?Object<string, string>} metadata User defined call metadata
-   * @return {!grpc.web.ClientReadableStream<!proto.org.dash.platform.dapi.RawTransaction>|undefined}
+   * @return {!grpc.web.ClientReadableStream<!RawTransaction>|undefined}
    *     The XHR Node Readable Stream
    */
   getNewTransactionsByFilter(bloomFilter, metadata) {
