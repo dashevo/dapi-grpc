@@ -1,8 +1,9 @@
 {
   "name": "@dashevo/dapi-grpc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DAPI GRPC definition file and generated clients",
   "browser": "dist/web/tx_filter_stream_grpc_web_pb",
+  "main": "tx-filter-stream/node/TransactionsFilterStreamClient.js",
   "scripts": {
     "build": "scripts/build.sh",
     "check-package": "npm run check-package:name && npm run check-package:version",

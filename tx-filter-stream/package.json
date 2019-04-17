@@ -1,4 +1,4 @@
 {
-  "browser": "web/client.js",
-  "main": "node/client.js"
+  "browser": "web/tx_filter_stream_grpc_web_pb",
+  "main": "node"
 }

@@ -2,7 +2,7 @@ const grpc = require('grpc');
 
 const { InterceptingCall } = grpc;
 
-function createJsonToProtobufConverter(MessageClass) {
+function jsonToProtobufInterceptorFactory(MessageClass) {
   return function interceptor (options, nextCall) {
     const methods = {
       start(metadata, listener, next) {
@@ -22,6 +22,4 @@ function createJsonToProtobufConverter(MessageClass) {
   };
 }
 
-module.exports = {
-  createJsonToProtobufConverter
-};
+module.exports = jsonToProtobufInterceptorFactory;
