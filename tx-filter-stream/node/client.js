@@ -2,6 +2,8 @@ const path = require('path');
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
 const messages = require('./tx_filter_stream_pb');
+const { createJsonToProtobufConverter } = require('./interceptorFactory');
+const { BloomFilter, RawTransaction } = messages;
 
 const protoPath = path.join(__dirname, '../tx_filter_stream.proto');
 
@@ -16,42 +18,32 @@ const definition = protoLoader.loadSync(protoPath, {
 const descriptor = grpc.loadPackageDefinition(definition);
 
 const dapi = descriptor.org.dash.platform.dapi;
-const client = new dapi.TransactionsFilterStream('http://127.0.0.1', grpc.credentials.createInsecure());
+
+const getNewTransactionsByFilterOptions = {
+  interceptors: [ createJsonToProtobufConverter(messages.RawTransaction) ]
+};
 
 class TransactionsFilterStreamClient {
+  /**
+   * @param {string} hostname
+   * @param {?Object} credentials
+   * @param {?Object} options
+   */
   constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new dapi.TransactionsFilterStream(hostname, credentials, options);
   }
 
-  GetNewTransactionsByFilter(message, metadata, callback) {
-    const obj = message.toObject();
-    this.client.GetNewTransactionsByFilter(obj, metadata, (err, response) => {
-      if (typeof callback === 'function') {
-        // TODO: need to wrap response for consistency:
-        // node-client returns response.message, web client returns response.getMessage()
-        callback(err, response);
-      }
-    });
-  }
-}
-
-class TransactionsFilterStreamPromiseClient {
-  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
-    this.client = new dapi.TransactionsFilterStream(hostname, credentials, options);
-  }
-
-  GetNewTransactionsByFilter(message, metadata) {
-    return new Promise((resolve, reject) => {
-      const obj = message.toObject();
-      this.client.GetNewTransactionsByFilter(obj, metadata, (err, response) => {
-        if (err) {
-          return reject(err);
-        }
-        // TODO: need to wrap response for consistency:
-        // node-client returns response.message, web client returns response.getMessage()
-        return resolve(response);
-      });
-    });
+  /**
+   * @param {BloomFilter} bloomFilter The request proto
+   * @param {?Object<string, string>} metadata User defined call metadata
+   * @param {function(?grpc.web.Error, ?proto.helloworld.HelloReply)}
+   *     callback The callback function(error, response)
+   * @return {!grpc.web.ClientReadableStream<!proto.helloworld.HelloReply>|undefined}
+   *     The XHR Node Readable Stream
+   */
+  getNewTransactionsByFilter(bloomFilter, metadata) {
+    const obj = bloomFilter.toObject();
+    this.client.getNewTransactionsByFilter(obj, getNewTransactionsByFilterOptions);
   }
 }
 
