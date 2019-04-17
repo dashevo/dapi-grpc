@@ -20,7 +20,7 @@ const descriptor = grpc.loadPackageDefinition(definition);
 const dapi = descriptor.org.dash.platform.dapi;
 
 const getNewTransactionsByFilterOptions = {
-  interceptors: [ createJsonToProtobufConverter(messages.RawTransaction) ]
+  interceptors: [ createJsonToProtobufConverter(RawTransaction) ]
 };
 
 class TransactionsFilterStreamClient {
@@ -36,10 +36,7 @@ class TransactionsFilterStreamClient {
   /**
    * @param {BloomFilter} bloomFilter The request proto
    * @param {?Object<string, string>} metadata User defined call metadata
-   * @param {function(?grpc.web.Error, ?proto.helloworld.HelloReply)}
-   *     callback The callback function(error, response)
-   * @return {!grpc.web.ClientReadableStream<!proto.helloworld.HelloReply>|undefined}
-   *     The XHR Node Readable Stream
+   * @return {!grpc.ClientReadableStream<RawTransaction>|undefined} The Readable Stream
    */
   getNewTransactionsByFilter(bloomFilter, metadata) {
     const obj = bloomFilter.toObject();

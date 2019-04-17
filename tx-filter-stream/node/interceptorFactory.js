@@ -8,12 +8,15 @@ function createJsonToProtobufConverter(MessageClass) {
       start(metadata, listener, next) {
         next(metadata, {
           onReceiveMessage(jsonResponse, next) {
+            if (!response) {
+              return next;
+            }
             const response = new MessageClass();
             Object.keys(jsonResponse).forEach((key) => {
               const setterName = `set${key[0].toUpperCase()}${key.substring(1,key.length)}`;
               response[setterName](jsonResponse[key]);
             });
-            next(response);
+            return next(response);
           }
         });
       },
