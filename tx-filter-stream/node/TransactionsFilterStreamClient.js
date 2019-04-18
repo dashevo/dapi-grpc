@@ -31,7 +31,7 @@ class TransactionsFilterStreamClient {
    */
   getNewTransactionsByFilter(bloomFilter, metadata) {
     const obj = bloomFilter.toObject();
-    this.client.getNewTransactionsByFilter(obj, getNewTransactionsByFilterOptions);
+    this.client.getNewTransactionsByFilter(obj, getNewTransactionsByFilterOptions, metadata);
   }
 }
 
