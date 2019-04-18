@@ -1,10 +1,8 @@
 const path = require('path');
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
-
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
-
-const { BloomFilter, RawTransaction } = require('./tx_filter_stream_pb');
+const { RawTransaction } = require('./tx_filter_stream_pb');
 
 const protoPath = path.join(__dirname, '../tx_filter_stream.proto');
 
@@ -13,15 +11,16 @@ const definition = protoLoader.loadSync(protoPath, {
   longs: String,
   enums: String,
   bytes: Array,
-  defaults: true
+  defaults: true,
 });
 
 const descriptor = grpc.loadPackageDefinition(definition);
-
-const dapi = descriptor.org.dash.platform.dapi;
+const {
+  TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
+} = descriptor.org.dash.platform.dapi;
 
 const getNewTransactionsByFilterOptions = {
-  interceptors: [ jsonToProtobufInterceptorFactory(RawTransaction) ]
+  interceptors: [jsonToProtobufInterceptorFactory(RawTransaction)],
 };
 
 class TransactionsFilterStreamClient {
@@ -31,7 +30,7 @@ class TransactionsFilterStreamClient {
    * @param {?Object} options
    */
   constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
-    this.client = new dapi.TransactionsFilterStream(hostname, credentials, options);
+    this.client = new TransactionsFilterStreamNodeJSClient(hostname, credentials, options);
   }
 
   /**
