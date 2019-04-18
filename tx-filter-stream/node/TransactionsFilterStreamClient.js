@@ -1,23 +1,13 @@
-const path = require('path');
 const grpc = require('grpc');
-const protoLoader = require('@grpc/proto-loader');
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
+const loadPackageDefinition = require('./loadPackageDefinition');
 const { RawTransaction } = require('./tx_filter_stream_pb');
 
-const protoPath = path.join(__dirname, '../tx_filter_stream.proto');
+const packageDefinition = loadPackageDefinition();
 
-const definition = protoLoader.loadSync(protoPath, {
-  keepCase: true,
-  longs: String,
-  enums: String,
-  bytes: Array,
-  defaults: true,
-});
-
-const descriptor = grpc.loadPackageDefinition(definition);
 const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
-} = descriptor.org.dash.platform.dapi;
+} = packageDefinition.org.dash.platform.dapi;
 
 const getNewTransactionsByFilterOptions = {
   interceptors: [jsonToProtobufInterceptorFactory(RawTransaction)],
