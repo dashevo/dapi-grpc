@@ -29,9 +29,9 @@ class TransactionsFilterStreamClient {
    * @return {!grpc.web.ClientReadableStream<!RawTransaction>|undefined}
    *     The XHR Node Readable Stream
    */
-  getNewTransactionsByFilter(bloomFilter, metadata) {
+  getNewTransactionsByFilter(bloomFilter, metadata = {}) {
     const obj = bloomFilter.toObject();
-    this.client.getNewTransactionsByFilter(obj, getNewTransactionsByFilterOptions, metadata);
+    this.client.getNewTransactionsByFilter(obj, metadata, getNewTransactionsByFilterOptions);
   }
 }
 
