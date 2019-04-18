@@ -6,11 +6,13 @@ const { Metadata } = require('grpc');
  * @returns {module:grpc.Metadata}
  */
 function convertObjectToMetadata(obj) {
-  const meta = new Metadata();
+  const metadata = new Metadata();
+
   Object.keys(obj).forEach((key) => {
-    meta.set(key, obj[key]);
+    metadata.set(key, obj[key]);
   });
-  return meta;
+
+  return metadata;
 }
 
 module.exports = convertObjectToMetadata;

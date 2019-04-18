@@ -2,10 +2,8 @@ const grpc = require('grpc');
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('./loadPackageDefinition');
 const { RawTransaction } = require('./tx_filter_stream_pb');
-const isObject = require('../../helpers/isObject');
-const convertObjectToMetadata = require('../../helpers/convertObjectToMetadata');
-
-const { Metadata } = grpc;
+const isObject = require('./isObject');
+const convertObjectToMetadata = require('./convertObjectToMetadata');
 
 const packageDefinition = loadPackageDefinition();
 
@@ -33,13 +31,18 @@ class TransactionsFilterStreamClient {
    * @return {!grpc.web.ClientReadableStream<!RawTransaction>|undefined}
    *     The XHR Node Readable Stream
    */
-  getNewTransactionsByFilter(bloomFilter, metadata = new Metadata()) {
-    let meta = metadata;
-    if (isObject(metadata) && !(metadata instanceof Metadata)) {
-      meta = convertObjectToMetadata(metadata);
+  getNewTransactionsByFilter(bloomFilter, metadata = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
     }
-    const obj = bloomFilter.toObject();
-    this.client.getNewTransactionsByFilter(obj, meta, getNewTransactionsByFilterOptions);
+
+    const message = bloomFilter.toObject();
+
+    this.client.getNewTransactionsByFilter(
+      message,
+      convertObjectToMetadata(metadata),
+      getNewTransactionsByFilterOptions,
+    );
   }
 }
 
