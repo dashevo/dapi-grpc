@@ -8,7 +8,7 @@ function jsonToProtobufInterceptorFactory(MessageClass) {
       start(metadata, listener, nextStart) {
         nextStart(metadata, {
           onReceiveMessage(jsonResponse, next) {
-            if (!response) {
+            if (!jsonResponse) {
               return next();
             }
             const response = new MessageClass();
@@ -17,7 +17,7 @@ function jsonToProtobufInterceptorFactory(MessageClass) {
               response[setterName](jsonResponse[key]);
             });
             return next(response);
-          }
+          },
         });
       },
     };

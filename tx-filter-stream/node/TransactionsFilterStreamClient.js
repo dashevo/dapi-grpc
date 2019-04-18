@@ -2,6 +2,10 @@ const grpc = require('grpc');
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('./loadPackageDefinition');
 const { RawTransaction } = require('./tx_filter_stream_pb');
+const isObject = require('../../helpers/isObject');
+const convertObjectToMetadata = require('../../helpers/convertObjectToMetadata');
+
+const { Metadata } = grpc;
 
 const packageDefinition = loadPackageDefinition();
 
@@ -29,9 +33,13 @@ class TransactionsFilterStreamClient {
    * @return {!grpc.web.ClientReadableStream<!RawTransaction>|undefined}
    *     The XHR Node Readable Stream
    */
-  getNewTransactionsByFilter(bloomFilter, metadata = new grpc.Metadata()) {
+  getNewTransactionsByFilter(bloomFilter, metadata = new Metadata()) {
+    let meta = metadata;
+    if (isObject(metadata) && !(metadata instanceof Metadata)) {
+      meta = convertObjectToMetadata(metadata);
+    }
     const obj = bloomFilter.toObject();
-    this.client.getNewTransactionsByFilter(obj, metadata, getNewTransactionsByFilterOptions);
+    this.client.getNewTransactionsByFilter(obj, meta, getNewTransactionsByFilterOptions);
   }
 }
 
