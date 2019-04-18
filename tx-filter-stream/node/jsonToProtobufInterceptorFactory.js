@@ -2,20 +2,22 @@ const grpc = require('grpc');
 
 const { InterceptingCall } = grpc;
 
-function createJsonToProtobufConverter(MessageClass) {
-  return function interceptor (options, nextCall) {
+function jsonToProtobufInterceptorFactory(MessageClass) {
+  return function interceptor(options, nextCall) {
     const methods = {
-      start(metadata, listener, next) {
-        next(metadata, {
+      start(metadata, listener, nextStart) {
+        nextStart(metadata, {
           onReceiveMessage(jsonResponse, next) {
             if (!response) {
               return next;
             }
             const response = new MessageClass();
             Object.keys(jsonResponse).forEach((key) => {
-              const setterName = `set${key[0].toUpperCase()}${key.substring(1,key.length)}`;
+              const setterName = `set${key[0].toUpperCase()}${key.substring(1, key.length)}`;
               response[setterName](jsonResponse[key]);
             });
+            next(response);
+          },
             return next(response);
           }
         });
@@ -25,6 +27,4 @@ function createJsonToProtobufConverter(MessageClass) {
   };
 }
 
-module.exports = {
-  createJsonToProtobufConverter
-};
+module.exports = jsonToProtobufInterceptorFactory;

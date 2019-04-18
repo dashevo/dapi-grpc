@@ -1,4 +1,9 @@
 # GRPC-Web client
 
-This is a directory for the GRPC-Web client build. 
-Run `npm run build` to generate the client.
+This is a directory for the generated GRPC-Web client. 
+
+## Build
+
+```bash
+npm run build
+```
