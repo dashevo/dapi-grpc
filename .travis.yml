@@ -24,6 +24,8 @@ before_install:
 
 install: npm ci
 
+before_script: npm run build
+
 script:
   - npm run lint
   - npm run check-package
