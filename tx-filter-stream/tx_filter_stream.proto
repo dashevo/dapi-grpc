@@ -23,6 +23,8 @@ message RawMerkleBlock {
 }
 
 message TransactionFilterResponse {
+  oneof responses {
     RawTransaction transaction = 1;
     RawMerkleBlock merkleBlock = 2;
+  }
 }
