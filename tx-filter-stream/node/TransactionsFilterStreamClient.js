@@ -1,7 +1,7 @@
 const grpc = require('grpc');
 const jsonToProtobufInterceptorFactory = require('./jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('./loadPackageDefinition');
-const { RawTransaction } = require('./tx_filter_stream_pb');
+const { TransactionsWithProofsResponse } = require('./tx_filter_stream_pb');
 const isObject = require('./isObject');
 const convertObjectToMetadata = require('./convertObjectToMetadata');
 
@@ -9,8 +9,8 @@ const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
 } = loadPackageDefinition();
 
-const getTransactionsByFilterOptions = {
-  interceptors: [jsonToProtobufInterceptorFactory(RawTransaction)],
+const subscribeToTransactionsWithProofsOptions = {
+  interceptors: [jsonToProtobufInterceptorFactory(TransactionsWithProofsResponse)],
 };
 
 class TransactionsFilterStreamClient {
@@ -24,22 +24,22 @@ class TransactionsFilterStreamClient {
   }
 
   /**
-   * @param {BloomFilter} bloomFilter The request proto
+   * @param {TransactionsWithProofsRequest} transactionsWithProofsRequest The request proto
    * @param {?Object<string, string>} metadata User defined call metadata
-   * @return {!grpc.web.ClientReadableStream<!RawTransaction>|undefined}
+   * @return {!grpc.web.ClientReadableStream<!TransactionsWithProofsResponse>|undefined}
    *     The XHR Node Readable Stream
    */
-  getTransactionsByFilter(bloomFilter, metadata = {}) {
+  subscribeToTransactionsWithProofs(transactionsWithProofsRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    const message = bloomFilter.toObject();
+    const message = transactionsWithProofsRequest.toObject();
 
-    return this.client.getTransactionsByFilter(
+    return this.client.subscribeToTransactionsWithProofs(
       message,
       convertObjectToMetadata(metadata),
-      getTransactionsByFilterOptions,
+      subscribeToTransactionsWithProofsOptions,
     );
   }
 }
