@@ -27,7 +27,7 @@ message BloomFilter {
 message TransactionsWithProofsResponse {
   oneof responses {
     RawTransactions raw_transactions = 1;
-    InstantSendLockMessages is_lock_messages = 2;
+    InstantSendLockMessages instant_send_lock_messages = 2;
     bytes raw_merkle_block = 3;
   }
 }
