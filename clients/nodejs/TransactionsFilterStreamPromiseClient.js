@@ -1,4 +1,4 @@
-const grpc = require('grpc');
+const grpc = require('grpc/index');
 const jsonToProtobufInterceptorFactory = require('../../src/jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
 const { TransactionsWithProofsResponse } = require('./transactions_filter_stream_pb');
