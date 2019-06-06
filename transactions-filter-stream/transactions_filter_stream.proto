@@ -7,11 +7,11 @@ service TransactionsFilterStream {
 }
 
 message TransactionsWithProofsRequest {
-  BloomFilter bloomFilter = 1;
+  BloomFilter bloom_filter = 1;
 
-  oneof fromBlock {
-    bytes fromBlockHash = 2;
-    uint32 fromBlockHeight = 3;
+  oneof from_block {
+    bytes from_block_hash = 2;
+    uint32 from_block_height = 3;
   }
 
   uint32 count = 4;
