@@ -52,6 +52,7 @@ static GPBFileDescriptor *TransactionsFilterStreamRoot_FileDescriptor(void) {
 @dynamic fromBlockHash;
 @dynamic fromBlockHeight;
 @dynamic count;
+@dynamic sendTransactionHashes;
 
 typedef struct TransactionsWithProofsRequest__storage_ {
   uint32_t _has_storage_[2];
@@ -102,6 +103,15 @@ typedef struct TransactionsWithProofsRequest__storage_ {
         .offset = (uint32_t)offsetof(TransactionsWithProofsRequest__storage_, count),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "sendTransactionHashes",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionsWithProofsRequest_FieldNumber_SendTransactionHashes,
+        .hasIndex = 2,
+        .offset = 3,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =

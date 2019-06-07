@@ -55,6 +55,7 @@ typedef GPB_ENUM(TransactionsWithProofsRequest_FieldNumber) {
   TransactionsWithProofsRequest_FieldNumber_FromBlockHash = 2,
   TransactionsWithProofsRequest_FieldNumber_FromBlockHeight = 3,
   TransactionsWithProofsRequest_FieldNumber_Count = 4,
+  TransactionsWithProofsRequest_FieldNumber_SendTransactionHashes = 5,
 };
 
 typedef GPB_ENUM(TransactionsWithProofsRequest_FromBlock_OneOfCase) {
@@ -76,6 +77,8 @@ typedef GPB_ENUM(TransactionsWithProofsRequest_FromBlock_OneOfCase) {
 @property(nonatomic, readwrite) uint32_t fromBlockHeight;
 
 @property(nonatomic, readwrite) uint32_t count;
+
+@property(nonatomic, readwrite) BOOL sendTransactionHashes;
 
 @end
 
