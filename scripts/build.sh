@@ -55,16 +55,42 @@ docker run -v "$PROTO_PATH:$PROTO_PATH" \
 
 # Generate GRPC Java client for `TransactionsFilterStream`
 
-JAVA_OUT_PATH="$CLIENTS_PATH/java"
-
-rm -rf "$JAVA_OUT_PATH/*"
-
 docker run -v "$PROTO_PATH:$PROTO_PATH" \
            -v "$JAVA_OUT_PATH:$JAVA_OUT_PATH" \
            --rm \
            znly/protoc \
            --plugin=protoc-gen-grpc=/usr/bin/protoc-gen-grpc-java \
            --grpc-java_out="$JAVA_OUT_PATH" \
+           --proto_path="$PROTO_PATH" \
+           -I "$PROTO_PATH" \
+           "transactions_filter_stream.proto"
+
+# Generate GRPC Objective-C client for `Core`
+
+OBJ_C_OUT_PATH="$CLIENTS_PATH/objective-c"
+
+rm -rf "$OBJ_C_OUT_PATH/*"
+
+docker run -v "$PROTO_PATH:$PROTO_PATH" \
+           -v "$OBJ_C_OUT_PATH:$OBJ_C_OUT_PATH" \
+           --rm \
+           znly/protoc \
+           --plugin=protoc-gen-grpc=/usr/bin/grpc_objective_c_plugin \
+           --objc_out="$OBJ_C_OUT_PATH" \
+           --grpc_out="$OBJ_C_OUT_PATH" \
+           --proto_path="$PROTO_PATH" \
+           -I "$PROTO_PATH" \
+           "core.proto"
+
+# Generate GRPC Objective-C client for `TransactionsFilterStream`
+
+docker run -v "$PROTO_PATH:$PROTO_PATH" \
+           -v "$OBJ_C_OUT_PATH:$OBJ_C_OUT_PATH" \
+           --rm \
+           znly/protoc \
+           --plugin=protoc-gen-grpc=/usr/bin/grpc_objective_c_plugin \
+           --objc_out="$OBJ_C_OUT_PATH" \
+           --grpc_out="$OBJ_C_OUT_PATH" \
            --proto_path="$PROTO_PATH" \
            -I "$PROTO_PATH" \
            "transactions_filter_stream.proto"
