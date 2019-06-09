@@ -3,7 +3,19 @@ syntax = "proto3";
 package org.dash.platform.dapi;
 
 service Core {
+  rpc getLastUserStateTransitionHash (LastUserStateTransitionHashRequest) returns (LastUserStateTransitionHashResponse);
   rpc subscribeToBlockHeadersWithChainLocks (BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse);
+}
+
+message LastUserStateTransitionHashRequest {
+  bytes user_id = 1;
+}
+
+message LastUserStateTransitionHashResponse {
+  oneof responses {
+    bytes last_state_transition_hash = 1;
+    bytes reg_tx_id = 2;
+  }
 }
 
 message BlockHeadersWithChainLocksRequest {
