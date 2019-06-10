@@ -12,7 +12,7 @@ message LastUserStateTransitionHashRequest {
 }
 
 message LastUserStateTransitionHashResponse {
-  bytes hash = 1;
+  bytes state_transition_hash = 1;
 }
 
 message BlockHeadersWithChainLocksRequest {
