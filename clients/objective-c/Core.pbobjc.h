@@ -63,29 +63,13 @@ typedef GPB_ENUM(LastUserStateTransitionHashRequest_FieldNumber) {
 
 typedef GPB_ENUM(LastUserStateTransitionHashResponse_FieldNumber) {
   LastUserStateTransitionHashResponse_FieldNumber_LastStateTransitionHash = 1,
-  LastUserStateTransitionHashResponse_FieldNumber_RegTxId = 2,
-};
-
-typedef GPB_ENUM(LastUserStateTransitionHashResponse_Responses_OneOfCase) {
-  LastUserStateTransitionHashResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
-  LastUserStateTransitionHashResponse_Responses_OneOfCase_LastStateTransitionHash = 1,
-  LastUserStateTransitionHashResponse_Responses_OneOfCase_RegTxId = 2,
 };
 
 @interface LastUserStateTransitionHashResponse : GPBMessage
 
-@property(nonatomic, readonly) LastUserStateTransitionHashResponse_Responses_OneOfCase responsesOneOfCase;
-
 @property(nonatomic, readwrite, copy, null_resettable) NSData *lastStateTransitionHash;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *regTxId;
-
 @end
-
-/**
- * Clears whatever value was set for the oneof 'responses'.
- **/
-void LastUserStateTransitionHashResponse_ClearResponsesOneOfCase(LastUserStateTransitionHashResponse *message);
 
 #pragma mark - BlockHeadersWithChainLocksRequest
 

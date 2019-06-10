@@ -90,14 +90,11 @@ typedef struct LastUserStateTransitionHashRequest__storage_ {
 
 @implementation LastUserStateTransitionHashResponse
 
-@dynamic responsesOneOfCase;
 @dynamic lastStateTransitionHash;
-@dynamic regTxId;
 
 typedef struct LastUserStateTransitionHashResponse__storage_ {
-  uint32_t _has_storage_[2];
+  uint32_t _has_storage_[1];
   NSData *lastStateTransitionHash;
-  NSData *regTxId;
 } LastUserStateTransitionHashResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -110,17 +107,8 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
         .name = "lastStateTransitionHash",
         .dataTypeSpecific.className = NULL,
         .number = LastUserStateTransitionHashResponse_FieldNumber_LastStateTransitionHash,
-        .hasIndex = -1,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(LastUserStateTransitionHashResponse__storage_, lastStateTransitionHash),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "regTxId",
-        .dataTypeSpecific.className = NULL,
-        .number = LastUserStateTransitionHashResponse_FieldNumber_RegTxId,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(LastUserStateTransitionHashResponse__storage_, regTxId),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
@@ -133,12 +121,6 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(LastUserStateTransitionHashResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-    static const char *oneofs[] = {
-      "responses",
-    };
-    [localDescriptor setupOneofs:oneofs
-                           count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
-                   firstHasIndex:-1];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
@@ -147,11 +129,6 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
 
 @end
 
-void LastUserStateTransitionHashResponse_ClearResponsesOneOfCase(LastUserStateTransitionHashResponse *message) {
-  GPBDescriptor *descriptor = [message descriptor];
-  GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
-}
 #pragma mark - BlockHeadersWithChainLocksRequest
 
 @implementation BlockHeadersWithChainLocksRequest
