@@ -90,11 +90,11 @@ typedef struct LastUserStateTransitionHashRequest__storage_ {
 
 @implementation LastUserStateTransitionHashResponse
 
-@dynamic lastStateTransitionHash;
+@dynamic hash_p;
 
 typedef struct LastUserStateTransitionHashResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSData *lastStateTransitionHash;
+  NSData *hash_p;
 } LastUserStateTransitionHashResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -104,11 +104,11 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "lastStateTransitionHash",
+        .name = "hash_p",
         .dataTypeSpecific.className = NULL,
-        .number = LastUserStateTransitionHashResponse_FieldNumber_LastStateTransitionHash,
+        .number = LastUserStateTransitionHashResponse_FieldNumber_Hash_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(LastUserStateTransitionHashResponse__storage_, lastStateTransitionHash),
+        .offset = (uint32_t)offsetof(LastUserStateTransitionHashResponse__storage_, hash_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
