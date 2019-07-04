@@ -1,7 +1,23 @@
 const camelCase = require('lodash.camelcase');
 
+/**
+ * Convert snake cased json object to protobuf message (factory)
+ *
+ * @param MessageClass
+ *
+ * @returns {jsonToProtobuf}
+ */
 function jsonToProtobufFactory(MessageClass) {
-  function convert(object) {
+  /**
+   * Convert snake cased json object to protobuf message
+   *
+   * @typedef jsonToProtobuf
+   *
+   * @param {Object} object
+   *
+   * @returns {jspb.Message}
+   */
+  function jsonToProtobuf(object) {
     const message = new MessageClass();
 
     Object.keys(object).forEach((key) => {
@@ -13,7 +29,7 @@ function jsonToProtobufFactory(MessageClass) {
     return message;
   }
 
-  return convert;
+  return jsonToProtobuf;
 }
 
 module.exports = jsonToProtobufFactory;

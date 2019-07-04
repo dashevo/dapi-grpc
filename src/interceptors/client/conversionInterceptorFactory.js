@@ -2,8 +2,24 @@ const grpc = require('grpc');
 
 const { InterceptingCall } = grpc;
 
+/**
+ * Client-side JSON -> protobuf -> JSON interceptor (factory)
+ *
+ * @param {jsonToProtobuf} jsonToProtobuf
+ * @param {protobufToJson} protobufToJson
+ *
+ * @returns {conversionInterceptor}
+ */
 function conversionInterceptorFactory(jsonToProtobuf, protobufToJson) {
-  return function interceptor(options, nextCall) {
+  /**
+   * Client-side JSON -> protobuf -> JSON interceptor
+   *
+   * @param {Object} options
+   * @param {module:grpc.InterceptingCall} nextCall
+   *
+   * @returns {module:grpc.InterceptingCall}
+   */
+  function conversionInterceptor(options, nextCall) {
     const methods = {
       start(metadata, listener, nextStart) {
         nextStart(metadata, {
@@ -23,7 +39,9 @@ function conversionInterceptorFactory(jsonToProtobuf, protobufToJson) {
       },
     };
     return new InterceptingCall(nextCall(options), methods);
-  };
+  }
+
+  return conversionInterceptor;
 }
 
 module.exports = conversionInterceptorFactory;
