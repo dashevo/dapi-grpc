@@ -1,16 +1,24 @@
 const grpc = require('grpc');
-const jsonToProtobufInterceptorFactory = require('../../src/jsonToProtobufInterceptorFactory');
+const conversionInterceptorFactory = require('../../src/interceptors/client/conversionInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
 const { TransactionsWithProofsResponse } = require('./transactions_filter_stream_pb');
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
+
+const jsonToProtobufFactory = require('../../src/converters/jsonToProtobufFactory');
+const protobufToJson = require('../../src/converters/protobufToJson');
 
 const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
 } = loadPackageDefinition('TransactionsFilterStream');
 
 const subscribeToTransactionsWithProofsOptions = {
-  interceptors: [jsonToProtobufInterceptorFactory(TransactionsWithProofsResponse)],
+  interceptors: [
+    conversionInterceptorFactory(
+      jsonToProtobufFactory(TransactionsWithProofsResponse),
+      protobufToJson,
+    ),
+  ],
 };
 
 class TransactionsFilterStreamPromiseClient {
@@ -34,10 +42,8 @@ class TransactionsFilterStreamPromiseClient {
       throw new Error('metadata must be an object');
     }
 
-    const message = transactionsWithProofsRequest.toObject();
-
     return this.client.subscribeToTransactionsWithProofs(
-      message,
+      transactionsWithProofsRequest,
       convertObjectToMetadata(metadata),
       subscribeToTransactionsWithProofsOptions,
     );
