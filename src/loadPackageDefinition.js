@@ -12,7 +12,7 @@ function loadPackageDefinition(serviceName) {
     keepCase: true,
     longs: String,
     enums: String,
-    bytes: Array,
+    bytes: Uint8Array,
     defaults: true,
   });
 
