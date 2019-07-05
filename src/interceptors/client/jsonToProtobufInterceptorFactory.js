@@ -10,7 +10,7 @@ const { InterceptingCall } = grpc;
  *
  * @returns {conversionInterceptor}
  */
-function conversionInterceptorFactory(jsonToProtobuf, protobufToJson) {
+function jsonToProtobufInterceptorFactory(jsonToProtobuf, protobufToJson) {
   /**
    * Client-side JSON -> protobuf -> JSON interceptor
    *
@@ -44,4 +44,4 @@ function conversionInterceptorFactory(jsonToProtobuf, protobufToJson) {
   return conversionInterceptor;
 }
 
-module.exports = conversionInterceptorFactory;
+module.exports = jsonToProtobufInterceptorFactory;

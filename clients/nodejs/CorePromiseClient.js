@@ -1,6 +1,6 @@
 const grpc = require('grpc');
 const { promisify } = require('util');
-const conversionInterceptorFactory = require('../../src/interceptors/client/conversionInterceptorFactory');
+const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
 const {
   LastUserStateTransitionHashResponse,
@@ -18,7 +18,7 @@ const {
 
 const getLastUserStateTransitionHashOptions = {
   interceptors: [
-    conversionInterceptorFactory(
+    jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(LastUserStateTransitionHashResponse),
       protobufToJson,
     ),
@@ -27,7 +27,7 @@ const getLastUserStateTransitionHashOptions = {
 
 const subscribeToBlockHeadersWithChainLocksOptions = {
   interceptors: [
-    conversionInterceptorFactory(
+    jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(BlockHeadersWithChainLocksResponse),
       protobufToJson,
     ),
@@ -45,10 +45,6 @@ class CorePromiseClient {
 
     this.client.getLastUserStateTransitionHash = promisify(
       this.client.getLastUserStateTransitionHash.bind(this.client),
-    );
-
-    this.client.subscribeToBlockHeadersWithChainLocks = promisify(
-      this.client.subscribeToBlockHeadersWithChainLocks.bind(this.client),
     );
   }
 

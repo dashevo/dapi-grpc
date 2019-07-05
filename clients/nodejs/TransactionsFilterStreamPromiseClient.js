@@ -1,7 +1,12 @@
 const grpc = require('grpc');
-const conversionInterceptorFactory = require('../../src/interceptors/client/conversionInterceptorFactory');
+const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
-const { TransactionsWithProofsResponse } = require('./transactions_filter_stream_pb');
+
+const {
+  TransactionsWithProofsResponse,
+  BloomFilter,
+} = require('./transactions_filter_stream_pb');
+
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
 
@@ -14,8 +19,13 @@ const {
 
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [
-    conversionInterceptorFactory(
-      jsonToProtobufFactory(TransactionsWithProofsResponse),
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        TransactionsWithProofsResponse,
+        {
+          bloomFilter: jsonToProtobufFactory(BloomFilter),
+        },
+      ),
       protobufToJson,
     ),
   ],
