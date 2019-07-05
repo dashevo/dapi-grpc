@@ -1,4 +1,4 @@
-const snakeCase = require('lodash.snakecase');
+const { objectKeysToSnakeCase } = require('./objectKeysCaseConverter');
 
 /**
  * Converts protobuf message to a snake cased JSON
@@ -12,14 +12,7 @@ const snakeCase = require('lodash.snakecase');
 function protobufToJson(message) {
   const messageObject = message.toObject();
 
-  return Object.keys(messageObject)
-    .reduce((result, key) => Object.assign(
-      {},
-      result,
-      {
-        [snakeCase(key)]: messageObject[key],
-      },
-    ), {});
+  return objectKeysToSnakeCase(messageObject);
 }
 
 module.exports = protobufToJson;
