@@ -7,19 +7,12 @@ const loadPackageDefinition = require('./src/loadPackageDefinition');
 const jsonToProtobufFactory = require('./src/converters/jsonToProtobufFactory');
 const protobufToJson = require('./src/converters/protobufToJson');
 
-const conversionInterceptorFactory = require('./src/interceptors/server/conversionInterceptorFactory');
-
 module.exports = Object.assign({
   CorePromiseClient,
   TransactionsFilterStreamPromiseClient,
-  loadPackageDefinition,
-  converters: {
+  utils: {
+    loadPackageDefinition,
     jsonToProtobufFactory,
     protobufToJson,
-  },
-  interceptors: {
-    server: {
-      conversionInterceptorFactory,
-    },
   },
 }, coreMessages, transactionsFilterStreamMessages);
