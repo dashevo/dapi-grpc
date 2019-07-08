@@ -6,7 +6,7 @@ const transactionsFilterStreamRoot = require('./clients/nodejs/transactions_filt
 
 const loadPackageDefinition = require('./src/loadPackageDefinition');
 const jsonToProtobufFactory = require('./src/converters/jsonToProtobufFactory');
-const protobufToJson = require('./src/converters/protobufToJsonFactory');
+const protobufToJsonFactory = require('./src/converters/protobufToJsonFactory');
 
 module.exports = Object.assign({
   CorePromiseClient,
@@ -14,6 +14,6 @@ module.exports = Object.assign({
   utils: {
     loadPackageDefinition,
     jsonToProtobufFactory,
-    protobufToJson,
+    protobufToJsonFactory,
   },
 }, coreRoot.org.dash.platform.dapi, transactionsFilterStreamRoot.org.dash.platform.dapi);
