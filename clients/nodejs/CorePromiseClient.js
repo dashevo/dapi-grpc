@@ -3,14 +3,24 @@ const { promisify } = require('util');
 const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
 const {
-  LastUserStateTransitionHashResponse,
-  BlockHeadersWithChainLocksResponse,
+  org: {
+    dash: {
+      platform: {
+        dapi: {
+          LastUserStateTransitionHashRequest,
+          LastUserStateTransitionHashResponse,
+          BlockHeadersWithChainLocksRequest,
+          BlockHeadersWithChainLocksResponse,
+        },
+      },
+    },
+  },
 } = require('./core_pb');
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
 
 const jsonToProtobufFactory = require('../../src/converters/jsonToProtobufFactory');
-const protobufToJson = require('../../src/converters/protobufToJson');
+const protobufToJsonFactory = require('../../src/converters/protobufToJsonFactory');
 
 const {
   Core: CoreNodeJSClient,
@@ -20,7 +30,7 @@ const getLastUserStateTransitionHashOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(LastUserStateTransitionHashResponse),
-      protobufToJson,
+      protobufToJsonFactory(LastUserStateTransitionHashRequest),
     ),
   ],
 };
@@ -29,7 +39,7 @@ const subscribeToBlockHeadersWithChainLocksOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(BlockHeadersWithChainLocksResponse),
-      protobufToJson,
+      protobufToJsonFactory(BlockHeadersWithChainLocksRequest),
     ),
   ],
 };

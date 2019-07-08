@@ -3,15 +3,23 @@ const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
 
 const {
-  TransactionsWithProofsResponse,
-  BloomFilter,
+  org: {
+    dash: {
+      platform: {
+        dapi: {
+          TransactionsWithProofsRequest,
+          TransactionsWithProofsResponse,
+        },
+      },
+    },
+  },
 } = require('./transactions_filter_stream_pb');
 
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
 
 const jsonToProtobufFactory = require('../../src/converters/jsonToProtobufFactory');
-const protobufToJson = require('../../src/converters/protobufToJson');
+const protobufToJsonFactory = require('../../src/converters/protobufToJsonFactory');
 
 const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
@@ -20,13 +28,8 @@ const {
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        TransactionsWithProofsResponse,
-        {
-          bloomFilter: jsonToProtobufFactory(BloomFilter),
-        },
-      ),
-      protobufToJson,
+      jsonToProtobufFactory(TransactionsWithProofsResponse),
+      protobufToJsonFactory(TransactionsWithProofsRequest),
     ),
   ],
 };
