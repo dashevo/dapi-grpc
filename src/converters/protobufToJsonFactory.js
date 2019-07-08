@@ -16,10 +16,7 @@ function protobufToJsonFactory(MessageClass) {
    * @returns {Object}
    */
   function protobufToJson(message) {
-    const o = MessageClass.toObject(message);
-    // console.log('client send a message');
-    // console.dir(o);
-    return o;
+    return MessageClass.toObject(message);
   }
 
   return protobufToJson;
