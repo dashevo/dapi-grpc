@@ -9,7 +9,7 @@ function loadPackageDefinition(serviceName) {
   const protoPath = path.join(__dirname, `../protos/${protoName}.proto`);
 
   const definition = protoLoader.loadSync(protoPath, {
-    keepCase: true,
+    keepCase: false,
     longs: String,
     enums: String,
     bytes: Uint8Array,
