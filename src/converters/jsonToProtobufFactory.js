@@ -2,6 +2,7 @@
  * Convert snake cased json object to protobuf message (factory)
  *
  * @param MessageClass
+ * @param GRPCMessageClass
  *
  * @returns {jsonToProtobuf}
  */

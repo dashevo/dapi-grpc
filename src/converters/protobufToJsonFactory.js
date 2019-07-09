@@ -2,6 +2,7 @@
  * Converts protobuf message to a JSON (factory)
  *
  * @param MessageClass
+ * @param GRPCMessageClass
  *
  * @returns {Object}
  */
