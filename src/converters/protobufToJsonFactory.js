@@ -20,9 +20,7 @@ function protobufToJsonFactory(MessageClass, GRPCMessageClass) {
     const grpcMessage = GRPCMessageClass
       .decode(messageBinary);
 
-    return GRPCMessageClass.toObject(grpcMessage, {
-      bytes: Uint8Array,
-    });
+    return GRPCMessageClass.toObject(grpcMessage);
   }
 
   return protobufToJson;
