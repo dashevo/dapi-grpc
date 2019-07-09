@@ -33,13 +33,13 @@ docker run -v "$PROTO_PATH:$PROTO_PATH" \
 
 # Clean node message classes
 
-rm -rf "$CLIENTS_PATH/nodejs/*_pb.js"
+rm -rf "$CLIENTS_PATH/nodejs/*_protoc.js"
 rm -rf "$CLIENTS_PATH/nodejs/*_pbjs.js"
 
 # Copy compiled modules with message classes
 
-cp "$WEB_OUT_PATH/core_pb.js" "$CLIENTS_PATH/nodejs/"
-cp "$WEB_OUT_PATH/transactions_filter_stream_pb.js" "$CLIENTS_PATH/nodejs/"
+cp "$WEB_OUT_PATH/core_pb.js" "$CLIENTS_PATH/nodejs/core_protoc.js"
+cp "$WEB_OUT_PATH/transactions_filter_stream_pb.js" "$CLIENTS_PATH/nodejs/transactions_filter_stream_protoc.js"
 
 # Generate node message classes
 

@@ -1,12 +1,11 @@
 /**
  * Converts protobuf message to a JSON (factory)
  *
- * @param MessageClass
- * @param GRPCMessageClass
+ * @param PBJSMessageClass
  *
  * @returns {Object}
  */
-function protobufToJsonFactory(MessageClass, GRPCMessageClass) {
+function protobufToJsonFactory(PBJSMessageClass) {
   /**
    * Converts protobuf message to a JSON
    *
@@ -18,10 +17,10 @@ function protobufToJsonFactory(MessageClass, GRPCMessageClass) {
    */
   function protobufToJson(message) {
     const messageBinary = message.serializeBinary();
-    const grpcMessage = GRPCMessageClass
+    const grpcMessage = PBJSMessageClass
       .decode(messageBinary);
 
-    return GRPCMessageClass.toObject(grpcMessage);
+    return PBJSMessageClass.toObject(grpcMessage);
   }
 
   return protobufToJson;

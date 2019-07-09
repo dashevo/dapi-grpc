@@ -8,10 +8,10 @@ const {
     dash: {
       platform: {
         dapi: {
-          LastUserStateTransitionHashRequest: GRPCLastUserStateTransitionHashRequest,
-          LastUserStateTransitionHashResponse: GRPCLastUserStateTransitionHashResponse,
-          BlockHeadersWithChainLocksRequest: GRPCBlockHeadersWithChainLocksRequest,
-          BlockHeadersWithChainLocksResponse: GRPCBlockHeadersWithChainLocksResponse,
+          LastUserStateTransitionHashRequest: PBJSLastUserStateTransitionHashRequest,
+          LastUserStateTransitionHashResponse: PBJSLastUserStateTransitionHashResponse,
+          BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
+          BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
         },
       },
     },
@@ -19,11 +19,9 @@ const {
 } = require('./core_pbjs');
 
 const {
-  LastUserStateTransitionHashRequest,
-  LastUserStateTransitionHashResponse,
-  BlockHeadersWithChainLocksRequest,
-  BlockHeadersWithChainLocksResponse,
-} = require('./core_pb');
+  LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
+  BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
+} = require('./core_protoc');
 
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
@@ -39,12 +37,11 @@ const getLastUserStateTransitionHashOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        LastUserStateTransitionHashResponse,
-        GRPCLastUserStateTransitionHashResponse,
+        ProtocLastUserStateTransitionHashResponse,
+        PBJSLastUserStateTransitionHashResponse,
       ),
       protobufToJsonFactory(
-        LastUserStateTransitionHashRequest,
-        GRPCLastUserStateTransitionHashRequest,
+        PBJSLastUserStateTransitionHashRequest,
       ),
     ),
   ],
@@ -54,12 +51,11 @@ const subscribeToBlockHeadersWithChainLocksOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        BlockHeadersWithChainLocksResponse,
-        GRPCBlockHeadersWithChainLocksResponse,
+        ProtocBlockHeadersWithChainLocksResponse,
+        PBJSBlockHeadersWithChainLocksResponse,
       ),
       protobufToJsonFactory(
-        BlockHeadersWithChainLocksRequest,
-        GRPCBlockHeadersWithChainLocksRequest,
+        PBJSBlockHeadersWithChainLocksRequest,
       ),
     ),
   ],

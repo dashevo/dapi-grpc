@@ -1,12 +1,12 @@
 /**
  * Convert snake cased json object to protobuf message (factory)
  *
- * @param MessageClass
- * @param GRPCMessageClass
+ * @param ProtocMessageClass
+ * @param PBJSMessageClass
  *
  * @returns {jsonToProtobuf}
  */
-function jsonToProtobufFactory(MessageClass, GRPCMessageClass) {
+function jsonToProtobufFactory(ProtocMessageClass, PBJSMessageClass) {
   /**
    * Convert snake cased json object to protobuf message
    *
@@ -17,12 +17,12 @@ function jsonToProtobufFactory(MessageClass, GRPCMessageClass) {
    * @returns {*}
    */
   function jsonToProtobuf(object) {
-    const grpcMessage = GRPCMessageClass.fromObject(object);
-    const grpcMessageBinary = GRPCMessageClass
+    const grpcMessage = PBJSMessageClass.fromObject(object);
+    const grpcMessageBinary = PBJSMessageClass
       .encode(grpcMessage)
       .finish();
 
-    return MessageClass.deserializeBinary(grpcMessageBinary);
+    return ProtocMessageClass.deserializeBinary(grpcMessageBinary);
   }
 
   return jsonToProtobuf;
