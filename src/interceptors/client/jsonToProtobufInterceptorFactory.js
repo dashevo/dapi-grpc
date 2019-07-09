@@ -28,7 +28,7 @@ function jsonToProtobufInterceptorFactory(jsonToProtobuf, protobufToJson) {
               return next();
             }
 
-            return jsonToProtobuf(jsonResponse);
+            return next(jsonToProtobuf(jsonResponse));
           },
         });
       },
