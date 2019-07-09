@@ -5,7 +5,7 @@
  *
  * @returns {Object}
  */
-function protobufToJsonFactory(MessageClass) {
+function protobufToJsonFactory(MessageClass, GRPCMessageClass) {
   /**
    * Converts protobuf message to a JSON
    *
@@ -16,7 +16,13 @@ function protobufToJsonFactory(MessageClass) {
    * @returns {Object}
    */
   function protobufToJson(message) {
-    return MessageClass.toObject(message);
+    const messageBinary = message.serializeBinary();
+    const grpcMessage = GRPCMessageClass
+      .decode(messageBinary);
+
+    return GRPCMessageClass.toObject(grpcMessage, {
+      bytes: Uint8Array,
+    });
   }
 
   return protobufToJson;

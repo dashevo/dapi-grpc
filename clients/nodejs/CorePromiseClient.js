@@ -2,20 +2,29 @@ const grpc = require('grpc');
 const { promisify } = require('util');
 const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
 const loadPackageDefinition = require('../../src/loadPackageDefinition');
+
 const {
   org: {
     dash: {
       platform: {
         dapi: {
-          LastUserStateTransitionHashRequest,
-          LastUserStateTransitionHashResponse,
-          BlockHeadersWithChainLocksRequest,
-          BlockHeadersWithChainLocksResponse,
+          LastUserStateTransitionHashRequest: GRPCLastUserStateTransitionHashRequest,
+          LastUserStateTransitionHashResponse: GRPCLastUserStateTransitionHashResponse,
+          BlockHeadersWithChainLocksRequest: GRPCBlockHeadersWithChainLocksRequest,
+          BlockHeadersWithChainLocksResponse: GRPCBlockHeadersWithChainLocksResponse,
         },
       },
     },
   },
+} = require('./core_pbjs');
+
+const {
+  LastUserStateTransitionHashRequest,
+  LastUserStateTransitionHashResponse,
+  BlockHeadersWithChainLocksRequest,
+  BlockHeadersWithChainLocksResponse,
 } = require('./core_pb');
+
 const isObject = require('../../src/isObject');
 const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
 
@@ -29,8 +38,14 @@ const {
 const getLastUserStateTransitionHashOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(LastUserStateTransitionHashResponse),
-      protobufToJsonFactory(LastUserStateTransitionHashRequest),
+      jsonToProtobufFactory(
+        LastUserStateTransitionHashResponse,
+        GRPCLastUserStateTransitionHashResponse,
+      ),
+      protobufToJsonFactory(
+        LastUserStateTransitionHashRequest,
+        GRPCLastUserStateTransitionHashRequest,
+      ),
     ),
   ],
 };
@@ -38,8 +53,14 @@ const getLastUserStateTransitionHashOptions = {
 const subscribeToBlockHeadersWithChainLocksOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(BlockHeadersWithChainLocksResponse),
-      protobufToJsonFactory(BlockHeadersWithChainLocksRequest),
+      jsonToProtobufFactory(
+        BlockHeadersWithChainLocksResponse,
+        GRPCBlockHeadersWithChainLocksResponse,
+      ),
+      protobufToJsonFactory(
+        BlockHeadersWithChainLocksRequest,
+        GRPCBlockHeadersWithChainLocksRequest,
+      ),
     ),
   ],
 };

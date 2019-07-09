@@ -7,12 +7,17 @@ const {
     dash: {
       platform: {
         dapi: {
-          TransactionsWithProofsRequest,
-          TransactionsWithProofsResponse,
+          TransactionsWithProofsRequest: GRPCTransactionsWithProofsRequest,
+          TransactionsWithProofsResponse: GRPCTransactionsWithProofsResponse,
         },
       },
     },
   },
+} = require('./transactions_filter_stream_pbjs');
+
+const {
+  TransactionsWithProofsRequest,
+  TransactionsWithProofsResponse,
 } = require('./transactions_filter_stream_pb');
 
 const isObject = require('../../src/isObject');
@@ -28,8 +33,14 @@ const {
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(TransactionsWithProofsResponse),
-      protobufToJsonFactory(TransactionsWithProofsRequest),
+      jsonToProtobufFactory(
+        TransactionsWithProofsResponse,
+        GRPCTransactionsWithProofsResponse,
+      ),
+      protobufToJsonFactory(
+        TransactionsWithProofsRequest,
+        GRPCTransactionsWithProofsRequest,
+      ),
     ),
   ],
 };
