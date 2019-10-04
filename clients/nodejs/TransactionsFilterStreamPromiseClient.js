@@ -1,6 +1,19 @@
 const grpc = require('grpc');
-const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
-const loadPackageDefinition = require('../../src/loadPackageDefinition');
+
+const {
+  loadPackageDefinition,
+  isObject,
+  convertObjectToMetadata,
+  client: {
+    interceptors: {
+      jsonToProtobufInterceptorFactory,
+    },
+    converters: {
+      jsonToProtobufFactory,
+      protobufToJsonFactory,
+    },
+  },
+} = require('@dashevo/grpc-common');
 
 const {
   org: {
@@ -18,12 +31,6 @@ const {
 const {
   TransactionsWithProofsResponse: ProtocTransactionsWithProofsResponse,
 } = require('./transactions_filter_stream_protoc');
-
-const isObject = require('../../src/isObject');
-const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
-
-const jsonToProtobufFactory = require('../../src/converters/jsonToProtobufFactory');
-const protobufToJsonFactory = require('../../src/converters/protobufToJsonFactory');
 
 const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,

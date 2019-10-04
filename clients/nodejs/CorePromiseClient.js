@@ -1,7 +1,20 @@
 const grpc = require('grpc');
 const { promisify } = require('util');
-const jsonToProtobufInterceptorFactory = require('../../src/interceptors/client/jsonToProtobufInterceptorFactory');
-const loadPackageDefinition = require('../../src/loadPackageDefinition');
+
+const {
+  loadPackageDefinition,
+  isObject,
+  convertObjectToMetadata,
+  client: {
+    interceptors: {
+      jsonToProtobufInterceptorFactory,
+    },
+    converters: {
+      jsonToProtobufFactory,
+      protobufToJsonFactory,
+    },
+  },
+} = require('@dashevo/grpc-common');
 
 const {
   org: {
@@ -22,12 +35,6 @@ const {
   LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
 } = require('./core_protoc');
-
-const isObject = require('../../src/isObject');
-const convertObjectToMetadata = require('../../src/convertObjectToMetadata');
-
-const jsonToProtobufFactory = require('../../src/converters/jsonToProtobufFactory');
-const protobufToJsonFactory = require('../../src/converters/protobufToJsonFactory');
 
 const {
   Core: CoreNodeJSClient,
