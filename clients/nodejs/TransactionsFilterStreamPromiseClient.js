@@ -1,3 +1,4 @@
+const path = require('path');
 const grpc = require('grpc');
 
 const {
@@ -32,9 +33,11 @@ const {
   TransactionsWithProofsResponse: ProtocTransactionsWithProofsResponse,
 } = require('./transactions_filter_stream_protoc');
 
+const protoPath = path.join(__dirname, '../protos/transactions_filter_stream.proto');
+
 const {
   TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
-} = loadPackageDefinition('TransactionsFilterStream');
+} = loadPackageDefinition(protoPath, 'dapi', 'v0');
 
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [

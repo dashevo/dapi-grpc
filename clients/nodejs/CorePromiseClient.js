@@ -1,3 +1,4 @@
+const path = require('path');
 const grpc = require('grpc');
 const { promisify } = require('util');
 
@@ -36,9 +37,11 @@ const {
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
 } = require('./core_protoc');
 
+const protoPath = path.join(__dirname, '../protos/core.proto');
+
 const {
   Core: CoreNodeJSClient,
-} = loadPackageDefinition('Core');
+} = loadPackageDefinition(protoPath, 'dapi', 'v0');
 
 const getLastUserStateTransitionHashOptions = {
   interceptors: [
