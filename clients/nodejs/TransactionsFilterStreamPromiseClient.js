@@ -36,18 +36,8 @@ const {
 const protoPath = path.join(__dirname, '../protos/transactions_filter_stream.proto');
 
 const {
-  org: {
-    dash: {
-      platform: {
-        dapi: {
-          v0: {
-            TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
-          },
-        },
-      },
-    },
-  },
-} = loadPackageDefinition(protoPath);
+  TransactionsFilterStream: TransactionsFilterStreamNodeJSClient,
+} = loadPackageDefinition(protoPath, 'org.dash.platform.dapi.v0');
 
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [

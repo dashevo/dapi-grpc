@@ -40,18 +40,8 @@ const {
 const protoPath = path.join(__dirname, '../protos/core.proto');
 
 const {
-  org: {
-    dash: {
-      platform: {
-        dapi: {
-          v0: {
-            Core: CoreNodeJSClient,
-          },
-        },
-      },
-    },
-  },
-} = loadPackageDefinition(protoPath);
+  Core: CoreNodeJSClient,
+} = loadPackageDefinition(protoPath, 'org.dash.platform.dapi.v0');
 
 const getLastUserStateTransitionHashOptions = {
   interceptors: [
