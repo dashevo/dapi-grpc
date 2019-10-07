@@ -3,8 +3,10 @@ const grpc = require('grpc');
 
 const {
   loadPackageDefinition,
-  isObject,
-  convertObjectToMetadata,
+  utils: {
+    isObject,
+    convertObjectToMetadata,
+  },
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,

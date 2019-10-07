@@ -4,8 +4,10 @@ const { promisify } = require('util');
 
 const {
   loadPackageDefinition,
-  isObject,
-  convertObjectToMetadata,
+  utils: {
+    isObject,
+    convertObjectToMetadata,
+  },
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
