@@ -29,7 +29,7 @@ const {
           BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
           BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
           StateTransition: PBJSStateTransition,
-          StateTransitionResponse: PBJSStateTransitionResponse,
+          UpdateStateTransitionResponse: PBJSUpdateStateTransitionResponse,
         },
       },
     },
@@ -39,7 +39,7 @@ const {
 const {
   LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
-  StateTransitionResponse: ProtocStateTransitionResponse,
+  UpdateStateTransitionResponse: ProtocUpdateStateTransitionResponse,
 } = require('./core_protoc');
 
 const protoPath = path.join(__dirname, '../protos/core.proto');
@@ -80,8 +80,8 @@ const updateStateTransitionOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocStateTransitionResponse,
-        PBJSStateTransitionResponse,
+        ProtocUpdateStateTransitionResponse,
+        PBJSUpdateStateTransitionResponse,
       ),
       protobufToJsonFactory(
         PBJSStateTransition,
@@ -147,7 +147,7 @@ class CorePromiseClient {
    *
    * @param {!StateTransition} stateTransition
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!StateTransitionResponse>}
+   * @returns {Promise<!UpdateStateTransitionResponse>}
    */
   updateState(stateTransition, metadata = {}) {
     if (!isObject(metadata)) {

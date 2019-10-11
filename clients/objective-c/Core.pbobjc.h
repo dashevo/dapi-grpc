@@ -173,9 +173,9 @@ typedef GPB_ENUM(StateTransition_FieldNumber) {
 
 @end
 
-#pragma mark - StateTransitionResponse
+#pragma mark - UpdateStateTransitionResponse
 
-@interface StateTransitionResponse : GPBMessage
+@interface UpdateStateTransitionResponse : GPBMessage
 
 @end
 

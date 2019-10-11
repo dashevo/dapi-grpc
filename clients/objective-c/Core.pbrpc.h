@@ -25,11 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCTosubscribeToBlockHeadersWithChainLocksWithRequest:(BlockHeadersWithChainLocksRequest *)request eventHandler:(void(^)(BOOL done, BlockHeadersWithChainLocksResponse *_Nullable response, NSError *_Nullable error))eventHandler;
 
 
-#pragma mark updateState(StateTransition) returns (StateTransitionResponse)
+#pragma mark updateState(StateTransition) returns (UpdateStateTransitionResponse)
 
-- (void)updateStateWithRequest:(StateTransition *)request handler:(void(^)(StateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)updateStateWithRequest:(StateTransition *)request handler:(void(^)(UpdateStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCToupdateStateWithRequest:(StateTransition *)request handler:(void(^)(StateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCToupdateStateWithRequest:(StateTransition *)request handler:(void(^)(UpdateStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

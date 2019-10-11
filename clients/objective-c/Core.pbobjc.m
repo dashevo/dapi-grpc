@@ -412,14 +412,14 @@ typedef struct StateTransition__storage_ {
 
 @end
 
-#pragma mark - StateTransitionResponse
+#pragma mark - UpdateStateTransitionResponse
 
-@implementation StateTransitionResponse
+@implementation UpdateStateTransitionResponse
 
 
-typedef struct StateTransitionResponse__storage_ {
+typedef struct UpdateStateTransitionResponse__storage_ {
   uint32_t _has_storage_[1];
-} StateTransitionResponse__storage_;
+} UpdateStateTransitionResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -427,12 +427,12 @@ typedef struct StateTransitionResponse__storage_ {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[StateTransitionResponse class]
+        [GPBDescriptor allocDescriptorForClass:[UpdateStateTransitionResponse class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:NULL
                                     fieldCount:0
-                                   storageSize:sizeof(StateTransitionResponse__storage_)
+                                   storageSize:sizeof(UpdateStateTransitionResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;

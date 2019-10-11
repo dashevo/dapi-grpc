@@ -53,15 +53,15 @@ public final class CoreGrpc {
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.StateTransition,
-      org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse> METHOD_UPDATE_STATE =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.StateTransition, org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse>newBuilder()
+      org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> METHOD_UPDATE_STATE =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.StateTransition, org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "org.dash.platform.dapi.v0.Core", "updateState"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               org.dash.platform.dapi.v0.CoreOuterClass.StateTransition.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -108,7 +108,7 @@ public final class CoreGrpc {
     /**
      */
     public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_UPDATE_STATE, responseObserver);
     }
 
@@ -133,7 +133,7 @@ public final class CoreGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.dash.platform.dapi.v0.CoreOuterClass.StateTransition,
-                org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse>(
+                org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>(
                   this, METHODID_UPDATE_STATE)))
           .build();
     }
@@ -176,7 +176,7 @@ public final class CoreGrpc {
     /**
      */
     public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request, responseObserver);
     }
@@ -217,7 +217,7 @@ public final class CoreGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request) {
+    public org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request) {
       return blockingUnaryCall(
           getChannel(), METHOD_UPDATE_STATE, getCallOptions(), request);
     }
@@ -251,7 +251,7 @@ public final class CoreGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse> updateState(
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> updateState(
         org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request);
@@ -289,7 +289,7 @@ public final class CoreGrpc {
           break;
         case METHODID_UPDATE_STATE:
           serviceImpl.updateState((org.dash.platform.dapi.v0.CoreOuterClass.StateTransition) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.StateTransitionResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
