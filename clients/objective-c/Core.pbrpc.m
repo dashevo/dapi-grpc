@@ -46,4 +46,16 @@
              responseClass:[BlockHeadersWithChainLocksResponse class]
         responsesWriteable:[GRXWriteable writeableWithEventHandler:eventHandler]];
 }
+#pragma mark updateState(StateTransition) returns (StateTransitionResponse)
+
+- (void)updateStateWithRequest:(StateTransition *)request handler:(void(^)(StateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToupdateStateWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToupdateStateWithRequest:(StateTransition *)request handler:(void(^)(StateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"updateState"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[StateTransitionResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 @end
