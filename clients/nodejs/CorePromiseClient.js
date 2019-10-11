@@ -28,7 +28,7 @@ const {
           LastUserStateTransitionHashResponse: PBJSLastUserStateTransitionHashResponse,
           BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
           BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
-          StateTransitionRequest: PBJSStateTransitionRequest,
+          StateTransition: PBJSStateTransition,
           StateTransitionResponse: PBJSStateTransitionResponse,
         },
       },
@@ -84,7 +84,7 @@ const updateStateTransitionOptions = {
         PBJSStateTransitionResponse,
       ),
       protobufToJsonFactory(
-        PBJSStateTransitionRequest,
+        PBJSStateTransition,
       ),
     ),
   ],
@@ -145,17 +145,17 @@ class CorePromiseClient {
 
   /**
    *
-   * @param {!StateTransitionRequest} stateTransitionRequest
+   * @param {!StateTransition} stateTransition
    * @param {?Object<string, string>} metadata
    * @returns {Promise<!StateTransitionResponse>}
    */
-  updateState(stateTransitionRequest, metadata = {}) {
+  updateState(stateTransition, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
     return this.client.updateState(
-      stateTransitionRequest,
+      stateTransition,
       convertObjectToMetadata(metadata),
       updateStateTransitionOptions,
     );
