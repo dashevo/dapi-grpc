@@ -362,11 +362,11 @@ typedef struct ChainLockSignatureMessages__storage_ {
 
 @implementation StateTransition
 
-@dynamic stateTransition;
+@dynamic data_p;
 
 typedef struct StateTransition__storage_ {
   uint32_t _has_storage_[1];
-  NSData *stateTransition;
+  NSData *data_p;
 } StateTransition__storage_;
 
 // This method is threadsafe because it is initially called
@@ -376,12 +376,12 @@ typedef struct StateTransition__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "stateTransition",
+        .name = "data_p",
         .dataTypeSpecific.className = NULL,
-        .number = StateTransition_FieldNumber_StateTransition,
+        .number = StateTransition_FieldNumber_Data_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(StateTransition__storage_, stateTransition),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .offset = (uint32_t)offsetof(StateTransition__storage_, data_p),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -393,11 +393,6 @@ typedef struct StateTransition__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(StateTransition__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\001\017\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
