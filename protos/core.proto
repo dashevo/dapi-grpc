@@ -41,8 +41,7 @@ message ChainLockSignatureMessages {
 }
 
 message StateTransition {
-  bytes header = 1;
-  bytes packet = 2;
+  bytes stateTransition = 1;
 }
 
 message UpdateStateTransitionResponse {}

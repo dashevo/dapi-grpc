@@ -362,13 +362,11 @@ typedef struct ChainLockSignatureMessages__storage_ {
 
 @implementation StateTransition
 
-@dynamic header;
-@dynamic packet;
+@dynamic stateTransition;
 
 typedef struct StateTransition__storage_ {
   uint32_t _has_storage_[1];
-  NSData *header;
-  NSData *packet;
+  NSData *stateTransition;
 } StateTransition__storage_;
 
 // This method is threadsafe because it is initially called
@@ -378,21 +376,12 @@ typedef struct StateTransition__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "header",
+        .name = "stateTransition",
         .dataTypeSpecific.className = NULL,
-        .number = StateTransition_FieldNumber_Header,
+        .number = StateTransition_FieldNumber_StateTransition,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(StateTransition__storage_, header),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "packet",
-        .dataTypeSpecific.className = NULL,
-        .number = StateTransition_FieldNumber_Packet,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(StateTransition__storage_, packet),
-        .flags = GPBFieldOptional,
+        .offset = (uint32_t)offsetof(StateTransition__storage_, stateTransition),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -404,6 +393,11 @@ typedef struct StateTransition__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(StateTransition__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\001\017\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
