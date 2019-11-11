@@ -176,6 +176,30 @@ typedef GPB_ENUM(StateTransition_FieldNumber) {
 
 @end
 
+#pragma mark - IdentityRequest
+
+typedef GPB_ENUM(IdentityRequest_FieldNumber) {
+  IdentityRequest_FieldNumber_Id_p = 1,
+};
+
+@interface IdentityRequest : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
+
+@end
+
+#pragma mark - IdentityResponse
+
+typedef GPB_ENUM(IdentityResponse_FieldNumber) {
+  IdentityResponse_FieldNumber_Data_p = 1,
+};
+
+@interface IdentityResponse : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

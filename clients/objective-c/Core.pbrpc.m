@@ -58,4 +58,16 @@
              responseClass:[UpdateStateTransitionResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark fetchIdentity(IdentityRequest) returns (IdentityResponse)
+
+- (void)fetchIdentityWithRequest:(IdentityRequest *)request handler:(void(^)(IdentityResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTofetchIdentityWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCTofetchIdentityWithRequest:(IdentityRequest *)request handler:(void(^)(IdentityResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"fetchIdentity"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[IdentityResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 @end

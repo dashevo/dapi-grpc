@@ -14,6 +14,7 @@ describe('CorePromiseClient', () => {
       getLastUserStateTransitionHash: this.sinon.stub().resolves(response),
       subscribeToBlockHeadersWithChainLocks: this.sinon.stub().resolves(response),
       updateState: this.sinon.stub().resolves(response),
+      fetchIdentity: this.sinon.stub().resolves(response),
     };
   });
 
@@ -67,6 +68,25 @@ describe('CorePromiseClient', () => {
     it('should throw an error when metadata is not an object', async () => {
       try {
         corePromiseClient.updateState({}, 'metadata');
+
+        expect.fail('Error was not thrown');
+      } catch (e) {
+        expect(e.message).to.equal('metadata must be an object');
+      }
+    });
+  });
+
+  describe('#fetchIdentity', () => {
+    it('should fetch identity', async () => {
+      const result = await corePromiseClient.fetchIdentity(request);
+
+      expect(result).to.equal(response);
+      expect(corePromiseClient.client.fetchIdentity).to.be.calledOnceWith(request);
+    });
+
+    it('should throw an error when ', async () => {
+      try {
+        corePromiseClient.fetchIdentity({}, 'metadata');
 
         expect.fail('Error was not thrown');
       } catch (e) {

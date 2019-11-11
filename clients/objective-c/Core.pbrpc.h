@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToupdateStateWithRequest:(StateTransition *)request handler:(void(^)(UpdateStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
+#pragma mark fetchIdentity(IdentityRequest) returns (IdentityResponse)
+
+- (void)fetchIdentityWithRequest:(IdentityRequest *)request handler:(void(^)(IdentityResponse *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCTofetchIdentityWithRequest:(IdentityRequest *)request handler:(void(^)(IdentityResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
 @end
 
 /**

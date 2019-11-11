@@ -63,6 +63,18 @@ public final class CoreGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
+      org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> METHOD_FETCH_IDENTITY =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest, org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "org.dash.platform.dapi.v0.Core", "fetchIdentity"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -112,6 +124,13 @@ public final class CoreGrpc {
       asyncUnimplementedUnaryCall(METHOD_UPDATE_STATE, responseObserver);
     }
 
+    /**
+     */
+    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_FETCH_IDENTITY, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -135,6 +154,13 @@ public final class CoreGrpc {
                 org.dash.platform.dapi.v0.CoreOuterClass.StateTransition,
                 org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>(
                   this, METHODID_UPDATE_STATE)))
+          .addMethod(
+            METHOD_FETCH_IDENTITY,
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
+                org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>(
+                  this, METHODID_FETCH_IDENTITY)))
           .build();
     }
   }
@@ -180,6 +206,14 @@ public final class CoreGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -221,6 +255,13 @@ public final class CoreGrpc {
       return blockingUnaryCall(
           getChannel(), METHOD_UPDATE_STATE, getCallOptions(), request);
     }
+
+    /**
+     */
+    public org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_FETCH_IDENTITY, getCallOptions(), request);
+    }
   }
 
   /**
@@ -256,11 +297,20 @@ public final class CoreGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> fetchIdentity(
+        org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_LAST_USER_STATE_TRANSITION_HASH = 0;
   private static final int METHODID_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS = 1;
   private static final int METHODID_UPDATE_STATE = 2;
+  private static final int METHODID_FETCH_IDENTITY = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -290,6 +340,10 @@ public final class CoreGrpc {
         case METHODID_UPDATE_STATE:
           serviceImpl.updateState((org.dash.platform.dapi.v0.CoreOuterClass.StateTransition) request,
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>) responseObserver);
+          break;
+        case METHODID_FETCH_IDENTITY:
+          serviceImpl.fetchIdentity((org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -327,6 +381,7 @@ public final class CoreGrpc {
               .addMethod(METHOD_GET_LAST_USER_STATE_TRANSITION_HASH)
               .addMethod(METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS)
               .addMethod(METHOD_UPDATE_STATE)
+              .addMethod(METHOD_FETCH_IDENTITY)
               .build();
         }
       }

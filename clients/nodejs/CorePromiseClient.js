@@ -29,6 +29,7 @@ const {
             BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
             StateTransition: PBJSStateTransition,
             UpdateStateTransitionResponse: PBJSUpdateStateTransitionResponse,
+            IdentityResponse: PBJSIdentityResponse,
           },
         },
       },
@@ -40,6 +41,7 @@ const {
   LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
   UpdateStateTransitionResponse: ProtocUpdateStateTransitionResponse,
+  IdentityResponse: ProtocIdentityResponse,
 } = require('./core_protoc');
 
 const getCoreDefinition = require('../../lib/getCoreDefinition');
@@ -83,6 +85,20 @@ const updateStateTransitionOptions = {
       ),
       protobufToJsonFactory(
         PBJSStateTransition,
+      ),
+    ),
+  ],
+};
+
+const fetchIdentityOptions = {
+  interceptors: [
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        ProtocIdentityResponse,
+        PBJSIdentityResponse,
+      ),
+      protobufToJsonFactory(
+        PBJSIdentityResponse,
       ),
     ),
   ],
@@ -156,6 +172,24 @@ class CorePromiseClient {
       stateTransition,
       convertObjectToMetadata(metadata),
       updateStateTransitionOptions,
+    );
+  }
+
+  /**
+   *
+   * @param {!IdentityRequest} IdentityRequest
+   * @param {?Object<string, string>} metadata
+   * @returns {Promise<!IdentityResponse>}
+   */
+  fetchIdentity(IdentityRequest, metadata = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.fetchIdentity(
+      IdentityRequest,
+      convertObjectToMetadata(metadata),
+      fetchIdentityOptions,
     );
   }
 }
