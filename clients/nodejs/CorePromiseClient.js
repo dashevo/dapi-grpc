@@ -27,9 +27,10 @@ const {
             LastUserStateTransitionHashResponse: PBJSLastUserStateTransitionHashResponse,
             BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
             BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
-            StateTransition: PBJSStateTransition,
-            UpdateStateTransitionResponse: PBJSUpdateStateTransitionResponse,
-            IdentityResponse: PBJSIdentityResponse,
+            UpdateStateRequest: PBJSUpdateStateRequest,
+            UpdateStateResponse: PBJSUpdateStateResponse,
+            FetchIdentityRequest: PBJSFetchIdentityRequest,
+            FetchIdentityResponse: PBJSFetchIdentityResponse,
           },
         },
       },
@@ -40,8 +41,8 @@ const {
 const {
   LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
-  UpdateStateTransitionResponse: ProtocUpdateStateTransitionResponse,
-  IdentityResponse: ProtocIdentityResponse,
+  UpdateStateResponse: ProtocUpdateStateResponse,
+  FetchIdentityResponse: ProtocFetchIdentityResponse,
 } = require('./core_protoc');
 
 const getCoreDefinition = require('../../lib/getCoreDefinition');
@@ -80,11 +81,11 @@ const updateStateTransitionOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocUpdateStateTransitionResponse,
-        PBJSUpdateStateTransitionResponse,
+        ProtocUpdateStateResponse,
+        PBJSUpdateStateResponse,
       ),
       protobufToJsonFactory(
-        PBJSStateTransition,
+        PBJSUpdateStateRequest,
       ),
     ),
   ],
@@ -94,11 +95,11 @@ const fetchIdentityOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocIdentityResponse,
-        PBJSIdentityResponse,
+        ProtocFetchIdentityResponse,
+        PBJSFetchIdentityResponse,
       ),
       protobufToJsonFactory(
-        PBJSIdentityResponse,
+        PBJSFetchIdentityRequest,
       ),
     ),
   ],
@@ -159,17 +160,17 @@ class CorePromiseClient {
 
   /**
    *
-   * @param {!StateTransition} stateTransition
+   * @param {!UpdateStateRequest} updateStateRequest
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!UpdateStateTransitionResponse>}
+   * @returns {Promise<!UpdateStateResponse>}
    */
-  updateState(stateTransition, metadata = {}) {
+  updateState(updateStateRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
     return this.client.updateState(
-      stateTransition,
+      updateStateRequest,
       convertObjectToMetadata(metadata),
       updateStateTransitionOptions,
     );
@@ -177,17 +178,17 @@ class CorePromiseClient {
 
   /**
    *
-   * @param {!IdentityRequest} IdentityRequest
+   * @param {!FetchIdentityRequest} fetchIdentityRequest
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!IdentityResponse>}
+   * @returns {Promise<!FetchIdentityResponse>}
    */
-  fetchIdentity(IdentityRequest, metadata = {}) {
+  fetchIdentity(fetchIdentityRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
     return this.client.fetchIdentity(
-      IdentityRequest,
+      fetchIdentityRequest,
       convertObjectToMetadata(metadata),
       fetchIdentityOptions,
     );

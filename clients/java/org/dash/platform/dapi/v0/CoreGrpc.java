@@ -52,28 +52,28 @@ public final class CoreGrpc {
               org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.StateTransition,
-      org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> METHOD_UPDATE_STATE =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.StateTransition, org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest,
+      org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse> METHOD_UPDATE_STATE =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest, org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "org.dash.platform.dapi.v0.Core", "updateState"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.StateTransition.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
-      org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> METHOD_FETCH_IDENTITY =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest, org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest,
+      org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse> METHOD_FETCH_IDENTITY =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest, org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "org.dash.platform.dapi.v0.Core", "fetchIdentity"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -119,15 +119,15 @@ public final class CoreGrpc {
 
     /**
      */
-    public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> responseObserver) {
+    public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_UPDATE_STATE, responseObserver);
     }
 
     /**
      */
-    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_FETCH_IDENTITY, responseObserver);
     }
 
@@ -151,15 +151,15 @@ public final class CoreGrpc {
             METHOD_UPDATE_STATE,
             asyncUnaryCall(
               new MethodHandlers<
-                org.dash.platform.dapi.v0.CoreOuterClass.StateTransition,
-                org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>(
+                org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest,
+                org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse>(
                   this, METHODID_UPDATE_STATE)))
           .addMethod(
             METHOD_FETCH_IDENTITY,
             asyncUnaryCall(
               new MethodHandlers<
-                org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
-                org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>(
+                org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest,
+                org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse>(
                   this, METHODID_FETCH_IDENTITY)))
           .build();
     }
@@ -201,16 +201,16 @@ public final class CoreGrpc {
 
     /**
      */
-    public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> responseObserver) {
+    public void updateState(org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+    public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request, responseObserver);
     }
@@ -251,14 +251,14 @@ public final class CoreGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse updateState(org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request) {
+    public org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse updateState(org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_UPDATE_STATE, getCallOptions(), request);
     }
 
     /**
      */
-    public org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
+    public org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_FETCH_IDENTITY, getCallOptions(), request);
     }
@@ -292,16 +292,16 @@ public final class CoreGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse> updateState(
-        org.dash.platform.dapi.v0.CoreOuterClass.StateTransition request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse> updateState(
+        org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UPDATE_STATE, getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> fetchIdentity(
-        org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse> fetchIdentity(
+        org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request);
     }
@@ -338,12 +338,12 @@ public final class CoreGrpc {
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksResponse>) responseObserver);
           break;
         case METHODID_UPDATE_STATE:
-          serviceImpl.updateState((org.dash.platform.dapi.v0.CoreOuterClass.StateTransition) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateTransitionResponse>) responseObserver);
+          serviceImpl.updateState((org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.UpdateStateResponse>) responseObserver);
           break;
         case METHODID_FETCH_IDENTITY:
-          serviceImpl.fetchIdentity((org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>) responseObserver);
+          serviceImpl.fetchIdentity((org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.FetchIdentityResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
