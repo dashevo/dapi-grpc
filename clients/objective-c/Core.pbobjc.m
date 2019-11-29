@@ -474,16 +474,16 @@ typedef struct IdentityRequest__storage_ {
 
 @end
 
-#pragma mark - IdentityResponse
+#pragma mark - Identity
 
-@implementation IdentityResponse
+@implementation Identity
 
 @dynamic data_p;
 
-typedef struct IdentityResponse__storage_ {
+typedef struct Identity__storage_ {
   uint32_t _has_storage_[1];
   NSData *data_p;
-} IdentityResponse__storage_;
+} Identity__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -494,20 +494,20 @@ typedef struct IdentityResponse__storage_ {
       {
         .name = "data_p",
         .dataTypeSpecific.className = NULL,
-        .number = IdentityResponse_FieldNumber_Data_p,
+        .number = Identity_FieldNumber_Data_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(IdentityResponse__storage_, data_p),
+        .offset = (uint32_t)offsetof(Identity__storage_, data_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[IdentityResponse class]
+        [GPBDescriptor allocDescriptorForClass:[Identity class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(IdentityResponse__storage_)
+                                   storageSize:sizeof(Identity__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;

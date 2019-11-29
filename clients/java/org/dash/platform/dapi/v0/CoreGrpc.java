@@ -65,15 +65,15 @@ public final class CoreGrpc {
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
-      org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> METHOD_FETCH_IDENTITY =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest, org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>newBuilder()
+      org.dash.platform.dapi.v0.CoreOuterClass.Identity> METHOD_FETCH_IDENTITY =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest, org.dash.platform.dapi.v0.CoreOuterClass.Identity>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "org.dash.platform.dapi.v0.Core", "fetchIdentity"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.Identity.getDefaultInstance()))
           .build();
 
   /**
@@ -127,7 +127,7 @@ public final class CoreGrpc {
     /**
      */
     public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.Identity> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_FETCH_IDENTITY, responseObserver);
     }
 
@@ -159,7 +159,7 @@ public final class CoreGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest,
-                org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>(
+                org.dash.platform.dapi.v0.CoreOuterClass.Identity>(
                   this, METHODID_FETCH_IDENTITY)))
           .build();
     }
@@ -210,7 +210,7 @@ public final class CoreGrpc {
     /**
      */
     public void fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.Identity> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request, responseObserver);
     }
@@ -258,7 +258,7 @@ public final class CoreGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
+    public org.dash.platform.dapi.v0.CoreOuterClass.Identity fetchIdentity(org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_FETCH_IDENTITY, getCallOptions(), request);
     }
@@ -300,7 +300,7 @@ public final class CoreGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse> fetchIdentity(
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.Identity> fetchIdentity(
         org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_FETCH_IDENTITY, getCallOptions()), request);
@@ -343,7 +343,7 @@ public final class CoreGrpc {
           break;
         case METHODID_FETCH_IDENTITY:
           serviceImpl.fetchIdentity((org.dash.platform.dapi.v0.CoreOuterClass.IdentityRequest) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.IdentityResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.Identity>) responseObserver);
           break;
         default:
           throw new AssertionError();
