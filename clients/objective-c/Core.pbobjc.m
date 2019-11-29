@@ -474,16 +474,16 @@ typedef struct IdentityRequest__storage_ {
 
 @end
 
-#pragma mark - Identity
+#pragma mark - IdentityResponse
 
-@implementation Identity
+@implementation IdentityResponse
 
-@dynamic data_p;
+@dynamic identity;
 
-typedef struct Identity__storage_ {
+typedef struct IdentityResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSData *data_p;
-} Identity__storage_;
+  NSData *identity;
+} IdentityResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -492,22 +492,22 @@ typedef struct Identity__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "data_p",
+        .name = "identity",
         .dataTypeSpecific.className = NULL,
-        .number = Identity_FieldNumber_Data_p,
+        .number = IdentityResponse_FieldNumber_Identity,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(Identity__storage_, data_p),
+        .offset = (uint32_t)offsetof(IdentityResponse__storage_, identity),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[Identity class]
+        [GPBDescriptor allocDescriptorForClass:[IdentityResponse class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(Identity__storage_)
+                                   storageSize:sizeof(IdentityResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;

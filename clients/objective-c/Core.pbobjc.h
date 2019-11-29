@@ -188,15 +188,15 @@ typedef GPB_ENUM(IdentityRequest_FieldNumber) {
 
 @end
 
-#pragma mark - Identity
+#pragma mark - IdentityResponse
 
-typedef GPB_ENUM(Identity_FieldNumber) {
-  Identity_FieldNumber_Data_p = 1,
+typedef GPB_ENUM(IdentityResponse_FieldNumber) {
+  IdentityResponse_FieldNumber_Identity = 1,
 };
 
-@interface Identity : GPBMessage
+@interface IdentityResponse : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *identity;
 
 @end
 

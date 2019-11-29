@@ -6,7 +6,7 @@ service Core {
   rpc getLastUserStateTransitionHash (LastUserStateTransitionHashRequest) returns (LastUserStateTransitionHashResponse);
   rpc subscribeToBlockHeadersWithChainLocks (BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse);
   rpc updateState (StateTransition) returns (UpdateStateTransitionResponse);
-  rpc fetchIdentity (IdentityRequest) returns (Identity);
+  rpc fetchIdentity (IdentityRequest) returns (IdentityResponse);
 }
 
 message LastUserStateTransitionHashRequest {
@@ -51,6 +51,6 @@ message IdentityRequest {
   string id = 1;
 }
 
-message Identity {
-  bytes data = 1;
+message IdentityResponse {
+  bytes identity = 1;
 }
