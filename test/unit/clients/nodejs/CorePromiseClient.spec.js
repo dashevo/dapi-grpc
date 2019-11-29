@@ -83,15 +83,5 @@ describe('CorePromiseClient', () => {
       expect(result).to.equal(response);
       expect(corePromiseClient.client.fetchIdentity).to.be.calledOnceWith(request);
     });
-
-    it('should throw an error when ', async () => {
-      try {
-        corePromiseClient.fetchIdentity({}, 'metadata');
-
-        expect.fail('Error was not thrown');
-      } catch (e) {
-        expect(e.message).to.equal('metadata must be an object');
-      }
-    });
   });
 });
