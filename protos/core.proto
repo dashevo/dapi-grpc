@@ -42,7 +42,7 @@ message ChainLockSignatureMessages {
 }
 
 message UpdateStateRequest {
-  bytes stateTransition = 1;
+  bytes state_transition = 1;
 }
 
 message UpdateStateResponse {}
