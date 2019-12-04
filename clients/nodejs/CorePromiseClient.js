@@ -23,14 +23,12 @@ const {
       platform: {
         dapi: {
           v0: {
-            LastUserStateTransitionHashRequest: PBJSLastUserStateTransitionHashRequest,
-            LastUserStateTransitionHashResponse: PBJSLastUserStateTransitionHashResponse,
-            BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
-            BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
-            UpdateStateRequest: PBJSUpdateStateRequest,
-            UpdateStateResponse: PBJSUpdateStateResponse,
-            FetchIdentityRequest: PBJSFetchIdentityRequest,
-            FetchIdentityResponse: PBJSFetchIdentityResponse,
+            SendTransactionRequest: PBJSSendTransactionRequest,
+            SendTransactionResponse: PBJSSendTransactionResponse,
+            GetBestBlockHeightRequest: PBJSGetBestBlockHeightRequest,
+            GetBestBlockHeightResponse: PBJSGetBestBlockHeightResponse,
+            GetTransactionRequest: PBJSGetTransactionRequest,
+            GetTransactionResponse: PBJSGetTransactionResponse,
           },
         },
       },
@@ -39,67 +37,52 @@ const {
 } = require('./core_pbjs');
 
 const {
-  LastUserStateTransitionHashResponse: ProtocLastUserStateTransitionHashResponse,
-  BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
-  UpdateStateResponse: ProtocUpdateStateResponse,
-  FetchIdentityResponse: ProtocFetchIdentityResponse,
+  SendTransactionResponse: ProtocSendTransactionResponse,
+  GetBestBlockHeightResponse: ProtocGetBestBlockHeightResponse,
+  GetTransactionResponse: ProtocGetTransactionResponse,
 } = require('./core_protoc');
 
 const getCoreDefinition = require('../../lib/getCoreDefinition');
 
 const CoreNodeJSClient = getCoreDefinition();
 
-const getLastUserStateTransitionHashOptions = {
+const sendTransactionOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocLastUserStateTransitionHashResponse,
-        PBJSLastUserStateTransitionHashResponse,
+        ProtocSendTransactionResponse,
+        PBJSSendTransactionResponse,
       ),
       protobufToJsonFactory(
-        PBJSLastUserStateTransitionHashRequest,
+        PBJSSendTransactionRequest,
       ),
     ),
   ],
 };
 
-const subscribeToBlockHeadersWithChainLocksOptions = {
+const getBestBlockHeightOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocBlockHeadersWithChainLocksResponse,
-        PBJSBlockHeadersWithChainLocksResponse,
+        ProtocGetBestBlockHeightResponse,
+        PBJSGetBestBlockHeightResponse,
       ),
       protobufToJsonFactory(
-        PBJSBlockHeadersWithChainLocksRequest,
+        PBJSGetBestBlockHeightRequest,
       ),
     ),
   ],
 };
 
-const updateStateTransitionOptions = {
+const getTransactionOptions = {
   interceptors: [
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
-        ProtocUpdateStateResponse,
-        PBJSUpdateStateResponse,
+        ProtocGetTransactionResponse,
+        PBJSGetTransactionResponse,
       ),
       protobufToJsonFactory(
-        PBJSUpdateStateRequest,
-      ),
-    ),
-  ],
-};
-
-const fetchIdentityOptions = {
-  interceptors: [
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocFetchIdentityResponse,
-        PBJSFetchIdentityResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSFetchIdentityRequest,
+        PBJSGetTransactionRequest,
       ),
     ),
   ],
@@ -114,83 +97,68 @@ class CorePromiseClient {
   constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new CoreNodeJSClient(hostname, credentials, options);
 
-    this.client.getLastUserStateTransitionHash = promisify(
-      this.client.getLastUserStateTransitionHash.bind(this.client),
+    this.client.sendTransaction = promisify(
+      this.client.sendTransaction.bind(this.client),
     );
 
-    this.client.updateState = promisify(
-      this.client.updateState.bind(this.client),
+    this.client.getTransaction = promisify(
+      this.client.getTransaction.bind(this.client),
     );
-  }
 
-  /**
-   * @param {!LastUserStateTransitionHashRequest} lastUserStateTransitionHashRequest
-   * @param {?Object<string, string>} metadata
-   * @return {Promise<!LastUserStateTransitionHashResponse>}
-   */
-  getLastUserStateTransitionHash(lastUserStateTransitionHashRequest, metadata = {}) {
-    if (!isObject(metadata)) {
-      throw new Error('metadata must be an object');
-    }
-
-    return this.client.getLastUserStateTransitionHash(
-      lastUserStateTransitionHashRequest,
-      convertObjectToMetadata(metadata),
-      getLastUserStateTransitionHashOptions,
+    this.client.getBestBlockHeight = promisify(
+      this.client.getBestBlockHeight.bind(this.client),
     );
   }
 
   /**
-   * @param {!BlockHeadersWithChainLocksRequest} blockHeadersWithChainLocksRequest
+   * @param {!SendTransactionRequest} sendTransactionRequest
    * @param {?Object<string, string>} metadata
-   * @return {!grpc.web.ClientReadableStream<!BlockHeadersWithChainLocksResponse>|undefined}
-   *     The XHR Node Readable Stream
+   * @return {Promise<!SendTransactionResponse>}
    */
-  subscribeToBlockHeadersWithChainLocks(blockHeadersWithChainLocksRequest, metadata = {}) {
+  sendTransaction(sendTransactionRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.subscribeToBlockHeadersWithChainLocks(
-      blockHeadersWithChainLocksRequest,
+    return this.client.sendTransaction(
+      sendTransactionRequest,
       convertObjectToMetadata(metadata),
-      subscribeToBlockHeadersWithChainLocksOptions,
+      sendTransactionOptions,
     );
   }
 
   /**
-   *
-   * @param {!UpdateStateRequest} updateStateRequest
+   * @param {!GetTransactionRequest} getTransactionRequest
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!UpdateStateResponse>}
+   * @return {Promise<!GetTransactionResponse>}
    */
-  updateState(updateStateRequest, metadata = {}) {
+  getTransaction(getTransactionRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.updateState(
-      updateStateRequest,
+    return this.client.getTransaction(
+      getTransactionRequest,
       convertObjectToMetadata(metadata),
-      updateStateTransitionOptions,
+      getTransactionOptions,
     );
   }
 
   /**
    *
-   * @param {!FetchIdentityRequest} fetchIdentityRequest
+   * @param {!GetBestBlockHeightRequest} getBestBlockHeightRequest
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!FetchIdentityResponse>}
+   * @returns {Promise<!GetBestBlockHeightResponse>}
    */
-  fetchIdentity(fetchIdentityRequest, metadata = {}) {
+  getBestBlockHeight(getBestBlockHeightRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.fetchIdentity(
-      fetchIdentityRequest,
+    return this.client.getBestBlockHeight(
+      getBestBlockHeightRequest,
       convertObjectToMetadata(metadata),
-      fetchIdentityOptions,
+      getBestBlockHeightOptions,
     );
   }
 }

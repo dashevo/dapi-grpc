@@ -27,9 +27,6 @@
 
 CF_EXTERN_C_BEGIN
 
-@class ChainLockSignatureMessages;
-@class RawBlockHeaders;
-
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - CoreRoot
@@ -47,156 +44,75 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CoreRoot : GPBRootObject
 @end
 
-#pragma mark - LastUserStateTransitionHashRequest
+#pragma mark - SendTransactionRequest
 
-typedef GPB_ENUM(LastUserStateTransitionHashRequest_FieldNumber) {
-  LastUserStateTransitionHashRequest_FieldNumber_UserId = 1,
+typedef GPB_ENUM(SendTransactionRequest_FieldNumber) {
+  SendTransactionRequest_FieldNumber_RawTransaction = 1,
+  SendTransactionRequest_FieldNumber_AllowHighFees = 2,
+  SendTransactionRequest_FieldNumber_BypassLimits = 3,
 };
 
-@interface LastUserStateTransitionHashRequest : GPBMessage
+@interface SendTransactionRequest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *userId;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *rawTransaction;
+
+@property(nonatomic, readwrite) BOOL allowHighFees;
+
+@property(nonatomic, readwrite) BOOL bypassLimits;
 
 @end
 
-#pragma mark - LastUserStateTransitionHashResponse
+#pragma mark - SendTransactionResponse
 
-typedef GPB_ENUM(LastUserStateTransitionHashResponse_FieldNumber) {
-  LastUserStateTransitionHashResponse_FieldNumber_StateTransitionHash = 1,
+typedef GPB_ENUM(SendTransactionResponse_FieldNumber) {
+  SendTransactionResponse_FieldNumber_TransactionId = 1,
 };
 
-@interface LastUserStateTransitionHashResponse : GPBMessage
+@interface SendTransactionResponse : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransitionHash;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *transactionId;
 
 @end
 
-#pragma mark - BlockHeadersWithChainLocksRequest
+#pragma mark - GetBestBlockHeightRequest
 
-typedef GPB_ENUM(BlockHeadersWithChainLocksRequest_FieldNumber) {
-  BlockHeadersWithChainLocksRequest_FieldNumber_FromBlockHash = 1,
-  BlockHeadersWithChainLocksRequest_FieldNumber_FromBlockHeight = 2,
-  BlockHeadersWithChainLocksRequest_FieldNumber_Count = 3,
-};
-
-typedef GPB_ENUM(BlockHeadersWithChainLocksRequest_FromBlock_OneOfCase) {
-  BlockHeadersWithChainLocksRequest_FromBlock_OneOfCase_GPBUnsetOneOfCase = 0,
-  BlockHeadersWithChainLocksRequest_FromBlock_OneOfCase_FromBlockHash = 1,
-  BlockHeadersWithChainLocksRequest_FromBlock_OneOfCase_FromBlockHeight = 2,
-};
-
-@interface BlockHeadersWithChainLocksRequest : GPBMessage
-
-@property(nonatomic, readonly) BlockHeadersWithChainLocksRequest_FromBlock_OneOfCase fromBlockOneOfCase;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *fromBlockHash;
-
-@property(nonatomic, readwrite) uint32_t fromBlockHeight;
-
-@property(nonatomic, readwrite) uint32_t count;
+@interface GetBestBlockHeightRequest : GPBMessage
 
 @end
 
-/**
- * Clears whatever value was set for the oneof 'fromBlock'.
- **/
-void BlockHeadersWithChainLocksRequest_ClearFromBlockOneOfCase(BlockHeadersWithChainLocksRequest *message);
+#pragma mark - GetBestBlockHeightResponse
 
-#pragma mark - BlockHeadersWithChainLocksResponse
-
-typedef GPB_ENUM(BlockHeadersWithChainLocksResponse_FieldNumber) {
-  BlockHeadersWithChainLocksResponse_FieldNumber_RawBlockHeaders = 1,
-  BlockHeadersWithChainLocksResponse_FieldNumber_ChainLockSignatureMessages = 2,
+typedef GPB_ENUM(GetBestBlockHeightResponse_FieldNumber) {
+  GetBestBlockHeightResponse_FieldNumber_Height = 1,
 };
 
-typedef GPB_ENUM(BlockHeadersWithChainLocksResponse_Responses_OneOfCase) {
-  BlockHeadersWithChainLocksResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
-  BlockHeadersWithChainLocksResponse_Responses_OneOfCase_RawBlockHeaders = 1,
-  BlockHeadersWithChainLocksResponse_Responses_OneOfCase_ChainLockSignatureMessages = 2,
-};
+@interface GetBestBlockHeightResponse : GPBMessage
 
-@interface BlockHeadersWithChainLocksResponse : GPBMessage
-
-@property(nonatomic, readonly) BlockHeadersWithChainLocksResponse_Responses_OneOfCase responsesOneOfCase;
-
-@property(nonatomic, readwrite, strong, null_resettable) RawBlockHeaders *rawBlockHeaders;
-
-@property(nonatomic, readwrite, strong, null_resettable) ChainLockSignatureMessages *chainLockSignatureMessages;
+@property(nonatomic, readwrite) uint32_t height;
 
 @end
 
-/**
- * Clears whatever value was set for the oneof 'responses'.
- **/
-void BlockHeadersWithChainLocksResponse_ClearResponsesOneOfCase(BlockHeadersWithChainLocksResponse *message);
+#pragma mark - GetTransactionRequest
 
-#pragma mark - RawBlockHeaders
-
-typedef GPB_ENUM(RawBlockHeaders_FieldNumber) {
-  RawBlockHeaders_FieldNumber_HeadersArray = 1,
+typedef GPB_ENUM(GetTransactionRequest_FieldNumber) {
+  GetTransactionRequest_FieldNumber_Id_p = 1,
 };
 
-@interface RawBlockHeaders : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *headersArray;
-/** The number of items in @c headersArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger headersArray_Count;
-
-@end
-
-#pragma mark - ChainLockSignatureMessages
-
-typedef GPB_ENUM(ChainLockSignatureMessages_FieldNumber) {
-  ChainLockSignatureMessages_FieldNumber_MessagesArray = 1,
-};
-
-@interface ChainLockSignatureMessages : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *messagesArray;
-/** The number of items in @c messagesArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger messagesArray_Count;
-
-@end
-
-#pragma mark - UpdateStateRequest
-
-typedef GPB_ENUM(UpdateStateRequest_FieldNumber) {
-  UpdateStateRequest_FieldNumber_StateTransition = 1,
-};
-
-@interface UpdateStateRequest : GPBMessage
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransition;
-
-@end
-
-#pragma mark - UpdateStateResponse
-
-@interface UpdateStateResponse : GPBMessage
-
-@end
-
-#pragma mark - FetchIdentityRequest
-
-typedef GPB_ENUM(FetchIdentityRequest_FieldNumber) {
-  FetchIdentityRequest_FieldNumber_Id_p = 1,
-};
-
-@interface FetchIdentityRequest : GPBMessage
+@interface GetTransactionRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
 @end
 
-#pragma mark - FetchIdentityResponse
+#pragma mark - GetTransactionResponse
 
-typedef GPB_ENUM(FetchIdentityResponse_FieldNumber) {
-  FetchIdentityResponse_FieldNumber_Identity = 1,
+typedef GPB_ENUM(GetTransactionResponse_FieldNumber) {
+  GetTransactionResponse_FieldNumber_Transaction = 1,
 };
 
-@interface FetchIdentityResponse : GPBMessage
+@interface GetTransactionResponse : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *identity;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *transaction;
 
 @end
 

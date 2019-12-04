@@ -18,7 +18,6 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdirect-ivar-access"
 
 #pragma mark - CoreRoot
 
@@ -43,16 +42,18 @@ static GPBFileDescriptor *CoreRoot_FileDescriptor(void) {
   return descriptor;
 }
 
-#pragma mark - LastUserStateTransitionHashRequest
+#pragma mark - SendTransactionRequest
 
-@implementation LastUserStateTransitionHashRequest
+@implementation SendTransactionRequest
 
-@dynamic userId;
+@dynamic rawTransaction;
+@dynamic allowHighFees;
+@dynamic bypassLimits;
 
-typedef struct LastUserStateTransitionHashRequest__storage_ {
+typedef struct SendTransactionRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *userId;
-} LastUserStateTransitionHashRequest__storage_;
+  NSData *rawTransaction;
+} SendTransactionRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -61,22 +62,40 @@ typedef struct LastUserStateTransitionHashRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "userId",
+        .name = "rawTransaction",
         .dataTypeSpecific.className = NULL,
-        .number = LastUserStateTransitionHashRequest_FieldNumber_UserId,
+        .number = SendTransactionRequest_FieldNumber_RawTransaction,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(LastUserStateTransitionHashRequest__storage_, userId),
+        .offset = (uint32_t)offsetof(SendTransactionRequest__storage_, rawTransaction),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
+      {
+        .name = "allowHighFees",
+        .dataTypeSpecific.className = NULL,
+        .number = SendTransactionRequest_FieldNumber_AllowHighFees,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "bypassLimits",
+        .dataTypeSpecific.className = NULL,
+        .number = SendTransactionRequest_FieldNumber_BypassLimits,
+        .hasIndex = 3,
+        .offset = 4,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[LastUserStateTransitionHashRequest class]
+        [GPBDescriptor allocDescriptorForClass:[SendTransactionRequest class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(LastUserStateTransitionHashRequest__storage_)
+                                   storageSize:sizeof(SendTransactionRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -86,16 +105,16 @@ typedef struct LastUserStateTransitionHashRequest__storage_ {
 
 @end
 
-#pragma mark - LastUserStateTransitionHashResponse
+#pragma mark - SendTransactionResponse
 
-@implementation LastUserStateTransitionHashResponse
+@implementation SendTransactionResponse
 
-@dynamic stateTransitionHash;
+@dynamic transactionId;
 
-typedef struct LastUserStateTransitionHashResponse__storage_ {
+typedef struct SendTransactionResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSData *stateTransitionHash;
-} LastUserStateTransitionHashResponse__storage_;
+  NSString *transactionId;
+} SendTransactionResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -104,22 +123,22 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "stateTransitionHash",
+        .name = "transactionId",
         .dataTypeSpecific.className = NULL,
-        .number = LastUserStateTransitionHashResponse_FieldNumber_StateTransitionHash,
+        .number = SendTransactionResponse_FieldNumber_TransactionId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(LastUserStateTransitionHashResponse__storage_, stateTransitionHash),
+        .offset = (uint32_t)offsetof(SendTransactionResponse__storage_, transactionId),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[LastUserStateTransitionHashResponse class]
+        [GPBDescriptor allocDescriptorForClass:[SendTransactionResponse class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(LastUserStateTransitionHashResponse__storage_)
+                                   storageSize:sizeof(SendTransactionResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -129,291 +148,14 @@ typedef struct LastUserStateTransitionHashResponse__storage_ {
 
 @end
 
-#pragma mark - BlockHeadersWithChainLocksRequest
+#pragma mark - GetBestBlockHeightRequest
 
-@implementation BlockHeadersWithChainLocksRequest
+@implementation GetBestBlockHeightRequest
 
-@dynamic fromBlockOneOfCase;
-@dynamic fromBlockHash;
-@dynamic fromBlockHeight;
-@dynamic count;
 
-typedef struct BlockHeadersWithChainLocksRequest__storage_ {
-  uint32_t _has_storage_[2];
-  uint32_t fromBlockHeight;
-  uint32_t count;
-  NSData *fromBlockHash;
-} BlockHeadersWithChainLocksRequest__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "fromBlockHash",
-        .dataTypeSpecific.className = NULL,
-        .number = BlockHeadersWithChainLocksRequest_FieldNumber_FromBlockHash,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(BlockHeadersWithChainLocksRequest__storage_, fromBlockHash),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "fromBlockHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = BlockHeadersWithChainLocksRequest_FieldNumber_FromBlockHeight,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(BlockHeadersWithChainLocksRequest__storage_, fromBlockHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "count",
-        .dataTypeSpecific.className = NULL,
-        .number = BlockHeadersWithChainLocksRequest_FieldNumber_Count,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(BlockHeadersWithChainLocksRequest__storage_, count),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[BlockHeadersWithChainLocksRequest class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(BlockHeadersWithChainLocksRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    static const char *oneofs[] = {
-      "fromBlock",
-    };
-    [localDescriptor setupOneofs:oneofs
-                           count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
-                   firstHasIndex:-1];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-void BlockHeadersWithChainLocksRequest_ClearFromBlockOneOfCase(BlockHeadersWithChainLocksRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
-  GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
-}
-#pragma mark - BlockHeadersWithChainLocksResponse
-
-@implementation BlockHeadersWithChainLocksResponse
-
-@dynamic responsesOneOfCase;
-@dynamic rawBlockHeaders;
-@dynamic chainLockSignatureMessages;
-
-typedef struct BlockHeadersWithChainLocksResponse__storage_ {
-  uint32_t _has_storage_[2];
-  RawBlockHeaders *rawBlockHeaders;
-  ChainLockSignatureMessages *chainLockSignatureMessages;
-} BlockHeadersWithChainLocksResponse__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "rawBlockHeaders",
-        .dataTypeSpecific.className = GPBStringifySymbol(RawBlockHeaders),
-        .number = BlockHeadersWithChainLocksResponse_FieldNumber_RawBlockHeaders,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(BlockHeadersWithChainLocksResponse__storage_, rawBlockHeaders),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "chainLockSignatureMessages",
-        .dataTypeSpecific.className = GPBStringifySymbol(ChainLockSignatureMessages),
-        .number = BlockHeadersWithChainLocksResponse_FieldNumber_ChainLockSignatureMessages,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(BlockHeadersWithChainLocksResponse__storage_, chainLockSignatureMessages),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[BlockHeadersWithChainLocksResponse class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(BlockHeadersWithChainLocksResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    static const char *oneofs[] = {
-      "responses",
-    };
-    [localDescriptor setupOneofs:oneofs
-                           count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
-                   firstHasIndex:-1];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-void BlockHeadersWithChainLocksResponse_ClearResponsesOneOfCase(BlockHeadersWithChainLocksResponse *message) {
-  GPBDescriptor *descriptor = [message descriptor];
-  GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
-}
-#pragma mark - RawBlockHeaders
-
-@implementation RawBlockHeaders
-
-@dynamic headersArray, headersArray_Count;
-
-typedef struct RawBlockHeaders__storage_ {
+typedef struct GetBestBlockHeightRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableArray *headersArray;
-} RawBlockHeaders__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "headersArray",
-        .dataTypeSpecific.className = NULL,
-        .number = RawBlockHeaders_FieldNumber_HeadersArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(RawBlockHeaders__storage_, headersArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeBytes,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[RawBlockHeaders class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(RawBlockHeaders__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - ChainLockSignatureMessages
-
-@implementation ChainLockSignatureMessages
-
-@dynamic messagesArray, messagesArray_Count;
-
-typedef struct ChainLockSignatureMessages__storage_ {
-  uint32_t _has_storage_[1];
-  NSMutableArray *messagesArray;
-} ChainLockSignatureMessages__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "messagesArray",
-        .dataTypeSpecific.className = NULL,
-        .number = ChainLockSignatureMessages_FieldNumber_MessagesArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(ChainLockSignatureMessages__storage_, messagesArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeBytes,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[ChainLockSignatureMessages class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(ChainLockSignatureMessages__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - UpdateStateRequest
-
-@implementation UpdateStateRequest
-
-@dynamic stateTransition;
-
-typedef struct UpdateStateRequest__storage_ {
-  uint32_t _has_storage_[1];
-  NSData *stateTransition;
-} UpdateStateRequest__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "stateTransition",
-        .dataTypeSpecific.className = NULL,
-        .number = UpdateStateRequest_FieldNumber_StateTransition,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(UpdateStateRequest__storage_, stateTransition),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeBytes,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[UpdateStateRequest class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(UpdateStateRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\001\017\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - UpdateStateResponse
-
-@implementation UpdateStateResponse
-
-
-typedef struct UpdateStateResponse__storage_ {
-  uint32_t _has_storage_[1];
-} UpdateStateResponse__storage_;
+} GetBestBlockHeightRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -421,12 +163,12 @@ typedef struct UpdateStateResponse__storage_ {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[UpdateStateResponse class]
+        [GPBDescriptor allocDescriptorForClass:[GetBestBlockHeightRequest class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:NULL
                                     fieldCount:0
-                                   storageSize:sizeof(UpdateStateResponse__storage_)
+                                   storageSize:sizeof(GetBestBlockHeightRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -436,16 +178,59 @@ typedef struct UpdateStateResponse__storage_ {
 
 @end
 
-#pragma mark - FetchIdentityRequest
+#pragma mark - GetBestBlockHeightResponse
 
-@implementation FetchIdentityRequest
+@implementation GetBestBlockHeightResponse
+
+@dynamic height;
+
+typedef struct GetBestBlockHeightResponse__storage_ {
+  uint32_t _has_storage_[1];
+  uint32_t height;
+} GetBestBlockHeightResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetBestBlockHeightResponse_FieldNumber_Height,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetBestBlockHeightResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[GetBestBlockHeightResponse class]
+                                     rootClass:[CoreRoot class]
+                                          file:CoreRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(GetBestBlockHeightResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - GetTransactionRequest
+
+@implementation GetTransactionRequest
 
 @dynamic id_p;
 
-typedef struct FetchIdentityRequest__storage_ {
+typedef struct GetTransactionRequest__storage_ {
   uint32_t _has_storage_[1];
   NSString *id_p;
-} FetchIdentityRequest__storage_;
+} GetTransactionRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -456,20 +241,20 @@ typedef struct FetchIdentityRequest__storage_ {
       {
         .name = "id_p",
         .dataTypeSpecific.className = NULL,
-        .number = FetchIdentityRequest_FieldNumber_Id_p,
+        .number = GetTransactionRequest_FieldNumber_Id_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(FetchIdentityRequest__storage_, id_p),
+        .offset = (uint32_t)offsetof(GetTransactionRequest__storage_, id_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[FetchIdentityRequest class]
+        [GPBDescriptor allocDescriptorForClass:[GetTransactionRequest class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(FetchIdentityRequest__storage_)
+                                   storageSize:sizeof(GetTransactionRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -479,16 +264,16 @@ typedef struct FetchIdentityRequest__storage_ {
 
 @end
 
-#pragma mark - FetchIdentityResponse
+#pragma mark - GetTransactionResponse
 
-@implementation FetchIdentityResponse
+@implementation GetTransactionResponse
 
-@dynamic identity;
+@dynamic transaction;
 
-typedef struct FetchIdentityResponse__storage_ {
+typedef struct GetTransactionResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSData *identity;
-} FetchIdentityResponse__storage_;
+  NSData *transaction;
+} GetTransactionResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -497,22 +282,22 @@ typedef struct FetchIdentityResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "identity",
+        .name = "transaction",
         .dataTypeSpecific.className = NULL,
-        .number = FetchIdentityResponse_FieldNumber_Identity,
+        .number = GetTransactionResponse_FieldNumber_Transaction,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(FetchIdentityResponse__storage_, identity),
+        .offset = (uint32_t)offsetof(GetTransactionResponse__storage_, transaction),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[FetchIdentityResponse class]
+        [GPBDescriptor allocDescriptorForClass:[GetTransactionResponse class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(FetchIdentityResponse__storage_)
+                                   storageSize:sizeof(GetTransactionResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
