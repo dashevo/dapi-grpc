@@ -121,6 +121,10 @@ class CorePromiseClient {
     this.client.updateState = promisify(
       this.client.updateState.bind(this.client),
     );
+
+    this.client.fetchIdentity = promisify(
+      this.client.fetchIdentity.bind(this.client),
+    );
   }
 
   /**
