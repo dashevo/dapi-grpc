@@ -11,32 +11,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol Core <NSObject>
 
-#pragma mark getLastUserStateTransitionHash(LastUserStateTransitionHashRequest) returns (LastUserStateTransitionHashResponse)
+#pragma mark sendTransaction(SendTransactionRequest) returns (SendTransactionResponse)
 
-- (void)getLastUserStateTransitionHashWithRequest:(LastUserStateTransitionHashRequest *)request handler:(void(^)(LastUserStateTransitionHashResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)sendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCTogetLastUserStateTransitionHashWithRequest:(LastUserStateTransitionHashRequest *)request handler:(void(^)(LastUserStateTransitionHashResponse *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark subscribeToBlockHeadersWithChainLocks(BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse)
-
-- (void)subscribeToBlockHeadersWithChainLocksWithRequest:(BlockHeadersWithChainLocksRequest *)request eventHandler:(void(^)(BOOL done, BlockHeadersWithChainLocksResponse *_Nullable response, NSError *_Nullable error))eventHandler;
-
-- (GRPCProtoCall *)RPCTosubscribeToBlockHeadersWithChainLocksWithRequest:(BlockHeadersWithChainLocksRequest *)request eventHandler:(void(^)(BOOL done, BlockHeadersWithChainLocksResponse *_Nullable response, NSError *_Nullable error))eventHandler;
+- (GRPCProtoCall *)RPCTosendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark updateState(UpdateStateRequest) returns (UpdateStateResponse)
+#pragma mark getTransaction(GetTransactionRequest) returns (GetTransactionResponse)
 
-- (void)updateStateWithRequest:(UpdateStateRequest *)request handler:(void(^)(UpdateStateResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)getTransactionWithRequest:(GetTransactionRequest *)request handler:(void(^)(GetTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCToupdateStateWithRequest:(UpdateStateRequest *)request handler:(void(^)(UpdateStateResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCTogetTransactionWithRequest:(GetTransactionRequest *)request handler:(void(^)(GetTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark fetchIdentity(FetchIdentityRequest) returns (FetchIdentityResponse)
+#pragma mark getBestBlockHeight(GetBestBlockHeightRequest) returns (GetBestBlockHeightResponse)
 
-- (void)fetchIdentityWithRequest:(FetchIdentityRequest *)request handler:(void(^)(FetchIdentityResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)getBestBlockHeightWithRequest:(GetBestBlockHeightRequest *)request handler:(void(^)(GetBestBlockHeightResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCTofetchIdentityWithRequest:(FetchIdentityRequest *)request handler:(void(^)(FetchIdentityResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCTogetBestBlockHeightWithRequest:(GetBestBlockHeightRequest *)request handler:(void(^)(GetBestBlockHeightResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

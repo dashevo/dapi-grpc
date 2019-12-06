@@ -22,52 +22,40 @@
 }
 
 
-#pragma mark getLastUserStateTransitionHash(LastUserStateTransitionHashRequest) returns (LastUserStateTransitionHashResponse)
+#pragma mark sendTransaction(SendTransactionRequest) returns (SendTransactionResponse)
 
-- (void)getLastUserStateTransitionHashWithRequest:(LastUserStateTransitionHashRequest *)request handler:(void(^)(LastUserStateTransitionHashResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCTogetLastUserStateTransitionHashWithRequest:request handler:handler] start];
+- (void)sendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTosendTransactionWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTogetLastUserStateTransitionHashWithRequest:(LastUserStateTransitionHashRequest *)request handler:(void(^)(LastUserStateTransitionHashResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"getLastUserStateTransitionHash"
+- (GRPCProtoCall *)RPCTosendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"sendTransaction"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[LastUserStateTransitionHashResponse class]
+             responseClass:[SendTransactionResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark subscribeToBlockHeadersWithChainLocks(BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse)
+#pragma mark getTransaction(GetTransactionRequest) returns (GetTransactionResponse)
 
-- (void)subscribeToBlockHeadersWithChainLocksWithRequest:(BlockHeadersWithChainLocksRequest *)request eventHandler:(void(^)(BOOL done, BlockHeadersWithChainLocksResponse *_Nullable response, NSError *_Nullable error))eventHandler{
-  [[self RPCTosubscribeToBlockHeadersWithChainLocksWithRequest:request eventHandler:eventHandler] start];
+- (void)getTransactionWithRequest:(GetTransactionRequest *)request handler:(void(^)(GetTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTogetTransactionWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTosubscribeToBlockHeadersWithChainLocksWithRequest:(BlockHeadersWithChainLocksRequest *)request eventHandler:(void(^)(BOOL done, BlockHeadersWithChainLocksResponse *_Nullable response, NSError *_Nullable error))eventHandler{
-  return [self RPCToMethod:@"subscribeToBlockHeadersWithChainLocks"
+- (GRPCProtoCall *)RPCTogetTransactionWithRequest:(GetTransactionRequest *)request handler:(void(^)(GetTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"getTransaction"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[BlockHeadersWithChainLocksResponse class]
-        responsesWriteable:[GRXWriteable writeableWithEventHandler:eventHandler]];
-}
-#pragma mark updateState(UpdateStateRequest) returns (UpdateStateResponse)
-
-- (void)updateStateWithRequest:(UpdateStateRequest *)request handler:(void(^)(UpdateStateResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToupdateStateWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToupdateStateWithRequest:(UpdateStateRequest *)request handler:(void(^)(UpdateStateResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"updateState"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[UpdateStateResponse class]
+             responseClass:[GetTransactionResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark fetchIdentity(FetchIdentityRequest) returns (FetchIdentityResponse)
+#pragma mark getBestBlockHeight(GetBestBlockHeightRequest) returns (GetBestBlockHeightResponse)
 
-- (void)fetchIdentityWithRequest:(FetchIdentityRequest *)request handler:(void(^)(FetchIdentityResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCTofetchIdentityWithRequest:request handler:handler] start];
+- (void)getBestBlockHeightWithRequest:(GetBestBlockHeightRequest *)request handler:(void(^)(GetBestBlockHeightResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTogetBestBlockHeightWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTofetchIdentityWithRequest:(FetchIdentityRequest *)request handler:(void(^)(FetchIdentityResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"fetchIdentity"
+- (GRPCProtoCall *)RPCTogetBestBlockHeightWithRequest:(GetBestBlockHeightRequest *)request handler:(void(^)(GetBestBlockHeightResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"getBestBlockHeight"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[FetchIdentityResponse class]
+             responseClass:[GetBestBlockHeightResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 @end
