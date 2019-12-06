@@ -66,7 +66,7 @@ typedef struct ApplyStateTransitionRequest__storage_ {
         .number = ApplyStateTransitionRequest_FieldNumber_StateTransition,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(ApplyStateTransitionRequest__storage_, stateTransition),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -78,11 +78,6 @@ typedef struct ApplyStateTransitionRequest__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(ApplyStateTransitionRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\001\017\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

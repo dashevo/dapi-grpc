@@ -10,7 +10,7 @@ service Platform {
 }
 
 message ApplyStateTransitionRequest {
-  bytes stateTransition = 1;
+  bytes state_transition = 1;
 }
 
 message ApplyStateTransitionResponse {
