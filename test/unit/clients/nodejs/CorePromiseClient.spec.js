@@ -11,10 +11,50 @@ describe('CorePromiseClient', () => {
 
     corePromiseClient = new CorePromiseClient('localhost');
     corePromiseClient.client = {
+      getStatus: this.sinon.stub().resolves(response),
+      getBlock: this.sinon.stub().resolves(response),
       sendTransaction: this.sinon.stub().resolves(response),
       getTransaction: this.sinon.stub().resolves(response),
-      getBestBlockHeight: this.sinon.stub().resolves(response),
+      getEstimatedTransactionFee: this.sinon.stub().resolves(response),
     };
+  });
+
+  describe('#getStatus', () => {
+    it('should return status', async () => {
+      const result = await corePromiseClient.getStatus(request);
+
+      expect(result).to.equal(response);
+      expect(corePromiseClient.client.getStatus).to.be.calledOnceWith(request);
+    });
+
+    it('should throw an error when metadata is not an object', async () => {
+      try {
+        corePromiseClient.getStatus({}, 'metadata');
+
+        expect.fail('Error was not thrown');
+      } catch (e) {
+        expect(e.message).to.equal('metadata must be an object');
+      }
+    });
+  });
+
+  describe('#getBlock', () => {
+    it('should get block', async () => {
+      const result = await corePromiseClient.getBlock(request);
+
+      expect(result).to.equal(response);
+      expect(corePromiseClient.client.getBlock).to.be.calledOnceWith(request);
+    });
+
+    it('should throw an error when metadata is not an object', async () => {
+      try {
+        corePromiseClient.getBlock({}, 'metadata');
+
+        expect.fail('Error was not thrown');
+      } catch (e) {
+        expect(e.message).to.equal('metadata must be an object');
+      }
+    });
   });
 
   describe('#sendTransaction', () => {
@@ -56,17 +96,17 @@ describe('CorePromiseClient', () => {
     });
   });
 
-  describe('#getBestBlockHeight', () => {
-    it('should get best block height', async () => {
-      const result = await corePromiseClient.getBestBlockHeight(request);
+  describe('#getEstimatedTransactionFee', () => {
+    it('should estimated transaction fee', async () => {
+      const result = await corePromiseClient.getEstimatedTransactionFee(request);
 
       expect(result).to.equal(response);
-      expect(corePromiseClient.client.getBestBlockHeight).to.be.calledOnceWith(request);
+      expect(corePromiseClient.client.getEstimatedTransactionFee).to.be.calledOnceWith(request);
     });
 
     it('should throw an error when metadata is not an object', async () => {
       try {
-        corePromiseClient.getBestBlockHeight({}, 'metadata');
+        corePromiseClient.getEstimatedTransactionFee({}, 'metadata');
 
         expect.fail('Error was not thrown');
       } catch (e) {

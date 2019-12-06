@@ -23,12 +23,18 @@ const {
       platform: {
         dapi: {
           v0: {
+            GetStatusRequest: PBJSGetStatusRequest,
+            GetStatusResponse: PBJSGetStatusResponse,
+            GetBlockRequest: PBJSGetBlockRequest,
+            GetBlockResponse: PBJSGetBlockResponse,
             SendTransactionRequest: PBJSSendTransactionRequest,
             SendTransactionResponse: PBJSSendTransactionResponse,
-            GetBestBlockHeightRequest: PBJSGetBestBlockHeightRequest,
-            GetBestBlockHeightResponse: PBJSGetBestBlockHeightResponse,
             GetTransactionRequest: PBJSGetTransactionRequest,
             GetTransactionResponse: PBJSGetTransactionResponse,
+            GetEstimatedTransactionFeeRequest: PBJSGetEstimatedTransactionFeeRequest,
+            GetEstimatedTransactionFeeResponse: PBJSGetEstimatedTransactionFeeResponse,
+            BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
+            BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
           },
         },
       },
@@ -37,14 +43,45 @@ const {
 } = require('./core_pbjs');
 
 const {
+  GetStatusResponse: ProtocGetStatusResponse,
+  GetBlockResponse: ProtocGetBlockResponse,
   SendTransactionResponse: ProtocSendTransactionResponse,
-  GetBestBlockHeightResponse: ProtocGetBestBlockHeightResponse,
   GetTransactionResponse: ProtocGetTransactionResponse,
+  GetEstimatedTransactionFeeResponse: ProtocGetEstimatedTransactionFeeResponse,
+  BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
 } = require('./core_protoc');
 
 const getCoreDefinition = require('../../lib/getCoreDefinition');
 
 const CoreNodeJSClient = getCoreDefinition();
+
+const getStatusOptions = {
+  interceptors: [
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        ProtocGetStatusResponse,
+        PBJSGetStatusResponse,
+      ),
+      protobufToJsonFactory(
+        PBJSGetStatusRequest,
+      ),
+    ),
+  ],
+};
+
+const getBlockOptions = {
+  interceptors: [
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        ProtocGetBlockResponse,
+        PBJSGetBlockResponse,
+      ),
+      protobufToJsonFactory(
+        PBJSGetBlockRequest,
+      ),
+    ),
+  ],
+};
 
 const sendTransactionOptions = {
   interceptors: [
@@ -55,20 +92,6 @@ const sendTransactionOptions = {
       ),
       protobufToJsonFactory(
         PBJSSendTransactionRequest,
-      ),
-    ),
-  ],
-};
-
-const getBestBlockHeightOptions = {
-  interceptors: [
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetBestBlockHeightResponse,
-        PBJSGetBestBlockHeightResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetBestBlockHeightRequest,
       ),
     ),
   ],
@@ -88,6 +111,34 @@ const getTransactionOptions = {
   ],
 };
 
+const getEstimatedTransactionFeeOptions = {
+  interceptors: [
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        ProtocGetEstimatedTransactionFeeResponse,
+        PBJSGetEstimatedTransactionFeeResponse,
+      ),
+      protobufToJsonFactory(
+        PBJSGetEstimatedTransactionFeeRequest,
+      ),
+    ),
+  ],
+};
+
+const subscribeToBlockHeadersWithChainLocksOptions = {
+  interceptors: [
+    jsonToProtobufInterceptorFactory(
+      jsonToProtobufFactory(
+        ProtocBlockHeadersWithChainLocksResponse,
+        PBJSBlockHeadersWithChainLocksResponse,
+      ),
+      protobufToJsonFactory(
+        PBJSBlockHeadersWithChainLocksRequest,
+      ),
+    ),
+  ],
+};
+
 class CorePromiseClient {
   /**
    * @param {string} hostname
@@ -97,6 +148,14 @@ class CorePromiseClient {
   constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new CoreNodeJSClient(hostname, credentials, options);
 
+    this.client.getStatus = promisify(
+      this.client.getStatus.bind(this.client),
+    );
+
+    this.client.getBlock = promisify(
+      this.client.getBlock.bind(this.client),
+    );
+
     this.client.sendTransaction = promisify(
       this.client.sendTransaction.bind(this.client),
     );
@@ -105,8 +164,42 @@ class CorePromiseClient {
       this.client.getTransaction.bind(this.client),
     );
 
-    this.client.getBestBlockHeight = promisify(
-      this.client.getBestBlockHeight.bind(this.client),
+    this.client.getEstimatedTransactionFee = promisify(
+      this.client.getEstimatedTransactionFee.bind(this.client),
+    );
+  }
+
+  /**
+   * @param {!GetStatusRequest} getStatusRequest
+   * @param {?Object<string, string>} metadata
+   * @return {Promise<!GetStatusResponse>}
+   */
+  getStatus(getStatusRequest, metadata = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.getStatus(
+      getStatusRequest,
+      convertObjectToMetadata(metadata),
+      getStatusOptions,
+    );
+  }
+
+  /**
+   * @param {!GetBlockRequest} getBlockRequest
+   * @param {?Object<string, string>} metadata
+   * @return {Promise<!GetBlockResponse>}
+   */
+  getBlock(getBlockRequest, metadata = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.getBlock(
+      getBlockRequest,
+      convertObjectToMetadata(metadata),
+      getBlockOptions,
     );
   }
 
@@ -146,19 +239,37 @@ class CorePromiseClient {
 
   /**
    *
-   * @param {!GetBestBlockHeightRequest} getBestBlockHeightRequest
+   * @param {!GetEstimatedTransactionFeeRequest} getEstimatedTransactionFeeRequest
    * @param {?Object<string, string>} metadata
-   * @returns {Promise<!GetBestBlockHeightResponse>}
+   * @returns {Promise<!GetEstimatedTransactionFeeResponse>}
    */
-  getBestBlockHeight(getBestBlockHeightRequest, metadata = {}) {
+  getEstimatedTransactionFee(getEstimatedTransactionFeeRequest, metadata = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.getBestBlockHeight(
-      getBestBlockHeightRequest,
+    return this.client.getEstimatedTransactionFee(
+      getEstimatedTransactionFeeRequest,
       convertObjectToMetadata(metadata),
-      getBestBlockHeightOptions,
+      getEstimatedTransactionFeeOptions,
+    );
+  }
+
+  /**
+   * @param {!BlockHeadersWithChainLocksRequest} blockHeadersWithChainLocksRequest
+   * @param {?Object<string, string>} metadata
+   * @return {!grpc.web.ClientReadableStream<!BlockHeadersWithChainLocksResponse>|undefined}
+   *     The XHR Node Readable Stream
+   */
+  subscribeToBlockHeadersWithChainLocks(blockHeadersWithChainLocksRequest, metadata = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.subscribeToBlockHeadersWithChainLocks(
+      blockHeadersWithChainLocksRequest,
+      convertObjectToMetadata(metadata),
+      subscribeToBlockHeadersWithChainLocksOptions,
     );
   }
 }

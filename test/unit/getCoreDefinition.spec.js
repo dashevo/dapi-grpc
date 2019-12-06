@@ -12,8 +12,5 @@ describe('getCoreDefinition', () => {
 
     expect(coreDefinition.service).to.have.property('getTransaction');
     expect(coreDefinition.service.getTransaction.path).to.equal('/org.dash.platform.dapi.v0.Core/getTransaction');
-
-    expect(coreDefinition.service).to.have.property('getBestBlockHeight');
-    expect(coreDefinition.service.getBestBlockHeight.path).to.equal('/org.dash.platform.dapi.v0.Core/getBestBlockHeight');
   });
 });
