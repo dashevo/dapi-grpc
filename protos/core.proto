@@ -7,7 +7,6 @@ service Core {
   rpc getBlock (GetBlockRequest) returns (GetBlockResponse);
   rpc sendTransaction (SendTransactionRequest) returns (SendTransactionResponse);
   rpc getTransaction (GetTransactionRequest) returns (GetTransactionResponse);
-  rpc getEstimatedTransactionFee(GetEstimatedTransactionFeeRequest) returns (GetEstimatedTransactionFeeResponse);
   rpc subscribeToBlockHeadersWithChainLocks (BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse);
 }
 
@@ -56,14 +55,6 @@ message GetTransactionRequest {
 
 message GetTransactionResponse {
   bytes transaction = 1;
-}
-
-message GetEstimatedTransactionFeeRequest {
-
-}
-
-message GetEstimatedTransactionFeeResponse {
-  double estimated_fee = 1;
 }
 
 message BlockHeadersWithChainLocksRequest {
