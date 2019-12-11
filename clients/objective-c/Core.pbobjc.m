@@ -759,9 +759,11 @@ typedef struct ChainLockSignatureMessages__storage_ {
 
 @implementation GetEstimatedTransactionFeeRequest
 
+@dynamic blocks;
 
 typedef struct GetEstimatedTransactionFeeRequest__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t blocks;
 } GetEstimatedTransactionFeeRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -769,12 +771,23 @@ typedef struct GetEstimatedTransactionFeeRequest__storage_ {
 + (GPBDescriptor *)descriptor {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "blocks",
+        .dataTypeSpecific.className = NULL,
+        .number = GetEstimatedTransactionFeeRequest_FieldNumber_Blocks,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetEstimatedTransactionFeeRequest__storage_, blocks),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+    };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[GetEstimatedTransactionFeeRequest class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetEstimatedTransactionFeeRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");

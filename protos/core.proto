@@ -83,7 +83,7 @@ message ChainLockSignatureMessages {
 }
 
 message GetEstimatedTransactionFeeRequest {
-
+  uint32 blocks = 1;
 }
 
 message GetEstimatedTransactionFeeResponse {

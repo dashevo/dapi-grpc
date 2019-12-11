@@ -278,7 +278,13 @@ typedef GPB_ENUM(ChainLockSignatureMessages_FieldNumber) {
 
 #pragma mark - GetEstimatedTransactionFeeRequest
 
+typedef GPB_ENUM(GetEstimatedTransactionFeeRequest_FieldNumber) {
+  GetEstimatedTransactionFeeRequest_FieldNumber_Blocks = 1,
+};
+
 @interface GetEstimatedTransactionFeeRequest : GPBMessage
+
+@property(nonatomic, readwrite) uint32_t blocks;
 
 @end
 
