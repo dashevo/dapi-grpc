@@ -1,0 +1,100 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '@dashevo/dapi-grpc' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData @dashevo/dapi-grpc
+8 silly fetchNamedPackageData @dashevo/dapi-grpc
+9 silly mapToRegistry name @dashevo/dapi-grpc
+10 silly mapToRegistry scope (from package name) @dashevo
+11 verbose mapToRegistry no registry URL found in name for scope @dashevo
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry uri https://registry.npmjs.org/@dashevo%2fdapi-grpc
+15 verbose request uri https://registry.npmjs.org/@dashevo%2fdapi-grpc
+16 verbose request no auth needed
+17 info attempt registry request try #1 at 2:49:58 PM
+18 verbose request id 1da1ea35381cae75
+19 http request GET https://registry.npmjs.org/@dashevo%2fdapi-grpc
+20 http 200 https://registry.npmjs.org/@dashevo%2fdapi-grpc
+21 verbose headers { date: 'Fri, 01 May 2020 17:50:01 GMT',
+21 verbose headers   'content-type': 'application/json',
+21 verbose headers   'transfer-encoding': 'chunked',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'set-cookie':
+21 verbose headers    [ '__cfduid=d64d8471fcb85aea6d945f4cb8c9938741588355399; expires=Sun, 31-May-20 17:49:59 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+21 verbose headers   'cf-ray': '58cb579e1c2cf207-GRU',
+21 verbose headers   age: '1',
+21 verbose headers   'cache-control': 'public, max-age=300',
+21 verbose headers   etag: 'W/"1239dd36080279de06002e0b5b535391"',
+21 verbose headers   'last-modified': 'Thu, 13 Feb 2020 09:20:54 GMT',
+21 verbose headers   vary: 'accept-encoding, accept',
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   server: 'cloudflare',
+21 verbose headers   'content-encoding': 'gzip',
+21 verbose headers   'cf-request-id': '0272f516cf0000f20774808200000001' }
+22 silly get cb [ 200,
+22 silly get   { date: 'Fri, 01 May 2020 17:50:01 GMT',
+22 silly get     'content-type': 'application/json',
+22 silly get     'transfer-encoding': 'chunked',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie':
+22 silly get      [ '__cfduid=d64d8471fcb85aea6d945f4cb8c9938741588355399; expires=Sun, 31-May-20 17:49:59 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+22 silly get     'cf-ray': '58cb579e1c2cf207-GRU',
+22 silly get     age: '1',
+22 silly get     'cache-control': 'public, max-age=300',
+22 silly get     etag: 'W/"1239dd36080279de06002e0b5b535391"',
+22 silly get     'last-modified': 'Thu, 13 Feb 2020 09:20:54 GMT',
+22 silly get     vary: 'accept-encoding, accept',
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     server: 'cloudflare',
+22 silly get     'content-encoding': 'gzip',
+22 silly get     'cf-request-id': '0272f516cf0000f20774808200000001' } ]
+23 verbose get saving @dashevo/dapi-grpc to /home/crypto/.npm/registry.npmjs.org/_40dashevo_252fdapi-grpc/.cache.json
+24 verbose makeDirectory /home/crypto/.npm creation not in flight; initializing
+25 silly makeDirectory /home/crypto/.npm uid: 1000 gid: 1000
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly rollbackFailedOptional Starting
+39 silly rollbackFailedOptional Finishing
+40 silly runTopLevelLifecycles Starting
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Refusing to install @dashevo/dapi-grpc as a dependency of itself
+43 verbose stack     at checkSelf (/usr/share/npm/lib/install/validate-args.js:40:14)
+43 verbose stack     at Array.<anonymous> (/usr/share/npm/node_modules/slide/lib/bind-actor.js:15:8)
+43 verbose stack     at LOOP (/usr/share/npm/node_modules/slide/lib/chain.js:15:14)
+43 verbose stack     at chain (/usr/share/npm/node_modules/slide/lib/chain.js:20:5)
+43 verbose stack     at /usr/share/npm/lib/install/validate-args.js:15:5
+43 verbose stack     at /usr/share/npm/node_modules/slide/lib/async-map.js:52:35
+43 verbose stack     at Array.forEach (<anonymous>)
+43 verbose stack     at /usr/share/npm/node_modules/slide/lib/async-map.js:52:11
+43 verbose stack     at Array.forEach (<anonymous>)
+43 verbose stack     at asyncMap (/usr/share/npm/node_modules/slide/lib/async-map.js:51:8)
+44 verbose cwd /home/crypto/dapi-grpc
+45 error Linux 5.3.0-46-generic
+46 error argv "/usr/bin/node" "/usr/bin/npm" "install" "@dashevo/dapi-grpc"
+47 error node v8.10.0
+48 error npm  v3.5.2
+49 error code ENOSELF
+50 error Refusing to install @dashevo/dapi-grpc as a dependency of itself
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]
