@@ -21,7 +21,7 @@ addons:
     packages:
       - docker-ce
 
-before_install:
+before_deploy:
   # Add token for @dashevo private npm registry
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 
