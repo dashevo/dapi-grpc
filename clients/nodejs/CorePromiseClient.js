@@ -9,6 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
+      addMetadataInterceptor,
     },
     converters: {
       jsonToProtobufFactory,
@@ -57,6 +58,7 @@ const CoreNodeJSClient = getCoreDefinition();
 
 const getStatusOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetStatusResponse,
@@ -71,6 +73,7 @@ const getStatusOptions = {
 
 const getBlockOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetBlockResponse,
@@ -85,6 +88,7 @@ const getBlockOptions = {
 
 const sendTransactionOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocSendTransactionResponse,
@@ -99,6 +103,7 @@ const sendTransactionOptions = {
 
 const getTransactionOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetTransactionResponse,
@@ -113,6 +118,7 @@ const getTransactionOptions = {
 
 const getEstimatedTransactionFeeOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetEstimatedTransactionFeeResponse,
@@ -127,6 +133,7 @@ const getEstimatedTransactionFeeOptions = {
 
 const subscribeToBlockHeadersWithChainLocksOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocBlockHeadersWithChainLocksResponse,

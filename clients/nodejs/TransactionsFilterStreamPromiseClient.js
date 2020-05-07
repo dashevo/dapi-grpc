@@ -7,6 +7,7 @@ const {
   },
   client: {
     interceptors: {
+      addMetadataInterceptor,
       jsonToProtobufInterceptorFactory,
     },
     converters: {
@@ -43,6 +44,7 @@ const TransactionsFilterStreamNodeJSClient = getTransactionsFilterStreamDefiniti
 
 const subscribeToTransactionsWithProofsOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocTransactionsWithProofsResponse,

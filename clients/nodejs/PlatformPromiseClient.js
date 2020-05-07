@@ -9,6 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
+      addMetadataInterceptor,
     },
     converters: {
       jsonToProtobufFactory,
@@ -51,6 +52,7 @@ const PlatformNodeJSClient = getPlatformDefinition();
 
 const applyStateTransitionOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocApplyStateTransitionResponse,
@@ -65,6 +67,7 @@ const applyStateTransitionOptions = {
 
 const getIdentityOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetIdentityResponse,
@@ -79,6 +82,7 @@ const getIdentityOptions = {
 
 const getDataContractOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetDataContractResponse,
@@ -93,6 +97,7 @@ const getDataContractOptions = {
 
 const getDocumentsOptions = {
   interceptors: [
+    addMetadataInterceptor,
     jsonToProtobufInterceptorFactory(
       jsonToProtobufFactory(
         ProtocGetDocumentsRequest,
