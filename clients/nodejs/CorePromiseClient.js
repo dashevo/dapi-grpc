@@ -9,7 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
-      addMetadataInterceptor,
+      addVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -56,104 +56,17 @@ const getCoreDefinition = require('../../lib/getCoreDefinition');
 
 const CoreNodeJSClient = getCoreDefinition();
 
-const getStatusOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetStatusResponse,
-        PBJSGetStatusResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetStatusRequest,
-      ),
-    ),
-  ],
-};
-
-const getBlockOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetBlockResponse,
-        PBJSGetBlockResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetBlockRequest,
-      ),
-    ),
-  ],
-};
-
-const sendTransactionOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocSendTransactionResponse,
-        PBJSSendTransactionResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSSendTransactionRequest,
-      ),
-    ),
-  ],
-};
-
-const getTransactionOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetTransactionResponse,
-        PBJSGetTransactionResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetTransactionRequest,
-      ),
-    ),
-  ],
-};
-
-const getEstimatedTransactionFeeOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetEstimatedTransactionFeeResponse,
-        PBJSGetEstimatedTransactionFeeResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetEstimatedTransactionFeeRequest,
-      ),
-    ),
-  ],
-};
-
-const subscribeToBlockHeadersWithChainLocksOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocBlockHeadersWithChainLocksResponse,
-        PBJSBlockHeadersWithChainLocksResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSBlockHeadersWithChainLocksRequest,
-      ),
-    ),
-  ],
-};
-
 class CorePromiseClient {
   /**
    * @param {string} hostname
+   * @param {string} version
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
+  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new CoreNodeJSClient(hostname, credentials, options);
+
+    this.addVersionInterceptor = addVersionInterceptorFactory(version);
 
     this.client.getStatus = promisify(
       this.client.getStatus.bind(this.client),
@@ -189,7 +102,20 @@ class CorePromiseClient {
     return this.client.getStatus(
       getStatusRequest,
       convertObjectToMetadata(metadata),
-      getStatusOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetStatusResponse,
+              PBJSGetStatusResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetStatusRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -206,7 +132,20 @@ class CorePromiseClient {
     return this.client.getBlock(
       getBlockRequest,
       convertObjectToMetadata(metadata),
-      getBlockOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetBlockResponse,
+              PBJSGetBlockResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetBlockRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -223,7 +162,20 @@ class CorePromiseClient {
     return this.client.sendTransaction(
       sendTransactionRequest,
       convertObjectToMetadata(metadata),
-      sendTransactionOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocSendTransactionResponse,
+              PBJSSendTransactionResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSSendTransactionRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -240,7 +192,20 @@ class CorePromiseClient {
     return this.client.getTransaction(
       getTransactionRequest,
       convertObjectToMetadata(metadata),
-      getTransactionOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetTransactionResponse,
+              PBJSGetTransactionResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetTransactionRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -257,7 +222,20 @@ class CorePromiseClient {
     return this.client.getEstimatedTransactionFee(
       getEstimatedTransactionFeeRequest,
       convertObjectToMetadata(metadata),
-      getEstimatedTransactionFeeOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetEstimatedTransactionFeeResponse,
+              PBJSGetEstimatedTransactionFeeResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetEstimatedTransactionFeeRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -275,7 +253,20 @@ class CorePromiseClient {
     return this.client.subscribeToBlockHeadersWithChainLocks(
       blockHeadersWithChainLocksRequest,
       convertObjectToMetadata(metadata),
-      subscribeToBlockHeadersWithChainLocksOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufsubscribeToBlockHeadersWithChainLocksOptionsInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocBlockHeadersWithChainLocksResponse,
+              PBJSBlockHeadersWithChainLocksResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSBlockHeadersWithChainLocksRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 }

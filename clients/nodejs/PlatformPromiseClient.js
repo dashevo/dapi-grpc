@@ -9,7 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
-      addMetadataInterceptor,
+      addVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -50,74 +50,17 @@ const getPlatformDefinition = require('../../lib/getPlatformDefinition');
 
 const PlatformNodeJSClient = getPlatformDefinition();
 
-const applyStateTransitionOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocApplyStateTransitionResponse,
-        PBJSApplyStateTransitionResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSApplyStateTransitionRequest,
-      ),
-    ),
-  ],
-};
-
-const getIdentityOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetIdentityResponse,
-        PBJSGetIdentityResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetIdentityRequest,
-      ),
-    ),
-  ],
-};
-
-const getDataContractOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetDataContractResponse,
-        PBJSGetDataContractResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetDataContractRequest,
-      ),
-    ),
-  ],
-};
-
-const getDocumentsOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocGetDocumentsRequest,
-        PBJSGetDocumentsResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSGetDocumentsRequest,
-      ),
-    ),
-  ],
-};
-
 class PlatformPromiseClient {
   /**
    * @param {string} hostname
+   * @param {string} version
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
+  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new PlatformNodeJSClient(hostname, credentials, options);
+
+    this.addVersionInterceptor = addVersionInterceptorFactory(version);
 
     this.client.applyStateTransition = promisify(
       this.client.applyStateTransition.bind(this.client),
@@ -149,7 +92,20 @@ class PlatformPromiseClient {
     return this.client.applyStateTransition(
       applyStateTransitionRequest,
       convertObjectToMetadata(metadata),
-      applyStateTransitionOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocApplyStateTransitionResponse,
+              PBJSApplyStateTransitionResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSApplyStateTransitionRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -166,7 +122,20 @@ class PlatformPromiseClient {
     return this.client.getIdentity(
       getIdentityRequest,
       convertObjectToMetadata(metadata),
-      getIdentityOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetIdentityResponse,
+              PBJSGetIdentityResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetIdentityRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -184,7 +153,20 @@ class PlatformPromiseClient {
     return this.client.getDataContract(
       getDataContractRequest,
       convertObjectToMetadata(metadata),
-      getDataContractOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetDataContractResponse,
+              PBJSGetDataContractResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetDataContractRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 
@@ -202,7 +184,20 @@ class PlatformPromiseClient {
     return this.client.getDocuments(
       getDocumentsRequest,
       convertObjectToMetadata(metadata),
-      getDocumentsOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocGetDocumentsRequest,
+              PBJSGetDocumentsResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSGetDocumentsRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 }

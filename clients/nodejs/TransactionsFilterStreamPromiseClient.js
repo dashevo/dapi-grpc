@@ -7,8 +7,8 @@ const {
   },
   client: {
     interceptors: {
-      addMetadataInterceptor,
       jsonToProtobufInterceptorFactory,
+      addVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -42,28 +42,16 @@ const getTransactionsFilterStreamDefinition = require(
 
 const TransactionsFilterStreamNodeJSClient = getTransactionsFilterStreamDefinition();
 
-const subscribeToTransactionsWithProofsOptions = {
-  interceptors: [
-    addMetadataInterceptor,
-    jsonToProtobufInterceptorFactory(
-      jsonToProtobufFactory(
-        ProtocTransactionsWithProofsResponse,
-        PBJSTransactionsWithProofsResponse,
-      ),
-      protobufToJsonFactory(
-        PBJSTransactionsWithProofsRequest,
-      ),
-    ),
-  ],
-};
-
 class TransactionsFilterStreamPromiseClient {
   /**
    * @param {string} hostname
+   * @param {string} version
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
+  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
+    this.addVersionInterceptor = addVersionInterceptorFactory(version);
+
     this.client = new TransactionsFilterStreamNodeJSClient(hostname, credentials, options);
   }
 
@@ -81,7 +69,20 @@ class TransactionsFilterStreamPromiseClient {
     return this.client.subscribeToTransactionsWithProofs(
       transactionsWithProofsRequest,
       convertObjectToMetadata(metadata),
-      subscribeToTransactionsWithProofsOptions,
+      {
+        interceptors: [
+          this.addVersionInterceptor,
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocTransactionsWithProofsResponse,
+              PBJSTransactionsWithProofsResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSTransactionsWithProofsRequest,
+            ),
+          ),
+        ],
+      },
     );
   }
 }
