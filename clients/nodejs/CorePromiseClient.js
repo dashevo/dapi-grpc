@@ -256,7 +256,7 @@ class CorePromiseClient {
       {
         interceptors: [
           this.addVersionInterceptor,
-          jsonToProtobufsubscribeToBlockHeadersWithChainLocksOptionsInterceptorFactory(
+          jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocBlockHeadersWithChainLocksResponse,
               PBJSBlockHeadersWithChainLocksResponse,
