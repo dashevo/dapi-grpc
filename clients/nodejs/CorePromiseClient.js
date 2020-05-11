@@ -59,14 +59,11 @@ const CoreNodeJSClient = getCoreDefinition();
 class CorePromiseClient {
   /**
    * @param {string} hostname
-   * @param {string} version
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
+  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new CoreNodeJSClient(hostname, credentials, options);
-
-    this.addVersionInterceptor = addVersionInterceptorFactory(version);
 
     this.client.getStatus = promisify(
       this.client.getStatus.bind(this.client),
@@ -87,6 +84,8 @@ class CorePromiseClient {
     this.client.getEstimatedTransactionFee = promisify(
       this.client.getEstimatedTransactionFee.bind(this.client),
     );
+
+    this.protocolVersion = undefined;
   }
 
   /**
@@ -104,7 +103,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetStatusResponse,
@@ -134,7 +135,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetBlockResponse,
@@ -164,7 +167,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocSendTransactionResponse,
@@ -194,7 +199,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetTransactionResponse,
@@ -224,7 +231,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetEstimatedTransactionFeeResponse,
@@ -255,7 +264,9 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          addVersionInterceptorFactory(
+            this.protocolVersion,
+          ),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocBlockHeadersWithChainLocksResponse,
@@ -268,6 +279,13 @@ class CorePromiseClient {
         ],
       },
     );
+  }
+
+  /**
+   * @param {string} protocolVersion
+   */
+  setProtocolVersion(protocolVersion) {
+    this.setProtocolVersion = protocolVersion;
   }
 }
 
