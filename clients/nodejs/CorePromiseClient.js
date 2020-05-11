@@ -9,7 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
-      addVersionInterceptorFactory,
+      protocolVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -103,7 +103,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
@@ -135,7 +135,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
@@ -167,7 +167,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
@@ -199,7 +199,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
@@ -231,7 +231,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
@@ -264,7 +264,7 @@ class CorePromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          addVersionInterceptorFactory(
+          protocolVersionInterceptorFactory(
             this.protocolVersion,
           ),
           jsonToProtobufInterceptorFactory(
