@@ -9,7 +9,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
-      addVersionInterceptorFactory,
+      protocolVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -57,10 +57,8 @@ class PlatformPromiseClient {
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
+  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new PlatformNodeJSClient(hostname, credentials, options);
-
-    this.addVersionInterceptor = addVersionInterceptorFactory(version);
 
     this.client.applyStateTransition = promisify(
       this.client.applyStateTransition.bind(this.client),
@@ -77,6 +75,8 @@ class PlatformPromiseClient {
     this.client.getDocuments = promisify(
       this.client.getDocuments.bind(this.client),
     );
+
+    this.protocolVersion = undefined;
   }
 
   /**
@@ -94,7 +94,7 @@ class PlatformPromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          protocolVersionInterceptorFactory(this.protocolVersion),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocApplyStateTransitionResponse,
@@ -124,7 +124,7 @@ class PlatformPromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          protocolVersionInterceptorFactory(this.protocolVersion),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetIdentityResponse,
@@ -155,7 +155,7 @@ class PlatformPromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          protocolVersionInterceptorFactory(this.protocolVersion),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetDataContractResponse,
@@ -186,7 +186,7 @@ class PlatformPromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          protocolVersionInterceptorFactory(this.protocolVersion),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocGetDocumentsRequest,
@@ -199,6 +199,13 @@ class PlatformPromiseClient {
         ],
       },
     );
+  }
+
+  /**
+   * @param {string} protocolVersion
+   */
+  setProtocolVersion(protocolVersion) {
+    this.setProtocolVersion = protocolVersion;
   }
 }
 

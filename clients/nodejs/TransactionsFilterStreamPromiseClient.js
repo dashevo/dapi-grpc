@@ -8,7 +8,7 @@ const {
   client: {
     interceptors: {
       jsonToProtobufInterceptorFactory,
-      addVersionInterceptorFactory,
+      protocolVersionInterceptorFactory,
     },
     converters: {
       jsonToProtobufFactory,
@@ -49,10 +49,10 @@ class TransactionsFilterStreamPromiseClient {
    * @param {?Object} credentials
    * @param {?Object} options
    */
-  constructor(hostname, version, credentials = grpc.credentials.createInsecure(), options = {}) {
-    this.addVersionInterceptor = addVersionInterceptorFactory(version);
-
+  constructor(hostname, credentials = grpc.credentials.createInsecure(), options = {}) {
     this.client = new TransactionsFilterStreamNodeJSClient(hostname, credentials, options);
+
+    this.protocolVersion = undefined;
   }
 
   /**
@@ -71,7 +71,7 @@ class TransactionsFilterStreamPromiseClient {
       convertObjectToMetadata(metadata),
       {
         interceptors: [
-          this.addVersionInterceptor,
+          protocolVersionInterceptorFactory(this.protocolVersion),
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
               ProtocTransactionsWithProofsResponse,
@@ -84,6 +84,13 @@ class TransactionsFilterStreamPromiseClient {
         ],
       },
     );
+  }
+
+  /**
+   * @param {string} protocolVersion
+   */
+  setProtocolVersion(protocolVersion) {
+    this.setProtocolVersion = protocolVersion;
   }
 }
 
