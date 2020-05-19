@@ -585,11 +585,11 @@ typedef struct GetIdentityIdByFirstPublicKeyRequest__storage_ {
 
 @implementation GetIdentityIdByFirstPublicKeyResponse
 
-@dynamic identityId;
+@dynamic id_p;
 
 typedef struct GetIdentityIdByFirstPublicKeyResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSString *identityId;
+  NSString *id_p;
 } GetIdentityIdByFirstPublicKeyResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -599,11 +599,11 @@ typedef struct GetIdentityIdByFirstPublicKeyResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "identityId",
+        .name = "id_p",
         .dataTypeSpecific.className = NULL,
-        .number = GetIdentityIdByFirstPublicKeyResponse_FieldNumber_IdentityId,
+        .number = GetIdentityIdByFirstPublicKeyResponse_FieldNumber_Id_p,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetIdentityIdByFirstPublicKeyResponse__storage_, identityId),
+        .offset = (uint32_t)offsetof(GetIdentityIdByFirstPublicKeyResponse__storage_, id_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },

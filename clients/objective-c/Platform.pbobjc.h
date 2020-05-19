@@ -206,12 +206,12 @@ typedef GPB_ENUM(GetIdentityIdByFirstPublicKeyRequest_FieldNumber) {
 #pragma mark - GetIdentityIdByFirstPublicKeyResponse
 
 typedef GPB_ENUM(GetIdentityIdByFirstPublicKeyResponse_FieldNumber) {
-  GetIdentityIdByFirstPublicKeyResponse_FieldNumber_IdentityId = 1,
+  GetIdentityIdByFirstPublicKeyResponse_FieldNumber_Id_p = 1,
 };
 
 @interface GetIdentityIdByFirstPublicKeyResponse : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *identityId;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
 @end
 
