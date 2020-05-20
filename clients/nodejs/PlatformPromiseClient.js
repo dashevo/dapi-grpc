@@ -80,6 +80,14 @@ class PlatformPromiseClient {
       this.client.getDocuments.bind(this.client),
     );
 
+    this.client.getIdentityByFirstPublicKey = promisify(
+      this.client.getIdentityByFirstPublicKey.bind(this.client),
+    );
+
+    this.client.getIdentityIdByFirstPublicKey = promisify(
+      this.client.getIdentityIdByFirstPublicKey.bind(this.client),
+    );
+
     this.protocolVersion = undefined;
   }
 
