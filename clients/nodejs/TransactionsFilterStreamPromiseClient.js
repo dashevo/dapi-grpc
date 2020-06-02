@@ -57,7 +57,7 @@ class TransactionsFilterStreamPromiseClient {
   /**
    * @param {TransactionsWithProofsRequest} transactionsWithProofsRequest The request proto
    * @param {?Object<string, string>} metadata User defined call metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {!grpc.web.ClientReadableStream<!TransactionsWithProofsResponse>|undefined}
    *     The XHR Node Readable Stream
    */

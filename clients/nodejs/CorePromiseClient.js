@@ -90,7 +90,7 @@ class CorePromiseClient {
   /**
    * @param {!GetStatusRequest} getStatusRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!GetStatusResponse>}
    */
   getStatus(getStatusRequest, metadata = {}, options = {}) {
@@ -121,7 +121,7 @@ class CorePromiseClient {
   /**
    * @param {!GetBlockRequest} getBlockRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!GetBlockResponse>}
    */
   getBlock(getBlockRequest, metadata = {}, options = {}) {
@@ -152,7 +152,7 @@ class CorePromiseClient {
   /**
    * @param {!SendTransactionRequest} sendTransactionRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!SendTransactionResponse>}
    */
   sendTransaction(sendTransactionRequest, metadata = {}, options = {}) {
@@ -183,7 +183,7 @@ class CorePromiseClient {
   /**
    * @param {!GetTransactionRequest} getTransactionRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!GetTransactionResponse>}
    */
   getTransaction(getTransactionRequest, metadata = {}, options = {}) {
@@ -214,7 +214,7 @@ class CorePromiseClient {
   /**
    * @param {!GetEstimatedTransactionFeeRequest} getEstimatedTransactionFeeRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @returns {Promise<!GetEstimatedTransactionFeeResponse>}
    */
   getEstimatedTransactionFee(getEstimatedTransactionFeeRequest, metadata = {}, options = {}) {
@@ -245,11 +245,15 @@ class CorePromiseClient {
   /**
    * @param {!BlockHeadersWithChainLocksRequest} blockHeadersWithChainLocksRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {!grpc.web.ClientReadableStream<!BlockHeadersWithChainLocksResponse>|undefined}
    *     The XHR Node Readable Stream
    */
-  subscribeToBlockHeadersWithChainLocks(blockHeadersWithChainLocksRequest, metadata = {}, options = {}) {
+  subscribeToBlockHeadersWithChainLocks(
+    blockHeadersWithChainLocksRequest,
+    metadata = {},
+    options = {},
+  ) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }

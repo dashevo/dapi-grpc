@@ -94,7 +94,7 @@ class PlatformPromiseClient {
   /**
    * @param {!ApplyStateTransitionRequest} applyStateTransitionRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!ApplyStateTransitionResponse>}
    */
   applyStateTransition(applyStateTransitionRequest, metadata = {}, options = {}) {
@@ -125,7 +125,7 @@ class PlatformPromiseClient {
   /**
    * @param {!GetIdentityRequest} getIdentityRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @return {Promise<!GetIdentityResponse>}
    */
   getIdentity(getIdentityRequest, metadata = {}, options = {}) {
@@ -157,7 +157,7 @@ class PlatformPromiseClient {
    *
    * @param {!GetDataContractRequest} getDataContractRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @returns {Promise<!GetDataContractResponse>}
    */
   getDataContract(getDataContractRequest, metadata = {}, options = {}) {
@@ -189,7 +189,7 @@ class PlatformPromiseClient {
    *
    * @param {!GetDocumentsRequest} getDocumentsRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @returns {Promise<!GetDocumentsResponse>}
    */
   getDocuments(getDocumentsRequest, metadata = {}, options = {}) {
@@ -221,7 +221,7 @@ class PlatformPromiseClient {
    *
    * @param {!GetIdentityByFirstPublicKeyRequest} getIdentityByFirstPublicKeyRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @returns {Promise<!GetDocumentsResponse>}
    */
   getIdentityByFirstPublicKey(getIdentityByFirstPublicKeyRequest, metadata = {}, options = {}) {
@@ -253,7 +253,7 @@ class PlatformPromiseClient {
    *
    * @param {!GetIdentityIdByFirstPublicKeyRequest} getIdentityIdByFirstPublicKeyRequest
    * @param {?Object<string, string>} metadata
-   * @param {Object} [options={}]
+   * @param {CallOptions} [options={}]
    * @returns {Promise<!GetDocumentsResponse>}
    */
   getIdentityIdByFirstPublicKey(getIdentityIdByFirstPublicKeyRequest, metadata = {}, options = {}) {
