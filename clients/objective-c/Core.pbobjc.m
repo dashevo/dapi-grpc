@@ -334,18 +334,18 @@ typedef struct GetBlockResponse__storage_ {
 
 @end
 
-#pragma mark - SendTransactionRequest
+#pragma mark - BroadcastTransactionRequest
 
-@implementation SendTransactionRequest
+@implementation BroadcastTransactionRequest
 
 @dynamic transaction;
 @dynamic allowHighFees;
 @dynamic bypassLimits;
 
-typedef struct SendTransactionRequest__storage_ {
+typedef struct BroadcastTransactionRequest__storage_ {
   uint32_t _has_storage_[1];
   NSData *transaction;
-} SendTransactionRequest__storage_;
+} BroadcastTransactionRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -356,16 +356,16 @@ typedef struct SendTransactionRequest__storage_ {
       {
         .name = "transaction",
         .dataTypeSpecific.className = NULL,
-        .number = SendTransactionRequest_FieldNumber_Transaction,
+        .number = BroadcastTransactionRequest_FieldNumber_Transaction,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(SendTransactionRequest__storage_, transaction),
+        .offset = (uint32_t)offsetof(BroadcastTransactionRequest__storage_, transaction),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "allowHighFees",
         .dataTypeSpecific.className = NULL,
-        .number = SendTransactionRequest_FieldNumber_AllowHighFees,
+        .number = BroadcastTransactionRequest_FieldNumber_AllowHighFees,
         .hasIndex = 1,
         .offset = 2,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
@@ -374,7 +374,7 @@ typedef struct SendTransactionRequest__storage_ {
       {
         .name = "bypassLimits",
         .dataTypeSpecific.className = NULL,
-        .number = SendTransactionRequest_FieldNumber_BypassLimits,
+        .number = BroadcastTransactionRequest_FieldNumber_BypassLimits,
         .hasIndex = 3,
         .offset = 4,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
@@ -382,12 +382,12 @@ typedef struct SendTransactionRequest__storage_ {
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[SendTransactionRequest class]
+        [GPBDescriptor allocDescriptorForClass:[BroadcastTransactionRequest class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(SendTransactionRequest__storage_)
+                                   storageSize:sizeof(BroadcastTransactionRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -397,16 +397,16 @@ typedef struct SendTransactionRequest__storage_ {
 
 @end
 
-#pragma mark - SendTransactionResponse
+#pragma mark - BroadcastTransactionResponse
 
-@implementation SendTransactionResponse
+@implementation BroadcastTransactionResponse
 
 @dynamic transactionId;
 
-typedef struct SendTransactionResponse__storage_ {
+typedef struct BroadcastTransactionResponse__storage_ {
   uint32_t _has_storage_[1];
   NSString *transactionId;
-} SendTransactionResponse__storage_;
+} BroadcastTransactionResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -417,20 +417,20 @@ typedef struct SendTransactionResponse__storage_ {
       {
         .name = "transactionId",
         .dataTypeSpecific.className = NULL,
-        .number = SendTransactionResponse_FieldNumber_TransactionId,
+        .number = BroadcastTransactionResponse_FieldNumber_TransactionId,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(SendTransactionResponse__storage_, transactionId),
+        .offset = (uint32_t)offsetof(BroadcastTransactionResponse__storage_, transactionId),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[SendTransactionResponse class]
+        [GPBDescriptor allocDescriptorForClass:[BroadcastTransactionResponse class]
                                      rootClass:[CoreRoot class]
                                           file:CoreRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(SendTransactionResponse__storage_)
+                                   storageSize:sizeof(BroadcastTransactionResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;

@@ -11,24 +11,24 @@ describe('PlatformPromiseClient', () => {
 
     platformPromiseClient = new PlatformPromiseClient('https://localhost/');
     platformPromiseClient.client = {
-      applyStateTransition: this.sinon.stub().resolves(response),
+      broadcastStateTransition: this.sinon.stub().resolves(response),
       getIdentity: this.sinon.stub().resolves(response),
       getDataContract: this.sinon.stub().resolves(response),
       getDocuments: this.sinon.stub().resolves(response),
     };
   });
 
-  describe('#applyStateTransition', () => {
-    it('should apply state transition', async () => {
-      const result = await platformPromiseClient.applyStateTransition(request);
+  describe('#broadcastStateTransition', () => {
+    it('should broadcast state transition', async () => {
+      const result = await platformPromiseClient.broadcastStateTransition(request);
 
       expect(result).to.equal(response);
-      expect(platformPromiseClient.client.applyStateTransition).to.be.calledOnceWith(request);
+      expect(platformPromiseClient.client.broadcastStateTransition).to.be.calledOnceWith(request);
     });
 
     it('should throw an error when metadata is not an object', async () => {
       try {
-        platformPromiseClient.applyStateTransition({}, 'metadata');
+        platformPromiseClient.broadcastStateTransition({}, 'metadata');
 
         expect.fail('Error was not thrown');
       } catch (e) {

@@ -25,11 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCTogetBlockWithRequest:(GetBlockRequest *)request handler:(void(^)(GetBlockResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark sendTransaction(SendTransactionRequest) returns (SendTransactionResponse)
+#pragma mark broadcastTransaction(BroadcastTransactionRequest) returns (BroadcastTransactionResponse)
 
-- (void)sendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)broadcastTransactionWithRequest:(BroadcastTransactionRequest *)request handler:(void(^)(BroadcastTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCTosendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCTobroadcastTransactionWithRequest:(BroadcastTransactionRequest *)request handler:(void(^)(BroadcastTransactionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 #pragma mark getTransaction(GetTransactionRequest) returns (GetTransactionResponse)

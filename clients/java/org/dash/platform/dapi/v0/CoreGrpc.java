@@ -52,16 +52,16 @@ public final class CoreGrpc {
               org.dash.platform.dapi.v0.CoreOuterClass.GetBlockResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest,
-      org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse> METHOD_SEND_TRANSACTION =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest, org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest,
+      org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse> METHOD_BROADCAST_TRANSACTION =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest, org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.dash.platform.dapi.v0.Core", "sendTransaction"))
+              "org.dash.platform.dapi.v0.Core", "broadcastTransaction"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.GetTransactionRequest,
@@ -143,9 +143,9 @@ public final class CoreGrpc {
 
     /**
      */
-    public void sendTransaction(org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_SEND_TRANSACTION, responseObserver);
+    public void broadcastTransaction(org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_BROADCAST_TRANSACTION, responseObserver);
     }
 
     /**
@@ -186,12 +186,12 @@ public final class CoreGrpc {
                 org.dash.platform.dapi.v0.CoreOuterClass.GetBlockResponse>(
                   this, METHODID_GET_BLOCK)))
           .addMethod(
-            METHOD_SEND_TRANSACTION,
+            METHOD_BROADCAST_TRANSACTION,
             asyncUnaryCall(
               new MethodHandlers<
-                org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest,
-                org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse>(
-                  this, METHODID_SEND_TRANSACTION)))
+                org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest,
+                org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse>(
+                  this, METHODID_BROADCAST_TRANSACTION)))
           .addMethod(
             METHOD_GET_TRANSACTION,
             asyncUnaryCall(
@@ -253,10 +253,10 @@ public final class CoreGrpc {
 
     /**
      */
-    public void sendTransaction(org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse> responseObserver) {
+    public void broadcastTransaction(org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_SEND_TRANSACTION, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_BROADCAST_TRANSACTION, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -318,9 +318,9 @@ public final class CoreGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse sendTransaction(org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest request) {
+    public org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse broadcastTransaction(org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_SEND_TRANSACTION, getCallOptions(), request);
+          getChannel(), METHOD_BROADCAST_TRANSACTION, getCallOptions(), request);
     }
 
     /**
@@ -382,10 +382,10 @@ public final class CoreGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse> sendTransaction(
-        org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse> broadcastTransaction(
+        org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_SEND_TRANSACTION, getCallOptions()), request);
+          getChannel().newCall(METHOD_BROADCAST_TRANSACTION, getCallOptions()), request);
     }
 
     /**
@@ -407,7 +407,7 @@ public final class CoreGrpc {
 
   private static final int METHODID_GET_STATUS = 0;
   private static final int METHODID_GET_BLOCK = 1;
-  private static final int METHODID_SEND_TRANSACTION = 2;
+  private static final int METHODID_BROADCAST_TRANSACTION = 2;
   private static final int METHODID_GET_TRANSACTION = 3;
   private static final int METHODID_GET_ESTIMATED_TRANSACTION_FEE = 4;
   private static final int METHODID_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS = 5;
@@ -437,9 +437,9 @@ public final class CoreGrpc {
           serviceImpl.getBlock((org.dash.platform.dapi.v0.CoreOuterClass.GetBlockRequest) request,
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.GetBlockResponse>) responseObserver);
           break;
-        case METHODID_SEND_TRANSACTION:
-          serviceImpl.sendTransaction((org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionRequest) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.SendTransactionResponse>) responseObserver);
+        case METHODID_BROADCAST_TRANSACTION:
+          serviceImpl.broadcastTransaction((org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.BroadcastTransactionResponse>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
           serviceImpl.getTransaction((org.dash.platform.dapi.v0.CoreOuterClass.GetTransactionRequest) request,
@@ -488,7 +488,7 @@ public final class CoreGrpc {
               .setSchemaDescriptor(new CoreDescriptorSupplier())
               .addMethod(METHOD_GET_STATUS)
               .addMethod(METHOD_GET_BLOCK)
-              .addMethod(METHOD_SEND_TRANSACTION)
+              .addMethod(METHOD_BROADCAST_TRANSACTION)
               .addMethod(METHOD_GET_TRANSACTION)
               .addMethod(METHOD_GET_ESTIMATED_TRANSACTION_FEE)
               .addMethod(METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS)

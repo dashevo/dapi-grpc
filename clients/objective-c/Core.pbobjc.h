@@ -135,15 +135,15 @@ typedef GPB_ENUM(GetBlockResponse_FieldNumber) {
 
 @end
 
-#pragma mark - SendTransactionRequest
+#pragma mark - BroadcastTransactionRequest
 
-typedef GPB_ENUM(SendTransactionRequest_FieldNumber) {
-  SendTransactionRequest_FieldNumber_Transaction = 1,
-  SendTransactionRequest_FieldNumber_AllowHighFees = 2,
-  SendTransactionRequest_FieldNumber_BypassLimits = 3,
+typedef GPB_ENUM(BroadcastTransactionRequest_FieldNumber) {
+  BroadcastTransactionRequest_FieldNumber_Transaction = 1,
+  BroadcastTransactionRequest_FieldNumber_AllowHighFees = 2,
+  BroadcastTransactionRequest_FieldNumber_BypassLimits = 3,
 };
 
-@interface SendTransactionRequest : GPBMessage
+@interface BroadcastTransactionRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *transaction;
 
@@ -153,13 +153,13 @@ typedef GPB_ENUM(SendTransactionRequest_FieldNumber) {
 
 @end
 
-#pragma mark - SendTransactionResponse
+#pragma mark - BroadcastTransactionResponse
 
-typedef GPB_ENUM(SendTransactionResponse_FieldNumber) {
-  SendTransactionResponse_FieldNumber_TransactionId = 1,
+typedef GPB_ENUM(BroadcastTransactionResponse_FieldNumber) {
+  BroadcastTransactionResponse_FieldNumber_TransactionId = 1,
 };
 
-@interface SendTransactionResponse : GPBMessage
+@interface BroadcastTransactionResponse : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *transactionId;
 

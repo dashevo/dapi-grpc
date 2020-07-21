@@ -13,7 +13,7 @@ describe('CorePromiseClient', () => {
     corePromiseClient.client = {
       getStatus: this.sinon.stub().resolves(response),
       getBlock: this.sinon.stub().resolves(response),
-      sendTransaction: this.sinon.stub().resolves(response),
+      broadcastTransaction: this.sinon.stub().resolves(response),
       getTransaction: this.sinon.stub().resolves(response),
       getEstimatedTransactionFee: this.sinon.stub().resolves(response),
     };
@@ -57,17 +57,17 @@ describe('CorePromiseClient', () => {
     });
   });
 
-  describe('#sendTransaction', () => {
-    it('should send transaction', async () => {
-      const result = await corePromiseClient.sendTransaction(request);
+  describe('#broadcastTransaction', () => {
+    it('should broadcast transaction', async () => {
+      const result = await corePromiseClient.broadcastTransaction(request);
 
       expect(result).to.equal(response);
-      expect(corePromiseClient.client.sendTransaction).to.be.calledOnceWith(request);
+      expect(corePromiseClient.client.broadcastTransaction).to.be.calledOnceWith(request);
     });
 
     it('should throw an error when metadata is not an object', async () => {
       try {
-        corePromiseClient.sendTransaction({}, 'metadata');
+        corePromiseClient.broadcastTransaction({}, 'metadata');
 
         expect.fail('Error was not thrown');
       } catch (e) {

@@ -11,11 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol Platform <NSObject>
 
-#pragma mark applyStateTransition(ApplyStateTransitionRequest) returns (ApplyStateTransitionResponse)
+#pragma mark broadcastStateTransition(BroadcastStateTransitionRequest) returns (BroadcastStateTransitionResponse)
 
-- (void)applyStateTransitionWithRequest:(ApplyStateTransitionRequest *)request handler:(void(^)(ApplyStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)broadcastStateTransitionWithRequest:(BroadcastStateTransitionRequest *)request handler:(void(^)(BroadcastStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCToapplyStateTransitionWithRequest:(ApplyStateTransitionRequest *)request handler:(void(^)(ApplyStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCTobroadcastStateTransitionWithRequest:(BroadcastStateTransitionRequest *)request handler:(void(^)(BroadcastStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 #pragma mark getIdentity(GetIdentityRequest) returns (GetIdentityResponse)

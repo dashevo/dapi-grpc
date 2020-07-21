@@ -23,8 +23,8 @@ const {
       platform: {
         dapi: {
           v0: {
-            ApplyStateTransitionRequest: PBJSApplyStateTransitionRequest,
-            ApplyStateTransitionResponse: PBJSApplyStateTransitionResponse,
+            BroadcastStateTransitionRequest: PBJSBroadcastStateTransitionRequest,
+            BroadcastStateTransitionResponse: PBJSBroadcastStateTransitionResponse,
             GetIdentityRequest: PBJSGetIdentityRequest,
             GetIdentityResponse: PBJSGetIdentityResponse,
             GetDataContractRequest: PBJSGetDataContractRequest,
@@ -43,7 +43,7 @@ const {
 } = require('./platform_pbjs');
 
 const {
-  ApplyStateTransitionResponse: ProtocApplyStateTransitionResponse,
+  BroadcastStateTransitionResponse: ProtocBroadcastStateTransitionResponse,
   GetIdentityResponse: ProtocGetIdentityResponse,
   GetDataContractResponse: ProtocGetDataContractResponse,
   GetDocumentsResponse: ProtocGetDocumentsResponse,
@@ -67,8 +67,8 @@ class PlatformPromiseClient {
 
     this.client = new PlatformNodeJSClient(strippedHostname, credentials, options);
 
-    this.client.applyStateTransition = promisify(
-      this.client.applyStateTransition.bind(this.client),
+    this.client.broadcastStateTransition = promisify(
+      this.client.broadcastStateTransition.bind(this.client),
     );
 
     this.client.getIdentity = promisify(
@@ -95,28 +95,28 @@ class PlatformPromiseClient {
   }
 
   /**
-   * @param {!ApplyStateTransitionRequest} applyStateTransitionRequest
+   * @param {!BroadcastStateTransitionRequest} broadcastStateTransitionRequest
    * @param {?Object<string, string>} metadata
    * @param {CallOptions} [options={}]
-   * @return {Promise<!ApplyStateTransitionResponse>}
+   * @return {Promise<!BroadcastStateTransitionResponse>}
    */
-  applyStateTransition(applyStateTransitionRequest, metadata = {}, options = {}) {
+  broadcastStateTransition(broadcastStateTransitionRequest, metadata = {}, options = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.applyStateTransition(
-      applyStateTransitionRequest,
+    return this.client.broadcastStateTransition(
+      broadcastStateTransitionRequest,
       convertObjectToMetadata(metadata),
       {
         interceptors: [
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
-              ProtocApplyStateTransitionResponse,
-              PBJSApplyStateTransitionResponse,
+              ProtocBroadcastStateTransitionResponse,
+              PBJSBroadcastStateTransitionResponse,
             ),
             protobufToJsonFactory(
-              PBJSApplyStateTransitionRequest,
+              PBJSBroadcastStateTransitionRequest,
             ),
           ),
         ],

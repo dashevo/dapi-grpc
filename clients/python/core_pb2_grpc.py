@@ -24,10 +24,10 @@ class CoreStub(object):
         request_serializer=core__pb2.GetBlockRequest.SerializeToString,
         response_deserializer=core__pb2.GetBlockResponse.FromString,
         )
-    self.sendTransaction = channel.unary_unary(
-        '/org.dash.platform.dapi.v0.Core/sendTransaction',
-        request_serializer=core__pb2.SendTransactionRequest.SerializeToString,
-        response_deserializer=core__pb2.SendTransactionResponse.FromString,
+    self.broadcastTransaction = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Core/broadcastTransaction',
+        request_serializer=core__pb2.BroadcastTransactionRequest.SerializeToString,
+        response_deserializer=core__pb2.BroadcastTransactionResponse.FromString,
         )
     self.getTransaction = channel.unary_unary(
         '/org.dash.platform.dapi.v0.Core/getTransaction',
@@ -64,7 +64,7 @@ class CoreServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def sendTransaction(self, request, context):
+  def broadcastTransaction(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -105,10 +105,10 @@ def add_CoreServicer_to_server(servicer, server):
           request_deserializer=core__pb2.GetBlockRequest.FromString,
           response_serializer=core__pb2.GetBlockResponse.SerializeToString,
       ),
-      'sendTransaction': grpc.unary_unary_rpc_method_handler(
-          servicer.sendTransaction,
-          request_deserializer=core__pb2.SendTransactionRequest.FromString,
-          response_serializer=core__pb2.SendTransactionResponse.SerializeToString,
+      'broadcastTransaction': grpc.unary_unary_rpc_method_handler(
+          servicer.broadcastTransaction,
+          request_deserializer=core__pb2.BroadcastTransactionRequest.FromString,
+          response_serializer=core__pb2.BroadcastTransactionResponse.SerializeToString,
       ),
       'getTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.getTransaction,
