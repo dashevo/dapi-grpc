@@ -7,8 +7,8 @@ describe('getPlatformDefinition', () => {
     expect(platformDefinition).to.be.an('function');
     expect(platformDefinition).to.have.property('service');
 
-    expect(platformDefinition.service).to.have.property('applyStateTransition');
-    expect(platformDefinition.service.applyStateTransition.path).to.equal('/org.dash.platform.dapi.v0.Platform/applyStateTransition');
+    expect(platformDefinition.service).to.have.property('broadcastStateTransition');
+    expect(platformDefinition.service.broadcastStateTransition.path).to.equal('/org.dash.platform.dapi.v0.Platform/broadcastStateTransition');
 
     expect(platformDefinition.service).to.have.property('getIdentity');
     expect(platformDefinition.service.getIdentity.path).to.equal('/org.dash.platform.dapi.v0.Platform/getIdentity');

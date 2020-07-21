@@ -5,7 +5,7 @@ package org.dash.platform.dapi.v0;
 service Core {
   rpc getStatus (GetStatusRequest) returns (GetStatusResponse);
   rpc getBlock (GetBlockRequest) returns (GetBlockResponse);
-  rpc sendTransaction (SendTransactionRequest) returns (SendTransactionResponse);
+  rpc broadcastTransaction (BroadcastTransactionRequest) returns (BroadcastTransactionResponse);
   rpc getTransaction (GetTransactionRequest) returns (GetTransactionResponse);
   rpc getEstimatedTransactionFee (GetEstimatedTransactionFeeRequest) returns (GetEstimatedTransactionFeeResponse);
   rpc subscribeToBlockHeadersWithChainLocks (BlockHeadersWithChainLocksRequest) returns (stream BlockHeadersWithChainLocksResponse);
@@ -40,13 +40,13 @@ message GetBlockResponse {
   bytes block = 1;
 }
 
-message SendTransactionRequest {
+message BroadcastTransactionRequest {
   bytes transaction = 1;
   bool allow_high_fees = 2;
   bool bypass_limits = 3;
 }
 
-message SendTransactionResponse {
+message BroadcastTransactionResponse {
   string transaction_id = 1;
 }
 

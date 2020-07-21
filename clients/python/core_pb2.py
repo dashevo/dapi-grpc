@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='core.proto',
   package='org.dash.platform.dapi.v0',
   syntax='proto3',
-  serialized_pb=_b('\n\ncore.proto\x12\x19org.dash.platform.dapi.v0\"\x12\n\x10GetStatusRequest\"\xe5\x01\n\x11GetStatusResponse\x12\x14\n\x0c\x63ore_version\x18\x01 \x01(\r\x12\x18\n\x10protocol_version\x18\x02 \x01(\r\x12\x0e\n\x06\x62locks\x18\x03 \x01(\r\x12\x13\n\x0btime_offset\x18\x04 \x01(\r\x12\x13\n\x0b\x63onnections\x18\x05 \x01(\r\x12\r\n\x05proxy\x18\x06 \x01(\t\x12\x12\n\ndifficulty\x18\x07 \x01(\x01\x12\x0f\n\x07testnet\x18\x08 \x01(\x08\x12\x11\n\trelay_fee\x18\t \x01(\x01\x12\x0e\n\x06\x65rrors\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\"<\n\x0fGetBlockRequest\x12\x10\n\x06height\x18\x01 \x01(\rH\x00\x12\x0e\n\x04hash\x18\x02 \x01(\tH\x00\x42\x07\n\x05\x62lock\"!\n\x10GetBlockResponse\x12\r\n\x05\x62lock\x18\x01 \x01(\x0c\"]\n\x16SendTransactionRequest\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\x12\x17\n\x0f\x61llow_high_fees\x18\x02 \x01(\x08\x12\x15\n\rbypass_limits\x18\x03 \x01(\x08\"1\n\x17SendTransactionResponse\x12\x16\n\x0etransaction_id\x18\x01 \x01(\t\"#\n\x15GetTransactionRequest\x12\n\n\x02id\x18\x01 \x01(\t\"-\n\x16GetTransactionResponse\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\"x\n!BlockHeadersWithChainLocksRequest\x12\x19\n\x0f\x66rom_block_hash\x18\x01 \x01(\x0cH\x00\x12\x1b\n\x11\x66rom_block_height\x18\x02 \x01(\rH\x00\x12\r\n\x05\x63ount\x18\x03 \x01(\rB\x0c\n\nfrom_block\"\xd3\x01\n\"BlockHeadersWithChainLocksResponse\x12@\n\rblock_headers\x18\x01 \x01(\x0b\x32\'.org.dash.platform.dapi.v0.BlockHeadersH\x00\x12^\n\x1d\x63hain_lock_signature_messages\x18\x02 \x01(\x0b\x32\x35.org.dash.platform.dapi.v0.ChainLockSignatureMessagesH\x00\x42\x0b\n\tresponses\"\x1f\n\x0c\x42lockHeaders\x12\x0f\n\x07headers\x18\x01 \x03(\x0c\".\n\x1a\x43hainLockSignatureMessages\x12\x10\n\x08messages\x18\x01 \x03(\x0c\"3\n!GetEstimatedTransactionFeeRequest\x12\x0e\n\x06\x62locks\x18\x01 \x01(\r\"1\n\"GetEstimatedTransactionFeeResponse\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\x01\x32\x89\x06\n\x04\x43ore\x12\x66\n\tgetStatus\x12+.org.dash.platform.dapi.v0.GetStatusRequest\x1a,.org.dash.platform.dapi.v0.GetStatusResponse\x12\x63\n\x08getBlock\x12*.org.dash.platform.dapi.v0.GetBlockRequest\x1a+.org.dash.platform.dapi.v0.GetBlockResponse\x12x\n\x0fsendTransaction\x12\x31.org.dash.platform.dapi.v0.SendTransactionRequest\x1a\x32.org.dash.platform.dapi.v0.SendTransactionResponse\x12u\n\x0egetTransaction\x12\x30.org.dash.platform.dapi.v0.GetTransactionRequest\x1a\x31.org.dash.platform.dapi.v0.GetTransactionResponse\x12\x99\x01\n\x1agetEstimatedTransactionFee\x12<.org.dash.platform.dapi.v0.GetEstimatedTransactionFeeRequest\x1a=.org.dash.platform.dapi.v0.GetEstimatedTransactionFeeResponse\x12\xa6\x01\n%subscribeToBlockHeadersWithChainLocks\x12<.org.dash.platform.dapi.v0.BlockHeadersWithChainLocksRequest\x1a=.org.dash.platform.dapi.v0.BlockHeadersWithChainLocksResponse0\x01\x62\x06proto3')
+  serialized_pb=_b('\n\ncore.proto\x12\x19org.dash.platform.dapi.v0\"\x12\n\x10GetStatusRequest\"\xe5\x01\n\x11GetStatusResponse\x12\x14\n\x0c\x63ore_version\x18\x01 \x01(\r\x12\x18\n\x10protocol_version\x18\x02 \x01(\r\x12\x0e\n\x06\x62locks\x18\x03 \x01(\r\x12\x13\n\x0btime_offset\x18\x04 \x01(\r\x12\x13\n\x0b\x63onnections\x18\x05 \x01(\r\x12\r\n\x05proxy\x18\x06 \x01(\t\x12\x12\n\ndifficulty\x18\x07 \x01(\x01\x12\x0f\n\x07testnet\x18\x08 \x01(\x08\x12\x11\n\trelay_fee\x18\t \x01(\x01\x12\x0e\n\x06\x65rrors\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\"<\n\x0fGetBlockRequest\x12\x10\n\x06height\x18\x01 \x01(\rH\x00\x12\x0e\n\x04hash\x18\x02 \x01(\tH\x00\x42\x07\n\x05\x62lock\"!\n\x10GetBlockResponse\x12\r\n\x05\x62lock\x18\x01 \x01(\x0c\"b\n\x1b\x42roadcastTransactionRequest\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\x12\x17\n\x0f\x61llow_high_fees\x18\x02 \x01(\x08\x12\x15\n\rbypass_limits\x18\x03 \x01(\x08\"6\n\x1c\x42roadcastTransactionResponse\x12\x16\n\x0etransaction_id\x18\x01 \x01(\t\"#\n\x15GetTransactionRequest\x12\n\n\x02id\x18\x01 \x01(\t\"-\n\x16GetTransactionResponse\x12\x13\n\x0btransaction\x18\x01 \x01(\x0c\"x\n!BlockHeadersWithChainLocksRequest\x12\x19\n\x0f\x66rom_block_hash\x18\x01 \x01(\x0cH\x00\x12\x1b\n\x11\x66rom_block_height\x18\x02 \x01(\rH\x00\x12\r\n\x05\x63ount\x18\x03 \x01(\rB\x0c\n\nfrom_block\"\xd3\x01\n\"BlockHeadersWithChainLocksResponse\x12@\n\rblock_headers\x18\x01 \x01(\x0b\x32\'.org.dash.platform.dapi.v0.BlockHeadersH\x00\x12^\n\x1d\x63hain_lock_signature_messages\x18\x02 \x01(\x0b\x32\x35.org.dash.platform.dapi.v0.ChainLockSignatureMessagesH\x00\x42\x0b\n\tresponses\"\x1f\n\x0c\x42lockHeaders\x12\x0f\n\x07headers\x18\x01 \x03(\x0c\".\n\x1a\x43hainLockSignatureMessages\x12\x10\n\x08messages\x18\x01 \x03(\x0c\"3\n!GetEstimatedTransactionFeeRequest\x12\x0e\n\x06\x62locks\x18\x01 \x01(\r\"1\n\"GetEstimatedTransactionFeeResponse\x12\x0b\n\x03\x66\x65\x65\x18\x01 \x01(\x01\x32\x99\x06\n\x04\x43ore\x12\x66\n\tgetStatus\x12+.org.dash.platform.dapi.v0.GetStatusRequest\x1a,.org.dash.platform.dapi.v0.GetStatusResponse\x12\x63\n\x08getBlock\x12*.org.dash.platform.dapi.v0.GetBlockRequest\x1a+.org.dash.platform.dapi.v0.GetBlockResponse\x12\x87\x01\n\x14\x62roadcastTransaction\x12\x36.org.dash.platform.dapi.v0.BroadcastTransactionRequest\x1a\x37.org.dash.platform.dapi.v0.BroadcastTransactionResponse\x12u\n\x0egetTransaction\x12\x30.org.dash.platform.dapi.v0.GetTransactionRequest\x1a\x31.org.dash.platform.dapi.v0.GetTransactionResponse\x12\x99\x01\n\x1agetEstimatedTransactionFee\x12<.org.dash.platform.dapi.v0.GetEstimatedTransactionFeeRequest\x1a=.org.dash.platform.dapi.v0.GetEstimatedTransactionFeeResponse\x12\xa6\x01\n%subscribeToBlockHeadersWithChainLocks\x12<.org.dash.platform.dapi.v0.BlockHeadersWithChainLocksRequest\x1a=.org.dash.platform.dapi.v0.BlockHeadersWithChainLocksResponse0\x01\x62\x06proto3')
 )
 
 
@@ -222,29 +222,29 @@ _GETBLOCKRESPONSE = _descriptor.Descriptor(
 )
 
 
-_SENDTRANSACTIONREQUEST = _descriptor.Descriptor(
-  name='SendTransactionRequest',
-  full_name='org.dash.platform.dapi.v0.SendTransactionRequest',
+_BROADCASTTRANSACTIONREQUEST = _descriptor.Descriptor(
+  name='BroadcastTransactionRequest',
+  full_name='org.dash.platform.dapi.v0.BroadcastTransactionRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='transaction', full_name='org.dash.platform.dapi.v0.SendTransactionRequest.transaction', index=0,
+      name='transaction', full_name='org.dash.platform.dapi.v0.BroadcastTransactionRequest.transaction', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='allow_high_fees', full_name='org.dash.platform.dapi.v0.SendTransactionRequest.allow_high_fees', index=1,
+      name='allow_high_fees', full_name='org.dash.platform.dapi.v0.BroadcastTransactionRequest.allow_high_fees', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bypass_limits', full_name='org.dash.platform.dapi.v0.SendTransactionRequest.bypass_limits', index=2,
+      name='bypass_limits', full_name='org.dash.platform.dapi.v0.BroadcastTransactionRequest.bypass_limits', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -263,19 +263,19 @@ _SENDTRANSACTIONREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=390,
-  serialized_end=483,
+  serialized_end=488,
 )
 
 
-_SENDTRANSACTIONRESPONSE = _descriptor.Descriptor(
-  name='SendTransactionResponse',
-  full_name='org.dash.platform.dapi.v0.SendTransactionResponse',
+_BROADCASTTRANSACTIONRESPONSE = _descriptor.Descriptor(
+  name='BroadcastTransactionResponse',
+  full_name='org.dash.platform.dapi.v0.BroadcastTransactionResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='transaction_id', full_name='org.dash.platform.dapi.v0.SendTransactionResponse.transaction_id', index=0,
+      name='transaction_id', full_name='org.dash.platform.dapi.v0.BroadcastTransactionResponse.transaction_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -293,8 +293,8 @@ _SENDTRANSACTIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=485,
-  serialized_end=534,
+  serialized_start=490,
+  serialized_end=544,
 )
 
 
@@ -324,8 +324,8 @@ _GETTRANSACTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=536,
-  serialized_end=571,
+  serialized_start=546,
+  serialized_end=581,
 )
 
 
@@ -355,8 +355,8 @@ _GETTRANSACTIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=573,
-  serialized_end=618,
+  serialized_start=583,
+  serialized_end=628,
 )
 
 
@@ -403,8 +403,8 @@ _BLOCKHEADERSWITHCHAINLOCKSREQUEST = _descriptor.Descriptor(
       name='from_block', full_name='org.dash.platform.dapi.v0.BlockHeadersWithChainLocksRequest.from_block',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=620,
-  serialized_end=740,
+  serialized_start=630,
+  serialized_end=750,
 )
 
 
@@ -444,8 +444,8 @@ _BLOCKHEADERSWITHCHAINLOCKSRESPONSE = _descriptor.Descriptor(
       name='responses', full_name='org.dash.platform.dapi.v0.BlockHeadersWithChainLocksResponse.responses',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=743,
-  serialized_end=954,
+  serialized_start=753,
+  serialized_end=964,
 )
 
 
@@ -475,8 +475,8 @@ _BLOCKHEADERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=956,
-  serialized_end=987,
+  serialized_start=966,
+  serialized_end=997,
 )
 
 
@@ -506,8 +506,8 @@ _CHAINLOCKSIGNATUREMESSAGES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=989,
-  serialized_end=1035,
+  serialized_start=999,
+  serialized_end=1045,
 )
 
 
@@ -537,8 +537,8 @@ _GETESTIMATEDTRANSACTIONFEEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1037,
-  serialized_end=1088,
+  serialized_start=1047,
+  serialized_end=1098,
 )
 
 
@@ -568,8 +568,8 @@ _GETESTIMATEDTRANSACTIONFEERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1090,
-  serialized_end=1139,
+  serialized_start=1100,
+  serialized_end=1149,
 )
 
 _GETBLOCKREQUEST.oneofs_by_name['block'].fields.append(
@@ -596,8 +596,8 @@ DESCRIPTOR.message_types_by_name['GetStatusRequest'] = _GETSTATUSREQUEST
 DESCRIPTOR.message_types_by_name['GetStatusResponse'] = _GETSTATUSRESPONSE
 DESCRIPTOR.message_types_by_name['GetBlockRequest'] = _GETBLOCKREQUEST
 DESCRIPTOR.message_types_by_name['GetBlockResponse'] = _GETBLOCKRESPONSE
-DESCRIPTOR.message_types_by_name['SendTransactionRequest'] = _SENDTRANSACTIONREQUEST
-DESCRIPTOR.message_types_by_name['SendTransactionResponse'] = _SENDTRANSACTIONRESPONSE
+DESCRIPTOR.message_types_by_name['BroadcastTransactionRequest'] = _BROADCASTTRANSACTIONREQUEST
+DESCRIPTOR.message_types_by_name['BroadcastTransactionResponse'] = _BROADCASTTRANSACTIONRESPONSE
 DESCRIPTOR.message_types_by_name['GetTransactionRequest'] = _GETTRANSACTIONREQUEST
 DESCRIPTOR.message_types_by_name['GetTransactionResponse'] = _GETTRANSACTIONRESPONSE
 DESCRIPTOR.message_types_by_name['BlockHeadersWithChainLocksRequest'] = _BLOCKHEADERSWITHCHAINLOCKSREQUEST
@@ -636,19 +636,19 @@ GetBlockResponse = _reflection.GeneratedProtocolMessageType('GetBlockResponse', 
   ))
 _sym_db.RegisterMessage(GetBlockResponse)
 
-SendTransactionRequest = _reflection.GeneratedProtocolMessageType('SendTransactionRequest', (_message.Message,), dict(
-  DESCRIPTOR = _SENDTRANSACTIONREQUEST,
+BroadcastTransactionRequest = _reflection.GeneratedProtocolMessageType('BroadcastTransactionRequest', (_message.Message,), dict(
+  DESCRIPTOR = _BROADCASTTRANSACTIONREQUEST,
   __module__ = 'core_pb2'
-  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.SendTransactionRequest)
+  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.BroadcastTransactionRequest)
   ))
-_sym_db.RegisterMessage(SendTransactionRequest)
+_sym_db.RegisterMessage(BroadcastTransactionRequest)
 
-SendTransactionResponse = _reflection.GeneratedProtocolMessageType('SendTransactionResponse', (_message.Message,), dict(
-  DESCRIPTOR = _SENDTRANSACTIONRESPONSE,
+BroadcastTransactionResponse = _reflection.GeneratedProtocolMessageType('BroadcastTransactionResponse', (_message.Message,), dict(
+  DESCRIPTOR = _BROADCASTTRANSACTIONRESPONSE,
   __module__ = 'core_pb2'
-  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.SendTransactionResponse)
+  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.BroadcastTransactionResponse)
   ))
-_sym_db.RegisterMessage(SendTransactionResponse)
+_sym_db.RegisterMessage(BroadcastTransactionResponse)
 
 GetTransactionRequest = _reflection.GeneratedProtocolMessageType('GetTransactionRequest', (_message.Message,), dict(
   DESCRIPTOR = _GETTRANSACTIONREQUEST,
@@ -714,8 +714,8 @@ _CORE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1142,
-  serialized_end=1919,
+  serialized_start=1152,
+  serialized_end=1945,
   methods=[
   _descriptor.MethodDescriptor(
     name='getStatus',
@@ -736,12 +736,12 @@ _CORE = _descriptor.ServiceDescriptor(
     options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='sendTransaction',
-    full_name='org.dash.platform.dapi.v0.Core.sendTransaction',
+    name='broadcastTransaction',
+    full_name='org.dash.platform.dapi.v0.Core.broadcastTransaction',
     index=2,
     containing_service=None,
-    input_type=_SENDTRANSACTIONREQUEST,
-    output_type=_SENDTRANSACTIONRESPONSE,
+    input_type=_BROADCASTTRANSACTIONREQUEST,
+    output_type=_BROADCASTTRANSACTIONRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -806,10 +806,10 @@ try:
           request_serializer=GetBlockRequest.SerializeToString,
           response_deserializer=GetBlockResponse.FromString,
           )
-      self.sendTransaction = channel.unary_unary(
-          '/org.dash.platform.dapi.v0.Core/sendTransaction',
-          request_serializer=SendTransactionRequest.SerializeToString,
-          response_deserializer=SendTransactionResponse.FromString,
+      self.broadcastTransaction = channel.unary_unary(
+          '/org.dash.platform.dapi.v0.Core/broadcastTransaction',
+          request_serializer=BroadcastTransactionRequest.SerializeToString,
+          response_deserializer=BroadcastTransactionResponse.FromString,
           )
       self.getTransaction = channel.unary_unary(
           '/org.dash.platform.dapi.v0.Core/getTransaction',
@@ -846,7 +846,7 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def sendTransaction(self, request, context):
+    def broadcastTransaction(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -887,10 +887,10 @@ try:
             request_deserializer=GetBlockRequest.FromString,
             response_serializer=GetBlockResponse.SerializeToString,
         ),
-        'sendTransaction': grpc.unary_unary_rpc_method_handler(
-            servicer.sendTransaction,
-            request_deserializer=SendTransactionRequest.FromString,
-            response_serializer=SendTransactionResponse.SerializeToString,
+        'broadcastTransaction': grpc.unary_unary_rpc_method_handler(
+            servicer.broadcastTransaction,
+            request_deserializer=BroadcastTransactionRequest.FromString,
+            response_serializer=BroadcastTransactionResponse.SerializeToString,
         ),
         'getTransaction': grpc.unary_unary_rpc_method_handler(
             servicer.getTransaction,
@@ -929,7 +929,7 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def sendTransaction(self, request, context):
+    def broadcastTransaction(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
@@ -965,11 +965,11 @@ try:
       pass
       raise NotImplementedError()
     getBlock.future = None
-    def sendTransaction(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def broadcastTransaction(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
       raise NotImplementedError()
-    sendTransaction.future = None
+    broadcastTransaction.future = None
     def getTransaction(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
@@ -993,27 +993,27 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
+      ('org.dash.platform.dapi.v0.Core', 'broadcastTransaction'): BroadcastTransactionRequest.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getBlock'): GetBlockRequest.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getEstimatedTransactionFee'): GetEstimatedTransactionFeeRequest.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getStatus'): GetStatusRequest.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getTransaction'): GetTransactionRequest.FromString,
-      ('org.dash.platform.dapi.v0.Core', 'sendTransaction'): SendTransactionRequest.FromString,
       ('org.dash.platform.dapi.v0.Core', 'subscribeToBlockHeadersWithChainLocks'): BlockHeadersWithChainLocksRequest.FromString,
     }
     response_serializers = {
+      ('org.dash.platform.dapi.v0.Core', 'broadcastTransaction'): BroadcastTransactionResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getBlock'): GetBlockResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getEstimatedTransactionFee'): GetEstimatedTransactionFeeResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getStatus'): GetStatusResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getTransaction'): GetTransactionResponse.SerializeToString,
-      ('org.dash.platform.dapi.v0.Core', 'sendTransaction'): SendTransactionResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'subscribeToBlockHeadersWithChainLocks'): BlockHeadersWithChainLocksResponse.SerializeToString,
     }
     method_implementations = {
+      ('org.dash.platform.dapi.v0.Core', 'broadcastTransaction'): face_utilities.unary_unary_inline(servicer.broadcastTransaction),
       ('org.dash.platform.dapi.v0.Core', 'getBlock'): face_utilities.unary_unary_inline(servicer.getBlock),
       ('org.dash.platform.dapi.v0.Core', 'getEstimatedTransactionFee'): face_utilities.unary_unary_inline(servicer.getEstimatedTransactionFee),
       ('org.dash.platform.dapi.v0.Core', 'getStatus'): face_utilities.unary_unary_inline(servicer.getStatus),
       ('org.dash.platform.dapi.v0.Core', 'getTransaction'): face_utilities.unary_unary_inline(servicer.getTransaction),
-      ('org.dash.platform.dapi.v0.Core', 'sendTransaction'): face_utilities.unary_unary_inline(servicer.sendTransaction),
       ('org.dash.platform.dapi.v0.Core', 'subscribeToBlockHeadersWithChainLocks'): face_utilities.unary_stream_inline(servicer.subscribeToBlockHeadersWithChainLocks),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -1027,27 +1027,27 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
+      ('org.dash.platform.dapi.v0.Core', 'broadcastTransaction'): BroadcastTransactionRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getBlock'): GetBlockRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getEstimatedTransactionFee'): GetEstimatedTransactionFeeRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getStatus'): GetStatusRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'getTransaction'): GetTransactionRequest.SerializeToString,
-      ('org.dash.platform.dapi.v0.Core', 'sendTransaction'): SendTransactionRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Core', 'subscribeToBlockHeadersWithChainLocks'): BlockHeadersWithChainLocksRequest.SerializeToString,
     }
     response_deserializers = {
+      ('org.dash.platform.dapi.v0.Core', 'broadcastTransaction'): BroadcastTransactionResponse.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getBlock'): GetBlockResponse.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getEstimatedTransactionFee'): GetEstimatedTransactionFeeResponse.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getStatus'): GetStatusResponse.FromString,
       ('org.dash.platform.dapi.v0.Core', 'getTransaction'): GetTransactionResponse.FromString,
-      ('org.dash.platform.dapi.v0.Core', 'sendTransaction'): SendTransactionResponse.FromString,
       ('org.dash.platform.dapi.v0.Core', 'subscribeToBlockHeadersWithChainLocks'): BlockHeadersWithChainLocksResponse.FromString,
     }
     cardinalities = {
+      'broadcastTransaction': cardinality.Cardinality.UNARY_UNARY,
       'getBlock': cardinality.Cardinality.UNARY_UNARY,
       'getEstimatedTransactionFee': cardinality.Cardinality.UNARY_UNARY,
       'getStatus': cardinality.Cardinality.UNARY_UNARY,
       'getTransaction': cardinality.Cardinality.UNARY_UNARY,
-      'sendTransaction': cardinality.Cardinality.UNARY_UNARY,
       'subscribeToBlockHeadersWithChainLocks': cardinality.Cardinality.UNARY_STREAM,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

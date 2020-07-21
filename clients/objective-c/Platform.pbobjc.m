@@ -43,16 +43,16 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
   return descriptor;
 }
 
-#pragma mark - ApplyStateTransitionRequest
+#pragma mark - BroadcastStateTransitionRequest
 
-@implementation ApplyStateTransitionRequest
+@implementation BroadcastStateTransitionRequest
 
 @dynamic stateTransition;
 
-typedef struct ApplyStateTransitionRequest__storage_ {
+typedef struct BroadcastStateTransitionRequest__storage_ {
   uint32_t _has_storage_[1];
   NSData *stateTransition;
-} ApplyStateTransitionRequest__storage_;
+} BroadcastStateTransitionRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -63,20 +63,20 @@ typedef struct ApplyStateTransitionRequest__storage_ {
       {
         .name = "stateTransition",
         .dataTypeSpecific.className = NULL,
-        .number = ApplyStateTransitionRequest_FieldNumber_StateTransition,
+        .number = BroadcastStateTransitionRequest_FieldNumber_StateTransition,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(ApplyStateTransitionRequest__storage_, stateTransition),
+        .offset = (uint32_t)offsetof(BroadcastStateTransitionRequest__storage_, stateTransition),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[ApplyStateTransitionRequest class]
+        [GPBDescriptor allocDescriptorForClass:[BroadcastStateTransitionRequest class]
                                      rootClass:[PlatformRoot class]
                                           file:PlatformRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(ApplyStateTransitionRequest__storage_)
+                                   storageSize:sizeof(BroadcastStateTransitionRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -86,14 +86,14 @@ typedef struct ApplyStateTransitionRequest__storage_ {
 
 @end
 
-#pragma mark - ApplyStateTransitionResponse
+#pragma mark - BroadcastStateTransitionResponse
 
-@implementation ApplyStateTransitionResponse
+@implementation BroadcastStateTransitionResponse
 
 
-typedef struct ApplyStateTransitionResponse__storage_ {
+typedef struct BroadcastStateTransitionResponse__storage_ {
   uint32_t _has_storage_[1];
-} ApplyStateTransitionResponse__storage_;
+} BroadcastStateTransitionResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -101,12 +101,12 @@ typedef struct ApplyStateTransitionResponse__storage_ {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[ApplyStateTransitionResponse class]
+        [GPBDescriptor allocDescriptorForClass:[BroadcastStateTransitionResponse class]
                                      rootClass:[PlatformRoot class]
                                           file:PlatformRoot_FileDescriptor()
                                         fields:NULL
                                     fieldCount:0
-                                   storageSize:sizeof(ApplyStateTransitionResponse__storage_)
+                                   storageSize:sizeof(BroadcastStateTransitionResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;

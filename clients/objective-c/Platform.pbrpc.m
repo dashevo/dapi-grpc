@@ -22,16 +22,16 @@
 }
 
 
-#pragma mark applyStateTransition(ApplyStateTransitionRequest) returns (ApplyStateTransitionResponse)
+#pragma mark broadcastStateTransition(BroadcastStateTransitionRequest) returns (BroadcastStateTransitionResponse)
 
-- (void)applyStateTransitionWithRequest:(ApplyStateTransitionRequest *)request handler:(void(^)(ApplyStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToapplyStateTransitionWithRequest:request handler:handler] start];
+- (void)broadcastStateTransitionWithRequest:(BroadcastStateTransitionRequest *)request handler:(void(^)(BroadcastStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTobroadcastStateTransitionWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToapplyStateTransitionWithRequest:(ApplyStateTransitionRequest *)request handler:(void(^)(ApplyStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"applyStateTransition"
+- (GRPCProtoCall *)RPCTobroadcastStateTransitionWithRequest:(BroadcastStateTransitionRequest *)request handler:(void(^)(BroadcastStateTransitionResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"broadcastStateTransition"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[ApplyStateTransitionResponse class]
+             responseClass:[BroadcastStateTransitionResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 #pragma mark getIdentity(GetIdentityRequest) returns (GetIdentityResponse)

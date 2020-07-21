@@ -44,21 +44,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlatformRoot : GPBRootObject
 @end
 
-#pragma mark - ApplyStateTransitionRequest
+#pragma mark - BroadcastStateTransitionRequest
 
-typedef GPB_ENUM(ApplyStateTransitionRequest_FieldNumber) {
-  ApplyStateTransitionRequest_FieldNumber_StateTransition = 1,
+typedef GPB_ENUM(BroadcastStateTransitionRequest_FieldNumber) {
+  BroadcastStateTransitionRequest_FieldNumber_StateTransition = 1,
 };
 
-@interface ApplyStateTransitionRequest : GPBMessage
+@interface BroadcastStateTransitionRequest : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransition;
 
 @end
 
-#pragma mark - ApplyStateTransitionResponse
+#pragma mark - BroadcastStateTransitionResponse
 
-@interface ApplyStateTransitionResponse : GPBMessage
+@interface BroadcastStateTransitionResponse : GPBMessage
 
 @end
 
