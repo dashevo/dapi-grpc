@@ -27,8 +27,8 @@ const {
             GetStatusResponse: PBJSGetStatusResponse,
             GetBlockRequest: PBJSGetBlockRequest,
             GetBlockResponse: PBJSGetBlockResponse,
-            SendTransactionRequest: PBJSSendTransactionRequest,
-            SendTransactionResponse: PBJSSendTransactionResponse,
+            BroadcastTransactionRequest: PBJSBroadcastTransactionRequest,
+            BroadcastTransactionResponse: PBJSBroadcastTransactionResponse,
             GetTransactionRequest: PBJSGetTransactionRequest,
             GetTransactionResponse: PBJSGetTransactionResponse,
             BlockHeadersWithChainLocksRequest: PBJSBlockHeadersWithChainLocksRequest,
@@ -45,7 +45,7 @@ const {
 const {
   GetStatusResponse: ProtocGetStatusResponse,
   GetBlockResponse: ProtocGetBlockResponse,
-  SendTransactionResponse: ProtocSendTransactionResponse,
+  BroadcastTransactionResponse: ProtocBroadcastTransactionResponse,
   GetTransactionResponse: ProtocGetTransactionResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
   GetEstimatedTransactionFeeResponse: ProtocGetEstimatedTransactionFeeResponse,
@@ -75,8 +75,8 @@ class CorePromiseClient {
       this.client.getBlock.bind(this.client),
     );
 
-    this.client.sendTransaction = promisify(
-      this.client.sendTransaction.bind(this.client),
+    this.client.broadcastTransaction = promisify(
+      this.client.broadcastTransaction.bind(this.client),
     );
 
     this.client.getTransaction = promisify(
@@ -153,28 +153,28 @@ class CorePromiseClient {
   }
 
   /**
-   * @param {!SendTransactionRequest} sendTransactionRequest
+   * @param {!BroadcastTransactionRequest} broadcastTransactionRequest
    * @param {?Object<string, string>} metadata
    * @param {CallOptions} [options={}]
-   * @return {Promise<!SendTransactionResponse>}
+   * @return {Promise<!BroadcastTransactionResponse>}
    */
-  sendTransaction(sendTransactionRequest, metadata = {}, options = {}) {
+  broadcastTransaction(broadcastTransactionRequest, metadata = {}, options = {}) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.sendTransaction(
-      sendTransactionRequest,
+    return this.client.broadcastTransaction(
+      broadcastTransactionRequest,
       convertObjectToMetadata(metadata),
       {
         interceptors: [
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
-              ProtocSendTransactionResponse,
-              PBJSSendTransactionResponse,
+              ProtocBroadcastTransactionResponse,
+              PBJSBroadcastTransactionResponse,
             ),
             protobufToJsonFactory(
-              PBJSSendTransactionRequest,
+              PBJSBroadcastTransactionRequest,
             ),
           ),
         ],

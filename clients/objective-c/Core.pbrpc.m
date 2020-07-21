@@ -46,16 +46,16 @@
              responseClass:[GetBlockResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark sendTransaction(SendTransactionRequest) returns (SendTransactionResponse)
+#pragma mark broadcastTransaction(BroadcastTransactionRequest) returns (BroadcastTransactionResponse)
 
-- (void)sendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCTosendTransactionWithRequest:request handler:handler] start];
+- (void)broadcastTransactionWithRequest:(BroadcastTransactionRequest *)request handler:(void(^)(BroadcastTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTobroadcastTransactionWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTosendTransactionWithRequest:(SendTransactionRequest *)request handler:(void(^)(SendTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"sendTransaction"
+- (GRPCProtoCall *)RPCTobroadcastTransactionWithRequest:(BroadcastTransactionRequest *)request handler:(void(^)(BroadcastTransactionResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"broadcastTransaction"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[SendTransactionResponse class]
+             responseClass:[BroadcastTransactionResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 #pragma mark getTransaction(GetTransactionRequest) returns (GetTransactionResponse)

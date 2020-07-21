@@ -28,16 +28,16 @@ public final class PlatformGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest,
-      org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse> METHOD_APPLY_STATE_TRANSITION =
-      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest, org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest,
+      org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse> METHOD_BROADCAST_STATE_TRANSITION =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest, org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.dash.platform.dapi.v0.Platform", "applyStateTransition"))
+              "org.dash.platform.dapi.v0.Platform", "broadcastStateTransition"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest.getDefaultInstance()))
+              org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse.getDefaultInstance()))
+              org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.PlatformOuterClass.GetIdentityRequest,
@@ -129,9 +129,9 @@ public final class PlatformGrpc {
 
     /**
      */
-    public void applyStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_APPLY_STATE_TRANSITION, responseObserver);
+    public void broadcastStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_BROADCAST_STATE_TRANSITION, responseObserver);
     }
 
     /**
@@ -172,12 +172,12 @@ public final class PlatformGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            METHOD_APPLY_STATE_TRANSITION,
+            METHOD_BROADCAST_STATE_TRANSITION,
             asyncUnaryCall(
               new MethodHandlers<
-                org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest,
-                org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse>(
-                  this, METHODID_APPLY_STATE_TRANSITION)))
+                org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest,
+                org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse>(
+                  this, METHODID_BROADCAST_STATE_TRANSITION)))
           .addMethod(
             METHOD_GET_IDENTITY,
             asyncUnaryCall(
@@ -237,10 +237,10 @@ public final class PlatformGrpc {
 
     /**
      */
-    public void applyStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest request,
-        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse> responseObserver) {
+    public void broadcastStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_APPLY_STATE_TRANSITION, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_BROADCAST_STATE_TRANSITION, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -304,9 +304,9 @@ public final class PlatformGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse applyStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest request) {
+    public org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse broadcastStateTransition(org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_APPLY_STATE_TRANSITION, getCallOptions(), request);
+          getChannel(), METHOD_BROADCAST_STATE_TRANSITION, getCallOptions(), request);
     }
 
     /**
@@ -365,10 +365,10 @@ public final class PlatformGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse> applyStateTransition(
-        org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse> broadcastStateTransition(
+        org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_APPLY_STATE_TRANSITION, getCallOptions()), request);
+          getChannel().newCall(METHOD_BROADCAST_STATE_TRANSITION, getCallOptions()), request);
     }
 
     /**
@@ -412,7 +412,7 @@ public final class PlatformGrpc {
     }
   }
 
-  private static final int METHODID_APPLY_STATE_TRANSITION = 0;
+  private static final int METHODID_BROADCAST_STATE_TRANSITION = 0;
   private static final int METHODID_GET_IDENTITY = 1;
   private static final int METHODID_GET_DATA_CONTRACT = 2;
   private static final int METHODID_GET_DOCUMENTS = 3;
@@ -436,9 +436,9 @@ public final class PlatformGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_APPLY_STATE_TRANSITION:
-          serviceImpl.applyStateTransition((org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionRequest) request,
-              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.ApplyStateTransitionResponse>) responseObserver);
+        case METHODID_BROADCAST_STATE_TRANSITION:
+          serviceImpl.broadcastStateTransition((org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.BroadcastStateTransitionResponse>) responseObserver);
           break;
         case METHODID_GET_IDENTITY:
           serviceImpl.getIdentity((org.dash.platform.dapi.v0.PlatformOuterClass.GetIdentityRequest) request,
@@ -493,7 +493,7 @@ public final class PlatformGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PlatformDescriptorSupplier())
-              .addMethod(METHOD_APPLY_STATE_TRANSITION)
+              .addMethod(METHOD_BROADCAST_STATE_TRANSITION)
               .addMethod(METHOD_GET_IDENTITY)
               .addMethod(METHOD_GET_DATA_CONTRACT)
               .addMethod(METHOD_GET_DOCUMENTS)

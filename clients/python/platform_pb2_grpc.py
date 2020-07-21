@@ -14,10 +14,10 @@ class PlatformStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.applyStateTransition = channel.unary_unary(
-        '/org.dash.platform.dapi.v0.Platform/applyStateTransition',
-        request_serializer=platform__pb2.ApplyStateTransitionRequest.SerializeToString,
-        response_deserializer=platform__pb2.ApplyStateTransitionResponse.FromString,
+    self.broadcastStateTransition = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/broadcastStateTransition',
+        request_serializer=platform__pb2.BroadcastStateTransitionRequest.SerializeToString,
+        response_deserializer=platform__pb2.BroadcastStateTransitionResponse.FromString,
         )
     self.getIdentity = channel.unary_unary(
         '/org.dash.platform.dapi.v0.Platform/getIdentity',
@@ -50,7 +50,7 @@ class PlatformServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def applyStateTransition(self, request, context):
+  def broadcastStateTransition(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -95,10 +95,10 @@ class PlatformServicer(object):
 
 def add_PlatformServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'applyStateTransition': grpc.unary_unary_rpc_method_handler(
-          servicer.applyStateTransition,
-          request_deserializer=platform__pb2.ApplyStateTransitionRequest.FromString,
-          response_serializer=platform__pb2.ApplyStateTransitionResponse.SerializeToString,
+      'broadcastStateTransition': grpc.unary_unary_rpc_method_handler(
+          servicer.broadcastStateTransition,
+          request_deserializer=platform__pb2.BroadcastStateTransitionRequest.FromString,
+          response_serializer=platform__pb2.BroadcastStateTransitionResponse.SerializeToString,
       ),
       'getIdentity': grpc.unary_unary_rpc_method_handler(
           servicer.getIdentity,
