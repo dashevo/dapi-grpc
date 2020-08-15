@@ -44,6 +44,11 @@ class CoreStub(object):
         request_serializer=core__pb2.BlockHeadersWithChainLocksRequest.SerializeToString,
         response_deserializer=core__pb2.BlockHeadersWithChainLocksResponse.FromString,
         )
+    self.subscribeToTransactionsWithProofs = channel.unary_stream(
+        '/org.dash.platform.dapi.v0.Core/subscribeToTransactionsWithProofs',
+        request_serializer=core__pb2.TransactionsWithProofsRequest.SerializeToString,
+        response_deserializer=core__pb2.TransactionsWithProofsResponse.FromString,
+        )
 
 
 class CoreServicer(object):
@@ -92,6 +97,13 @@ class CoreServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def subscribeToTransactionsWithProofs(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_CoreServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -124,6 +136,11 @@ def add_CoreServicer_to_server(servicer, server):
           servicer.subscribeToBlockHeadersWithChainLocks,
           request_deserializer=core__pb2.BlockHeadersWithChainLocksRequest.FromString,
           response_serializer=core__pb2.BlockHeadersWithChainLocksResponse.SerializeToString,
+      ),
+      'subscribeToTransactionsWithProofs': grpc.unary_stream_rpc_method_handler(
+          servicer.subscribeToTransactionsWithProofs,
+          request_deserializer=core__pb2.TransactionsWithProofsRequest.FromString,
+          response_serializer=core__pb2.TransactionsWithProofsResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

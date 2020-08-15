@@ -16,6 +16,7 @@ describe('CorePromiseClient', () => {
       broadcastTransaction: this.sinon.stub().resolves(response),
       getTransaction: this.sinon.stub().resolves(response),
       getEstimatedTransactionFee: this.sinon.stub().resolves(response),
+      subscribeToTransactionsWithProofs: this.sinon.stub().resolves(response),
     };
   });
 
@@ -107,6 +108,27 @@ describe('CorePromiseClient', () => {
     it('should throw an error when metadata is not an object', async () => {
       try {
         corePromiseClient.getEstimatedTransactionFee({}, 'metadata');
+
+        expect.fail('Error was not thrown');
+      } catch (e) {
+        expect(e.message).to.equal('metadata must be an object');
+      }
+    });
+  });
+
+  describe('#subscribeToTransactionsWithProofs', () => {
+    it('should subscribe to transactions with proofs', async () => {
+      const result = await corePromiseClient
+        .subscribeToTransactionsWithProofs(request);
+
+      expect(result).to.equal(response);
+      expect(corePromiseClient.client.subscribeToTransactionsWithProofs)
+        .to.be.calledOnceWith(request);
+    });
+
+    it('should throw an error when metadata is not an object', async () => {
+      try {
+        corePromiseClient.subscribeToTransactionsWithProofs({}, 'metadata');
 
         expect.fail('Error was not thrown');
       } catch (e) {

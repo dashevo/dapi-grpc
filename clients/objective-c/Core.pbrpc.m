@@ -94,4 +94,16 @@
              responseClass:[BlockHeadersWithChainLocksResponse class]
         responsesWriteable:[GRXWriteable writeableWithEventHandler:eventHandler]];
 }
+#pragma mark subscribeToTransactionsWithProofs(TransactionsWithProofsRequest) returns (stream TransactionsWithProofsResponse)
+
+- (void)subscribeToTransactionsWithProofsWithRequest:(TransactionsWithProofsRequest *)request eventHandler:(void(^)(BOOL done, TransactionsWithProofsResponse *_Nullable response, NSError *_Nullable error))eventHandler{
+  [[self RPCTosubscribeToTransactionsWithProofsWithRequest:request eventHandler:eventHandler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCTosubscribeToTransactionsWithProofsWithRequest:(TransactionsWithProofsRequest *)request eventHandler:(void(^)(BOOL done, TransactionsWithProofsResponse *_Nullable response, NSError *_Nullable error))eventHandler{
+  return [self RPCToMethod:@"subscribeToTransactionsWithProofs"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[TransactionsWithProofsResponse class]
+        responsesWriteable:[GRXWriteable writeableWithEventHandler:eventHandler]];
+}
 @end

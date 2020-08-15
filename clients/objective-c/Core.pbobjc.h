@@ -28,7 +28,10 @@
 CF_EXTERN_C_BEGIN
 
 @class BlockHeaders;
+@class BloomFilter;
 @class ChainLockSignatureMessages;
+@class InstantSendLockMessages;
+@class RawTransactions;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -297,6 +300,126 @@ typedef GPB_ENUM(GetEstimatedTransactionFeeResponse_FieldNumber) {
 @interface GetEstimatedTransactionFeeResponse : GPBMessage
 
 @property(nonatomic, readwrite) double fee;
+
+@end
+
+#pragma mark - TransactionsWithProofsRequest
+
+typedef GPB_ENUM(TransactionsWithProofsRequest_FieldNumber) {
+  TransactionsWithProofsRequest_FieldNumber_BloomFilter = 1,
+  TransactionsWithProofsRequest_FieldNumber_FromBlockHash = 2,
+  TransactionsWithProofsRequest_FieldNumber_FromBlockHeight = 3,
+  TransactionsWithProofsRequest_FieldNumber_Count = 4,
+  TransactionsWithProofsRequest_FieldNumber_SendTransactionHashes = 5,
+};
+
+typedef GPB_ENUM(TransactionsWithProofsRequest_FromBlock_OneOfCase) {
+  TransactionsWithProofsRequest_FromBlock_OneOfCase_GPBUnsetOneOfCase = 0,
+  TransactionsWithProofsRequest_FromBlock_OneOfCase_FromBlockHash = 2,
+  TransactionsWithProofsRequest_FromBlock_OneOfCase_FromBlockHeight = 3,
+};
+
+@interface TransactionsWithProofsRequest : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) BloomFilter *bloomFilter;
+/** Test to see if @c bloomFilter has been set. */
+@property(nonatomic, readwrite) BOOL hasBloomFilter;
+
+@property(nonatomic, readonly) TransactionsWithProofsRequest_FromBlock_OneOfCase fromBlockOneOfCase;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *fromBlockHash;
+
+@property(nonatomic, readwrite) uint32_t fromBlockHeight;
+
+@property(nonatomic, readwrite) uint32_t count;
+
+@property(nonatomic, readwrite) BOOL sendTransactionHashes;
+
+@end
+
+/**
+ * Clears whatever value was set for the oneof 'fromBlock'.
+ **/
+void TransactionsWithProofsRequest_ClearFromBlockOneOfCase(TransactionsWithProofsRequest *message);
+
+#pragma mark - BloomFilter
+
+typedef GPB_ENUM(BloomFilter_FieldNumber) {
+  BloomFilter_FieldNumber_VData = 1,
+  BloomFilter_FieldNumber_NHashFuncs = 2,
+  BloomFilter_FieldNumber_NTweak = 3,
+  BloomFilter_FieldNumber_NFlags = 4,
+};
+
+@interface BloomFilter : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *vData;
+
+@property(nonatomic, readwrite) uint32_t nHashFuncs;
+
+@property(nonatomic, readwrite) uint32_t nTweak;
+
+@property(nonatomic, readwrite) uint32_t nFlags;
+
+@end
+
+#pragma mark - TransactionsWithProofsResponse
+
+typedef GPB_ENUM(TransactionsWithProofsResponse_FieldNumber) {
+  TransactionsWithProofsResponse_FieldNumber_RawTransactions = 1,
+  TransactionsWithProofsResponse_FieldNumber_InstantSendLockMessages = 2,
+  TransactionsWithProofsResponse_FieldNumber_RawMerkleBlock = 3,
+};
+
+typedef GPB_ENUM(TransactionsWithProofsResponse_Responses_OneOfCase) {
+  TransactionsWithProofsResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
+  TransactionsWithProofsResponse_Responses_OneOfCase_RawTransactions = 1,
+  TransactionsWithProofsResponse_Responses_OneOfCase_InstantSendLockMessages = 2,
+  TransactionsWithProofsResponse_Responses_OneOfCase_RawMerkleBlock = 3,
+};
+
+@interface TransactionsWithProofsResponse : GPBMessage
+
+@property(nonatomic, readonly) TransactionsWithProofsResponse_Responses_OneOfCase responsesOneOfCase;
+
+@property(nonatomic, readwrite, strong, null_resettable) RawTransactions *rawTransactions;
+
+@property(nonatomic, readwrite, strong, null_resettable) InstantSendLockMessages *instantSendLockMessages;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *rawMerkleBlock;
+
+@end
+
+/**
+ * Clears whatever value was set for the oneof 'responses'.
+ **/
+void TransactionsWithProofsResponse_ClearResponsesOneOfCase(TransactionsWithProofsResponse *message);
+
+#pragma mark - RawTransactions
+
+typedef GPB_ENUM(RawTransactions_FieldNumber) {
+  RawTransactions_FieldNumber_TransactionsArray = 1,
+};
+
+@interface RawTransactions : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *transactionsArray;
+/** The number of items in @c transactionsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger transactionsArray_Count;
+
+@end
+
+#pragma mark - InstantSendLockMessages
+
+typedef GPB_ENUM(InstantSendLockMessages_FieldNumber) {
+  InstantSendLockMessages_FieldNumber_MessagesArray = 1,
+};
+
+@interface InstantSendLockMessages : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *messagesArray;
+/** The number of items in @c messagesArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger messagesArray_Count;
 
 @end
 

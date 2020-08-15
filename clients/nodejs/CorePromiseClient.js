@@ -35,6 +35,8 @@ const {
             BlockHeadersWithChainLocksResponse: PBJSBlockHeadersWithChainLocksResponse,
             GetEstimatedTransactionFeeRequest: PBJSGetEstimatedTransactionFeeRequest,
             GetEstimatedTransactionFeeResponse: PBJSGetEstimatedTransactionFeeResponse,
+            TransactionsWithProofsRequest: PBJSTransactionsWithProofsRequest,
+            TransactionsWithProofsResponse: PBJSTransactionsWithProofsResponse,
           },
         },
       },
@@ -49,6 +51,7 @@ const {
   GetTransactionResponse: ProtocGetTransactionResponse,
   BlockHeadersWithChainLocksResponse: ProtocBlockHeadersWithChainLocksResponse,
   GetEstimatedTransactionFeeResponse: ProtocGetEstimatedTransactionFeeResponse,
+  TransactionsWithProofsResponse: ProtocTransactionsWithProofsResponse,
 } = require('./core_protoc');
 
 const getCoreDefinition = require('../../lib/getCoreDefinition');
@@ -86,8 +89,6 @@ class CorePromiseClient {
     this.client.getEstimatedTransactionFee = promisify(
       this.client.getEstimatedTransactionFee.bind(this.client),
     );
-
-    this.protocolVersion = undefined;
   }
 
   /**
@@ -282,10 +283,35 @@ class CorePromiseClient {
   }
 
   /**
-   * @param {string} protocolVersion
+   * @param {TransactionsWithProofsRequest} transactionsWithProofsRequest The request proto
+   * @param {?Object<string, string>} metadata User defined call metadata
+   * @param {CallOptions} [options={}]
+   * @return {!grpc.web.ClientReadableStream<!TransactionsWithProofsResponse>|undefined}
+   *     The XHR Node Readable Stream
    */
-  setProtocolVersion(protocolVersion) {
-    this.setProtocolVersion = protocolVersion;
+  subscribeToTransactionsWithProofs(transactionsWithProofsRequest, metadata = {}, options = {}) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.subscribeToTransactionsWithProofs(
+      transactionsWithProofsRequest,
+      convertObjectToMetadata(metadata),
+      {
+        interceptors: [
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocTransactionsWithProofsResponse,
+              PBJSTransactionsWithProofsResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSTransactionsWithProofsRequest,
+            ),
+          ),
+        ],
+        ...options,
+      },
+    );
   }
 }
 
