@@ -1,4 +1,4 @@
-const { CorePromiseClient } = require('../../../../../../');
+const { v0: { CorePromiseClient } } = require('../../../../../../');
 
 describe('CorePromiseClient', () => {
   let corePromiseClient;

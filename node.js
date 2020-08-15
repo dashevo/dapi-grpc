@@ -31,14 +31,16 @@ const {
   },
 } = require('./clients/platform/v0/nodejs/platform_pbjs');
 
-module.exports = Object.assign({
-  CorePromiseClient,
-  PlatformPromiseClient,
-  getCoreDefinition,
-  getPlatformDefinition,
-  pbjs: Object.assign(
-    {},
-    pbjsCoreMessages,
-    pbjsPlatformMessages,
-  ),
-}, protocCoreMessages, protocPlatformMessages);
+module.exports = {
+  v0: Object.assign({
+    CorePromiseClient,
+    PlatformPromiseClient,
+    getCoreDefinition,
+    getPlatformDefinition,
+    pbjs: Object.assign(
+      {},
+      pbjsCoreMessages,
+      pbjsPlatformMessages,
+    ),
+  }, protocCoreMessages, protocPlatformMessages),
+};
