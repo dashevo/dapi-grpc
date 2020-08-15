@@ -1,8 +1,8 @@
-const CorePromiseClient = require('./clients/nodejs/CorePromiseClient');
-const PlatformPromiseClient = require('./clients/nodejs/PlatformPromiseClient');
+const CorePromiseClient = require('./clients/core/v0/nodejs/CorePromiseClient');
+const PlatformPromiseClient = require('./clients/platform/v0/nodejs/PlatformPromiseClient');
 
-const protocCoreMessages = require('./clients/nodejs/core_protoc');
-const protocPlatformMessages = require('./clients/nodejs/platform_protoc');
+const protocCoreMessages = require('./clients/core/v0/nodejs/core_protoc');
+const protocPlatformMessages = require('./clients/platform/v0/nodejs/platform_protoc');
 
 const getCoreDefinition = require('./lib/getCoreDefinition');
 const getPlatformDefinition = require('./lib/getPlatformDefinition');
@@ -17,7 +17,7 @@ const {
       },
     },
   },
-} = require('./clients/nodejs/core_pbjs');
+} = require('./clients/core/v0/nodejs/core_pbjs');
 
 const {
   org: {
@@ -29,7 +29,7 @@ const {
       },
     },
   },
-} = require('./clients/nodejs/platform_pbjs');
+} = require('./clients/platform/v0/nodejs/platform_pbjs');
 
 module.exports = Object.assign({
   CorePromiseClient,

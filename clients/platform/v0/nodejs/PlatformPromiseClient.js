@@ -51,10 +51,10 @@ const {
   GetIdentityIdByFirstPublicKeyResponse: ProtocGetIdentityIdByFirstPublicKeyResponse,
 } = require('./platform_protoc');
 
-const getPlatformDefinition = require('../../lib/getPlatformDefinition');
-const stripHostname = require('../../lib/utils/stripHostname');
+const getPlatformDefinition = require('../../../../lib/getPlatformDefinition');
+const stripHostname = require('../../../../lib/utils/stripHostname');
 
-const PlatformNodeJSClient = getPlatformDefinition();
+const PlatformNodeJSClient = getPlatformDefinition(0);
 
 class PlatformPromiseClient {
   /**

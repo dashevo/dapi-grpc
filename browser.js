@@ -1,5 +1,5 @@
-const core = require('./clients/web/core_grpc_web_pb');
-const platform = require('./clients/web/platform_grpc_web_pb');
+const core = require('./clients/core/v0/web/core_grpc_web_pb');
+const platform = require('./clients/platform/v0/web/platform_grpc_web_pb');
 
 module.exports = Object.assign(
   { },

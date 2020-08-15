@@ -54,10 +54,10 @@ const {
   TransactionsWithProofsResponse: ProtocTransactionsWithProofsResponse,
 } = require('./core_protoc');
 
-const getCoreDefinition = require('../../lib/getCoreDefinition');
-const stripHostname = require('../../lib/utils/stripHostname');
+const getCoreDefinition = require('../../../../lib/getCoreDefinition');
+const stripHostname = require('../../../../lib/utils/stripHostname');
 
-const CoreNodeJSClient = getCoreDefinition();
+const CoreNodeJSClient = getCoreDefinition(0);
 
 class CorePromiseClient {
   /**

@@ -1,4 +1,4 @@
-const PlatformPromiseClient = require('../../../../clients/nodejs/PlatformPromiseClient');
+const { PlatformPromiseClient } = require('../../../../../../');
 
 describe('PlatformPromiseClient', () => {
   let platformPromiseClient;
