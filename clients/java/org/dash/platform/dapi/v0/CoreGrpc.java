@@ -99,6 +99,18 @@ public final class CoreGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksResponse.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest,
+      org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse> METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS =
+      io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest, org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+          .setFullMethodName(generateFullMethodName(
+              "org.dash.platform.dapi.v0.Core", "subscribeToTransactionsWithProofs"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -169,6 +181,13 @@ public final class CoreGrpc {
       asyncUnimplementedUnaryCall(METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS, responseObserver);
     }
 
+    /**
+     */
+    public void subscribeToTransactionsWithProofs(org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -213,6 +232,13 @@ public final class CoreGrpc {
                 org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksRequest,
                 org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksResponse>(
                   this, METHODID_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS)))
+          .addMethod(
+            METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS,
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest,
+                org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse>(
+                  this, METHODID_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS)))
           .build();
     }
   }
@@ -282,6 +308,14 @@ public final class CoreGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void subscribeToTransactionsWithProofs(org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest request,
+        io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -343,6 +377,14 @@ public final class CoreGrpc {
         org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksRequest request) {
       return blockingServerStreamingCall(
           getChannel(), METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse> subscribeToTransactionsWithProofs(
+        org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS, getCallOptions(), request);
     }
   }
 
@@ -411,6 +453,7 @@ public final class CoreGrpc {
   private static final int METHODID_GET_TRANSACTION = 3;
   private static final int METHODID_GET_ESTIMATED_TRANSACTION_FEE = 4;
   private static final int METHODID_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS = 5;
+  private static final int METHODID_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -453,6 +496,10 @@ public final class CoreGrpc {
           serviceImpl.subscribeToBlockHeadersWithChainLocks((org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksRequest) request,
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.BlockHeadersWithChainLocksResponse>) responseObserver);
           break;
+        case METHODID_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS:
+          serviceImpl.subscribeToTransactionsWithProofs((org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsRequest) request,
+              (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.CoreOuterClass.TransactionsWithProofsResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -492,6 +539,7 @@ public final class CoreGrpc {
               .addMethod(METHOD_GET_TRANSACTION)
               .addMethod(METHOD_GET_ESTIMATED_TRANSACTION_FEE)
               .addMethod(METHOD_SUBSCRIBE_TO_BLOCK_HEADERS_WITH_CHAIN_LOCKS)
+              .addMethod(METHOD_SUBSCRIBE_TO_TRANSACTIONS_WITH_PROOFS)
               .build();
         }
       }
