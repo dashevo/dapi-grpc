@@ -32,11 +32,11 @@ const {
 } = require('./clients/platform/v0/nodejs/platform_pbjs');
 
 module.exports = {
+  getCoreDefinition,
+  getPlatformDefinition,
   v0: Object.assign({
     CorePromiseClient,
     PlatformPromiseClient,
-    getCoreDefinition,
-    getPlatformDefinition,
     pbjs: Object.assign(
       {},
       pbjsCoreMessages,
