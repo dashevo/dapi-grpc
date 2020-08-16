@@ -1,5 +1,3 @@
 # Ignore build artifacts
-platform_protoc.js
-platform_pbjs.js
 core_protoc.js
 core_pbjs.js

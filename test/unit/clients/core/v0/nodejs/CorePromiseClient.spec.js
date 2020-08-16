@@ -1,4 +1,4 @@
-const CorePromiseClient = require('../../../../clients/nodejs/CorePromiseClient');
+const { v0: { CorePromiseClient } } = require('../../../../../../');
 
 describe('CorePromiseClient', () => {
   let corePromiseClient;
