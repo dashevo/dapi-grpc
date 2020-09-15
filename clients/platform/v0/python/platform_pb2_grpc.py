@@ -44,6 +44,16 @@ class PlatformStub(object):
         request_serializer=platform__pb2.GetIdentityIdByFirstPublicKeyRequest.SerializeToString,
         response_deserializer=platform__pb2.GetIdentityIdByFirstPublicKeyResponse.FromString,
         )
+    self.getIdentityByPublicKeyHash = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/getIdentityByPublicKeyHash',
+        request_serializer=platform__pb2.GetIdentityByPublicKeyHashRequest.SerializeToString,
+        response_deserializer=platform__pb2.GetIdentityByPublicKeyHashResponse.FromString,
+        )
+    self.getIdentityIdByPublicKeyHash = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/getIdentityIdByPublicKeyHash',
+        request_serializer=platform__pb2.GetIdentityIdByPublicKeyHashRequest.SerializeToString,
+        response_deserializer=platform__pb2.GetIdentityIdByPublicKeyHashResponse.FromString,
+        )
 
 
 class PlatformServicer(object):
@@ -92,6 +102,20 @@ class PlatformServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def getIdentityByPublicKeyHash(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def getIdentityIdByPublicKeyHash(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PlatformServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -124,6 +148,16 @@ def add_PlatformServicer_to_server(servicer, server):
           servicer.getIdentityIdByFirstPublicKey,
           request_deserializer=platform__pb2.GetIdentityIdByFirstPublicKeyRequest.FromString,
           response_serializer=platform__pb2.GetIdentityIdByFirstPublicKeyResponse.SerializeToString,
+      ),
+      'getIdentityByPublicKeyHash': grpc.unary_unary_rpc_method_handler(
+          servicer.getIdentityByPublicKeyHash,
+          request_deserializer=platform__pb2.GetIdentityByPublicKeyHashRequest.FromString,
+          response_serializer=platform__pb2.GetIdentityByPublicKeyHashResponse.SerializeToString,
+      ),
+      'getIdentityIdByPublicKeyHash': grpc.unary_unary_rpc_method_handler(
+          servicer.getIdentityIdByPublicKeyHash,
+          request_deserializer=platform__pb2.GetIdentityIdByPublicKeyHashRequest.FromString,
+          response_serializer=platform__pb2.GetIdentityIdByPublicKeyHashResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

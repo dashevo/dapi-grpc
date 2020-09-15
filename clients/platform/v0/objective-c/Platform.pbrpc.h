@@ -53,6 +53,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCTogetIdentityIdByFirstPublicKeyWithRequest:(GetIdentityIdByFirstPublicKeyRequest *)request handler:(void(^)(GetIdentityIdByFirstPublicKeyResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
+#pragma mark getIdentityByPublicKeyHash(GetIdentityByPublicKeyHashRequest) returns (GetIdentityByPublicKeyHashResponse)
+
+- (void)getIdentityByPublicKeyHashWithRequest:(GetIdentityByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCTogetIdentityByPublicKeyHashWithRequest:(GetIdentityByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark getIdentityIdByPublicKeyHash(GetIdentityIdByPublicKeyHashRequest) returns (GetIdentityIdByPublicKeyHashResponse)
+
+- (void)getIdentityIdByPublicKeyHashWithRequest:(GetIdentityIdByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityIdByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCTogetIdentityIdByPublicKeyHashWithRequest:(GetIdentityIdByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityIdByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
 @end
 
 /**

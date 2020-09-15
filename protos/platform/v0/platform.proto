@@ -9,6 +9,8 @@ service Platform {
   rpc getDocuments (GetDocumentsRequest) returns (GetDocumentsResponse);
   rpc getIdentityByFirstPublicKey (GetIdentityByFirstPublicKeyRequest) returns (GetIdentityByFirstPublicKeyResponse);
   rpc getIdentityIdByFirstPublicKey (GetIdentityIdByFirstPublicKeyRequest) returns (GetIdentityIdByFirstPublicKeyResponse);
+  rpc getIdentityByPublicKeyHash (GetIdentityByPublicKeyHashRequest) returns (GetIdentityByPublicKeyHashResponse);
+  rpc getIdentityIdByPublicKeyHash (GetIdentityIdByPublicKeyHashRequest) returns (GetIdentityIdByPublicKeyHashResponse);
 }
 
 message BroadcastStateTransitionRequest {
@@ -67,5 +69,21 @@ message GetIdentityIdByFirstPublicKeyRequest {
 }
 
 message GetIdentityIdByFirstPublicKeyResponse {
+  string id = 1;
+}
+
+message GetIdentityByPublicKeyHashRequest {
+  bytes public_key_hash = 1;
+}
+
+message GetIdentityByPublicKeyHashResponse {
+  bytes identity = 1;
+}
+
+message GetIdentityIdByPublicKeyHashRequest {
+  bytes public_key_hash = 1;
+}
+
+message GetIdentityIdByPublicKeyHashResponse {
   string id = 1;
 }

@@ -94,4 +94,28 @@
              responseClass:[GetIdentityIdByFirstPublicKeyResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark getIdentityByPublicKeyHash(GetIdentityByPublicKeyHashRequest) returns (GetIdentityByPublicKeyHashResponse)
+
+- (void)getIdentityByPublicKeyHashWithRequest:(GetIdentityByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTogetIdentityByPublicKeyHashWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCTogetIdentityByPublicKeyHashWithRequest:(GetIdentityByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"getIdentityByPublicKeyHash"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[GetIdentityByPublicKeyHashResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark getIdentityIdByPublicKeyHash(GetIdentityIdByPublicKeyHashRequest) returns (GetIdentityIdByPublicKeyHashResponse)
+
+- (void)getIdentityIdByPublicKeyHashWithRequest:(GetIdentityIdByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityIdByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTogetIdentityIdByPublicKeyHashWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCTogetIdentityIdByPublicKeyHashWithRequest:(GetIdentityIdByPublicKeyHashRequest *)request handler:(void(^)(GetIdentityIdByPublicKeyHashResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"getIdentityIdByPublicKeyHash"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[GetIdentityIdByPublicKeyHashResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 @end
