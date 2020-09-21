@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='platform.proto',
   package='org.dash.platform.dapi.v0',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\" \n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"$\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\t\"0\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\"\xaa\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\t\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x42\x07\n\x05start\")\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\"=\n\"GetIdentityByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"7\n#GetIdentityByFirstPublicKeyResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"?\n$GetIdentityIdByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"3\n%GetIdentityIdByFirstPublicKeyResponse\x12\n\n\x02id\x18\x01 \x01(\t\"<\n!GetIdentityByPublicKeyHashRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"6\n\"GetIdentityByPublicKeyHashResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\">\n#GetIdentityIdByPublicKeyHashRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"2\n$GetIdentityIdByPublicKeyHashResponse\x12\n\n\x02id\x18\x01 \x01(\t2\xfb\x08\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\x9c\x01\n\x1bgetIdentityByFirstPublicKey\x12=.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyRequest\x1a>.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyResponse\x12\xa2\x01\n\x1dgetIdentityIdByFirstPublicKey\x12?.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyRequest\x1a@.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyResponse\x12\x99\x01\n\x1agetIdentityByPublicKeyHash\x12<.org.dash.platform.dapi.v0.GetIdentityByPublicKeyHashRequest\x1a=.org.dash.platform.dapi.v0.GetIdentityByPublicKeyHashResponse\x12\x9f\x01\n\x1cgetIdentityIdByPublicKeyHash\x12>.org.dash.platform.dapi.v0.GetIdentityIdByPublicKeyHashRequest\x1a?.org.dash.platform.dapi.v0.GetIdentityIdByPublicKeyHashResponseb\x06proto3')
+  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\" \n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"$\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\t\"0\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\"\xaa\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\t\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x42\x07\n\x05start\")\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\"=\n\"GetIdentityByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"7\n#GetIdentityByFirstPublicKeyResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"?\n$GetIdentityIdByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"3\n%GetIdentityIdByFirstPublicKeyResponse\x12\n\n\x02id\x18\x01 \x01(\t\"<\n!GetIdentityByPublicKeyHashRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"6\n\"GetIdentityByPublicKeyHashResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\">\n#GetIdentityIdByPublicKeyHashRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"2\n$GetIdentityIdByPublicKeyHashResponse\x12\n\n\x02id\x18\x01 \x01(\t2\x85\t\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa1\x01\n\x1bgetIdentityByFirstPublicKey\x12=.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyRequest\x1a>.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\xa7\x01\n\x1dgetIdentityIdByFirstPublicKey\x12?.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyRequest\x1a@.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\x99\x01\n\x1agetIdentityByPublicKeyHash\x12<.org.dash.platform.dapi.v0.GetIdentityByPublicKeyHashRequest\x1a=.org.dash.platform.dapi.v0.GetIdentityByPublicKeyHashResponse\x12\x9f\x01\n\x1cgetIdentityIdByPublicKeyHash\x12>.org.dash.platform.dapi.v0.GetIdentityIdByPublicKeyHashRequest\x1a?.org.dash.platform.dapi.v0.GetIdentityIdByPublicKeyHashResponseb\x06proto3')
 )
 
 
@@ -703,7 +703,7 @@ _PLATFORM = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=994,
-  serialized_end=2141,
+  serialized_end=2151,
   methods=[
   _descriptor.MethodDescriptor(
     name='broadcastStateTransition',
@@ -748,7 +748,7 @@ _PLATFORM = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETIDENTITYBYFIRSTPUBLICKEYREQUEST,
     output_type=_GETIDENTITYBYFIRSTPUBLICKEYRESPONSE,
-    options=None,
+    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\210\002\001')),
   ),
   _descriptor.MethodDescriptor(
     name='getIdentityIdByFirstPublicKey',
@@ -757,7 +757,7 @@ _PLATFORM = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETIDENTITYIDBYFIRSTPUBLICKEYREQUEST,
     output_type=_GETIDENTITYIDBYFIRSTPUBLICKEYRESPONSE,
-    options=None,
+    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\210\002\001')),
   ),
   _descriptor.MethodDescriptor(
     name='getIdentityByPublicKeyHash',

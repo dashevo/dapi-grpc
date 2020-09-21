@@ -7,8 +7,12 @@ service Platform {
   rpc getIdentity (GetIdentityRequest) returns (GetIdentityResponse);
   rpc getDataContract (GetDataContractRequest) returns (GetDataContractResponse);
   rpc getDocuments (GetDocumentsRequest) returns (GetDocumentsResponse);
-  rpc getIdentityByFirstPublicKey (GetIdentityByFirstPublicKeyRequest) returns (GetIdentityByFirstPublicKeyResponse);
-  rpc getIdentityIdByFirstPublicKey (GetIdentityIdByFirstPublicKeyRequest) returns (GetIdentityIdByFirstPublicKeyResponse);
+  rpc getIdentityByFirstPublicKey (GetIdentityByFirstPublicKeyRequest) returns (GetIdentityByFirstPublicKeyResponse) {
+    option deprecated = true;
+  };
+  rpc getIdentityIdByFirstPublicKey (GetIdentityIdByFirstPublicKeyRequest) returns (GetIdentityIdByFirstPublicKeyResponse) {
+    option deprecated = true;
+  };
   rpc getIdentityByPublicKeyHash (GetIdentityByPublicKeyHashRequest) returns (GetIdentityByPublicKeyHashResponse);
   rpc getIdentityIdByPublicKeyHash (GetIdentityIdByPublicKeyHashRequest) returns (GetIdentityIdByPublicKeyHashResponse);
 }
