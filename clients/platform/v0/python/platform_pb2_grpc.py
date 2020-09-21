@@ -44,15 +44,15 @@ class PlatformStub(object):
         request_serializer=platform__pb2.GetIdentityIdByFirstPublicKeyRequest.SerializeToString,
         response_deserializer=platform__pb2.GetIdentityIdByFirstPublicKeyResponse.FromString,
         )
-    self.getIdentityByPublicKeyHash = channel.unary_unary(
-        '/org.dash.platform.dapi.v0.Platform/getIdentityByPublicKeyHash',
-        request_serializer=platform__pb2.GetIdentityByPublicKeyHashRequest.SerializeToString,
-        response_deserializer=platform__pb2.GetIdentityByPublicKeyHashResponse.FromString,
+    self.getIdentitiesByPublicKeyHashes = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes',
+        request_serializer=platform__pb2.GetIdentitiesByPublicKeyHashesRequest.SerializeToString,
+        response_deserializer=platform__pb2.GetIdentitiesByPublicKeyHashesResponse.FromString,
         )
-    self.getIdentityIdByPublicKeyHash = channel.unary_unary(
-        '/org.dash.platform.dapi.v0.Platform/getIdentityIdByPublicKeyHash',
-        request_serializer=platform__pb2.GetIdentityIdByPublicKeyHashRequest.SerializeToString,
-        response_deserializer=platform__pb2.GetIdentityIdByPublicKeyHashResponse.FromString,
+    self.getIdentityIdsByPublicKeyHashes = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes',
+        request_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
+        response_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.FromString,
         )
 
 
@@ -102,14 +102,14 @@ class PlatformServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def getIdentityByPublicKeyHash(self, request, context):
+  def getIdentitiesByPublicKeyHashes(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def getIdentityIdByPublicKeyHash(self, request, context):
+  def getIdentityIdsByPublicKeyHashes(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -149,15 +149,15 @@ def add_PlatformServicer_to_server(servicer, server):
           request_deserializer=platform__pb2.GetIdentityIdByFirstPublicKeyRequest.FromString,
           response_serializer=platform__pb2.GetIdentityIdByFirstPublicKeyResponse.SerializeToString,
       ),
-      'getIdentityByPublicKeyHash': grpc.unary_unary_rpc_method_handler(
-          servicer.getIdentityByPublicKeyHash,
-          request_deserializer=platform__pb2.GetIdentityByPublicKeyHashRequest.FromString,
-          response_serializer=platform__pb2.GetIdentityByPublicKeyHashResponse.SerializeToString,
+      'getIdentitiesByPublicKeyHashes': grpc.unary_unary_rpc_method_handler(
+          servicer.getIdentitiesByPublicKeyHashes,
+          request_deserializer=platform__pb2.GetIdentitiesByPublicKeyHashesRequest.FromString,
+          response_serializer=platform__pb2.GetIdentitiesByPublicKeyHashesResponse.SerializeToString,
       ),
-      'getIdentityIdByPublicKeyHash': grpc.unary_unary_rpc_method_handler(
-          servicer.getIdentityIdByPublicKeyHash,
-          request_deserializer=platform__pb2.GetIdentityIdByPublicKeyHashRequest.FromString,
-          response_serializer=platform__pb2.GetIdentityIdByPublicKeyHashResponse.SerializeToString,
+      'getIdentityIdsByPublicKeyHashes': grpc.unary_unary_rpc_method_handler(
+          servicer.getIdentityIdsByPublicKeyHashes,
+          request_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.FromString,
+          response_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
