@@ -324,39 +324,6 @@ class PlatformPromiseClient {
   }
 
   /**
-   * @param {!GetIdentityIdsByPublicKeyHashesRequest} getIdentityIdsByPublicKeyHashesRequest
-   * @param {?Object<string, string>} metadata
-   * @param {CallOptions} [options={}]
-   * @returns {Promise<!GetIdentityIdsByPublicKeyHashesResponse>}
-   */
-  getIdentityIdsByPublicKeyHashes(
-    getIdentityIdsByPublicKeyHashesRequest, metadata = {}, options = {},
-  ) {
-    if (!isObject(metadata)) {
-      throw new Error('metadata must be an object');
-    }
-
-    return this.client.getIdentityIdsByPublicKeyHashes(
-      getIdentityIdsByPublicKeyHashesRequest,
-      convertObjectToMetadata(metadata),
-      {
-        interceptors: [
-          jsonToProtobufInterceptorFactory(
-            jsonToProtobufFactory(
-              ProtocGetIdentityIdsByPublicKeyHashesResponse,
-              PBJSGetIdentityIdsByPublicKeyHashesResponse,
-            ),
-            protobufToJsonFactory(
-              PBJSGetIdentityIdsByPublicKeyHashesRequest,
-            ),
-          ),
-        ],
-        ...options,
-      },
-    );
-  }
-
-  /**
    * @param {string} protocolVersion
    */
   setProtocolVersion(protocolVersion) {

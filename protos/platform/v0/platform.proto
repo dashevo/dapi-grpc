@@ -14,7 +14,6 @@ service Platform {
     option deprecated = true;
   };
   rpc getIdentitiesByPublicKeyHashes (GetIdentitiesByPublicKeyHashesRequest) returns (GetIdentitiesByPublicKeyHashesResponse);
-  rpc getIdentityIdsByPublicKeyHashes (GetIdentityIdsByPublicKeyHashesRequest) returns (GetIdentityIdsByPublicKeyHashesResponse);
 }
 
 message BroadcastStateTransitionRequest {
@@ -76,28 +75,10 @@ message GetIdentityIdByFirstPublicKeyResponse {
   string id = 1;
 }
 
-message PublicKeyHashIdentityPair {
-  bytes public_key_hash = 1;
-  bytes identity = 2;
-}
-
-message PublicKeyHashIdentityIdPair {
-  bytes public_key_hash = 1;
-  string identity_id = 2;
-}
-
 message GetIdentitiesByPublicKeyHashesRequest {
   repeated bytes public_key_hashes = 1;
 }
 
 message GetIdentitiesByPublicKeyHashesResponse {
-  repeated PublicKeyHashIdentityPair public_key_hash_identity_pairs = 1;
-}
-
-message GetIdentityIdsByPublicKeyHashesRequest {
-  repeated bytes public_key_hashes = 1;
-}
-
-message GetIdentityIdsByPublicKeyHashesResponse {
-  repeated PublicKeyHashIdentityIdPair public_key_hash_identity_id_pairs = 1;
+  repeated bytes identities = 1;
 }

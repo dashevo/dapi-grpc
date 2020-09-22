@@ -106,16 +106,4 @@
              responseClass:[GetIdentitiesByPublicKeyHashesResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark getIdentityIdsByPublicKeyHashes(GetIdentityIdsByPublicKeyHashesRequest) returns (GetIdentityIdsByPublicKeyHashesResponse)
-
-- (void)getIdentityIdsByPublicKeyHashesWithRequest:(GetIdentityIdsByPublicKeyHashesRequest *)request handler:(void(^)(GetIdentityIdsByPublicKeyHashesResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCTogetIdentityIdsByPublicKeyHashesWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTogetIdentityIdsByPublicKeyHashesWithRequest:(GetIdentityIdsByPublicKeyHashesRequest *)request handler:(void(^)(GetIdentityIdsByPublicKeyHashesResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"getIdentityIdsByPublicKeyHashes"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[GetIdentityIdsByPublicKeyHashesResponse class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
 @end
