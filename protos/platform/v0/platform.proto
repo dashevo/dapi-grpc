@@ -14,6 +14,7 @@ service Platform {
     option deprecated = true;
   };
   rpc getIdentitiesByPublicKeyHashes (GetIdentitiesByPublicKeyHashesRequest) returns (GetIdentitiesByPublicKeyHashesResponse);
+  rpc getIdentityIdsByPublicKeyHashes (GetIdentityIdsByPublicKeyHashesRequest) returns (GetIdentityIdsByPublicKeyHashesResponse);
 }
 
 message BroadcastStateTransitionRequest {
@@ -80,5 +81,13 @@ message GetIdentitiesByPublicKeyHashesRequest {
 }
 
 message GetIdentitiesByPublicKeyHashesResponse {
-  repeated bytes identities = 1;
+  map<string, bytes> public_key_hash_identity_map = 1;
+}
+
+message GetIdentityIdsByPublicKeyHashesRequest {
+  repeated bytes public_key_hashes = 1;
+}
+
+message GetIdentityIdsByPublicKeyHashesResponse {
+  map<string, string> public_key_hash_identity_id_map = 1;
 }

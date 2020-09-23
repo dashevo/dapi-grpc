@@ -49,6 +49,11 @@ class PlatformStub(object):
         request_serializer=platform__pb2.GetIdentitiesByPublicKeyHashesRequest.SerializeToString,
         response_deserializer=platform__pb2.GetIdentitiesByPublicKeyHashesResponse.FromString,
         )
+    self.getIdentityIdsByPublicKeyHashes = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes',
+        request_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
+        response_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.FromString,
+        )
 
 
 class PlatformServicer(object):
@@ -104,6 +109,13 @@ class PlatformServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def getIdentityIdsByPublicKeyHashes(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PlatformServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -141,6 +153,11 @@ def add_PlatformServicer_to_server(servicer, server):
           servicer.getIdentitiesByPublicKeyHashes,
           request_deserializer=platform__pb2.GetIdentitiesByPublicKeyHashesRequest.FromString,
           response_serializer=platform__pb2.GetIdentitiesByPublicKeyHashesResponse.SerializeToString,
+      ),
+      'getIdentityIdsByPublicKeyHashes': grpc.unary_unary_rpc_method_handler(
+          servicer.getIdentityIdsByPublicKeyHashes,
+          request_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.FromString,
+          response_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
