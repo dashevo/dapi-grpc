@@ -81,7 +81,7 @@ message GetIdentitiesByPublicKeyHashesRequest {
 }
 
 message GetIdentitiesByPublicKeyHashesResponse {
-  map<string, bytes> public_key_hash_identity_map = 1;
+  map<string, bytes> identities_by_public_key_hashes = 1;
 }
 
 message GetIdentityIdsByPublicKeyHashesRequest {
@@ -89,5 +89,5 @@ message GetIdentityIdsByPublicKeyHashesRequest {
 }
 
 message GetIdentityIdsByPublicKeyHashesResponse {
-  map<string, string> public_key_hash_identity_id_map = 1;
+  map<string, bytes> identity_ids_by_public_key_hashes = 1;
 }

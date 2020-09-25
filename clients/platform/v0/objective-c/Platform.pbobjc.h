@@ -232,14 +232,14 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesRequest_FieldNumber) {
 #pragma mark - GetIdentitiesByPublicKeyHashesResponse
 
 typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
-  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_PublicKeyHashIdentityMap = 1,
+  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesByPublicKeyHashes = 1,
 };
 
 @interface GetIdentitiesByPublicKeyHashesResponse : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSData*> *publicKeyHashIdentityMap;
-/** The number of items in @c publicKeyHashIdentityMap without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger publicKeyHashIdentityMap_Count;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSData*> *identitiesByPublicKeyHashes;
+/** The number of items in @c identitiesByPublicKeyHashes without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger identitiesByPublicKeyHashes_Count;
 
 @end
 
@@ -260,14 +260,14 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesRequest_FieldNumber) {
 #pragma mark - GetIdentityIdsByPublicKeyHashesResponse
 
 typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
-  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_PublicKeyHashIdentityIdMap = 1,
+  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsByPublicKeyHashes = 1,
 };
 
 @interface GetIdentityIdsByPublicKeyHashesResponse : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSString*> *publicKeyHashIdentityIdMap;
-/** The number of items in @c publicKeyHashIdentityIdMap without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger publicKeyHashIdentityIdMap_Count;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSData*> *identityIdsByPublicKeyHashes;
+/** The number of items in @c identityIdsByPublicKeyHashes without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger identityIdsByPublicKeyHashes_Count;
 
 @end
 

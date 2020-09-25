@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='platform.proto',
   package='org.dash.platform.dapi.v0',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\" \n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"$\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\t\"0\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\"\xaa\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\t\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x42\x07\n\x05start\")\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\"=\n\"GetIdentityByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"7\n#GetIdentityByFirstPublicKeyResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"?\n$GetIdentityIdByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"3\n%GetIdentityIdByFirstPublicKeyResponse\x12\n\n\x02id\x18\x01 \x01(\t\"B\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\"\xf1\x01\n&GetIdentitiesByPublicKeyHashesResponse\x12\x85\x01\n\x1cpublic_key_hash_identity_map\x18\x01 \x03(\x0b\x32_.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry\x1a?\n\x1dPublicKeyHashIdentityMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"C\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\"\xfa\x01\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x8b\x01\n\x1fpublic_key_hash_identity_id_map\x18\x01 \x03(\x0b\x32\x62.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry\x1a\x41\n\x1fPublicKeyHashIdentityIdMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x32\x9a\t\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa1\x01\n\x1bgetIdentityByFirstPublicKey\x12=.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyRequest\x1a>.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\xa7\x01\n\x1dgetIdentityIdByFirstPublicKey\x12?.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyRequest\x1a@.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponseb\x06proto3')
+  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\" \n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"$\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\t\"0\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\"\xaa\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\t\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x42\x07\n\x05start\")\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\"=\n\"GetIdentityByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"7\n#GetIdentityByFirstPublicKeyResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\"?\n$GetIdentityIdByFirstPublicKeyRequest\x12\x17\n\x0fpublic_key_hash\x18\x01 \x01(\x0c\"3\n%GetIdentityIdByFirstPublicKeyResponse\x12\n\n\x02id\x18\x01 \x01(\t\"B\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\"\xfa\x01\n&GetIdentitiesByPublicKeyHashesResponse\x12\x8b\x01\n\x1fidentities_by_public_key_hashes\x18\x01 \x03(\x0b\x32\x62.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry\x1a\x42\n IdentitiesByPublicKeyHashesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"C\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\"\x80\x02\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x8f\x01\n!identity_ids_by_public_key_hashes\x18\x01 \x03(\x0b\x32\x64.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry\x1a\x43\n!IdentityIdsByPublicKeyHashesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\x32\x9a\t\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa1\x01\n\x1bgetIdentityByFirstPublicKey\x12=.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyRequest\x1a>.org.dash.platform.dapi.v0.GetIdentityByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\xa7\x01\n\x1dgetIdentityIdByFirstPublicKey\x12?.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyRequest\x1a@.org.dash.platform.dapi.v0.GetIdentityIdByFirstPublicKeyResponse\"\x03\x88\x02\x01\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponseb\x06proto3')
 )
 
 
@@ -466,22 +466,22 @@ _GETIDENTITIESBYPUBLICKEYHASHESREQUEST = _descriptor.Descriptor(
 )
 
 
-_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY = _descriptor.Descriptor(
-  name='PublicKeyHashIdentityMapEntry',
-  full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry',
+_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY = _descriptor.Descriptor(
+  name='IdentitiesByPublicKeyHashesEntry',
+  full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry.key', index=0,
+      name='key', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry.value', index=1,
+      name='value', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry.value', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -499,8 +499,8 @@ _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY = _descrip
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1006,
-  serialized_end=1069,
+  serialized_start=1012,
+  serialized_end=1078,
 )
 
 _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
@@ -511,7 +511,7 @@ _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='public_key_hash_identity_map', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.public_key_hash_identity_map', index=0,
+      name='identities_by_public_key_hashes', full_name='org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.identities_by_public_key_hashes', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -520,7 +520,7 @@ _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY, ],
+  nested_types=[_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY, ],
   enum_types=[
   ],
   options=None,
@@ -530,7 +530,7 @@ _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=828,
-  serialized_end=1069,
+  serialized_end=1078,
 )
 
 
@@ -560,29 +560,29 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1071,
-  serialized_end=1138,
+  serialized_start=1080,
+  serialized_end=1147,
 )
 
 
-_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY = _descriptor.Descriptor(
-  name='PublicKeyHashIdentityIdMapEntry',
-  full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry',
+_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY = _descriptor.Descriptor(
+  name='IdentityIdsByPublicKeyHashesEntry',
+  full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry.key', index=0,
+      name='key', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='value', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry.value', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -598,8 +598,8 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY = _desc
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1326,
-  serialized_end=1391,
+  serialized_start=1339,
+  serialized_end=1406,
 )
 
 _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
@@ -610,7 +610,7 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='public_key_hash_identity_id_map', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.public_key_hash_identity_id_map', index=0,
+      name='identity_ids_by_public_key_hashes', full_name='org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.identity_ids_by_public_key_hashes', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -619,7 +619,7 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY, ],
+  nested_types=[_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY, ],
   enum_types=[
   ],
   options=None,
@@ -628,8 +628,8 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1141,
-  serialized_end=1391,
+  serialized_start=1150,
+  serialized_end=1406,
 )
 
 _GETDOCUMENTSREQUEST.oneofs_by_name['start'].fields.append(
@@ -638,10 +638,10 @@ _GETDOCUMENTSREQUEST.fields_by_name['start_after'].containing_oneof = _GETDOCUME
 _GETDOCUMENTSREQUEST.oneofs_by_name['start'].fields.append(
   _GETDOCUMENTSREQUEST.fields_by_name['start_at'])
 _GETDOCUMENTSREQUEST.fields_by_name['start_at'].containing_oneof = _GETDOCUMENTSREQUEST.oneofs_by_name['start']
-_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY.containing_type = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE
-_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE.fields_by_name['public_key_hash_identity_map'].message_type = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY
-_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY.containing_type = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE
-_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE.fields_by_name['public_key_hash_identity_id_map'].message_type = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY
+_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY.containing_type = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE
+_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE.fields_by_name['identities_by_public_key_hashes'].message_type = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY
+_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY.containing_type = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE
+_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE.fields_by_name['identity_ids_by_public_key_hashes'].message_type = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY
 DESCRIPTOR.message_types_by_name['BroadcastStateTransitionRequest'] = _BROADCASTSTATETRANSITIONREQUEST
 DESCRIPTOR.message_types_by_name['BroadcastStateTransitionResponse'] = _BROADCASTSTATETRANSITIONRESPONSE
 DESCRIPTOR.message_types_by_name['GetIdentityRequest'] = _GETIDENTITYREQUEST
@@ -753,10 +753,10 @@ _sym_db.RegisterMessage(GetIdentitiesByPublicKeyHashesRequest)
 
 GetIdentitiesByPublicKeyHashesResponse = _reflection.GeneratedProtocolMessageType('GetIdentitiesByPublicKeyHashesResponse', (_message.Message,), dict(
 
-  PublicKeyHashIdentityMapEntry = _reflection.GeneratedProtocolMessageType('PublicKeyHashIdentityMapEntry', (_message.Message,), dict(
-    DESCRIPTOR = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY,
+  IdentitiesByPublicKeyHashesEntry = _reflection.GeneratedProtocolMessageType('IdentitiesByPublicKeyHashesEntry', (_message.Message,), dict(
+    DESCRIPTOR = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY,
     __module__ = 'platform_pb2'
-    # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry)
+    # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry)
     ))
   ,
   DESCRIPTOR = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE,
@@ -764,7 +764,7 @@ GetIdentitiesByPublicKeyHashesResponse = _reflection.GeneratedProtocolMessageTyp
   # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse)
   ))
 _sym_db.RegisterMessage(GetIdentitiesByPublicKeyHashesResponse)
-_sym_db.RegisterMessage(GetIdentitiesByPublicKeyHashesResponse.PublicKeyHashIdentityMapEntry)
+_sym_db.RegisterMessage(GetIdentitiesByPublicKeyHashesResponse.IdentitiesByPublicKeyHashesEntry)
 
 GetIdentityIdsByPublicKeyHashesRequest = _reflection.GeneratedProtocolMessageType('GetIdentityIdsByPublicKeyHashesRequest', (_message.Message,), dict(
   DESCRIPTOR = _GETIDENTITYIDSBYPUBLICKEYHASHESREQUEST,
@@ -775,10 +775,10 @@ _sym_db.RegisterMessage(GetIdentityIdsByPublicKeyHashesRequest)
 
 GetIdentityIdsByPublicKeyHashesResponse = _reflection.GeneratedProtocolMessageType('GetIdentityIdsByPublicKeyHashesResponse', (_message.Message,), dict(
 
-  PublicKeyHashIdentityIdMapEntry = _reflection.GeneratedProtocolMessageType('PublicKeyHashIdentityIdMapEntry', (_message.Message,), dict(
-    DESCRIPTOR = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY,
+  IdentityIdsByPublicKeyHashesEntry = _reflection.GeneratedProtocolMessageType('IdentityIdsByPublicKeyHashesEntry', (_message.Message,), dict(
+    DESCRIPTOR = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY,
     __module__ = 'platform_pb2'
-    # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry)
+    # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry)
     ))
   ,
   DESCRIPTOR = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE,
@@ -786,13 +786,13 @@ GetIdentityIdsByPublicKeyHashesResponse = _reflection.GeneratedProtocolMessageTy
   # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse)
   ))
 _sym_db.RegisterMessage(GetIdentityIdsByPublicKeyHashesResponse)
-_sym_db.RegisterMessage(GetIdentityIdsByPublicKeyHashesResponse.PublicKeyHashIdentityIdMapEntry)
+_sym_db.RegisterMessage(GetIdentityIdsByPublicKeyHashesResponse.IdentityIdsByPublicKeyHashesEntry)
 
 
-_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY.has_options = True
-_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYMAPENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
-_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY.has_options = True
-_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_PUBLICKEYHASHIDENTITYIDMAPENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY.has_options = True
+_GETIDENTITIESBYPUBLICKEYHASHESRESPONSE_IDENTITIESBYPUBLICKEYHASHESENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY.has_options = True
+_GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE_IDENTITYIDSBYPUBLICKEYHASHESENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 
 _PLATFORM = _descriptor.ServiceDescriptor(
   name='Platform',
@@ -800,8 +800,8 @@ _PLATFORM = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1394,
-  serialized_end=2572,
+  serialized_start=1409,
+  serialized_end=2587,
   methods=[
   _descriptor.MethodDescriptor(
     name='broadcastStateTransition',

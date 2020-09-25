@@ -671,11 +671,11 @@ typedef struct GetIdentitiesByPublicKeyHashesRequest__storage_ {
 
 @implementation GetIdentitiesByPublicKeyHashesResponse
 
-@dynamic publicKeyHashIdentityMap, publicKeyHashIdentityMap_Count;
+@dynamic identitiesByPublicKeyHashes, identitiesByPublicKeyHashes_Count;
 
 typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableDictionary *publicKeyHashIdentityMap;
+  NSMutableDictionary *identitiesByPublicKeyHashes;
 } GetIdentitiesByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -685,11 +685,11 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "publicKeyHashIdentityMap",
+        .name = "identitiesByPublicKeyHashes",
         .dataTypeSpecific.className = NULL,
-        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_PublicKeyHashIdentityMap,
+        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesByPublicKeyHashes,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, publicKeyHashIdentityMap),
+        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, identitiesByPublicKeyHashes),
         .flags = GPBFieldMapKeyString,
         .dataType = GPBDataTypeBytes,
       },
@@ -757,11 +757,11 @@ typedef struct GetIdentityIdsByPublicKeyHashesRequest__storage_ {
 
 @implementation GetIdentityIdsByPublicKeyHashesResponse
 
-@dynamic publicKeyHashIdentityIdMap, publicKeyHashIdentityIdMap_Count;
+@dynamic identityIdsByPublicKeyHashes, identityIdsByPublicKeyHashes_Count;
 
 typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableDictionary *publicKeyHashIdentityIdMap;
+  NSMutableDictionary *identityIdsByPublicKeyHashes;
 } GetIdentityIdsByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -771,13 +771,13 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "publicKeyHashIdentityIdMap",
+        .name = "identityIdsByPublicKeyHashes",
         .dataTypeSpecific.className = NULL,
-        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_PublicKeyHashIdentityIdMap,
+        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsByPublicKeyHashes,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, publicKeyHashIdentityIdMap),
+        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, identityIdsByPublicKeyHashes),
         .flags = GPBFieldMapKeyString,
-        .dataType = GPBDataTypeString,
+        .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
