@@ -624,6 +624,114 @@ typedef struct GetIdentityIdByFirstPublicKeyResponse__storage_ {
 
 @end
 
+#pragma mark - PublicKeyHashIdentityPair
+
+@implementation PublicKeyHashIdentityPair
+
+@dynamic publicKeyHash;
+@dynamic identity;
+
+typedef struct PublicKeyHashIdentityPair__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *publicKeyHash;
+  NSData *identity;
+} PublicKeyHashIdentityPair__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "publicKeyHash",
+        .dataTypeSpecific.className = NULL,
+        .number = PublicKeyHashIdentityPair_FieldNumber_PublicKeyHash,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(PublicKeyHashIdentityPair__storage_, publicKeyHash),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "identity",
+        .dataTypeSpecific.className = NULL,
+        .number = PublicKeyHashIdentityPair_FieldNumber_Identity,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(PublicKeyHashIdentityPair__storage_, identity),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[PublicKeyHashIdentityPair class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(PublicKeyHashIdentityPair__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - PublicKeyHashIdentityIdPair
+
+@implementation PublicKeyHashIdentityIdPair
+
+@dynamic publicKeyHash;
+@dynamic identityId;
+
+typedef struct PublicKeyHashIdentityIdPair__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *publicKeyHash;
+  NSData *identityId;
+} PublicKeyHashIdentityIdPair__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "publicKeyHash",
+        .dataTypeSpecific.className = NULL,
+        .number = PublicKeyHashIdentityIdPair_FieldNumber_PublicKeyHash,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(PublicKeyHashIdentityIdPair__storage_, publicKeyHash),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "identityId",
+        .dataTypeSpecific.className = NULL,
+        .number = PublicKeyHashIdentityIdPair_FieldNumber_IdentityId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(PublicKeyHashIdentityIdPair__storage_, identityId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[PublicKeyHashIdentityIdPair class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(PublicKeyHashIdentityIdPair__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - GetIdentitiesByPublicKeyHashesRequest
 
 @implementation GetIdentitiesByPublicKeyHashesRequest
@@ -671,11 +779,11 @@ typedef struct GetIdentitiesByPublicKeyHashesRequest__storage_ {
 
 @implementation GetIdentitiesByPublicKeyHashesResponse
 
-@dynamic identitiesByPublicKeyHashes, identitiesByPublicKeyHashes_Count;
+@dynamic identitiesByPublicKeyHashesArray, identitiesByPublicKeyHashesArray_Count;
 
 typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableDictionary *identitiesByPublicKeyHashes;
+  NSMutableArray *identitiesByPublicKeyHashesArray;
 } GetIdentitiesByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -685,13 +793,13 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "identitiesByPublicKeyHashes",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesByPublicKeyHashes,
+        .name = "identitiesByPublicKeyHashesArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(PublicKeyHashIdentityPair),
+        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesByPublicKeyHashesArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, identitiesByPublicKeyHashes),
-        .flags = GPBFieldMapKeyString,
-        .dataType = GPBDataTypeBytes,
+        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, identitiesByPublicKeyHashesArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -757,11 +865,11 @@ typedef struct GetIdentityIdsByPublicKeyHashesRequest__storage_ {
 
 @implementation GetIdentityIdsByPublicKeyHashesResponse
 
-@dynamic identityIdsByPublicKeyHashes, identityIdsByPublicKeyHashes_Count;
+@dynamic identityIdsByPublicKeyHashesArray, identityIdsByPublicKeyHashesArray_Count;
 
 typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableDictionary *identityIdsByPublicKeyHashes;
+  NSMutableArray *identityIdsByPublicKeyHashesArray;
 } GetIdentityIdsByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -771,13 +879,13 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "identityIdsByPublicKeyHashes",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsByPublicKeyHashes,
+        .name = "identityIdsByPublicKeyHashesArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(PublicKeyHashIdentityIdPair),
+        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsByPublicKeyHashesArray,
         .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, identityIdsByPublicKeyHashes),
-        .flags = GPBFieldMapKeyString,
-        .dataType = GPBDataTypeBytes,
+        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, identityIdsByPublicKeyHashesArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =

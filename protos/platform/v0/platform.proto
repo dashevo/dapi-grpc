@@ -76,12 +76,22 @@ message GetIdentityIdByFirstPublicKeyResponse {
   string id = 1;
 }
 
+message PublicKeyHashIdentityPair {
+  string public_key_hash = 1;
+  bytes identity = 2;
+}
+
+message PublicKeyHashIdentityIdPair {
+  string public_key_hash = 1;
+  bytes identity_id = 2;
+}
+
 message GetIdentitiesByPublicKeyHashesRequest {
   repeated bytes public_key_hashes = 1;
 }
 
 message GetIdentitiesByPublicKeyHashesResponse {
-  map<string, bytes> identities_by_public_key_hashes = 1;
+  repeated PublicKeyHashIdentityPair identities_by_public_key_hashes = 1;
 }
 
 message GetIdentityIdsByPublicKeyHashesRequest {
@@ -89,5 +99,5 @@ message GetIdentityIdsByPublicKeyHashesRequest {
 }
 
 message GetIdentityIdsByPublicKeyHashesResponse {
-  map<string, bytes> identity_ids_by_public_key_hashes = 1;
+  repeated PublicKeyHashIdentityIdPair identity_ids_by_public_key_hashes = 1;
 }
