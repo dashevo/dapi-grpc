@@ -97,6 +97,14 @@ class PlatformPromiseClient {
       this.client.getIdentityIdByFirstPublicKey.bind(this.client),
     );
 
+    this.client.getIdentitiesByPublicKeyHashes = promisify(
+      this.client.getIdentitiesByPublicKeyHashes.bind(this.client),
+    );
+
+    this.client.getIdentityIdsByPublicKeyHashes = promisify(
+      this.client.getIdentityIdsByPublicKeyHashes.bind(this.client),
+    );
+
     this.protocolVersion = undefined;
   }
 
