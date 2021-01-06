@@ -94,4 +94,16 @@
              responseClass:[GetIdentityIdsByPublicKeyHashesResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark subscribeToStateTransitionResults(StateTransitionResultsRequest) returns (StateTransitionResultsResponse)
+
+- (void)subscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTosubscribeToStateTransitionResultsWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCTosubscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"subscribeToStateTransitionResults"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[StateTransitionResultsResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 @end

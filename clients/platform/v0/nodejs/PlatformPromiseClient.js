@@ -35,6 +35,8 @@ const {
             GetIdentitiesByPublicKeyHashesResponse: PBJSGetIdentitiesByPublicKeyHashesResponse,
             GetIdentityIdsByPublicKeyHashesRequest: PBJSGetIdentityIdsByPublicKeyHashesRequest,
             GetIdentityIdsByPublicKeyHashesResponse: PBJSGetIdentityIdsByPublicKeyHashesResponse,
+            StateTransitionResultsRequest: PBJSStateTransitionResultsRequest,
+            StateTransitionResultsResponse: PBJSStateTransitionResultsResponse,
           },
         },
       },
@@ -49,6 +51,7 @@ const {
   GetDocumentsResponse: ProtocGetDocumentsResponse,
   GetIdentitiesByPublicKeyHashesResponse: ProtocGetIdentitiesByPublicKeyHashesResponse,
   GetIdentityIdsByPublicKeyHashesResponse: ProtocGetIdentityIdsByPublicKeyHashesResponse,
+  StateTransitionResultsResponseResponse: ProtocStateTransitionResultsResponse,
 } = require('./platform_protoc');
 
 const getPlatformDefinition = require('../../../../lib/getPlatformDefinition');
@@ -278,6 +281,39 @@ class PlatformPromiseClient {
             ),
             protobufToJsonFactory(
               PBJSGetIdentityIdsByPublicKeyHashesRequest,
+            ),
+          ),
+        ],
+        ...options,
+      },
+    );
+  }
+
+  /**
+   * @param {!StateTransitionResultsRequest} stateTransitionResultsRequest
+   * @param {?Object<string, string>} metadata
+   * @param {CallOptions} [options={}]
+   * @returns {Promise<!StateTransitionResultsResponse>}
+   */
+  subscribeToStateTransitionResults(
+    stateTransitionResultsRequest, metadata = {}, options = {},
+  ) {
+    if (!isObject(metadata)) {
+      throw new Error('metadata must be an object');
+    }
+
+    return this.client.subscribeToStateTransitionResults(
+      stateTransitionResultsRequest,
+      convertObjectToMetadata(metadata),
+      {
+        interceptors: [
+          jsonToProtobufInterceptorFactory(
+            jsonToProtobufFactory(
+              ProtocStateTransitionResultsResponse,
+              PBJSStateTransitionResultsResponse,
+            ),
+            protobufToJsonFactory(
+              PBJSStateTransitionResultsRequest,
             ),
           ),
         ],

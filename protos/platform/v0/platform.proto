@@ -9,6 +9,7 @@ service Platform {
   rpc getDocuments (GetDocumentsRequest) returns (GetDocumentsResponse);
   rpc getIdentitiesByPublicKeyHashes (GetIdentitiesByPublicKeyHashesRequest) returns (GetIdentitiesByPublicKeyHashesResponse);
   rpc getIdentityIdsByPublicKeyHashes (GetIdentityIdsByPublicKeyHashesRequest) returns (GetIdentityIdsByPublicKeyHashesResponse);
+  rpc subscribeToStateTransitionResults (StateTransitionResultsRequest) returns (StateTransitionResultsResponse);
 }
 
 message Proof {
@@ -84,4 +85,16 @@ message GetIdentityIdsByPublicKeyHashesRequest {
 message GetIdentityIdsByPublicKeyHashesResponse {
   repeated bytes identity_ids = 1;
   Proof proof = 2;
+}
+
+message StateTransitionResultsRequest {
+  repeated bytes state_transition_hashes = 1;
+  bool prove = 2;
+}
+
+message StateTransitionResultsResponse {
+  oneof responses {
+    string errors = 1;
+    Proof proof = 2;
+  }
 }
