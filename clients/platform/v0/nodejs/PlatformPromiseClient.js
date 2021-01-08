@@ -293,7 +293,7 @@ class PlatformPromiseClient {
    * @param {!StateTransitionResultsRequest} stateTransitionResultsRequest
    * @param {?Object<string, string>} metadata
    * @param {CallOptions} [options={}]
-   * @returns {Promise<!StateTransitionResultsResponse>}
+   * @returns {!grpc.web.ClientReadableStream<!StateTransitionResultsResponse>|undefined}
    */
   subscribeToStateTransitionResults(
     stateTransitionResultsRequest, metadata = {}, options = {},
