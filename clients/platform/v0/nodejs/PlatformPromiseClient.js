@@ -94,6 +94,10 @@ class PlatformPromiseClient {
       this.client.getIdentityIdsByPublicKeyHashes.bind(this.client),
     );
 
+    this.client.waitForStateTransitionResult = promisify(
+      this.client.waitForStateTransitionResult.bind(this.client),
+    );
+
     this.protocolVersion = undefined;
   }
 
@@ -295,14 +299,14 @@ class PlatformPromiseClient {
    * @param {CallOptions} [options={}]
    * @returns {!grpc.web.ClientReadableStream<!StateTransitionResultResponse>|undefined}
    */
-  subscribeToStateTransitionResult(
+  waitForStateTransitionResult(
     stateTransitionResultRequest, metadata = {}, options = {},
   ) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
-    return this.client.subscribeToStateTransitionResult(
+    return this.client.waitForStateTransitionResult(
       stateTransitionResultRequest,
       convertObjectToMetadata(metadata),
       {

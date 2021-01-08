@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='platform.proto',
   package='org.dash.platform.dapi.v0',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\":\n\x05Proof\x12\x17\n\x0froot_tree_proof\x18\x01 \x01(\x0c\x12\x18\n\x10store_tree_proof\x18\x02 \x01(\x0c\"1\n\x14StateTransitionError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x02 \x01(\t\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\"/\n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"X\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"3\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"a\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"\xb9\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\x0c\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x12\r\n\x05prove\x18\x08 \x01(\x08\x42\x07\n\x05start\"Z\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"Q\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"m\n&GetIdentitiesByPublicKeyHashesResponse\x12\x12\n\nidentities\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"R\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"p\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x14\n\x0cidentity_ids\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"L\n\x1cStateTransitionResultRequest\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"\xc0\x01\n\x1dStateTransitionResultResponse\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12@\n\x05\x65rror\x18\x02 \x01(\x0b\x32/.org.dash.platform.dapi.v0.StateTransitionErrorH\x00\x12\x31\n\x05proof\x18\x03 \x01(\x0b\x32 .org.dash.platform.dapi.v0.ProofH\x00\x42\x0b\n\tresponses2\xe4\x07\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse\x12\x95\x01\n subscribeToStateTransitionResult\x12\x37.org.dash.platform.dapi.v0.StateTransitionResultRequest\x1a\x38.org.dash.platform.dapi.v0.StateTransitionResultResponseb\x06proto3')
+  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\":\n\x05Proof\x12\x17\n\x0froot_tree_proof\x18\x01 \x01(\x0c\x12\x18\n\x10store_tree_proof\x18\x02 \x01(\x0c\"1\n\x14StateTransitionError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x02 \x01(\t\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\"/\n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"X\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"3\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"a\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"\xb9\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\x0c\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x12\r\n\x05prove\x18\x08 \x01(\x08\x42\x07\n\x05start\"Z\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"Q\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"m\n&GetIdentitiesByPublicKeyHashesResponse\x12\x12\n\nidentities\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"R\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"p\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x14\n\x0cidentity_ids\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"L\n\x1cStateTransitionResultRequest\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"\xc0\x01\n\x1dStateTransitionResultResponse\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12@\n\x05\x65rror\x18\x02 \x01(\x0b\x32/.org.dash.platform.dapi.v0.StateTransitionErrorH\x00\x12\x31\n\x05proof\x18\x03 \x01(\x0b\x32 .org.dash.platform.dapi.v0.ProofH\x00\x42\x0b\n\tresponses2\xe0\x07\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse\x12\x91\x01\n\x1cwaitForStateTransitionResult\x12\x37.org.dash.platform.dapi.v0.StateTransitionResultRequest\x1a\x38.org.dash.platform.dapi.v0.StateTransitionResultResponseb\x06proto3')
 )
 
 
@@ -824,7 +824,7 @@ _PLATFORM = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=1490,
-  serialized_end=2486,
+  serialized_end=2482,
   methods=[
   _descriptor.MethodDescriptor(
     name='broadcastStateTransition',
@@ -881,8 +881,8 @@ _PLATFORM = _descriptor.ServiceDescriptor(
     options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='subscribeToStateTransitionResult',
-    full_name='org.dash.platform.dapi.v0.Platform.subscribeToStateTransitionResult',
+    name='waitForStateTransitionResult',
+    full_name='org.dash.platform.dapi.v0.Platform.waitForStateTransitionResult',
     index=6,
     containing_service=None,
     input_type=_STATETRANSITIONRESULTREQUEST,
@@ -944,8 +944,8 @@ try:
           request_serializer=GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
           response_deserializer=GetIdentityIdsByPublicKeyHashesResponse.FromString,
           )
-      self.subscribeToStateTransitionResult = channel.unary_unary(
-          '/org.dash.platform.dapi.v0.Platform/subscribeToStateTransitionResult',
+      self.waitForStateTransitionResult = channel.unary_unary(
+          '/org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult',
           request_serializer=StateTransitionResultRequest.SerializeToString,
           response_deserializer=StateTransitionResultResponse.FromString,
           )
@@ -997,7 +997,7 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def subscribeToStateTransitionResult(self, request, context):
+    def waitForStateTransitionResult(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1037,8 +1037,8 @@ try:
             request_deserializer=GetIdentityIdsByPublicKeyHashesRequest.FromString,
             response_serializer=GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
         ),
-        'subscribeToStateTransitionResult': grpc.unary_unary_rpc_method_handler(
-            servicer.subscribeToStateTransitionResult,
+        'waitForStateTransitionResult': grpc.unary_unary_rpc_method_handler(
+            servicer.waitForStateTransitionResult,
             request_deserializer=StateTransitionResultRequest.FromString,
             response_serializer=StateTransitionResultResponse.SerializeToString,
         ),
@@ -1080,7 +1080,7 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def subscribeToStateTransitionResult(self, request, context):
+    def waitForStateTransitionResult(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
@@ -1124,11 +1124,11 @@ try:
       pass
       raise NotImplementedError()
     getIdentityIdsByPublicKeyHashes.future = None
-    def subscribeToStateTransitionResult(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def waitForStateTransitionResult(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
       raise NotImplementedError()
-    subscribeToStateTransitionResult.future = None
+    waitForStateTransitionResult.future = None
 
 
   def beta_create_Platform_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -1144,7 +1144,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesRequest.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityRequest.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesRequest.FromString,
-      ('org.dash.platform.dapi.v0.Platform', 'subscribeToStateTransitionResult'): StateTransitionResultRequest.FromString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultRequest.FromString,
     }
     response_serializers = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): BroadcastStateTransitionResponse.SerializeToString,
@@ -1153,7 +1153,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
-      ('org.dash.platform.dapi.v0.Platform', 'subscribeToStateTransitionResult'): StateTransitionResultResponse.SerializeToString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultResponse.SerializeToString,
     }
     method_implementations = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): face_utilities.unary_unary_inline(servicer.broadcastStateTransition),
@@ -1162,7 +1162,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): face_utilities.unary_unary_inline(servicer.getIdentitiesByPublicKeyHashes),
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): face_utilities.unary_unary_inline(servicer.getIdentity),
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): face_utilities.unary_unary_inline(servicer.getIdentityIdsByPublicKeyHashes),
-      ('org.dash.platform.dapi.v0.Platform', 'subscribeToStateTransitionResult'): face_utilities.unary_unary_inline(servicer.subscribeToStateTransitionResult),
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): face_utilities.unary_unary_inline(servicer.waitForStateTransitionResult),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -1181,7 +1181,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
-      ('org.dash.platform.dapi.v0.Platform', 'subscribeToStateTransitionResult'): StateTransitionResultRequest.SerializeToString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultRequest.SerializeToString,
     }
     response_deserializers = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): BroadcastStateTransitionResponse.FromString,
@@ -1190,7 +1190,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesResponse.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityResponse.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesResponse.FromString,
-      ('org.dash.platform.dapi.v0.Platform', 'subscribeToStateTransitionResult'): StateTransitionResultResponse.FromString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultResponse.FromString,
     }
     cardinalities = {
       'broadcastStateTransition': cardinality.Cardinality.UNARY_UNARY,
@@ -1199,7 +1199,7 @@ try:
       'getIdentitiesByPublicKeyHashes': cardinality.Cardinality.UNARY_UNARY,
       'getIdentity': cardinality.Cardinality.UNARY_UNARY,
       'getIdentityIdsByPublicKeyHashes': cardinality.Cardinality.UNARY_UNARY,
-      'subscribeToStateTransitionResult': cardinality.Cardinality.UNARY_UNARY,
+      'waitForStateTransitionResult': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'org.dash.platform.dapi.v0.Platform', cardinalities, options=stub_options)

@@ -101,11 +101,11 @@ public final class PlatformGrpc {
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest,
-      org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT =
+      org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> METHOD_WAIT_FOR_STATE_TRANSITION_RESULT =
       io.grpc.MethodDescriptor.<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest, org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "org.dash.platform.dapi.v0.Platform", "subscribeToStateTransitionResult"))
+              "org.dash.platform.dapi.v0.Platform", "waitForStateTransitionResult"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
@@ -183,9 +183,9 @@ public final class PlatformGrpc {
 
     /**
      */
-    public void subscribeToStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request,
+    public void waitForStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request,
         io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT, responseObserver);
+      asyncUnimplementedUnaryCall(METHOD_WAIT_FOR_STATE_TRANSITION_RESULT, responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -233,12 +233,12 @@ public final class PlatformGrpc {
                 org.dash.platform.dapi.v0.PlatformOuterClass.GetIdentityIdsByPublicKeyHashesResponse>(
                   this, METHODID_GET_IDENTITY_IDS_BY_PUBLIC_KEY_HASHES)))
           .addMethod(
-            METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT,
+            METHOD_WAIT_FOR_STATE_TRANSITION_RESULT,
             asyncUnaryCall(
               new MethodHandlers<
                 org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest,
                 org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse>(
-                  this, METHODID_SUBSCRIBE_TO_STATE_TRANSITION_RESULT)))
+                  this, METHODID_WAIT_FOR_STATE_TRANSITION_RESULT)))
           .build();
     }
   }
@@ -311,10 +311,10 @@ public final class PlatformGrpc {
 
     /**
      */
-    public void subscribeToStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request,
+    public void waitForStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request,
         io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_WAIT_FOR_STATE_TRANSITION_RESULT, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -380,9 +380,9 @@ public final class PlatformGrpc {
 
     /**
      */
-    public org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse subscribeToStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request) {
+    public org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse waitForStateTransitionResult(org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT, getCallOptions(), request);
+          getChannel(), METHOD_WAIT_FOR_STATE_TRANSITION_RESULT, getCallOptions(), request);
     }
   }
 
@@ -454,10 +454,10 @@ public final class PlatformGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> subscribeToStateTransitionResult(
+    public com.google.common.util.concurrent.ListenableFuture<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse> waitForStateTransitionResult(
         org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT, getCallOptions()), request);
+          getChannel().newCall(METHOD_WAIT_FOR_STATE_TRANSITION_RESULT, getCallOptions()), request);
     }
   }
 
@@ -467,7 +467,7 @@ public final class PlatformGrpc {
   private static final int METHODID_GET_DOCUMENTS = 3;
   private static final int METHODID_GET_IDENTITIES_BY_PUBLIC_KEY_HASHES = 4;
   private static final int METHODID_GET_IDENTITY_IDS_BY_PUBLIC_KEY_HASHES = 5;
-  private static final int METHODID_SUBSCRIBE_TO_STATE_TRANSITION_RESULT = 6;
+  private static final int METHODID_WAIT_FOR_STATE_TRANSITION_RESULT = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -510,8 +510,8 @@ public final class PlatformGrpc {
           serviceImpl.getIdentityIdsByPublicKeyHashes((org.dash.platform.dapi.v0.PlatformOuterClass.GetIdentityIdsByPublicKeyHashesRequest) request,
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.GetIdentityIdsByPublicKeyHashesResponse>) responseObserver);
           break;
-        case METHODID_SUBSCRIBE_TO_STATE_TRANSITION_RESULT:
-          serviceImpl.subscribeToStateTransitionResult((org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest) request,
+        case METHODID_WAIT_FOR_STATE_TRANSITION_RESULT:
+          serviceImpl.waitForStateTransitionResult((org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultRequest) request,
               (io.grpc.stub.StreamObserver<org.dash.platform.dapi.v0.PlatformOuterClass.StateTransitionResultResponse>) responseObserver);
           break;
         default:
@@ -553,7 +553,7 @@ public final class PlatformGrpc {
               .addMethod(METHOD_GET_DOCUMENTS)
               .addMethod(METHOD_GET_IDENTITIES_BY_PUBLIC_KEY_HASHES)
               .addMethod(METHOD_GET_IDENTITY_IDS_BY_PUBLIC_KEY_HASHES)
-              .addMethod(METHOD_SUBSCRIBE_TO_STATE_TRANSITION_RESULT)
+              .addMethod(METHOD_WAIT_FOR_STATE_TRANSITION_RESULT)
               .build();
         }
       }
