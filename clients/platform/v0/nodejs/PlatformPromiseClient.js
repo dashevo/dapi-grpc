@@ -35,8 +35,8 @@ const {
             GetIdentitiesByPublicKeyHashesResponse: PBJSGetIdentitiesByPublicKeyHashesResponse,
             GetIdentityIdsByPublicKeyHashesRequest: PBJSGetIdentityIdsByPublicKeyHashesRequest,
             GetIdentityIdsByPublicKeyHashesResponse: PBJSGetIdentityIdsByPublicKeyHashesResponse,
-            StateTransitionResultRequest: PBJSStateTransitionResultRequest,
-            StateTransitionResultResponse: PBJSStateTransitionResultResponse,
+            WaitForStateTransitionResultRequest: PBJSWaitForStateTransitionResultRequest,
+            WaitForStateTransitionResultResponse: PBJSWaitForStateTransitionResultResponse,
           },
         },
       },
@@ -51,7 +51,7 @@ const {
   GetDocumentsResponse: ProtocGetDocumentsResponse,
   GetIdentitiesByPublicKeyHashesResponse: ProtocGetIdentitiesByPublicKeyHashesResponse,
   GetIdentityIdsByPublicKeyHashesResponse: ProtocGetIdentityIdsByPublicKeyHashesResponse,
-  StateTransitionResultResponseResponse: ProtocStateTransitionResultResponse,
+  WaitForStateTransitionResultResponse: ProtocWaitForStateTransitionResultResponse,
 } = require('./platform_protoc');
 
 const getPlatformDefinition = require('../../../../lib/getPlatformDefinition');
@@ -294,30 +294,30 @@ class PlatformPromiseClient {
   }
 
   /**
-   * @param {!StateTransitionResultRequest} stateTransitionResultRequest
+   * @param {!WaitForStateTransitionResultRequest} waitForStateTransitionResultRequest
    * @param {?Object<string, string>} metadata
    * @param {CallOptions} [options={}]
-   * @returns {!grpc.web.ClientReadableStream<!StateTransitionResultResponse>|undefined}
+   * @returns {Promise<!WaitForStateTransitionResultResponse>}
    */
   waitForStateTransitionResult(
-    stateTransitionResultRequest, metadata = {}, options = {},
+    waitForStateTransitionResultRequest, metadata = {}, options = {},
   ) {
     if (!isObject(metadata)) {
       throw new Error('metadata must be an object');
     }
 
     return this.client.waitForStateTransitionResult(
-      stateTransitionResultRequest,
+      waitForStateTransitionResultRequest,
       convertObjectToMetadata(metadata),
       {
         interceptors: [
           jsonToProtobufInterceptorFactory(
             jsonToProtobufFactory(
-              ProtocStateTransitionResultResponse,
-              PBJSStateTransitionResultResponse,
+              ProtocWaitForStateTransitionResultResponse,
+              PBJSWaitForStateTransitionResultResponse,
             ),
             protobufToJsonFactory(
-              PBJSStateTransitionResultRequest,
+              PBJSWaitForStateTransitionResultRequest,
             ),
           ),
         ],

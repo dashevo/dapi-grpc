@@ -46,8 +46,8 @@ class PlatformStub(object):
         )
     self.waitForStateTransitionResult = channel.unary_unary(
         '/org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult',
-        request_serializer=platform__pb2.StateTransitionResultRequest.SerializeToString,
-        response_deserializer=platform__pb2.StateTransitionResultResponse.FromString,
+        request_serializer=platform__pb2.WaitForStateTransitionResultRequest.SerializeToString,
+        response_deserializer=platform__pb2.WaitForStateTransitionResultResponse.FromString,
         )
 
 
@@ -139,8 +139,8 @@ def add_PlatformServicer_to_server(servicer, server):
       ),
       'waitForStateTransitionResult': grpc.unary_unary_rpc_method_handler(
           servicer.waitForStateTransitionResult,
-          request_deserializer=platform__pb2.StateTransitionResultRequest.FromString,
-          response_serializer=platform__pb2.StateTransitionResultResponse.SerializeToString,
+          request_deserializer=platform__pb2.WaitForStateTransitionResultRequest.FromString,
+          response_serializer=platform__pb2.WaitForStateTransitionResultResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

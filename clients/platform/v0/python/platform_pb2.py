@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='platform.proto',
   package='org.dash.platform.dapi.v0',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\":\n\x05Proof\x12\x17\n\x0froot_tree_proof\x18\x01 \x01(\x0c\x12\x18\n\x10store_tree_proof\x18\x02 \x01(\x0c\"1\n\x14StateTransitionError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x02 \x01(\t\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\"/\n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"X\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"3\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"a\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"\xb9\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\x0c\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x12\r\n\x05prove\x18\x08 \x01(\x08\x42\x07\n\x05start\"Z\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"Q\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"m\n&GetIdentitiesByPublicKeyHashesResponse\x12\x12\n\nidentities\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"R\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"p\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x14\n\x0cidentity_ids\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"L\n\x1cStateTransitionResultRequest\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"\xc0\x01\n\x1dStateTransitionResultResponse\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12@\n\x05\x65rror\x18\x02 \x01(\x0b\x32/.org.dash.platform.dapi.v0.StateTransitionErrorH\x00\x12\x31\n\x05proof\x18\x03 \x01(\x0b\x32 .org.dash.platform.dapi.v0.ProofH\x00\x42\x0b\n\tresponses2\xe0\x07\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse\x12\x91\x01\n\x1cwaitForStateTransitionResult\x12\x37.org.dash.platform.dapi.v0.StateTransitionResultRequest\x1a\x38.org.dash.platform.dapi.v0.StateTransitionResultResponseb\x06proto3')
+  serialized_pb=_b('\n\x0eplatform.proto\x12\x19org.dash.platform.dapi.v0\":\n\x05Proof\x12\x17\n\x0froot_tree_proof\x18\x01 \x01(\x0c\x12\x18\n\x10store_tree_proof\x18\x02 \x01(\x0c\":\n\x1dStateTransitionBroadcastError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x02 \x01(\t\";\n\x1f\x42roadcastStateTransitionRequest\x12\x18\n\x10state_transition\x18\x01 \x01(\x0c\"\"\n BroadcastStateTransitionResponse\"/\n\x12GetIdentityRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"X\n\x13GetIdentityResponse\x12\x10\n\x08identity\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"3\n\x16GetDataContractRequest\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"a\n\x17GetDataContractResponse\x12\x15\n\rdata_contract\x18\x01 \x01(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"\xb9\x01\n\x13GetDocumentsRequest\x12\x18\n\x10\x64\x61ta_contract_id\x18\x01 \x01(\x0c\x12\x15\n\rdocument_type\x18\x02 \x01(\t\x12\r\n\x05where\x18\x03 \x01(\x0c\x12\x10\n\x08order_by\x18\x04 \x01(\x0c\x12\r\n\x05limit\x18\x05 \x01(\r\x12\x15\n\x0bstart_after\x18\x06 \x01(\rH\x00\x12\x12\n\x08start_at\x18\x07 \x01(\rH\x00\x12\r\n\x05prove\x18\x08 \x01(\x08\x42\x07\n\x05start\"Z\n\x14GetDocumentsResponse\x12\x11\n\tdocuments\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"Q\n%GetIdentitiesByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"m\n&GetIdentitiesByPublicKeyHashesResponse\x12\x12\n\nidentities\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"R\n&GetIdentityIdsByPublicKeyHashesRequest\x12\x19\n\x11public_key_hashes\x18\x01 \x03(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"p\n\'GetIdentityIdsByPublicKeyHashesResponse\x12\x14\n\x0cidentity_ids\x18\x01 \x03(\x0c\x12/\n\x05proof\x18\x02 \x01(\x0b\x32 .org.dash.platform.dapi.v0.Proof\"S\n#WaitForStateTransitionResultRequest\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12\r\n\x05prove\x18\x02 \x01(\x08\"\xd0\x01\n$WaitForStateTransitionResultResponse\x12\x1d\n\x15state_transition_hash\x18\x01 \x01(\x0c\x12I\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x38.org.dash.platform.dapi.v0.StateTransitionBroadcastErrorH\x00\x12\x31\n\x05proof\x18\x03 \x01(\x0b\x32 .org.dash.platform.dapi.v0.ProofH\x00\x42\x0b\n\tresponses2\xee\x07\n\x08Platform\x12\x93\x01\n\x18\x62roadcastStateTransition\x12:.org.dash.platform.dapi.v0.BroadcastStateTransitionRequest\x1a;.org.dash.platform.dapi.v0.BroadcastStateTransitionResponse\x12l\n\x0bgetIdentity\x12-.org.dash.platform.dapi.v0.GetIdentityRequest\x1a..org.dash.platform.dapi.v0.GetIdentityResponse\x12x\n\x0fgetDataContract\x12\x31.org.dash.platform.dapi.v0.GetDataContractRequest\x1a\x32.org.dash.platform.dapi.v0.GetDataContractResponse\x12o\n\x0cgetDocuments\x12..org.dash.platform.dapi.v0.GetDocumentsRequest\x1a/.org.dash.platform.dapi.v0.GetDocumentsResponse\x12\xa5\x01\n\x1egetIdentitiesByPublicKeyHashes\x12@.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesRequest\x1a\x41.org.dash.platform.dapi.v0.GetIdentitiesByPublicKeyHashesResponse\x12\xa8\x01\n\x1fgetIdentityIdsByPublicKeyHashes\x12\x41.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesRequest\x1a\x42.org.dash.platform.dapi.v0.GetIdentityIdsByPublicKeyHashesResponse\x12\x9f\x01\n\x1cwaitForStateTransitionResult\x12>.org.dash.platform.dapi.v0.WaitForStateTransitionResultRequest\x1a?.org.dash.platform.dapi.v0.WaitForStateTransitionResultResponseb\x06proto3')
 )
 
 
@@ -63,22 +63,22 @@ _PROOF = _descriptor.Descriptor(
 )
 
 
-_STATETRANSITIONERROR = _descriptor.Descriptor(
-  name='StateTransitionError',
-  full_name='org.dash.platform.dapi.v0.StateTransitionError',
+_STATETRANSITIONBROADCASTERROR = _descriptor.Descriptor(
+  name='StateTransitionBroadcastError',
+  full_name='org.dash.platform.dapi.v0.StateTransitionBroadcastError',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='code', full_name='org.dash.platform.dapi.v0.StateTransitionError.code', index=0,
+      name='code', full_name='org.dash.platform.dapi.v0.StateTransitionBroadcastError.code', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='log', full_name='org.dash.platform.dapi.v0.StateTransitionError.log', index=1,
+      name='log', full_name='org.dash.platform.dapi.v0.StateTransitionBroadcastError.log', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -97,7 +97,7 @@ _STATETRANSITIONERROR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=105,
-  serialized_end=154,
+  serialized_end=163,
 )
 
 
@@ -127,8 +127,8 @@ _BROADCASTSTATETRANSITIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=156,
-  serialized_end=215,
+  serialized_start=165,
+  serialized_end=224,
 )
 
 
@@ -151,8 +151,8 @@ _BROADCASTSTATETRANSITIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=217,
-  serialized_end=251,
+  serialized_start=226,
+  serialized_end=260,
 )
 
 
@@ -189,8 +189,8 @@ _GETIDENTITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=253,
-  serialized_end=300,
+  serialized_start=262,
+  serialized_end=309,
 )
 
 
@@ -227,8 +227,8 @@ _GETIDENTITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=302,
-  serialized_end=390,
+  serialized_start=311,
+  serialized_end=399,
 )
 
 
@@ -265,8 +265,8 @@ _GETDATACONTRACTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=392,
-  serialized_end=443,
+  serialized_start=401,
+  serialized_end=452,
 )
 
 
@@ -303,8 +303,8 @@ _GETDATACONTRACTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=445,
-  serialized_end=542,
+  serialized_start=454,
+  serialized_end=551,
 )
 
 
@@ -386,8 +386,8 @@ _GETDOCUMENTSREQUEST = _descriptor.Descriptor(
       name='start', full_name='org.dash.platform.dapi.v0.GetDocumentsRequest.start',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=545,
-  serialized_end=730,
+  serialized_start=554,
+  serialized_end=739,
 )
 
 
@@ -424,8 +424,8 @@ _GETDOCUMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=732,
-  serialized_end=822,
+  serialized_start=741,
+  serialized_end=831,
 )
 
 
@@ -462,8 +462,8 @@ _GETIDENTITIESBYPUBLICKEYHASHESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=824,
-  serialized_end=905,
+  serialized_start=833,
+  serialized_end=914,
 )
 
 
@@ -500,8 +500,8 @@ _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=907,
-  serialized_end=1016,
+  serialized_start=916,
+  serialized_end=1025,
 )
 
 
@@ -538,8 +538,8 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1018,
-  serialized_end=1100,
+  serialized_start=1027,
+  serialized_end=1109,
 )
 
 
@@ -576,27 +576,27 @@ _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1102,
-  serialized_end=1214,
+  serialized_start=1111,
+  serialized_end=1223,
 )
 
 
-_STATETRANSITIONRESULTREQUEST = _descriptor.Descriptor(
-  name='StateTransitionResultRequest',
-  full_name='org.dash.platform.dapi.v0.StateTransitionResultRequest',
+_WAITFORSTATETRANSITIONRESULTREQUEST = _descriptor.Descriptor(
+  name='WaitForStateTransitionResultRequest',
+  full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='state_transition_hash', full_name='org.dash.platform.dapi.v0.StateTransitionResultRequest.state_transition_hash', index=0,
+      name='state_transition_hash', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultRequest.state_transition_hash', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='prove', full_name='org.dash.platform.dapi.v0.StateTransitionResultRequest.prove', index=1,
+      name='prove', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultRequest.prove', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -614,34 +614,34 @@ _STATETRANSITIONRESULTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1216,
-  serialized_end=1292,
+  serialized_start=1225,
+  serialized_end=1308,
 )
 
 
-_STATETRANSITIONRESULTRESPONSE = _descriptor.Descriptor(
-  name='StateTransitionResultResponse',
-  full_name='org.dash.platform.dapi.v0.StateTransitionResultResponse',
+_WAITFORSTATETRANSITIONRESULTRESPONSE = _descriptor.Descriptor(
+  name='WaitForStateTransitionResultResponse',
+  full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='state_transition_hash', full_name='org.dash.platform.dapi.v0.StateTransitionResultResponse.state_transition_hash', index=0,
+      name='state_transition_hash', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse.state_transition_hash', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='error', full_name='org.dash.platform.dapi.v0.StateTransitionResultResponse.error', index=1,
+      name='error', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse.error', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='proof', full_name='org.dash.platform.dapi.v0.StateTransitionResultResponse.proof', index=2,
+      name='proof', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse.proof', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -659,11 +659,11 @@ _STATETRANSITIONRESULTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='responses', full_name='org.dash.platform.dapi.v0.StateTransitionResultResponse.responses',
+      name='responses', full_name='org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse.responses',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1295,
-  serialized_end=1487,
+  serialized_start=1311,
+  serialized_end=1519,
 )
 
 _GETIDENTITYRESPONSE.fields_by_name['proof'].message_type = _PROOF
@@ -677,16 +677,16 @@ _GETDOCUMENTSREQUEST.fields_by_name['start_at'].containing_oneof = _GETDOCUMENTS
 _GETDOCUMENTSRESPONSE.fields_by_name['proof'].message_type = _PROOF
 _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE.fields_by_name['proof'].message_type = _PROOF
 _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE.fields_by_name['proof'].message_type = _PROOF
-_STATETRANSITIONRESULTRESPONSE.fields_by_name['error'].message_type = _STATETRANSITIONERROR
-_STATETRANSITIONRESULTRESPONSE.fields_by_name['proof'].message_type = _PROOF
-_STATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses'].fields.append(
-  _STATETRANSITIONRESULTRESPONSE.fields_by_name['error'])
-_STATETRANSITIONRESULTRESPONSE.fields_by_name['error'].containing_oneof = _STATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses']
-_STATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses'].fields.append(
-  _STATETRANSITIONRESULTRESPONSE.fields_by_name['proof'])
-_STATETRANSITIONRESULTRESPONSE.fields_by_name['proof'].containing_oneof = _STATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses']
+_WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['error'].message_type = _STATETRANSITIONBROADCASTERROR
+_WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['proof'].message_type = _PROOF
+_WAITFORSTATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses'].fields.append(
+  _WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['error'])
+_WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['error'].containing_oneof = _WAITFORSTATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses']
+_WAITFORSTATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses'].fields.append(
+  _WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['proof'])
+_WAITFORSTATETRANSITIONRESULTRESPONSE.fields_by_name['proof'].containing_oneof = _WAITFORSTATETRANSITIONRESULTRESPONSE.oneofs_by_name['responses']
 DESCRIPTOR.message_types_by_name['Proof'] = _PROOF
-DESCRIPTOR.message_types_by_name['StateTransitionError'] = _STATETRANSITIONERROR
+DESCRIPTOR.message_types_by_name['StateTransitionBroadcastError'] = _STATETRANSITIONBROADCASTERROR
 DESCRIPTOR.message_types_by_name['BroadcastStateTransitionRequest'] = _BROADCASTSTATETRANSITIONREQUEST
 DESCRIPTOR.message_types_by_name['BroadcastStateTransitionResponse'] = _BROADCASTSTATETRANSITIONRESPONSE
 DESCRIPTOR.message_types_by_name['GetIdentityRequest'] = _GETIDENTITYREQUEST
@@ -699,8 +699,8 @@ DESCRIPTOR.message_types_by_name['GetIdentitiesByPublicKeyHashesRequest'] = _GET
 DESCRIPTOR.message_types_by_name['GetIdentitiesByPublicKeyHashesResponse'] = _GETIDENTITIESBYPUBLICKEYHASHESRESPONSE
 DESCRIPTOR.message_types_by_name['GetIdentityIdsByPublicKeyHashesRequest'] = _GETIDENTITYIDSBYPUBLICKEYHASHESREQUEST
 DESCRIPTOR.message_types_by_name['GetIdentityIdsByPublicKeyHashesResponse'] = _GETIDENTITYIDSBYPUBLICKEYHASHESRESPONSE
-DESCRIPTOR.message_types_by_name['StateTransitionResultRequest'] = _STATETRANSITIONRESULTREQUEST
-DESCRIPTOR.message_types_by_name['StateTransitionResultResponse'] = _STATETRANSITIONRESULTRESPONSE
+DESCRIPTOR.message_types_by_name['WaitForStateTransitionResultRequest'] = _WAITFORSTATETRANSITIONRESULTREQUEST
+DESCRIPTOR.message_types_by_name['WaitForStateTransitionResultResponse'] = _WAITFORSTATETRANSITIONRESULTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Proof = _reflection.GeneratedProtocolMessageType('Proof', (_message.Message,), dict(
@@ -710,12 +710,12 @@ Proof = _reflection.GeneratedProtocolMessageType('Proof', (_message.Message,), d
   ))
 _sym_db.RegisterMessage(Proof)
 
-StateTransitionError = _reflection.GeneratedProtocolMessageType('StateTransitionError', (_message.Message,), dict(
-  DESCRIPTOR = _STATETRANSITIONERROR,
+StateTransitionBroadcastError = _reflection.GeneratedProtocolMessageType('StateTransitionBroadcastError', (_message.Message,), dict(
+  DESCRIPTOR = _STATETRANSITIONBROADCASTERROR,
   __module__ = 'platform_pb2'
-  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.StateTransitionError)
+  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.StateTransitionBroadcastError)
   ))
-_sym_db.RegisterMessage(StateTransitionError)
+_sym_db.RegisterMessage(StateTransitionBroadcastError)
 
 BroadcastStateTransitionRequest = _reflection.GeneratedProtocolMessageType('BroadcastStateTransitionRequest', (_message.Message,), dict(
   DESCRIPTOR = _BROADCASTSTATETRANSITIONREQUEST,
@@ -801,19 +801,19 @@ GetIdentityIdsByPublicKeyHashesResponse = _reflection.GeneratedProtocolMessageTy
   ))
 _sym_db.RegisterMessage(GetIdentityIdsByPublicKeyHashesResponse)
 
-StateTransitionResultRequest = _reflection.GeneratedProtocolMessageType('StateTransitionResultRequest', (_message.Message,), dict(
-  DESCRIPTOR = _STATETRANSITIONRESULTREQUEST,
+WaitForStateTransitionResultRequest = _reflection.GeneratedProtocolMessageType('WaitForStateTransitionResultRequest', (_message.Message,), dict(
+  DESCRIPTOR = _WAITFORSTATETRANSITIONRESULTREQUEST,
   __module__ = 'platform_pb2'
-  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.StateTransitionResultRequest)
+  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.WaitForStateTransitionResultRequest)
   ))
-_sym_db.RegisterMessage(StateTransitionResultRequest)
+_sym_db.RegisterMessage(WaitForStateTransitionResultRequest)
 
-StateTransitionResultResponse = _reflection.GeneratedProtocolMessageType('StateTransitionResultResponse', (_message.Message,), dict(
-  DESCRIPTOR = _STATETRANSITIONRESULTRESPONSE,
+WaitForStateTransitionResultResponse = _reflection.GeneratedProtocolMessageType('WaitForStateTransitionResultResponse', (_message.Message,), dict(
+  DESCRIPTOR = _WAITFORSTATETRANSITIONRESULTRESPONSE,
   __module__ = 'platform_pb2'
-  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.StateTransitionResultResponse)
+  # @@protoc_insertion_point(class_scope:org.dash.platform.dapi.v0.WaitForStateTransitionResultResponse)
   ))
-_sym_db.RegisterMessage(StateTransitionResultResponse)
+_sym_db.RegisterMessage(WaitForStateTransitionResultResponse)
 
 
 
@@ -823,8 +823,8 @@ _PLATFORM = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1490,
-  serialized_end=2482,
+  serialized_start=1522,
+  serialized_end=2528,
   methods=[
   _descriptor.MethodDescriptor(
     name='broadcastStateTransition',
@@ -885,8 +885,8 @@ _PLATFORM = _descriptor.ServiceDescriptor(
     full_name='org.dash.platform.dapi.v0.Platform.waitForStateTransitionResult',
     index=6,
     containing_service=None,
-    input_type=_STATETRANSITIONRESULTREQUEST,
-    output_type=_STATETRANSITIONRESULTRESPONSE,
+    input_type=_WAITFORSTATETRANSITIONRESULTREQUEST,
+    output_type=_WAITFORSTATETRANSITIONRESULTRESPONSE,
     options=None,
   ),
 ])
@@ -946,8 +946,8 @@ try:
           )
       self.waitForStateTransitionResult = channel.unary_unary(
           '/org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult',
-          request_serializer=StateTransitionResultRequest.SerializeToString,
-          response_deserializer=StateTransitionResultResponse.FromString,
+          request_serializer=WaitForStateTransitionResultRequest.SerializeToString,
+          response_deserializer=WaitForStateTransitionResultResponse.FromString,
           )
 
 
@@ -1039,8 +1039,8 @@ try:
         ),
         'waitForStateTransitionResult': grpc.unary_unary_rpc_method_handler(
             servicer.waitForStateTransitionResult,
-            request_deserializer=StateTransitionResultRequest.FromString,
-            response_serializer=StateTransitionResultResponse.SerializeToString,
+            request_deserializer=WaitForStateTransitionResultRequest.FromString,
+            response_serializer=WaitForStateTransitionResultResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1144,7 +1144,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesRequest.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityRequest.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesRequest.FromString,
-      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultRequest.FromString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): WaitForStateTransitionResultRequest.FromString,
     }
     response_serializers = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): BroadcastStateTransitionResponse.SerializeToString,
@@ -1153,7 +1153,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityResponse.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
-      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultResponse.SerializeToString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): WaitForStateTransitionResultResponse.SerializeToString,
     }
     method_implementations = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): face_utilities.unary_unary_inline(servicer.broadcastStateTransition),
@@ -1181,7 +1181,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityRequest.SerializeToString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
-      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultRequest.SerializeToString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): WaitForStateTransitionResultRequest.SerializeToString,
     }
     response_deserializers = {
       ('org.dash.platform.dapi.v0.Platform', 'broadcastStateTransition'): BroadcastStateTransitionResponse.FromString,
@@ -1190,7 +1190,7 @@ try:
       ('org.dash.platform.dapi.v0.Platform', 'getIdentitiesByPublicKeyHashes'): GetIdentitiesByPublicKeyHashesResponse.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentity'): GetIdentityResponse.FromString,
       ('org.dash.platform.dapi.v0.Platform', 'getIdentityIdsByPublicKeyHashes'): GetIdentityIdsByPublicKeyHashesResponse.FromString,
-      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): StateTransitionResultResponse.FromString,
+      ('org.dash.platform.dapi.v0.Platform', 'waitForStateTransitionResult'): WaitForStateTransitionResultResponse.FromString,
     }
     cardinalities = {
       'broadcastStateTransition': cardinality.Cardinality.UNARY_UNARY,
