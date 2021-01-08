@@ -28,6 +28,7 @@
 CF_EXTERN_C_BEGIN
 
 @class Proof;
+@class StateTransitionError;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -58,6 +59,21 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rootTreeProof;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
+
+@end
+
+#pragma mark - StateTransitionError
+
+typedef GPB_ENUM(StateTransitionError_FieldNumber) {
+  StateTransitionError_FieldNumber_Code = 1,
+  StateTransitionError_FieldNumber_Log = 2,
+};
+
+@interface StateTransitionError : GPBMessage
+
+@property(nonatomic, readwrite) uint32_t code;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *log;
 
 @end
 
@@ -300,21 +316,24 @@ typedef GPB_ENUM(StateTransitionResultsRequest_FieldNumber) {
 #pragma mark - StateTransitionResultsResponse
 
 typedef GPB_ENUM(StateTransitionResultsResponse_FieldNumber) {
-  StateTransitionResultsResponse_FieldNumber_Errors = 1,
-  StateTransitionResultsResponse_FieldNumber_Proof = 2,
+  StateTransitionResultsResponse_FieldNumber_StateTransitionHash = 1,
+  StateTransitionResultsResponse_FieldNumber_Error = 2,
+  StateTransitionResultsResponse_FieldNumber_Proof = 3,
 };
 
 typedef GPB_ENUM(StateTransitionResultsResponse_Responses_OneOfCase) {
   StateTransitionResultsResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
-  StateTransitionResultsResponse_Responses_OneOfCase_Errors = 1,
-  StateTransitionResultsResponse_Responses_OneOfCase_Proof = 2,
+  StateTransitionResultsResponse_Responses_OneOfCase_Error = 2,
+  StateTransitionResultsResponse_Responses_OneOfCase_Proof = 3,
 };
 
 @interface StateTransitionResultsResponse : GPBMessage
 
+@property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransitionHash;
+
 @property(nonatomic, readonly) StateTransitionResultsResponse_Responses_OneOfCase responsesOneOfCase;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *errors;
+@property(nonatomic, readwrite, strong, null_resettable) StateTransitionError *error;
 
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 

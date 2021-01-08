@@ -17,6 +17,11 @@ message Proof {
   bytes store_tree_proof = 2;
 }
 
+message StateTransitionError {
+  uint32 code = 1;
+  string log = 2;
+}
+
 message BroadcastStateTransitionRequest {
   bytes state_transition = 1;
 }
@@ -93,8 +98,10 @@ message StateTransitionResultsRequest {
 }
 
 message StateTransitionResultsResponse {
+  bytes state_transition_hash = 1;
+
   oneof responses {
-    string errors = 1;
-    Proof proof = 2;
+    StateTransitionError error = 2;
+    Proof proof = 3;
   }
 }
