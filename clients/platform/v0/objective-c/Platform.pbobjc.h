@@ -296,42 +296,40 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
 
 @end
 
-#pragma mark - StateTransitionResultsRequest
+#pragma mark - StateTransitionResultRequest
 
-typedef GPB_ENUM(StateTransitionResultsRequest_FieldNumber) {
-  StateTransitionResultsRequest_FieldNumber_StateTransitionHashesArray = 1,
-  StateTransitionResultsRequest_FieldNumber_Prove = 2,
+typedef GPB_ENUM(StateTransitionResultRequest_FieldNumber) {
+  StateTransitionResultRequest_FieldNumber_StateTransitionHash = 1,
+  StateTransitionResultRequest_FieldNumber_Prove = 2,
 };
 
-@interface StateTransitionResultsRequest : GPBMessage
+@interface StateTransitionResultRequest : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *stateTransitionHashesArray;
-/** The number of items in @c stateTransitionHashesArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger stateTransitionHashesArray_Count;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransitionHash;
 
 @property(nonatomic, readwrite) BOOL prove;
 
 @end
 
-#pragma mark - StateTransitionResultsResponse
+#pragma mark - StateTransitionResultResponse
 
-typedef GPB_ENUM(StateTransitionResultsResponse_FieldNumber) {
-  StateTransitionResultsResponse_FieldNumber_StateTransitionHash = 1,
-  StateTransitionResultsResponse_FieldNumber_Error = 2,
-  StateTransitionResultsResponse_FieldNumber_Proof = 3,
+typedef GPB_ENUM(StateTransitionResultResponse_FieldNumber) {
+  StateTransitionResultResponse_FieldNumber_StateTransitionHash = 1,
+  StateTransitionResultResponse_FieldNumber_Error = 2,
+  StateTransitionResultResponse_FieldNumber_Proof = 3,
 };
 
-typedef GPB_ENUM(StateTransitionResultsResponse_Responses_OneOfCase) {
-  StateTransitionResultsResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
-  StateTransitionResultsResponse_Responses_OneOfCase_Error = 2,
-  StateTransitionResultsResponse_Responses_OneOfCase_Proof = 3,
+typedef GPB_ENUM(StateTransitionResultResponse_Responses_OneOfCase) {
+  StateTransitionResultResponse_Responses_OneOfCase_GPBUnsetOneOfCase = 0,
+  StateTransitionResultResponse_Responses_OneOfCase_Error = 2,
+  StateTransitionResultResponse_Responses_OneOfCase_Proof = 3,
 };
 
-@interface StateTransitionResultsResponse : GPBMessage
+@interface StateTransitionResultResponse : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransitionHash;
 
-@property(nonatomic, readonly) StateTransitionResultsResponse_Responses_OneOfCase responsesOneOfCase;
+@property(nonatomic, readonly) StateTransitionResultResponse_Responses_OneOfCase responsesOneOfCase;
 
 @property(nonatomic, readwrite, strong, null_resettable) StateTransitionError *error;
 
@@ -342,7 +340,7 @@ typedef GPB_ENUM(StateTransitionResultsResponse_Responses_OneOfCase) {
 /**
  * Clears whatever value was set for the oneof 'responses'.
  **/
-void StateTransitionResultsResponse_ClearResponsesOneOfCase(StateTransitionResultsResponse *message);
+void StateTransitionResultResponse_ClearResponsesOneOfCase(StateTransitionResultResponse *message);
 
 NS_ASSUME_NONNULL_END
 

@@ -94,16 +94,16 @@
              responseClass:[GetIdentityIdsByPublicKeyHashesResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark subscribeToStateTransitionResults(StateTransitionResultsRequest) returns (StateTransitionResultsResponse)
+#pragma mark subscribeToStateTransitionResult(StateTransitionResultRequest) returns (StateTransitionResultResponse)
 
-- (void)subscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCTosubscribeToStateTransitionResultsWithRequest:request handler:handler] start];
+- (void)subscribeToStateTransitionResultWithRequest:(StateTransitionResultRequest *)request handler:(void(^)(StateTransitionResultResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCTosubscribeToStateTransitionResultWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCTosubscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"subscribeToStateTransitionResults"
+- (GRPCProtoCall *)RPCTosubscribeToStateTransitionResultWithRequest:(StateTransitionResultRequest *)request handler:(void(^)(StateTransitionResultResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"subscribeToStateTransitionResult"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[StateTransitionResultsResponse class]
+             responseClass:[StateTransitionResultResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 @end

@@ -53,11 +53,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCTogetIdentityIdsByPublicKeyHashesWithRequest:(GetIdentityIdsByPublicKeyHashesRequest *)request handler:(void(^)(GetIdentityIdsByPublicKeyHashesResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark subscribeToStateTransitionResults(StateTransitionResultsRequest) returns (StateTransitionResultsResponse)
+#pragma mark subscribeToStateTransitionResult(StateTransitionResultRequest) returns (StateTransitionResultResponse)
 
-- (void)subscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)subscribeToStateTransitionResultWithRequest:(StateTransitionResultRequest *)request handler:(void(^)(StateTransitionResultResponse *_Nullable response, NSError *_Nullable error))handler;
 
-- (GRPCProtoCall *)RPCTosubscribeToStateTransitionResultsWithRequest:(StateTransitionResultsRequest *)request handler:(void(^)(StateTransitionResultsResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCTosubscribeToStateTransitionResultWithRequest:(StateTransitionResultRequest *)request handler:(void(^)(StateTransitionResultResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

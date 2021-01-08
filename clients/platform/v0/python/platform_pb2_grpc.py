@@ -44,10 +44,10 @@ class PlatformStub(object):
         request_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.SerializeToString,
         response_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.FromString,
         )
-    self.subscribeToStateTransitionResults = channel.unary_unary(
-        '/org.dash.platform.dapi.v0.Platform/subscribeToStateTransitionResults',
-        request_serializer=platform__pb2.StateTransitionResultsRequest.SerializeToString,
-        response_deserializer=platform__pb2.StateTransitionResultsResponse.FromString,
+    self.subscribeToStateTransitionResult = channel.unary_unary(
+        '/org.dash.platform.dapi.v0.Platform/subscribeToStateTransitionResult',
+        request_serializer=platform__pb2.StateTransitionResultRequest.SerializeToString,
+        response_deserializer=platform__pb2.StateTransitionResultResponse.FromString,
         )
 
 
@@ -97,7 +97,7 @@ class PlatformServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def subscribeToStateTransitionResults(self, request, context):
+  def subscribeToStateTransitionResult(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -137,10 +137,10 @@ def add_PlatformServicer_to_server(servicer, server):
           request_deserializer=platform__pb2.GetIdentityIdsByPublicKeyHashesRequest.FromString,
           response_serializer=platform__pb2.GetIdentityIdsByPublicKeyHashesResponse.SerializeToString,
       ),
-      'subscribeToStateTransitionResults': grpc.unary_unary_rpc_method_handler(
-          servicer.subscribeToStateTransitionResults,
-          request_deserializer=platform__pb2.StateTransitionResultsRequest.FromString,
-          response_serializer=platform__pb2.StateTransitionResultsResponse.SerializeToString,
+      'subscribeToStateTransitionResult': grpc.unary_unary_rpc_method_handler(
+          servicer.subscribeToStateTransitionResult,
+          request_deserializer=platform__pb2.StateTransitionResultRequest.FromString,
+          response_serializer=platform__pb2.StateTransitionResultResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
