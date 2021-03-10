@@ -30,10 +30,10 @@ message GetStatusResponse {
   }
 
   enum Status {
-    UNKNOWN = 0;
-    NOT_STARTED = 1;
-    SYNCING = 2;
-    READY = 3;
+    NOT_STARTED = 0;
+    SYNCING = 1;
+    READY = 2;
+    ERROR = 3;
   }
 
   message Chain {
@@ -48,18 +48,22 @@ message GetStatusResponse {
   }
 
   message Masternode {
-    enum SyncStatus {
+    enum Status {
       UNKNOWN = 0;
-      MASTERNODE_SYNC_BLOCKCHAIN = 1;
-      MASTERNODE_SYNC_GOVERNANCE = 4;
-      MASTERNODE_SYNC_FINISHED = 999;
+      WAITING_FOR_PROTX = 1;
+      POSE_BANNED = 2;
+      REMOVED = 3;
+      OPERATOR_KEY_CHANGED = 4;
+      PROTX_IP_CHANGED = 5;
+      READY = 6;
+      ERROR = 7;
     }
 
-    string status = 1; // TODO: Make it enum?
+    Status status = 1;
     bytes pro_tx_hash = 2;
     uint32 posePenalty = 3;
     bool is_synced = 4;
-    SyncStatus sync_status = 5;
+    double sync_progress = 5;
   }
 
   message Network {
