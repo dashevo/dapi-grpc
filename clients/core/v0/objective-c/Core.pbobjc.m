@@ -488,7 +488,7 @@ typedef struct GetStatusResponse_Chain__storage_ {
 
 @implementation GetStatusResponse_Masternode
 
-@dynamic state;
+@dynamic status;
 @dynamic proTxHash;
 @dynamic posePenalty;
 @dynamic isSynced;
@@ -496,7 +496,7 @@ typedef struct GetStatusResponse_Chain__storage_ {
 
 typedef struct GetStatusResponse_Masternode__storage_ {
   uint32_t _has_storage_[1];
-  GetStatusResponse_Status state;
+  GetStatusResponse_Masternode_Status status;
   uint32_t posePenalty;
   NSData *proTxHash;
   double syncProgress;
@@ -509,11 +509,11 @@ typedef struct GetStatusResponse_Masternode__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "state",
-        .dataTypeSpecific.enumDescFunc = GetStatusResponse_Status_EnumDescriptor,
-        .number = GetStatusResponse_Masternode_FieldNumber_State,
+        .name = "status",
+        .dataTypeSpecific.enumDescFunc = GetStatusResponse_Masternode_Status_EnumDescriptor,
+        .number = GetStatusResponse_Masternode_FieldNumber_Status,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetStatusResponse_Masternode__storage_, state),
+        .offset = (uint32_t)offsetof(GetStatusResponse_Masternode__storage_, status),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
         .dataType = GPBDataTypeEnum,
       },
@@ -571,21 +571,21 @@ typedef struct GetStatusResponse_Masternode__storage_ {
 
 @end
 
-int32_t GetStatusResponse_Masternode_State_RawValue(GetStatusResponse_Masternode *message) {
+int32_t GetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternode *message) {
   GPBDescriptor *descriptor = [GetStatusResponse_Masternode descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetStatusResponse_Masternode_FieldNumber_State];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetStatusResponse_Masternode_FieldNumber_Status];
   return GPBGetMessageInt32Field(message, field);
 }
 
-void SetGetStatusResponse_Masternode_State_RawValue(GetStatusResponse_Masternode *message, int32_t value) {
+void SetGetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternode *message, int32_t value) {
   GPBDescriptor *descriptor = [GetStatusResponse_Masternode descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetStatusResponse_Masternode_FieldNumber_State];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetStatusResponse_Masternode_FieldNumber_Status];
   GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
 }
 
-#pragma mark - Enum GetStatusResponse_Masternode_State
+#pragma mark - Enum GetStatusResponse_Masternode_Status
 
-GPBEnumDescriptor *GetStatusResponse_Masternode_State_EnumDescriptor(void) {
+GPBEnumDescriptor *GetStatusResponse_Masternode_Status_EnumDescriptor(void) {
   static GPBEnumDescriptor *descriptor = NULL;
   if (!descriptor) {
     static const char *valueNames =
@@ -593,21 +593,21 @@ GPBEnumDescriptor *GetStatusResponse_Masternode_State_EnumDescriptor(void) {
         "ed\000OperatorKeyChanged\000ProtxIpChanged\000Rea"
         "dy\000Error\000";
     static const int32_t values[] = {
-        GetStatusResponse_Masternode_State_Unknown,
-        GetStatusResponse_Masternode_State_WaitingForProtx,
-        GetStatusResponse_Masternode_State_PoseBanned,
-        GetStatusResponse_Masternode_State_Removed,
-        GetStatusResponse_Masternode_State_OperatorKeyChanged,
-        GetStatusResponse_Masternode_State_ProtxIpChanged,
-        GetStatusResponse_Masternode_State_Ready,
-        GetStatusResponse_Masternode_State_Error,
+        GetStatusResponse_Masternode_Status_Unknown,
+        GetStatusResponse_Masternode_Status_WaitingForProtx,
+        GetStatusResponse_Masternode_Status_PoseBanned,
+        GetStatusResponse_Masternode_Status_Removed,
+        GetStatusResponse_Masternode_Status_OperatorKeyChanged,
+        GetStatusResponse_Masternode_Status_ProtxIpChanged,
+        GetStatusResponse_Masternode_Status_Ready,
+        GetStatusResponse_Masternode_Status_Error,
     };
     GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(GetStatusResponse_Masternode_State)
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(GetStatusResponse_Masternode_Status)
                                        valueNames:valueNames
                                            values:values
                                             count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:GetStatusResponse_Masternode_State_IsValidValue];
+                                     enumVerifier:GetStatusResponse_Masternode_Status_IsValidValue];
     if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
       [worker release];
     }
@@ -615,16 +615,16 @@ GPBEnumDescriptor *GetStatusResponse_Masternode_State_EnumDescriptor(void) {
   return descriptor;
 }
 
-BOOL GetStatusResponse_Masternode_State_IsValidValue(int32_t value__) {
+BOOL GetStatusResponse_Masternode_Status_IsValidValue(int32_t value__) {
   switch (value__) {
-    case GetStatusResponse_Masternode_State_Unknown:
-    case GetStatusResponse_Masternode_State_WaitingForProtx:
-    case GetStatusResponse_Masternode_State_PoseBanned:
-    case GetStatusResponse_Masternode_State_Removed:
-    case GetStatusResponse_Masternode_State_OperatorKeyChanged:
-    case GetStatusResponse_Masternode_State_ProtxIpChanged:
-    case GetStatusResponse_Masternode_State_Ready:
-    case GetStatusResponse_Masternode_State_Error:
+    case GetStatusResponse_Masternode_Status_Unknown:
+    case GetStatusResponse_Masternode_Status_WaitingForProtx:
+    case GetStatusResponse_Masternode_Status_PoseBanned:
+    case GetStatusResponse_Masternode_Status_Removed:
+    case GetStatusResponse_Masternode_Status_OperatorKeyChanged:
+    case GetStatusResponse_Masternode_Status_ProtxIpChanged:
+    case GetStatusResponse_Masternode_Status_Ready:
+    case GetStatusResponse_Masternode_Status_Error:
       return YES;
     default:
       return NO;
