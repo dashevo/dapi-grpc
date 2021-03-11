@@ -61,7 +61,7 @@ message GetStatusResponse {
 
     Status status = 1;
     bytes pro_tx_hash = 2;
-    uint32 posePenalty = 3;
+    uint32 pose_penalty = 3;
     bool is_synced = 4;
     double sync_progress = 5;
   }
@@ -72,7 +72,7 @@ message GetStatusResponse {
       double incremental = 2;
     }
 
-    uint32 peersCount = 1;
+    uint32 peers_count = 1;
     Fee fee = 2;
   }
 

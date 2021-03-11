@@ -521,7 +521,7 @@ typedef struct GetStatusResponse_Masternode__storage_ {
         .number = GetStatusResponse_Masternode_FieldNumber_PosePenalty,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetStatusResponse_Masternode__storage_, posePenalty),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeUInt32,
       },
       {
@@ -551,11 +551,6 @@ typedef struct GetStatusResponse_Masternode__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetStatusResponse_Masternode__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\003\013\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetStatusResponse)];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -650,7 +645,7 @@ typedef struct GetStatusResponse_Network__storage_ {
         .number = GetStatusResponse_Network_FieldNumber_PeersCount,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetStatusResponse_Network__storage_, peersCount),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeUInt32,
       },
       {
@@ -671,11 +666,6 @@ typedef struct GetStatusResponse_Network__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetStatusResponse_Network__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\001\n\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetStatusResponse)];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
