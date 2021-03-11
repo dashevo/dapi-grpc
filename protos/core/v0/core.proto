@@ -48,7 +48,7 @@ message GetStatusResponse {
   }
 
   message Masternode {
-    enum Status {
+    enum State {
       UNKNOWN = 0;
       WAITING_FOR_PROTX = 1;
       POSE_BANNED = 2;
@@ -59,7 +59,7 @@ message GetStatusResponse {
       ERROR = 7;
     }
 
-    Status status = 1;
+    Status state = 1;
     bytes pro_tx_hash = 2;
     uint32 pose_penalty = 3;
     bool is_synced = 4;
@@ -81,7 +81,8 @@ message GetStatusResponse {
   Status status = 3;
   double sync_progress = 4;
   Chain chain = 5;
-  Network network = 6;
+  Masternode masternode = 6;
+  Network network = 7;
 }
 
 message GetBlockRequest {
