@@ -31,6 +31,7 @@ CF_EXTERN_C_BEGIN
 @class BloomFilter;
 @class ChainLockSignatureMessages;
 @class GetStatusResponse_Chain;
+@class GetStatusResponse_Masternode;
 @class GetStatusResponse_Network;
 @class GetStatusResponse_Network_Fee;
 @class GetStatusResponse_Time;
@@ -63,32 +64,32 @@ GPBEnumDescriptor *GetStatusResponse_Status_EnumDescriptor(void);
  **/
 BOOL GetStatusResponse_Status_IsValidValue(int32_t value);
 
-#pragma mark - Enum GetStatusResponse_Masternode_Status
+#pragma mark - Enum GetStatusResponse_Masternode_State
 
-typedef GPB_ENUM(GetStatusResponse_Masternode_Status) {
+typedef GPB_ENUM(GetStatusResponse_Masternode_State) {
   /**
    * Value used if any message's field encounters a value that is not defined
    * by this enum. The message will also have C functions to get/set the rawValue
    * of the field.
    **/
-  GetStatusResponse_Masternode_Status_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  GetStatusResponse_Masternode_Status_Unknown = 0,
-  GetStatusResponse_Masternode_Status_WaitingForProtx = 1,
-  GetStatusResponse_Masternode_Status_PoseBanned = 2,
-  GetStatusResponse_Masternode_Status_Removed = 3,
-  GetStatusResponse_Masternode_Status_OperatorKeyChanged = 4,
-  GetStatusResponse_Masternode_Status_ProtxIpChanged = 5,
-  GetStatusResponse_Masternode_Status_Ready = 6,
-  GetStatusResponse_Masternode_Status_Error = 7,
+  GetStatusResponse_Masternode_State_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  GetStatusResponse_Masternode_State_Unknown = 0,
+  GetStatusResponse_Masternode_State_WaitingForProtx = 1,
+  GetStatusResponse_Masternode_State_PoseBanned = 2,
+  GetStatusResponse_Masternode_State_Removed = 3,
+  GetStatusResponse_Masternode_State_OperatorKeyChanged = 4,
+  GetStatusResponse_Masternode_State_ProtxIpChanged = 5,
+  GetStatusResponse_Masternode_State_Ready = 6,
+  GetStatusResponse_Masternode_State_Error = 7,
 };
 
-GPBEnumDescriptor *GetStatusResponse_Masternode_Status_EnumDescriptor(void);
+GPBEnumDescriptor *GetStatusResponse_Masternode_State_EnumDescriptor(void);
 
 /**
  * Checks to see if the given value is defined by the enum or was not known at
  * the time this source was generated.
  **/
-BOOL GetStatusResponse_Masternode_Status_IsValidValue(int32_t value);
+BOOL GetStatusResponse_Masternode_State_IsValidValue(int32_t value);
 
 #pragma mark - CoreRoot
 
@@ -119,7 +120,8 @@ typedef GPB_ENUM(GetStatusResponse_FieldNumber) {
   GetStatusResponse_FieldNumber_Status = 3,
   GetStatusResponse_FieldNumber_SyncProgress = 4,
   GetStatusResponse_FieldNumber_Chain = 5,
-  GetStatusResponse_FieldNumber_Network = 6,
+  GetStatusResponse_FieldNumber_Masternode = 6,
+  GetStatusResponse_FieldNumber_Network = 7,
 };
 
 @interface GetStatusResponse : GPBMessage
@@ -139,6 +141,10 @@ typedef GPB_ENUM(GetStatusResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) GetStatusResponse_Chain *chain;
 /** Test to see if @c chain has been set. */
 @property(nonatomic, readwrite) BOOL hasChain;
+
+@property(nonatomic, readwrite, strong, null_resettable) GetStatusResponse_Masternode *masternode;
+/** Test to see if @c masternode has been set. */
+@property(nonatomic, readwrite) BOOL hasMasternode;
 
 @property(nonatomic, readwrite, strong, null_resettable) GetStatusResponse_Network *network;
 /** Test to see if @c network has been set. */
@@ -230,7 +236,7 @@ typedef GPB_ENUM(GetStatusResponse_Chain_FieldNumber) {
 #pragma mark - GetStatusResponse_Masternode
 
 typedef GPB_ENUM(GetStatusResponse_Masternode_FieldNumber) {
-  GetStatusResponse_Masternode_FieldNumber_Status = 1,
+  GetStatusResponse_Masternode_FieldNumber_State = 1,
   GetStatusResponse_Masternode_FieldNumber_ProTxHash = 2,
   GetStatusResponse_Masternode_FieldNumber_PosePenalty = 3,
   GetStatusResponse_Masternode_FieldNumber_IsSynced = 4,
@@ -239,7 +245,7 @@ typedef GPB_ENUM(GetStatusResponse_Masternode_FieldNumber) {
 
 @interface GetStatusResponse_Masternode : GPBMessage
 
-@property(nonatomic, readwrite) GetStatusResponse_Masternode_Status status;
+@property(nonatomic, readwrite) GetStatusResponse_Status state;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *proTxHash;
 
@@ -252,16 +258,16 @@ typedef GPB_ENUM(GetStatusResponse_Masternode_FieldNumber) {
 @end
 
 /**
- * Fetches the raw value of a @c GetStatusResponse_Masternode's @c status property, even
+ * Fetches the raw value of a @c GetStatusResponse_Masternode's @c state property, even
  * if the value was not defined by the enum at the time the code was generated.
  **/
-int32_t GetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternode *message);
+int32_t GetStatusResponse_Masternode_State_RawValue(GetStatusResponse_Masternode *message);
 /**
- * Sets the raw value of an @c GetStatusResponse_Masternode's @c status property, allowing
+ * Sets the raw value of an @c GetStatusResponse_Masternode's @c state property, allowing
  * it to be set to a value that was not defined by the enum at the time the code
  * was generated.
  **/
-void SetGetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternode *message, int32_t value);
+void SetGetStatusResponse_Masternode_State_RawValue(GetStatusResponse_Masternode *message, int32_t value);
 
 #pragma mark - GetStatusResponse_Network
 
