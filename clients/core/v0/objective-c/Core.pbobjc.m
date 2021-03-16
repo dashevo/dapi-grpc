@@ -631,6 +631,61 @@ BOOL GetStatusResponse_Masternode_Status_IsValidValue(int32_t value__) {
   }
 }
 
+#pragma mark - GetStatusResponse_Fee
+
+@implementation GetStatusResponse_Fee
+
+@dynamic relay;
+@dynamic incremental;
+
+typedef struct GetStatusResponse_Fee__storage_ {
+  uint32_t _has_storage_[1];
+  double relay;
+  double incremental;
+} GetStatusResponse_Fee__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "relay",
+        .dataTypeSpecific.className = NULL,
+        .number = GetStatusResponse_Fee_FieldNumber_Relay,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetStatusResponse_Fee__storage_, relay),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeDouble,
+      },
+      {
+        .name = "incremental",
+        .dataTypeSpecific.className = NULL,
+        .number = GetStatusResponse_Fee_FieldNumber_Incremental,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetStatusResponse_Fee__storage_, incremental),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeDouble,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[GetStatusResponse_Fee class]
+                                     rootClass:[CoreRoot class]
+                                          file:CoreRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(GetStatusResponse_Fee__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetStatusResponse)];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - GetStatusResponse_Network
 
 @implementation GetStatusResponse_Network
@@ -641,7 +696,7 @@ BOOL GetStatusResponse_Masternode_Status_IsValidValue(int32_t value__) {
 typedef struct GetStatusResponse_Network__storage_ {
   uint32_t _has_storage_[1];
   uint32_t peersCount;
-  GetStatusResponse_Network_Fee *fee;
+  GetStatusResponse_Fee *fee;
 } GetStatusResponse_Network__storage_;
 
 // This method is threadsafe because it is initially called
@@ -661,7 +716,7 @@ typedef struct GetStatusResponse_Network__storage_ {
       },
       {
         .name = "fee",
-        .dataTypeSpecific.className = GPBStringifySymbol(GetStatusResponse_Network_Fee),
+        .dataTypeSpecific.className = GPBStringifySymbol(GetStatusResponse_Fee),
         .number = GetStatusResponse_Network_FieldNumber_Fee,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetStatusResponse_Network__storage_, fee),
@@ -678,61 +733,6 @@ typedef struct GetStatusResponse_Network__storage_ {
                                    storageSize:sizeof(GetStatusResponse_Network__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetStatusResponse)];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - GetStatusResponse_Network_Fee
-
-@implementation GetStatusResponse_Network_Fee
-
-@dynamic relay;
-@dynamic incremental;
-
-typedef struct GetStatusResponse_Network_Fee__storage_ {
-  uint32_t _has_storage_[1];
-  double relay;
-  double incremental;
-} GetStatusResponse_Network_Fee__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "relay",
-        .dataTypeSpecific.className = NULL,
-        .number = GetStatusResponse_Network_Fee_FieldNumber_Relay,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(GetStatusResponse_Network_Fee__storage_, relay),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeDouble,
-      },
-      {
-        .name = "incremental",
-        .dataTypeSpecific.className = NULL,
-        .number = GetStatusResponse_Network_Fee_FieldNumber_Incremental,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(GetStatusResponse_Network_Fee__storage_, incremental),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeDouble,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[GetStatusResponse_Network_Fee class]
-                                     rootClass:[CoreRoot class]
-                                          file:CoreRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(GetStatusResponse_Network_Fee__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetStatusResponse_Network)];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
