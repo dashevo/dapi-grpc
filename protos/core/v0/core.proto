@@ -66,14 +66,14 @@ message GetStatusResponse {
     double sync_progress = 5;
   }
 
-  message Fee {
+  message NetworkFee {
     double relay = 1;
     double incremental = 2;
   }
 
   message Network {
     uint32 peers_count = 1;
-    Fee fee = 2;
+    NetworkFee fee = 2;
   }
 
   Version version = 1;

@@ -31,9 +31,9 @@ CF_EXTERN_C_BEGIN
 @class BloomFilter;
 @class ChainLockSignatureMessages;
 @class GetStatusResponse_Chain;
-@class GetStatusResponse_Fee;
 @class GetStatusResponse_Masternode;
 @class GetStatusResponse_Network;
+@class GetStatusResponse_NetworkFee;
 @class GetStatusResponse_Time;
 @class GetStatusResponse_Version;
 @class InstantSendLockMessages;
@@ -269,14 +269,14 @@ int32_t GetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternod
  **/
 void SetGetStatusResponse_Masternode_Status_RawValue(GetStatusResponse_Masternode *message, int32_t value);
 
-#pragma mark - GetStatusResponse_Fee
+#pragma mark - GetStatusResponse_NetworkFee
 
-typedef GPB_ENUM(GetStatusResponse_Fee_FieldNumber) {
-  GetStatusResponse_Fee_FieldNumber_Relay = 1,
-  GetStatusResponse_Fee_FieldNumber_Incremental = 2,
+typedef GPB_ENUM(GetStatusResponse_NetworkFee_FieldNumber) {
+  GetStatusResponse_NetworkFee_FieldNumber_Relay = 1,
+  GetStatusResponse_NetworkFee_FieldNumber_Incremental = 2,
 };
 
-@interface GetStatusResponse_Fee : GPBMessage
+@interface GetStatusResponse_NetworkFee : GPBMessage
 
 @property(nonatomic, readwrite) double relay;
 
@@ -295,7 +295,7 @@ typedef GPB_ENUM(GetStatusResponse_Network_FieldNumber) {
 
 @property(nonatomic, readwrite) uint32_t peersCount;
 
-@property(nonatomic, readwrite, strong, null_resettable) GetStatusResponse_Fee *fee;
+@property(nonatomic, readwrite, strong, null_resettable) GetStatusResponse_NetworkFee *fee;
 /** Test to see if @c fee has been set. */
 @property(nonatomic, readwrite) BOOL hasFee;
 
