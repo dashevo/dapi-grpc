@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/dashevo/dapi-grpc/actions/workflows/test_and_release.yml/badge.svg)](https://github.com/dashevo/dapi-grpc/actions/workflows/test_and_release.yml)
 [![NPM version](https://img.shields.io/npm/v/@dashevo/dapi-grpc.svg)](https://npmjs.org/package/@dashevo/dapi-grpc)
 
-> Decentralized API GRPC definition files and generated clients
+Decentralized API GRPC definition files and generated clients
 
 ## Table of Contents
 
