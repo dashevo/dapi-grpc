@@ -39,14 +39,17 @@ jobs:
       - name: Install NPM dependencies
         run: npm ci
 
-      - name: Check NPM package lock version is updated
-        run: npm run check-package # TODO: does this exist as an action already?
+      - name: Run build
+        run: npm run build
 
       - name: Run ESLinter
         run: npm run lint
 
       - name: Run tests
         run: npm run test
+
+      - name: Check NPM package lock version is updated
+        run: npm run check-package # TODO: does this exist as an action already?
 
   release:
     name: Release NPM package
