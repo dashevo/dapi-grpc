@@ -6,7 +6,7 @@
 * restructure core status response ([#107](https://github.com/dashevo/dapi-grpc/issues/107))
 
 
-### Breaking changes
+### BREAKING CHANGES
 
 * structure of `getStatus` method response has changed
 
