@@ -1,3 +1,12 @@
+# [0.19.0](https://github.com/dashevo/dapi-grpc/compare/v0.18.0...v0.19.0) (2021-04-30)
+
+
+### Features
+
+* restructure core status response ([#107](https://github.com/dashevo/dapi-grpc/issues/107))
+
+
+
 # [0.18.0](https://github.com/dashevo/dapi-grpc/compare/v0.17.0...v0.18.0) (2021-03-03)
 
 
