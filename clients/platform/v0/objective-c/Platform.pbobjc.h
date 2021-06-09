@@ -133,6 +133,8 @@ typedef GPB_ENUM(GetIdentityRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentityResponse_FieldNumber) {
   GetIdentityResponse_FieldNumber_Identity = 1,
   GetIdentityResponse_FieldNumber_Proof = 2,
+  GetIdentityResponse_FieldNumber_Height = 3,
+  GetIdentityResponse_FieldNumber_ChainLockedCoreHeight = 4,
 };
 
 @interface GetIdentityResponse : GPBMessage
@@ -142,6 +144,10 @@ typedef GPB_ENUM(GetIdentityResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 
@@ -165,6 +171,8 @@ typedef GPB_ENUM(GetDataContractRequest_FieldNumber) {
 typedef GPB_ENUM(GetDataContractResponse_FieldNumber) {
   GetDataContractResponse_FieldNumber_DataContract = 1,
   GetDataContractResponse_FieldNumber_Proof = 2,
+  GetDataContractResponse_FieldNumber_Height = 3,
+  GetDataContractResponse_FieldNumber_ChainLockedCoreHeight = 4,
 };
 
 @interface GetDataContractResponse : GPBMessage
@@ -174,6 +182,10 @@ typedef GPB_ENUM(GetDataContractResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 
@@ -228,6 +240,8 @@ void GetDocumentsRequest_ClearStartOneOfCase(GetDocumentsRequest *message);
 typedef GPB_ENUM(GetDocumentsResponse_FieldNumber) {
   GetDocumentsResponse_FieldNumber_DocumentsArray = 1,
   GetDocumentsResponse_FieldNumber_Proof = 2,
+  GetDocumentsResponse_FieldNumber_Height = 3,
+  GetDocumentsResponse_FieldNumber_ChainLockedCoreHeight = 4,
 };
 
 @interface GetDocumentsResponse : GPBMessage
@@ -239,6 +253,10 @@ typedef GPB_ENUM(GetDocumentsResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 
@@ -264,6 +282,8 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
   GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesArray = 1,
   GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Proof = 2,
+  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Height = 3,
+  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight = 4,
 };
 
 @interface GetIdentitiesByPublicKeyHashesResponse : GPBMessage
@@ -275,6 +295,10 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 
@@ -300,6 +324,8 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
   GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsArray = 1,
   GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Proof = 2,
+  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Height = 3,
+  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight = 4,
 };
 
 @interface GetIdentityIdsByPublicKeyHashesResponse : GPBMessage
@@ -311,6 +337,10 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Proof *proof;
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 

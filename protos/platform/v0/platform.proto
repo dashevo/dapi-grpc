@@ -44,6 +44,8 @@ message GetIdentityRequest {
 message GetIdentityResponse {
   bytes identity = 1;
   Proof proof = 2;
+  uint32 height = 3;
+  uint32 chain_locked_core_height = 4;
 }
 
  message GetDataContractRequest {
@@ -54,6 +56,8 @@ message GetIdentityResponse {
 message GetDataContractResponse {
   bytes data_contract = 1;
   Proof proof = 2;
+  uint32 height = 3;
+  uint32 chain_locked_core_height = 4;
 }
 
 message GetDocumentsRequest {
@@ -76,6 +80,8 @@ message GetDocumentsRequest {
 message GetDocumentsResponse {
   repeated bytes documents = 1;
   Proof proof = 2;
+  uint32 height = 3;
+  uint32 chain_locked_core_height = 4;
 }
 
 message GetIdentitiesByPublicKeyHashesRequest {
@@ -86,6 +92,8 @@ message GetIdentitiesByPublicKeyHashesRequest {
 message GetIdentitiesByPublicKeyHashesResponse {
   repeated bytes identities = 1;
   Proof proof = 2;
+  uint32 height = 3;
+  uint32 chain_locked_core_height = 4;
 }
 
 message GetIdentityIdsByPublicKeyHashesRequest {
@@ -96,6 +104,8 @@ message GetIdentityIdsByPublicKeyHashesRequest {
 message GetIdentityIdsByPublicKeyHashesResponse {
   repeated bytes identity_ids = 1;
   Proof proof = 2;
+  uint32 height = 3;
+  uint32 chain_locked_core_height = 4;
 }
 
 message WaitForStateTransitionResultRequest {

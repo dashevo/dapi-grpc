@@ -349,9 +349,13 @@ typedef struct GetIdentityRequest__storage_ {
 
 @dynamic identity;
 @dynamic hasProof, proof;
+@dynamic height;
+@dynamic chainLockedCoreHeight;
 
 typedef struct GetIdentityResponse__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
   NSData *identity;
   Proof *proof;
 } GetIdentityResponse__storage_;
@@ -379,6 +383,24 @@ typedef struct GetIdentityResponse__storage_ {
         .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, proof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentityResponse_FieldNumber_Height,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentityResponse_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -456,9 +478,13 @@ typedef struct GetDataContractRequest__storage_ {
 
 @dynamic dataContract;
 @dynamic hasProof, proof;
+@dynamic height;
+@dynamic chainLockedCoreHeight;
 
 typedef struct GetDataContractResponse__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
   NSData *dataContract;
   Proof *proof;
 } GetDataContractResponse__storage_;
@@ -486,6 +512,24 @@ typedef struct GetDataContractResponse__storage_ {
         .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, proof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetDataContractResponse_FieldNumber_Height,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = GetDataContractResponse_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -641,9 +685,13 @@ void GetDocumentsRequest_ClearStartOneOfCase(GetDocumentsRequest *message) {
 
 @dynamic documentsArray, documentsArray_Count;
 @dynamic hasProof, proof;
+@dynamic height;
+@dynamic chainLockedCoreHeight;
 
 typedef struct GetDocumentsResponse__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
   NSMutableArray *documentsArray;
   Proof *proof;
 } GetDocumentsResponse__storage_;
@@ -671,6 +719,24 @@ typedef struct GetDocumentsResponse__storage_ {
         .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, proof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetDocumentsResponse_FieldNumber_Height,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = GetDocumentsResponse_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -748,9 +814,13 @@ typedef struct GetIdentitiesByPublicKeyHashesRequest__storage_ {
 
 @dynamic identitiesArray, identitiesArray_Count;
 @dynamic hasProof, proof;
+@dynamic height;
+@dynamic chainLockedCoreHeight;
 
 typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
   NSMutableArray *identitiesArray;
   Proof *proof;
 } GetIdentitiesByPublicKeyHashesResponse__storage_;
@@ -778,6 +848,24 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
         .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, proof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Height,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -855,9 +943,13 @@ typedef struct GetIdentityIdsByPublicKeyHashesRequest__storage_ {
 
 @dynamic identityIdsArray, identityIdsArray_Count;
 @dynamic hasProof, proof;
+@dynamic height;
+@dynamic chainLockedCoreHeight;
 
 typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
   NSMutableArray *identityIdsArray;
   Proof *proof;
 } GetIdentityIdsByPublicKeyHashesResponse__storage_;
@@ -885,6 +977,24 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
         .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, proof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Height,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
