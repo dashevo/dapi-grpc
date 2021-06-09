@@ -47,23 +47,23 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
 
 @implementation Proof
 
+@dynamic rootTreeProof;
+@dynamic storeTreeProof;
 @dynamic appHash;
 @dynamic height;
 @dynamic chainLockedCoreHeight;
 @dynamic quorumHash;
 @dynamic signature;
-@dynamic rootTreeProof;
-@dynamic storeTreeProof;
 
 typedef struct Proof__storage_ {
   uint32_t _has_storage_[1];
   uint32_t height;
   uint32_t chainLockedCoreHeight;
+  NSData *rootTreeProof;
+  NSData *storeTreeProof;
   NSData *appHash;
   NSData *quorumHash;
   NSData *signature;
-  NSData *rootTreeProof;
-  NSData *storeTreeProof;
 } Proof__storage_;
 
 // This method is threadsafe because it is initially called
@@ -73,55 +73,10 @@ typedef struct Proof__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "appHash",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_AppHash,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(Proof__storage_, appHash),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_Height,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(Proof__storage_, height),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(Proof__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "quorumHash",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_QuorumHash,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(Proof__storage_, quorumHash),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "signature",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_Signature,
-        .hasIndex = 4,
-        .offset = (uint32_t)offsetof(Proof__storage_, signature),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
         .name = "rootTreeProof",
         .dataTypeSpecific.className = NULL,
         .number = Proof_FieldNumber_RootTreeProof,
-        .hasIndex = 5,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(Proof__storage_, rootTreeProof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
@@ -130,8 +85,53 @@ typedef struct Proof__storage_ {
         .name = "storeTreeProof",
         .dataTypeSpecific.className = NULL,
         .number = Proof_FieldNumber_StoreTreeProof,
-        .hasIndex = 6,
+        .hasIndex = 1,
         .offset = (uint32_t)offsetof(Proof__storage_, storeTreeProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "appHash",
+        .dataTypeSpecific.className = NULL,
+        .number = Proof_FieldNumber_AppHash,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(Proof__storage_, appHash),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = Proof_FieldNumber_Height,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(Proof__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = Proof_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(Proof__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "quorumHash",
+        .dataTypeSpecific.className = NULL,
+        .number = Proof_FieldNumber_QuorumHash,
+        .hasIndex = 5,
+        .offset = (uint32_t)offsetof(Proof__storage_, quorumHash),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "signature",
+        .dataTypeSpecific.className = NULL,
+        .number = Proof_FieldNumber_Signature,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(Proof__storage_, signature),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },

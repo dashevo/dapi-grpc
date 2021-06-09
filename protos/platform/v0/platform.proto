@@ -13,13 +13,13 @@ service Platform {
 }
 
 message Proof {
-  bytes app_hash = 1;
-  uint32 height = 2;
-  uint32 chain_locked_core_height = 3;
-  bytes quorum_hash = 4;
-  bytes signature = 5;
-  bytes root_tree_proof = 6;
-  bytes store_tree_proof = 7;
+  bytes root_tree_proof = 1;
+  bytes store_tree_proof = 2;
+  bytes app_hash = 3;
+  uint32 height = 4;
+  uint32 chain_locked_core_height = 5;
+  bytes quorum_hash = 6;
+  bytes signature = 7;
 }
 
 message StateTransitionBroadcastError {

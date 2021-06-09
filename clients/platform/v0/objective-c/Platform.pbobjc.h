@@ -50,16 +50,20 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Proof
 
 typedef GPB_ENUM(Proof_FieldNumber) {
-  Proof_FieldNumber_AppHash = 1,
-  Proof_FieldNumber_Height = 2,
-  Proof_FieldNumber_ChainLockedCoreHeight = 3,
-  Proof_FieldNumber_QuorumHash = 4,
-  Proof_FieldNumber_Signature = 5,
-  Proof_FieldNumber_RootTreeProof = 6,
-  Proof_FieldNumber_StoreTreeProof = 7,
+  Proof_FieldNumber_RootTreeProof = 1,
+  Proof_FieldNumber_StoreTreeProof = 2,
+  Proof_FieldNumber_AppHash = 3,
+  Proof_FieldNumber_Height = 4,
+  Proof_FieldNumber_ChainLockedCoreHeight = 5,
+  Proof_FieldNumber_QuorumHash = 6,
+  Proof_FieldNumber_Signature = 7,
 };
 
 @interface Proof : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *rootTreeProof;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *appHash;
 
@@ -70,10 +74,6 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *quorumHash;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *signature;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *rootTreeProof;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
 
 @end
 
