@@ -27,6 +27,7 @@
 
 CF_EXTERN_C_BEGIN
 
+@class Metadata;
 @class Proof;
 @class StateTransitionBroadcastError;
 
@@ -53,8 +54,6 @@ typedef GPB_ENUM(Proof_FieldNumber) {
   Proof_FieldNumber_RootTreeProof = 1,
   Proof_FieldNumber_StoreTreeProof = 2,
   Proof_FieldNumber_AppHash = 3,
-  Proof_FieldNumber_Height = 4,
-  Proof_FieldNumber_ChainLockedCoreHeight = 5,
   Proof_FieldNumber_QuorumHash = 6,
   Proof_FieldNumber_Signature = 7,
 };
@@ -67,13 +66,24 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *appHash;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
-
 @property(nonatomic, readwrite, copy, null_resettable) NSData *quorumHash;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *signature;
+
+@end
+
+#pragma mark - Metadata
+
+typedef GPB_ENUM(Metadata_FieldNumber) {
+  Metadata_FieldNumber_Height = 4,
+  Metadata_FieldNumber_ChainLockedCoreHeight = 5,
+};
+
+@interface Metadata : GPBMessage
+
+@property(nonatomic, readwrite) uint32_t height;
+
+@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
 
 @end
 
@@ -133,8 +143,7 @@ typedef GPB_ENUM(GetIdentityRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentityResponse_FieldNumber) {
   GetIdentityResponse_FieldNumber_Identity = 1,
   GetIdentityResponse_FieldNumber_Proof = 2,
-  GetIdentityResponse_FieldNumber_Height = 3,
-  GetIdentityResponse_FieldNumber_ChainLockedCoreHeight = 4,
+  GetIdentityResponse_FieldNumber_Metadata = 3,
 };
 
 @interface GetIdentityResponse : GPBMessage
@@ -145,9 +154,9 @@ typedef GPB_ENUM(GetIdentityResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
+@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+/** Test to see if @c metadata has been set. */
+@property(nonatomic, readwrite) BOOL hasMetadata;
 
 @end
 
@@ -171,8 +180,7 @@ typedef GPB_ENUM(GetDataContractRequest_FieldNumber) {
 typedef GPB_ENUM(GetDataContractResponse_FieldNumber) {
   GetDataContractResponse_FieldNumber_DataContract = 1,
   GetDataContractResponse_FieldNumber_Proof = 2,
-  GetDataContractResponse_FieldNumber_Height = 3,
-  GetDataContractResponse_FieldNumber_ChainLockedCoreHeight = 4,
+  GetDataContractResponse_FieldNumber_Metadata = 3,
 };
 
 @interface GetDataContractResponse : GPBMessage
@@ -183,9 +191,9 @@ typedef GPB_ENUM(GetDataContractResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
+@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+/** Test to see if @c metadata has been set. */
+@property(nonatomic, readwrite) BOOL hasMetadata;
 
 @end
 
@@ -240,8 +248,7 @@ void GetDocumentsRequest_ClearStartOneOfCase(GetDocumentsRequest *message);
 typedef GPB_ENUM(GetDocumentsResponse_FieldNumber) {
   GetDocumentsResponse_FieldNumber_DocumentsArray = 1,
   GetDocumentsResponse_FieldNumber_Proof = 2,
-  GetDocumentsResponse_FieldNumber_Height = 3,
-  GetDocumentsResponse_FieldNumber_ChainLockedCoreHeight = 4,
+  GetDocumentsResponse_FieldNumber_Metadata = 3,
 };
 
 @interface GetDocumentsResponse : GPBMessage
@@ -254,9 +261,9 @@ typedef GPB_ENUM(GetDocumentsResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
+@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+/** Test to see if @c metadata has been set. */
+@property(nonatomic, readwrite) BOOL hasMetadata;
 
 @end
 
@@ -282,8 +289,7 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
   GetIdentitiesByPublicKeyHashesResponse_FieldNumber_IdentitiesArray = 1,
   GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Proof = 2,
-  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Height = 3,
-  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight = 4,
+  GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Metadata = 3,
 };
 
 @interface GetIdentitiesByPublicKeyHashesResponse : GPBMessage
@@ -296,9 +302,9 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
+@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+/** Test to see if @c metadata has been set. */
+@property(nonatomic, readwrite) BOOL hasMetadata;
 
 @end
 
@@ -324,8 +330,7 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesRequest_FieldNumber) {
 typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
   GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_IdentityIdsArray = 1,
   GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Proof = 2,
-  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Height = 3,
-  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight = 4,
+  GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Metadata = 3,
 };
 
 @interface GetIdentityIdsByPublicKeyHashesResponse : GPBMessage
@@ -338,9 +343,9 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite) uint32_t height;
-
-@property(nonatomic, readwrite) uint32_t chainLockedCoreHeight;
+@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+/** Test to see if @c metadata has been set. */
+@property(nonatomic, readwrite) BOOL hasMetadata;
 
 @end
 

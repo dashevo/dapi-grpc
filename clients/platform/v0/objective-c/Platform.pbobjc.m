@@ -50,15 +50,11 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
 @dynamic rootTreeProof;
 @dynamic storeTreeProof;
 @dynamic appHash;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
 @dynamic quorumHash;
 @dynamic signature;
 
 typedef struct Proof__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSData *rootTreeProof;
   NSData *storeTreeProof;
   NSData *appHash;
@@ -100,28 +96,10 @@ typedef struct Proof__storage_ {
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_Height,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(Proof__storage_, height),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 4,
-        .offset = (uint32_t)offsetof(Proof__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
         .name = "quorumHash",
         .dataTypeSpecific.className = NULL,
         .number = Proof_FieldNumber_QuorumHash,
-        .hasIndex = 5,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(Proof__storage_, quorumHash),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
@@ -130,7 +108,7 @@ typedef struct Proof__storage_ {
         .name = "signature",
         .dataTypeSpecific.className = NULL,
         .number = Proof_FieldNumber_Signature,
-        .hasIndex = 6,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(Proof__storage_, signature),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
@@ -143,6 +121,60 @@ typedef struct Proof__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Proof__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Metadata
+
+@implementation Metadata
+
+@dynamic height;
+@dynamic chainLockedCoreHeight;
+
+typedef struct Metadata__storage_ {
+  uint32_t _has_storage_[1];
+  uint32_t height;
+  uint32_t chainLockedCoreHeight;
+} Metadata__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = Metadata_FieldNumber_Height,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(Metadata__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "chainLockedCoreHeight",
+        .dataTypeSpecific.className = NULL,
+        .number = Metadata_FieldNumber_ChainLockedCoreHeight,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(Metadata__storage_, chainLockedCoreHeight),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeUInt32,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[Metadata class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(Metadata__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -349,15 +381,13 @@ typedef struct GetIdentityRequest__storage_ {
 
 @dynamic identity;
 @dynamic hasProof, proof;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
+@dynamic hasMetadata, metadata;
 
 typedef struct GetIdentityResponse__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSData *identity;
   Proof *proof;
+  Metadata *metadata;
 } GetIdentityResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -385,22 +415,13 @@ typedef struct GetIdentityResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentityResponse_FieldNumber_Height,
+        .name = "metadata",
+        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .number = GetIdentityResponse_FieldNumber_Metadata,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, height),
+        .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, metadata),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentityResponse_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -478,15 +499,13 @@ typedef struct GetDataContractRequest__storage_ {
 
 @dynamic dataContract;
 @dynamic hasProof, proof;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
+@dynamic hasMetadata, metadata;
 
 typedef struct GetDataContractResponse__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSData *dataContract;
   Proof *proof;
+  Metadata *metadata;
 } GetDataContractResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -514,22 +533,13 @@ typedef struct GetDataContractResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = GetDataContractResponse_FieldNumber_Height,
+        .name = "metadata",
+        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .number = GetDataContractResponse_FieldNumber_Metadata,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, height),
+        .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, metadata),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = GetDataContractResponse_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -685,15 +695,13 @@ void GetDocumentsRequest_ClearStartOneOfCase(GetDocumentsRequest *message) {
 
 @dynamic documentsArray, documentsArray_Count;
 @dynamic hasProof, proof;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
+@dynamic hasMetadata, metadata;
 
 typedef struct GetDocumentsResponse__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSMutableArray *documentsArray;
   Proof *proof;
+  Metadata *metadata;
 } GetDocumentsResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -721,22 +729,13 @@ typedef struct GetDocumentsResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = GetDocumentsResponse_FieldNumber_Height,
+        .name = "metadata",
+        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .number = GetDocumentsResponse_FieldNumber_Metadata,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, height),
+        .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, metadata),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = GetDocumentsResponse_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -814,15 +813,13 @@ typedef struct GetIdentitiesByPublicKeyHashesRequest__storage_ {
 
 @dynamic identitiesArray, identitiesArray_Count;
 @dynamic hasProof, proof;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
+@dynamic hasMetadata, metadata;
 
 typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSMutableArray *identitiesArray;
   Proof *proof;
+  Metadata *metadata;
 } GetIdentitiesByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -850,22 +847,13 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Height,
+        .name = "metadata",
+        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Metadata,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, height),
+        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, metadata),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -943,15 +931,13 @@ typedef struct GetIdentityIdsByPublicKeyHashesRequest__storage_ {
 
 @dynamic identityIdsArray, identityIdsArray_Count;
 @dynamic hasProof, proof;
-@dynamic height;
-@dynamic chainLockedCoreHeight;
+@dynamic hasMetadata, metadata;
 
 typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
-  uint32_t height;
-  uint32_t chainLockedCoreHeight;
   NSMutableArray *identityIdsArray;
   Proof *proof;
+  Metadata *metadata;
 } GetIdentityIdsByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -979,22 +965,13 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "height",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Height,
+        .name = "metadata",
+        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Metadata,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, height),
+        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, metadata),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
-      },
-      {
-        .name = "chainLockedCoreHeight",
-        .dataTypeSpecific.className = NULL,
-        .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_ChainLockedCoreHeight,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, chainLockedCoreHeight),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =

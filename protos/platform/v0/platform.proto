@@ -16,10 +16,13 @@ message Proof {
   bytes root_tree_proof = 1;
   bytes store_tree_proof = 2;
   bytes app_hash = 3;
-  uint32 height = 4;
-  uint32 chain_locked_core_height = 5;
   bytes quorum_hash = 6;
   bytes signature = 7;
+}
+
+message Metadata {
+  uint32 height = 4;
+  uint32 chain_locked_core_height = 5;
 }
 
 message StateTransitionBroadcastError {
@@ -44,8 +47,7 @@ message GetIdentityRequest {
 message GetIdentityResponse {
   bytes identity = 1;
   Proof proof = 2;
-  uint32 height = 3;
-  uint32 chain_locked_core_height = 4;
+  Metadata metadata = 3;
 }
 
  message GetDataContractRequest {
@@ -56,8 +58,7 @@ message GetIdentityResponse {
 message GetDataContractResponse {
   bytes data_contract = 1;
   Proof proof = 2;
-  uint32 height = 3;
-  uint32 chain_locked_core_height = 4;
+  Metadata metadata = 3;
 }
 
 message GetDocumentsRequest {
@@ -80,8 +81,7 @@ message GetDocumentsRequest {
 message GetDocumentsResponse {
   repeated bytes documents = 1;
   Proof proof = 2;
-  uint32 height = 3;
-  uint32 chain_locked_core_height = 4;
+  Metadata metadata = 3;
 }
 
 message GetIdentitiesByPublicKeyHashesRequest {
@@ -92,8 +92,7 @@ message GetIdentitiesByPublicKeyHashesRequest {
 message GetIdentitiesByPublicKeyHashesResponse {
   repeated bytes identities = 1;
   Proof proof = 2;
-  uint32 height = 3;
-  uint32 chain_locked_core_height = 4;
+  Metadata metadata = 3;
 }
 
 message GetIdentityIdsByPublicKeyHashesRequest {
@@ -104,8 +103,7 @@ message GetIdentityIdsByPublicKeyHashesRequest {
 message GetIdentityIdsByPublicKeyHashesResponse {
   repeated bytes identity_ids = 1;
   Proof proof = 2;
-  uint32 height = 3;
-  uint32 chain_locked_core_height = 4;
+  Metadata metadata = 3;
 }
 
 message WaitForStateTransitionResultRequest {
