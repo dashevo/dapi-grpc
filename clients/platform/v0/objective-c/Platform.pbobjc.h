@@ -27,8 +27,8 @@
 
 CF_EXTERN_C_BEGIN
 
-@class Metadata;
 @class Proof;
+@class ResponseMetadata;
 @class StateTransitionBroadcastError;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -69,14 +69,14 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 
 @end
 
-#pragma mark - Metadata
+#pragma mark - ResponseMetadata
 
-typedef GPB_ENUM(Metadata_FieldNumber) {
-  Metadata_FieldNumber_Height = 1,
-  Metadata_FieldNumber_ChainLockedCoreHeight = 2,
+typedef GPB_ENUM(ResponseMetadata_FieldNumber) {
+  ResponseMetadata_FieldNumber_Height = 1,
+  ResponseMetadata_FieldNumber_ChainLockedCoreHeight = 2,
 };
 
-@interface Metadata : GPBMessage
+@interface ResponseMetadata : GPBMessage
 
 @property(nonatomic, readwrite) uint32_t height;
 
@@ -151,7 +151,7 @@ typedef GPB_ENUM(GetIdentityResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+@property(nonatomic, readwrite, strong, null_resettable) ResponseMetadata *metadata;
 /** Test to see if @c metadata has been set. */
 @property(nonatomic, readwrite) BOOL hasMetadata;
 
@@ -188,7 +188,7 @@ typedef GPB_ENUM(GetDataContractResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+@property(nonatomic, readwrite, strong, null_resettable) ResponseMetadata *metadata;
 /** Test to see if @c metadata has been set. */
 @property(nonatomic, readwrite) BOOL hasMetadata;
 
@@ -258,7 +258,7 @@ typedef GPB_ENUM(GetDocumentsResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+@property(nonatomic, readwrite, strong, null_resettable) ResponseMetadata *metadata;
 /** Test to see if @c metadata has been set. */
 @property(nonatomic, readwrite) BOOL hasMetadata;
 
@@ -299,7 +299,7 @@ typedef GPB_ENUM(GetIdentitiesByPublicKeyHashesResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+@property(nonatomic, readwrite, strong, null_resettable) ResponseMetadata *metadata;
 /** Test to see if @c metadata has been set. */
 @property(nonatomic, readwrite) BOOL hasMetadata;
 
@@ -340,7 +340,7 @@ typedef GPB_ENUM(GetIdentityIdsByPublicKeyHashesResponse_FieldNumber) {
 /** Test to see if @c proof has been set. */
 @property(nonatomic, readwrite) BOOL hasProof;
 
-@property(nonatomic, readwrite, strong, null_resettable) Metadata *metadata;
+@property(nonatomic, readwrite, strong, null_resettable) ResponseMetadata *metadata;
 /** Test to see if @c metadata has been set. */
 @property(nonatomic, readwrite) BOOL hasMetadata;
 

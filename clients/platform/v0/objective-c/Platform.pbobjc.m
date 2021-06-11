@@ -119,18 +119,18 @@ typedef struct Proof__storage_ {
 
 @end
 
-#pragma mark - Metadata
+#pragma mark - ResponseMetadata
 
-@implementation Metadata
+@implementation ResponseMetadata
 
 @dynamic height;
 @dynamic chainLockedCoreHeight;
 
-typedef struct Metadata__storage_ {
+typedef struct ResponseMetadata__storage_ {
   uint32_t _has_storage_[1];
   uint32_t height;
   uint32_t chainLockedCoreHeight;
-} Metadata__storage_;
+} ResponseMetadata__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -141,29 +141,29 @@ typedef struct Metadata__storage_ {
       {
         .name = "height",
         .dataTypeSpecific.className = NULL,
-        .number = Metadata_FieldNumber_Height,
+        .number = ResponseMetadata_FieldNumber_Height,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(Metadata__storage_, height),
+        .offset = (uint32_t)offsetof(ResponseMetadata__storage_, height),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "chainLockedCoreHeight",
         .dataTypeSpecific.className = NULL,
-        .number = Metadata_FieldNumber_ChainLockedCoreHeight,
+        .number = ResponseMetadata_FieldNumber_ChainLockedCoreHeight,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(Metadata__storage_, chainLockedCoreHeight),
+        .offset = (uint32_t)offsetof(ResponseMetadata__storage_, chainLockedCoreHeight),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeUInt32,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[Metadata class]
+        [GPBDescriptor allocDescriptorForClass:[ResponseMetadata class]
                                      rootClass:[PlatformRoot class]
                                           file:PlatformRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(Metadata__storage_)
+                                   storageSize:sizeof(ResponseMetadata__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -376,7 +376,7 @@ typedef struct GetIdentityResponse__storage_ {
   uint32_t _has_storage_[1];
   NSData *identity;
   Proof *proof;
-  Metadata *metadata;
+  ResponseMetadata *metadata;
 } GetIdentityResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -405,7 +405,7 @@ typedef struct GetIdentityResponse__storage_ {
       },
       {
         .name = "metadata",
-        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .dataTypeSpecific.className = GPBStringifySymbol(ResponseMetadata),
         .number = GetIdentityResponse_FieldNumber_Metadata,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetIdentityResponse__storage_, metadata),
@@ -494,7 +494,7 @@ typedef struct GetDataContractResponse__storage_ {
   uint32_t _has_storage_[1];
   NSData *dataContract;
   Proof *proof;
-  Metadata *metadata;
+  ResponseMetadata *metadata;
 } GetDataContractResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -523,7 +523,7 @@ typedef struct GetDataContractResponse__storage_ {
       },
       {
         .name = "metadata",
-        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .dataTypeSpecific.className = GPBStringifySymbol(ResponseMetadata),
         .number = GetDataContractResponse_FieldNumber_Metadata,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetDataContractResponse__storage_, metadata),
@@ -690,7 +690,7 @@ typedef struct GetDocumentsResponse__storage_ {
   uint32_t _has_storage_[1];
   NSMutableArray *documentsArray;
   Proof *proof;
-  Metadata *metadata;
+  ResponseMetadata *metadata;
 } GetDocumentsResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -719,7 +719,7 @@ typedef struct GetDocumentsResponse__storage_ {
       },
       {
         .name = "metadata",
-        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .dataTypeSpecific.className = GPBStringifySymbol(ResponseMetadata),
         .number = GetDocumentsResponse_FieldNumber_Metadata,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetDocumentsResponse__storage_, metadata),
@@ -808,7 +808,7 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
   NSMutableArray *identitiesArray;
   Proof *proof;
-  Metadata *metadata;
+  ResponseMetadata *metadata;
 } GetIdentitiesByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -837,7 +837,7 @@ typedef struct GetIdentitiesByPublicKeyHashesResponse__storage_ {
       },
       {
         .name = "metadata",
-        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .dataTypeSpecific.className = GPBStringifySymbol(ResponseMetadata),
         .number = GetIdentitiesByPublicKeyHashesResponse_FieldNumber_Metadata,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetIdentitiesByPublicKeyHashesResponse__storage_, metadata),
@@ -926,7 +926,7 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
   uint32_t _has_storage_[1];
   NSMutableArray *identityIdsArray;
   Proof *proof;
-  Metadata *metadata;
+  ResponseMetadata *metadata;
 } GetIdentityIdsByPublicKeyHashesResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -955,7 +955,7 @@ typedef struct GetIdentityIdsByPublicKeyHashesResponse__storage_ {
       },
       {
         .name = "metadata",
-        .dataTypeSpecific.className = GPBStringifySymbol(Metadata),
+        .dataTypeSpecific.className = GPBStringifySymbol(ResponseMetadata),
         .number = GetIdentityIdsByPublicKeyHashesResponse_FieldNumber_Metadata,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetIdentityIdsByPublicKeyHashesResponse__storage_, metadata),
