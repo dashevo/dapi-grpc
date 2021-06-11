@@ -15,14 +15,13 @@ service Platform {
 message Proof {
   bytes root_tree_proof = 1;
   bytes store_tree_proof = 2;
-  bytes app_hash = 3;
-  bytes quorum_hash = 6;
-  bytes signature = 7;
+  bytes quorum_hash = 3;
+  bytes signature = 4;
 }
 
 message Metadata {
-  uint32 height = 4;
-  uint32 chain_locked_core_height = 5;
+  uint32 height = 1;
+  uint32 chain_locked_core_height = 2;
 }
 
 message StateTransitionBroadcastError {

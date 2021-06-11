@@ -53,9 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef GPB_ENUM(Proof_FieldNumber) {
   Proof_FieldNumber_RootTreeProof = 1,
   Proof_FieldNumber_StoreTreeProof = 2,
-  Proof_FieldNumber_AppHash = 3,
-  Proof_FieldNumber_QuorumHash = 6,
-  Proof_FieldNumber_Signature = 7,
+  Proof_FieldNumber_QuorumHash = 3,
+  Proof_FieldNumber_Signature = 4,
 };
 
 @interface Proof : GPBMessage
@@ -63,8 +62,6 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rootTreeProof;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *appHash;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *quorumHash;
 
@@ -75,8 +72,8 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 #pragma mark - Metadata
 
 typedef GPB_ENUM(Metadata_FieldNumber) {
-  Metadata_FieldNumber_Height = 4,
-  Metadata_FieldNumber_ChainLockedCoreHeight = 5,
+  Metadata_FieldNumber_Height = 1,
+  Metadata_FieldNumber_ChainLockedCoreHeight = 2,
 };
 
 @interface Metadata : GPBMessage
