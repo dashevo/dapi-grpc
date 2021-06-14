@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef GPB_ENUM(Proof_FieldNumber) {
   Proof_FieldNumber_RootTreeProof = 1,
   Proof_FieldNumber_StoreTreeProof = 2,
-  Proof_FieldNumber_QuorumHash = 3,
+  Proof_FieldNumber_SignatureLlmqHash = 3,
   Proof_FieldNumber_Signature = 4,
 };
 
@@ -63,7 +63,7 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *quorumHash;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *signatureLlmqHash;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *signature;
 

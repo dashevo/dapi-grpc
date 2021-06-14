@@ -49,14 +49,14 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
 
 @dynamic rootTreeProof;
 @dynamic storeTreeProof;
-@dynamic quorumHash;
+@dynamic signatureLlmqHash;
 @dynamic signature;
 
 typedef struct Proof__storage_ {
   uint32_t _has_storage_[1];
   NSData *rootTreeProof;
   NSData *storeTreeProof;
-  NSData *quorumHash;
+  NSData *signatureLlmqHash;
   NSData *signature;
 } Proof__storage_;
 
@@ -85,11 +85,11 @@ typedef struct Proof__storage_ {
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "quorumHash",
+        .name = "signatureLlmqHash",
         .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_QuorumHash,
+        .number = Proof_FieldNumber_SignatureLlmqHash,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(Proof__storage_, quorumHash),
+        .offset = (uint32_t)offsetof(Proof__storage_, signatureLlmqHash),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
