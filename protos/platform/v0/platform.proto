@@ -15,7 +15,7 @@ service Platform {
 message Proof {
   bytes root_tree_proof = 1;
   bytes store_tree_proof = 2;
-  bytes quorum_hash = 3;
+  bytes signature_llmq_hash = 3;
   bytes signature = 4;
 }
 
