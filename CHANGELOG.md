@@ -1,3 +1,18 @@
+# [0.20.0](https://github.com/dashevo/dapi-grpc/compare/v0.19.0...v0.20.0) (2021-07-08)
+
+
+### Features
+
+* add additional information to `GetTransactionResponse` ([#118](https://github.com/dashevo/dapi-grpc/issues/118))
+* add `metadata` to `WaitForStateTransitionResultResponse` ([#115](https://github.com/dashevo/dapi-grpc/issues/115))
+
+
+### Bug Fixes
+
+* block hash field was named incorrectly ([#120](https://github.com/dashevo/dapi-grpc/issues/120))
+
+
+
 # [0.19.0](https://github.com/dashevo/dapi-grpc/compare/v0.18.0...v0.19.0) (2021-04-30)
 
 
