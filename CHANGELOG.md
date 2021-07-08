@@ -5,8 +5,8 @@
 
 * add additional information to `GetTransactionResponse` ([#118](https://github.com/dashevo/dapi-grpc/issues/118), [#120](https://github.com/dashevo/dapi-grpc/issues/120))
 * add `metadata` to `WaitForStateTransitionResultResponse` ([#115](https://github.com/dashevo/dapi-grpc/issues/115))
-* rename `core_chain_locked_height` field ([#115](https://github.com/dashevo/dapi-grpc/issues/114))
-* add an additional set of fields for proofs  ([#115](https://github.com/dashevo/dapi-grpc/issues/112))
+* rename `core_chain_locked_height` field ([#114](https://github.com/dashevo/dapi-grpc/issues/114))
+* add an additional set of fields for proofs  ([#112](https://github.com/dashevo/dapi-grpc/issues/112))
 
 
 
