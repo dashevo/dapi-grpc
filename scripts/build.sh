@@ -18,6 +18,8 @@ PLATFORM_OBJ_C_OUT_PATH="$PLATFORM_CLIENTS_PATH/objective-c"
 CORE_PYTHON_OUT_PATH="$CORE_CLIENTS_PATH/python"
 PLATFORM_PYTHON_OUT_PATH="$PLATFORM_CLIENTS_PATH/python"
 
+CORE_DART_OUT_PATH="$CORE_CLIENTS_PATH/dart"
+PLATFORM_DART_OUT_PATH="$PLATFORM_CLIENTS_PATH/dart"
 
 #################################################
 # Generate JavaScript client for `Core` service #
@@ -179,3 +181,34 @@ docker run -v "$PLATFORM_PROTO_PATH:$PLATFORM_PROTO_PATH" \
           --proto_path="$PLATFORM_PROTO_PATH" \
           -I "$PLATFORM_PROTO_PATH" \
           "platform.proto"
+
+#########################################
+# Generate GRPC Dart client for `Core`
+#########################################
+
+rm -rf "$CORE_DART_OUT_PATH/*"
+
+docker run -v "$CORE_PROTO_PATH:$CORE_PROTO_PATH" \
+           -v "$CORE_DART_OUT_PATH:$CORE_DART_OUT_PATH" \
+           --rm \
+           thethingsindustries/protoc \
+           --plugin=protoc-gen-dart=/usr/bin/protoc-gen-dart \
+           --dart_out="grpc:$CORE_DART_OUT_PATH" \
+           --proto_path="$CORE_PROTO_PATH" \
+           "core.proto"
+
+#########################################
+# Generate GRPC Dart client for `Platform`
+#########################################
+
+rm -rf "$PLATFORM_DART_OUT_PATH/*"
+
+docker run -v "$PLATFORM_PROTO_PATH:$PLATFORM_PROTO_PATH" \
+          -v "$PLATFORM_DART_OUT_PATH:$PLATFORM_DART_OUT_PATH" \
+          --rm \
+          thethingsindustries/protoc \
+          --plugin=protoc-gen-dart=/usr/bin/protoc-gen-dart \
+          --dart_out="grpc:$PLATFORM_DART_OUT_PATH" \
+          --proto_path="$PLATFORM_PROTO_PATH" \
+          "platform.proto"
+
