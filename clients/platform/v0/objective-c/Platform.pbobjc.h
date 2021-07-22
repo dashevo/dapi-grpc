@@ -80,7 +80,7 @@ typedef GPB_ENUM(ResponseMetadata_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t height;
 
-@property(nonatomic, readwrite) int64_t coreChainLockedHeight;
+@property(nonatomic, readwrite) uint32_t coreChainLockedHeight;
 
 @end
 
