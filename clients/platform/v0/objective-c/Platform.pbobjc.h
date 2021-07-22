@@ -78,9 +78,9 @@ typedef GPB_ENUM(ResponseMetadata_FieldNumber) {
 
 @interface ResponseMetadata : GPBMessage
 
-@property(nonatomic, readwrite) uint64_t height;
+@property(nonatomic, readwrite) int64_t height;
 
-@property(nonatomic, readwrite) uint64_t coreChainLockedHeight;
+@property(nonatomic, readwrite) int64_t coreChainLockedHeight;
 
 @end
 

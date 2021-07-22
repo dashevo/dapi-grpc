@@ -20,8 +20,8 @@ message Proof {
 }
 
 message ResponseMetadata {
-  uint64 height = 1;
-  uint64 core_chain_locked_height = 2;
+  int64 height = 1;
+  int64 core_chain_locked_height = 2;
 }
 
 message StateTransitionBroadcastError {
