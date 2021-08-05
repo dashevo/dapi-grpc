@@ -10,6 +10,7 @@ service Platform {
   rpc getIdentitiesByPublicKeyHashes (GetIdentitiesByPublicKeyHashesRequest) returns (GetIdentitiesByPublicKeyHashesResponse);
   rpc getIdentityIdsByPublicKeyHashes (GetIdentityIdsByPublicKeyHashesRequest) returns (GetIdentityIdsByPublicKeyHashesResponse);
   rpc waitForStateTransitionResult (WaitForStateTransitionResultRequest) returns (WaitForStateTransitionResultResponse);
+  rpc getConsensusParams (GetConsensusParamsRequest) returns (GetConsensusParamsResponse);
 }
 
 message Proof {
