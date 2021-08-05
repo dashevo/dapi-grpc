@@ -43,19 +43,95 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
   return descriptor;
 }
 
+#pragma mark - StoreTreeProof
+
+@implementation StoreTreeProof
+
+@dynamic identitiesProof;
+@dynamic publicKeyToIdentityProof;
+@dynamic dataContractsProof;
+@dynamic documentsProof;
+
+typedef struct StoreTreeProof__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *identitiesProof;
+  NSData *publicKeyToIdentityProof;
+  NSData *dataContractsProof;
+  NSData *documentsProof;
+} StoreTreeProof__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "identitiesProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProof_FieldNumber_IdentitiesProof,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(StoreTreeProof__storage_, identitiesProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "publicKeyToIdentityProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProof_FieldNumber_PublicKeyToIdentityProof,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(StoreTreeProof__storage_, publicKeyToIdentityProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "dataContractsProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProof_FieldNumber_DataContractsProof,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(StoreTreeProof__storage_, dataContractsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "documentsProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProof_FieldNumber_DocumentsProof,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(StoreTreeProof__storage_, documentsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[StoreTreeProof class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(StoreTreeProof__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - Proof
 
 @implementation Proof
 
 @dynamic rootTreeProof;
-@dynamic storeTreeProof;
+@dynamic hasStoreTreeProof, storeTreeProof;
 @dynamic signatureLlmqHash;
 @dynamic signature;
 
 typedef struct Proof__storage_ {
   uint32_t _has_storage_[1];
   NSData *rootTreeProof;
-  NSData *storeTreeProof;
+  StoreTreeProof *storeTreeProof;
   NSData *signatureLlmqHash;
   NSData *signature;
 } Proof__storage_;
@@ -77,12 +153,12 @@ typedef struct Proof__storage_ {
       },
       {
         .name = "storeTreeProof",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.className = GPBStringifySymbol(StoreTreeProof),
         .number = Proof_FieldNumber_StoreTreeProof,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Proof__storage_, storeTreeProof),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeMessage,
       },
       {
         .name = "signatureLlmqHash",
