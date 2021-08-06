@@ -43,19 +43,95 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
   return descriptor;
 }
 
+#pragma mark - StoreTreeProofs
+
+@implementation StoreTreeProofs
+
+@dynamic identitiesProof;
+@dynamic publicKeyHashesToIdentityIdsProof;
+@dynamic dataContractsProof;
+@dynamic documentsProof;
+
+typedef struct StoreTreeProofs__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *identitiesProof;
+  NSData *publicKeyHashesToIdentityIdsProof;
+  NSData *dataContractsProof;
+  NSData *documentsProof;
+} StoreTreeProofs__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "identitiesProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProofs_FieldNumber_IdentitiesProof,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, identitiesProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "publicKeyHashesToIdentityIdsProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProofs_FieldNumber_PublicKeyHashesToIdentityIdsProof,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, publicKeyHashesToIdentityIdsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "dataContractsProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProofs_FieldNumber_DataContractsProof,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, dataContractsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "documentsProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProofs_FieldNumber_DocumentsProof,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, documentsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[StoreTreeProofs class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(StoreTreeProofs__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - Proof
 
 @implementation Proof
 
 @dynamic rootTreeProof;
-@dynamic storeTreeProof;
+@dynamic hasStoreTreeProofs, storeTreeProofs;
 @dynamic signatureLlmqHash;
 @dynamic signature;
 
 typedef struct Proof__storage_ {
   uint32_t _has_storage_[1];
   NSData *rootTreeProof;
-  NSData *storeTreeProof;
+  StoreTreeProofs *storeTreeProofs;
   NSData *signatureLlmqHash;
   NSData *signature;
 } Proof__storage_;
@@ -76,13 +152,13 @@ typedef struct Proof__storage_ {
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "storeTreeProof",
-        .dataTypeSpecific.className = NULL,
-        .number = Proof_FieldNumber_StoreTreeProof,
+        .name = "storeTreeProofs",
+        .dataTypeSpecific.className = GPBStringifySymbol(StoreTreeProofs),
+        .number = Proof_FieldNumber_StoreTreeProofs,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(Proof__storage_, storeTreeProof),
+        .offset = (uint32_t)offsetof(Proof__storage_, storeTreeProofs),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeMessage,
       },
       {
         .name = "signatureLlmqHash",
@@ -1109,6 +1185,210 @@ void WaitForStateTransitionResultResponse_ClearResponsesOneOfCase(WaitForStateTr
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
   GPBMaybeClearOneof(message, oneof, -1, 0);
 }
+#pragma mark - ConsensusParamsBlock
+
+@implementation ConsensusParamsBlock
+
+@dynamic maxBytes;
+@dynamic maxGas;
+@dynamic timeIotaMs;
+
+typedef struct ConsensusParamsBlock__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *maxBytes;
+  NSString *maxGas;
+  NSString *timeIotaMs;
+} ConsensusParamsBlock__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "maxBytes",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsBlock_FieldNumber_MaxBytes,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ConsensusParamsBlock__storage_, maxBytes),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "maxGas",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsBlock_FieldNumber_MaxGas,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ConsensusParamsBlock__storage_, maxGas),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "timeIotaMs",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsBlock_FieldNumber_TimeIotaMs,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ConsensusParamsBlock__storage_, timeIotaMs),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ConsensusParamsBlock class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ConsensusParamsBlock__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ConsensusParamsEvidence
+
+@implementation ConsensusParamsEvidence
+
+@dynamic maxAge;
+
+typedef struct ConsensusParamsEvidence__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *maxAge;
+} ConsensusParamsEvidence__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "maxAge",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsEvidence_FieldNumber_MaxAge,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ConsensusParamsEvidence__storage_, maxAge),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ConsensusParamsEvidence class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ConsensusParamsEvidence__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - GetConsensusParamsRequest
+
+@implementation GetConsensusParamsRequest
+
+@dynamic prove;
+
+typedef struct GetConsensusParamsRequest__storage_ {
+  uint32_t _has_storage_[1];
+} GetConsensusParamsRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "prove",
+        .dataTypeSpecific.className = NULL,
+        .number = GetConsensusParamsRequest_FieldNumber_Prove,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[GetConsensusParamsRequest class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(GetConsensusParamsRequest__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - GetConsensusParamsResponse
+
+@implementation GetConsensusParamsResponse
+
+@dynamic hasBlock, block;
+@dynamic hasEvidence, evidence;
+
+typedef struct GetConsensusParamsResponse__storage_ {
+  uint32_t _has_storage_[1];
+  ConsensusParamsBlock *block;
+  ConsensusParamsEvidence *evidence;
+} GetConsensusParamsResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "block",
+        .dataTypeSpecific.className = GPBStringifySymbol(ConsensusParamsBlock),
+        .number = GetConsensusParamsResponse_FieldNumber_Block,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetConsensusParamsResponse__storage_, block),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "evidence",
+        .dataTypeSpecific.className = GPBStringifySymbol(ConsensusParamsEvidence),
+        .number = GetConsensusParamsResponse_FieldNumber_Evidence,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(GetConsensusParamsResponse__storage_, evidence),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[GetConsensusParamsResponse class]
+                                     rootClass:[PlatformRoot class]
+                                          file:PlatformRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(GetConsensusParamsResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 
 #pragma clang diagnostic pop
 

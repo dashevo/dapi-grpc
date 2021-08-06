@@ -27,9 +27,12 @@
 
 CF_EXTERN_C_BEGIN
 
+@class ConsensusParamsBlock;
+@class ConsensusParamsEvidence;
 @class Proof;
 @class ResponseMetadata;
 @class StateTransitionBroadcastError;
+@class StoreTreeProofs;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,11 +51,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlatformRoot : GPBRootObject
 @end
 
+#pragma mark - StoreTreeProofs
+
+typedef GPB_ENUM(StoreTreeProofs_FieldNumber) {
+  StoreTreeProofs_FieldNumber_IdentitiesProof = 1,
+  StoreTreeProofs_FieldNumber_PublicKeyHashesToIdentityIdsProof = 2,
+  StoreTreeProofs_FieldNumber_DataContractsProof = 3,
+  StoreTreeProofs_FieldNumber_DocumentsProof = 4,
+};
+
+@interface StoreTreeProofs : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *identitiesProof;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *publicKeyHashesToIdentityIdsProof;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *dataContractsProof;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *documentsProof;
+
+@end
+
 #pragma mark - Proof
 
 typedef GPB_ENUM(Proof_FieldNumber) {
   Proof_FieldNumber_RootTreeProof = 1,
-  Proof_FieldNumber_StoreTreeProof = 2,
+  Proof_FieldNumber_StoreTreeProofs = 2,
   Proof_FieldNumber_SignatureLlmqHash = 3,
   Proof_FieldNumber_Signature = 4,
 };
@@ -61,7 +85,9 @@ typedef GPB_ENUM(Proof_FieldNumber) {
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *rootTreeProof;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *storeTreeProof;
+@property(nonatomic, readwrite, strong, null_resettable) StoreTreeProofs *storeTreeProofs;
+/** Test to see if @c storeTreeProofs has been set. */
+@property(nonatomic, readwrite) BOOL hasStoreTreeProofs;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *signatureLlmqHash;
 
@@ -393,6 +419,67 @@ typedef GPB_ENUM(WaitForStateTransitionResultResponse_Responses_OneOfCase) {
  * Clears whatever value was set for the oneof 'responses'.
  **/
 void WaitForStateTransitionResultResponse_ClearResponsesOneOfCase(WaitForStateTransitionResultResponse *message);
+
+#pragma mark - ConsensusParamsBlock
+
+typedef GPB_ENUM(ConsensusParamsBlock_FieldNumber) {
+  ConsensusParamsBlock_FieldNumber_MaxBytes = 1,
+  ConsensusParamsBlock_FieldNumber_MaxGas = 2,
+  ConsensusParamsBlock_FieldNumber_TimeIotaMs = 3,
+};
+
+@interface ConsensusParamsBlock : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *maxBytes;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *maxGas;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *timeIotaMs;
+
+@end
+
+#pragma mark - ConsensusParamsEvidence
+
+typedef GPB_ENUM(ConsensusParamsEvidence_FieldNumber) {
+  ConsensusParamsEvidence_FieldNumber_MaxAge = 1,
+};
+
+@interface ConsensusParamsEvidence : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *maxAge;
+
+@end
+
+#pragma mark - GetConsensusParamsRequest
+
+typedef GPB_ENUM(GetConsensusParamsRequest_FieldNumber) {
+  GetConsensusParamsRequest_FieldNumber_Prove = 1,
+};
+
+@interface GetConsensusParamsRequest : GPBMessage
+
+@property(nonatomic, readwrite) BOOL prove;
+
+@end
+
+#pragma mark - GetConsensusParamsResponse
+
+typedef GPB_ENUM(GetConsensusParamsResponse_FieldNumber) {
+  GetConsensusParamsResponse_FieldNumber_Block = 1,
+  GetConsensusParamsResponse_FieldNumber_Evidence = 2,
+};
+
+@interface GetConsensusParamsResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) ConsensusParamsBlock *block;
+/** Test to see if @c block has been set. */
+@property(nonatomic, readwrite) BOOL hasBlock;
+
+@property(nonatomic, readwrite, strong, null_resettable) ConsensusParamsEvidence *evidence;
+/** Test to see if @c evidence has been set. */
+@property(nonatomic, readwrite) BOOL hasEvidence;
+
+@end
 
 NS_ASSUME_NONNULL_END
 
