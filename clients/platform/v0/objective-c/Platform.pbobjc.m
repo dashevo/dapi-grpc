@@ -1254,11 +1254,15 @@ typedef struct ConsensusParamsBlock__storage_ {
 
 @implementation ConsensusParamsEvidence
 
-@dynamic maxAge;
+@dynamic maxAgeNumBlocks;
+@dynamic maxAgeDuration;
+@dynamic maxBytes;
 
 typedef struct ConsensusParamsEvidence__storage_ {
   uint32_t _has_storage_[1];
-  NSString *maxAge;
+  NSString *maxAgeNumBlocks;
+  NSString *maxAgeDuration;
+  NSString *maxBytes;
 } ConsensusParamsEvidence__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1268,11 +1272,29 @@ typedef struct ConsensusParamsEvidence__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "maxAge",
+        .name = "maxAgeNumBlocks",
         .dataTypeSpecific.className = NULL,
-        .number = ConsensusParamsEvidence_FieldNumber_MaxAge,
+        .number = ConsensusParamsEvidence_FieldNumber_MaxAgeNumBlocks,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(ConsensusParamsEvidence__storage_, maxAge),
+        .offset = (uint32_t)offsetof(ConsensusParamsEvidence__storage_, maxAgeNumBlocks),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "maxAgeDuration",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsEvidence_FieldNumber_MaxAgeDuration,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ConsensusParamsEvidence__storage_, maxAgeDuration),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "maxBytes",
+        .dataTypeSpecific.className = NULL,
+        .number = ConsensusParamsEvidence_FieldNumber_MaxBytes,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ConsensusParamsEvidence__storage_, maxBytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
