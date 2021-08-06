@@ -459,10 +459,13 @@ typedef GPB_ENUM(ConsensusParamsEvidence_FieldNumber) {
 #pragma mark - GetConsensusParamsRequest
 
 typedef GPB_ENUM(GetConsensusParamsRequest_FieldNumber) {
-  GetConsensusParamsRequest_FieldNumber_Prove = 1,
+  GetConsensusParamsRequest_FieldNumber_Height = 1,
+  GetConsensusParamsRequest_FieldNumber_Prove = 2,
 };
 
 @interface GetConsensusParamsRequest : GPBMessage
+
+@property(nonatomic, readwrite) int64_t height;
 
 @property(nonatomic, readwrite) BOOL prove;
 

@@ -1319,10 +1319,12 @@ typedef struct ConsensusParamsEvidence__storage_ {
 
 @implementation GetConsensusParamsRequest
 
+@dynamic height;
 @dynamic prove;
 
 typedef struct GetConsensusParamsRequest__storage_ {
   uint32_t _has_storage_[1];
+  int64_t height;
 } GetConsensusParamsRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1332,11 +1334,20 @@ typedef struct GetConsensusParamsRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
+        .name = "height",
+        .dataTypeSpecific.className = NULL,
+        .number = GetConsensusParamsRequest_FieldNumber_Height,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(GetConsensusParamsRequest__storage_, height),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
         .name = "prove",
         .dataTypeSpecific.className = NULL,
         .number = GetConsensusParamsRequest_FieldNumber_Prove,
-        .hasIndex = 0,
-        .offset = 1,  // Stored in _has_storage_ to save space.
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },

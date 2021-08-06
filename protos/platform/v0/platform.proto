@@ -139,7 +139,8 @@ message ConsensusParamsEvidence {
 }
 
 message GetConsensusParamsRequest {
-  bool prove = 1;
+  int64 height = 1;
+  bool prove = 2;
 }
 
 message GetConsensusParamsResponse {
