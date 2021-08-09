@@ -58,6 +58,7 @@ typedef GPB_ENUM(StoreTreeProofs_FieldNumber) {
   StoreTreeProofs_FieldNumber_PublicKeyHashesToIdentityIdsProof = 2,
   StoreTreeProofs_FieldNumber_DataContractsProof = 3,
   StoreTreeProofs_FieldNumber_DocumentsProof = 4,
+  StoreTreeProofs_FieldNumber_StateTransitionProof = 5,
 };
 
 @interface StoreTreeProofs : GPBMessage
@@ -69,6 +70,8 @@ typedef GPB_ENUM(StoreTreeProofs_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *dataContractsProof;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *documentsProof;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *stateTransitionProof;
 
 @end
 

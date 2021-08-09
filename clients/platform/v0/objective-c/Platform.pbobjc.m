@@ -51,6 +51,7 @@ static GPBFileDescriptor *PlatformRoot_FileDescriptor(void) {
 @dynamic publicKeyHashesToIdentityIdsProof;
 @dynamic dataContractsProof;
 @dynamic documentsProof;
+@dynamic stateTransitionProof;
 
 typedef struct StoreTreeProofs__storage_ {
   uint32_t _has_storage_[1];
@@ -58,6 +59,7 @@ typedef struct StoreTreeProofs__storage_ {
   NSData *publicKeyHashesToIdentityIdsProof;
   NSData *dataContractsProof;
   NSData *documentsProof;
+  NSData *stateTransitionProof;
 } StoreTreeProofs__storage_;
 
 // This method is threadsafe because it is initially called
@@ -99,6 +101,15 @@ typedef struct StoreTreeProofs__storage_ {
         .number = StoreTreeProofs_FieldNumber_DocumentsProof,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, documentsProof),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "stateTransitionProof",
+        .dataTypeSpecific.className = NULL,
+        .number = StoreTreeProofs_FieldNumber_StateTransitionProof,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(StoreTreeProofs__storage_, stateTransitionProof),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },

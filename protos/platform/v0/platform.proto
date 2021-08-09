@@ -18,6 +18,7 @@ message StoreTreeProofs {
   bytes public_key_hashes_to_identity_ids_proof = 2;
   bytes data_contracts_proof = 3;
   bytes documents_proof = 4;
+  bytes state_transition_proof = 5;
 }
 
 message Proof {
