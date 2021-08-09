@@ -634,5 +634,85 @@ proto.org.dash.platform.dapi.v0.PlatformPromiseClient.prototype.waitForStateTran
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest,
+ *   !proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse>}
+ */
+const methodDescriptor_Platform_getConsensusParams = new grpc.web.MethodDescriptor(
+  '/org.dash.platform.dapi.v0.Platform/getConsensusParams',
+  grpc.web.MethodType.UNARY,
+  proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest,
+  proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse,
+  /**
+   * @param {!proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest,
+ *   !proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse>}
+ */
+const methodInfo_Platform_getConsensusParams = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse,
+  /**
+   * @param {!proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.org.dash.platform.dapi.v0.PlatformClient.prototype.getConsensusParams =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/org.dash.platform.dapi.v0.Platform/getConsensusParams',
+      request,
+      metadata || {},
+      methodDescriptor_Platform_getConsensusParams,
+      callback);
+};
+
+
+/**
+ * @param {!proto.org.dash.platform.dapi.v0.GetConsensusParamsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.org.dash.platform.dapi.v0.GetConsensusParamsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.org.dash.platform.dapi.v0.PlatformPromiseClient.prototype.getConsensusParams =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/org.dash.platform.dapi.v0.Platform/getConsensusParams',
+      request,
+      metadata || {},
+      methodDescriptor_Platform_getConsensusParams);
+};
+
+
 module.exports = proto.org.dash.platform.dapi.v0;
 

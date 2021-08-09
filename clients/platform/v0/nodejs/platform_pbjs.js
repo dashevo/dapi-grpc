@@ -317,7 +317,330 @@ $root.org = (function() {
                          * @variation 2
                          */
 
+                        /**
+                         * Callback as used by {@link org.dash.platform.dapi.v0.Platform#getConsensusParams}.
+                         * @memberof org.dash.platform.dapi.v0.Platform
+                         * @typedef getConsensusParamsCallback
+                         * @type {function}
+                         * @param {Error|null} error Error, if any
+                         * @param {org.dash.platform.dapi.v0.GetConsensusParamsResponse} [response] GetConsensusParamsResponse
+                         */
+
+                        /**
+                         * Calls getConsensusParams.
+                         * @function getConsensusParams
+                         * @memberof org.dash.platform.dapi.v0.Platform
+                         * @instance
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest} request GetConsensusParamsRequest message or plain object
+                         * @param {org.dash.platform.dapi.v0.Platform.getConsensusParamsCallback} callback Node-style callback called with the error, if any, and GetConsensusParamsResponse
+                         * @returns {undefined}
+                         * @variation 1
+                         */
+                        Object.defineProperty(Platform.prototype.getConsensusParams = function getConsensusParams(request, callback) {
+                            return this.rpcCall(getConsensusParams, $root.org.dash.platform.dapi.v0.GetConsensusParamsRequest, $root.org.dash.platform.dapi.v0.GetConsensusParamsResponse, request, callback);
+                        }, "name", { value: "getConsensusParams" });
+
+                        /**
+                         * Calls getConsensusParams.
+                         * @function getConsensusParams
+                         * @memberof org.dash.platform.dapi.v0.Platform
+                         * @instance
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest} request GetConsensusParamsRequest message or plain object
+                         * @returns {Promise<org.dash.platform.dapi.v0.GetConsensusParamsResponse>} Promise
+                         * @variation 2
+                         */
+
                         return Platform;
+                    })();
+
+                    v0.StoreTreeProofs = (function() {
+
+                        /**
+                         * Properties of a StoreTreeProofs.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @interface IStoreTreeProofs
+                         * @property {Uint8Array|null} [identitiesProof] StoreTreeProofs identitiesProof
+                         * @property {Uint8Array|null} [publicKeyHashesToIdentityIdsProof] StoreTreeProofs publicKeyHashesToIdentityIdsProof
+                         * @property {Uint8Array|null} [dataContractsProof] StoreTreeProofs dataContractsProof
+                         * @property {Uint8Array|null} [documentsProof] StoreTreeProofs documentsProof
+                         */
+
+                        /**
+                         * Constructs a new StoreTreeProofs.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @classdesc Represents a StoreTreeProofs.
+                         * @implements IStoreTreeProofs
+                         * @constructor
+                         * @param {org.dash.platform.dapi.v0.IStoreTreeProofs=} [properties] Properties to set
+                         */
+                        function StoreTreeProofs(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * StoreTreeProofs identitiesProof.
+                         * @member {Uint8Array} identitiesProof
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @instance
+                         */
+                        StoreTreeProofs.prototype.identitiesProof = $util.newBuffer([]);
+
+                        /**
+                         * StoreTreeProofs publicKeyHashesToIdentityIdsProof.
+                         * @member {Uint8Array} publicKeyHashesToIdentityIdsProof
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @instance
+                         */
+                        StoreTreeProofs.prototype.publicKeyHashesToIdentityIdsProof = $util.newBuffer([]);
+
+                        /**
+                         * StoreTreeProofs dataContractsProof.
+                         * @member {Uint8Array} dataContractsProof
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @instance
+                         */
+                        StoreTreeProofs.prototype.dataContractsProof = $util.newBuffer([]);
+
+                        /**
+                         * StoreTreeProofs documentsProof.
+                         * @member {Uint8Array} documentsProof
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @instance
+                         */
+                        StoreTreeProofs.prototype.documentsProof = $util.newBuffer([]);
+
+                        /**
+                         * Creates a new StoreTreeProofs instance using the specified properties.
+                         * @function create
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IStoreTreeProofs=} [properties] Properties to set
+                         * @returns {org.dash.platform.dapi.v0.StoreTreeProofs} StoreTreeProofs instance
+                         */
+                        StoreTreeProofs.create = function create(properties) {
+                            return new StoreTreeProofs(properties);
+                        };
+
+                        /**
+                         * Encodes the specified StoreTreeProofs message. Does not implicitly {@link org.dash.platform.dapi.v0.StoreTreeProofs.verify|verify} messages.
+                         * @function encode
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IStoreTreeProofs} message StoreTreeProofs message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        StoreTreeProofs.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.identitiesProof != null && Object.hasOwnProperty.call(message, "identitiesProof"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.identitiesProof);
+                            if (message.publicKeyHashesToIdentityIdsProof != null && Object.hasOwnProperty.call(message, "publicKeyHashesToIdentityIdsProof"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.publicKeyHashesToIdentityIdsProof);
+                            if (message.dataContractsProof != null && Object.hasOwnProperty.call(message, "dataContractsProof"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.dataContractsProof);
+                            if (message.documentsProof != null && Object.hasOwnProperty.call(message, "documentsProof"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.documentsProof);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified StoreTreeProofs message, length delimited. Does not implicitly {@link org.dash.platform.dapi.v0.StoreTreeProofs.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IStoreTreeProofs} message StoreTreeProofs message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        StoreTreeProofs.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a StoreTreeProofs message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {org.dash.platform.dapi.v0.StoreTreeProofs} StoreTreeProofs
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        StoreTreeProofs.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.org.dash.platform.dapi.v0.StoreTreeProofs();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.identitiesProof = reader.bytes();
+                                    break;
+                                case 2:
+                                    message.publicKeyHashesToIdentityIdsProof = reader.bytes();
+                                    break;
+                                case 3:
+                                    message.dataContractsProof = reader.bytes();
+                                    break;
+                                case 4:
+                                    message.documentsProof = reader.bytes();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a StoreTreeProofs message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {org.dash.platform.dapi.v0.StoreTreeProofs} StoreTreeProofs
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        StoreTreeProofs.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a StoreTreeProofs message.
+                         * @function verify
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        StoreTreeProofs.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.identitiesProof != null && message.hasOwnProperty("identitiesProof"))
+                                if (!(message.identitiesProof && typeof message.identitiesProof.length === "number" || $util.isString(message.identitiesProof)))
+                                    return "identitiesProof: buffer expected";
+                            if (message.publicKeyHashesToIdentityIdsProof != null && message.hasOwnProperty("publicKeyHashesToIdentityIdsProof"))
+                                if (!(message.publicKeyHashesToIdentityIdsProof && typeof message.publicKeyHashesToIdentityIdsProof.length === "number" || $util.isString(message.publicKeyHashesToIdentityIdsProof)))
+                                    return "publicKeyHashesToIdentityIdsProof: buffer expected";
+                            if (message.dataContractsProof != null && message.hasOwnProperty("dataContractsProof"))
+                                if (!(message.dataContractsProof && typeof message.dataContractsProof.length === "number" || $util.isString(message.dataContractsProof)))
+                                    return "dataContractsProof: buffer expected";
+                            if (message.documentsProof != null && message.hasOwnProperty("documentsProof"))
+                                if (!(message.documentsProof && typeof message.documentsProof.length === "number" || $util.isString(message.documentsProof)))
+                                    return "documentsProof: buffer expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a StoreTreeProofs message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {org.dash.platform.dapi.v0.StoreTreeProofs} StoreTreeProofs
+                         */
+                        StoreTreeProofs.fromObject = function fromObject(object) {
+                            if (object instanceof $root.org.dash.platform.dapi.v0.StoreTreeProofs)
+                                return object;
+                            var message = new $root.org.dash.platform.dapi.v0.StoreTreeProofs();
+                            if (object.identitiesProof != null)
+                                if (typeof object.identitiesProof === "string")
+                                    $util.base64.decode(object.identitiesProof, message.identitiesProof = $util.newBuffer($util.base64.length(object.identitiesProof)), 0);
+                                else if (object.identitiesProof.length >= 0)
+                                    message.identitiesProof = object.identitiesProof;
+                            if (object.publicKeyHashesToIdentityIdsProof != null)
+                                if (typeof object.publicKeyHashesToIdentityIdsProof === "string")
+                                    $util.base64.decode(object.publicKeyHashesToIdentityIdsProof, message.publicKeyHashesToIdentityIdsProof = $util.newBuffer($util.base64.length(object.publicKeyHashesToIdentityIdsProof)), 0);
+                                else if (object.publicKeyHashesToIdentityIdsProof.length >= 0)
+                                    message.publicKeyHashesToIdentityIdsProof = object.publicKeyHashesToIdentityIdsProof;
+                            if (object.dataContractsProof != null)
+                                if (typeof object.dataContractsProof === "string")
+                                    $util.base64.decode(object.dataContractsProof, message.dataContractsProof = $util.newBuffer($util.base64.length(object.dataContractsProof)), 0);
+                                else if (object.dataContractsProof.length >= 0)
+                                    message.dataContractsProof = object.dataContractsProof;
+                            if (object.documentsProof != null)
+                                if (typeof object.documentsProof === "string")
+                                    $util.base64.decode(object.documentsProof, message.documentsProof = $util.newBuffer($util.base64.length(object.documentsProof)), 0);
+                                else if (object.documentsProof.length >= 0)
+                                    message.documentsProof = object.documentsProof;
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a StoreTreeProofs message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.StoreTreeProofs} message StoreTreeProofs
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        StoreTreeProofs.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                if (options.bytes === String)
+                                    object.identitiesProof = "";
+                                else {
+                                    object.identitiesProof = [];
+                                    if (options.bytes !== Array)
+                                        object.identitiesProof = $util.newBuffer(object.identitiesProof);
+                                }
+                                if (options.bytes === String)
+                                    object.publicKeyHashesToIdentityIdsProof = "";
+                                else {
+                                    object.publicKeyHashesToIdentityIdsProof = [];
+                                    if (options.bytes !== Array)
+                                        object.publicKeyHashesToIdentityIdsProof = $util.newBuffer(object.publicKeyHashesToIdentityIdsProof);
+                                }
+                                if (options.bytes === String)
+                                    object.dataContractsProof = "";
+                                else {
+                                    object.dataContractsProof = [];
+                                    if (options.bytes !== Array)
+                                        object.dataContractsProof = $util.newBuffer(object.dataContractsProof);
+                                }
+                                if (options.bytes === String)
+                                    object.documentsProof = "";
+                                else {
+                                    object.documentsProof = [];
+                                    if (options.bytes !== Array)
+                                        object.documentsProof = $util.newBuffer(object.documentsProof);
+                                }
+                            }
+                            if (message.identitiesProof != null && message.hasOwnProperty("identitiesProof"))
+                                object.identitiesProof = options.bytes === String ? $util.base64.encode(message.identitiesProof, 0, message.identitiesProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.identitiesProof) : message.identitiesProof;
+                            if (message.publicKeyHashesToIdentityIdsProof != null && message.hasOwnProperty("publicKeyHashesToIdentityIdsProof"))
+                                object.publicKeyHashesToIdentityIdsProof = options.bytes === String ? $util.base64.encode(message.publicKeyHashesToIdentityIdsProof, 0, message.publicKeyHashesToIdentityIdsProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.publicKeyHashesToIdentityIdsProof) : message.publicKeyHashesToIdentityIdsProof;
+                            if (message.dataContractsProof != null && message.hasOwnProperty("dataContractsProof"))
+                                object.dataContractsProof = options.bytes === String ? $util.base64.encode(message.dataContractsProof, 0, message.dataContractsProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.dataContractsProof) : message.dataContractsProof;
+                            if (message.documentsProof != null && message.hasOwnProperty("documentsProof"))
+                                object.documentsProof = options.bytes === String ? $util.base64.encode(message.documentsProof, 0, message.documentsProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.documentsProof) : message.documentsProof;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this StoreTreeProofs to JSON.
+                         * @function toJSON
+                         * @memberof org.dash.platform.dapi.v0.StoreTreeProofs
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        StoreTreeProofs.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return StoreTreeProofs;
                     })();
 
                     v0.Proof = (function() {
@@ -327,7 +650,7 @@ $root.org = (function() {
                          * @memberof org.dash.platform.dapi.v0
                          * @interface IProof
                          * @property {Uint8Array|null} [rootTreeProof] Proof rootTreeProof
-                         * @property {Uint8Array|null} [storeTreeProof] Proof storeTreeProof
+                         * @property {org.dash.platform.dapi.v0.IStoreTreeProofs|null} [storeTreeProofs] Proof storeTreeProofs
                          * @property {Uint8Array|null} [signatureLlmqHash] Proof signatureLlmqHash
                          * @property {Uint8Array|null} [signature] Proof signature
                          */
@@ -356,12 +679,12 @@ $root.org = (function() {
                         Proof.prototype.rootTreeProof = $util.newBuffer([]);
 
                         /**
-                         * Proof storeTreeProof.
-                         * @member {Uint8Array} storeTreeProof
+                         * Proof storeTreeProofs.
+                         * @member {org.dash.platform.dapi.v0.IStoreTreeProofs|null|undefined} storeTreeProofs
                          * @memberof org.dash.platform.dapi.v0.Proof
                          * @instance
                          */
-                        Proof.prototype.storeTreeProof = $util.newBuffer([]);
+                        Proof.prototype.storeTreeProofs = null;
 
                         /**
                          * Proof signatureLlmqHash.
@@ -405,8 +728,8 @@ $root.org = (function() {
                                 writer = $Writer.create();
                             if (message.rootTreeProof != null && Object.hasOwnProperty.call(message, "rootTreeProof"))
                                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.rootTreeProof);
-                            if (message.storeTreeProof != null && Object.hasOwnProperty.call(message, "storeTreeProof"))
-                                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.storeTreeProof);
+                            if (message.storeTreeProofs != null && Object.hasOwnProperty.call(message, "storeTreeProofs"))
+                                $root.org.dash.platform.dapi.v0.StoreTreeProofs.encode(message.storeTreeProofs, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                             if (message.signatureLlmqHash != null && Object.hasOwnProperty.call(message, "signatureLlmqHash"))
                                 writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.signatureLlmqHash);
                             if (message.signature != null && Object.hasOwnProperty.call(message, "signature"))
@@ -449,7 +772,7 @@ $root.org = (function() {
                                     message.rootTreeProof = reader.bytes();
                                     break;
                                 case 2:
-                                    message.storeTreeProof = reader.bytes();
+                                    message.storeTreeProofs = $root.org.dash.platform.dapi.v0.StoreTreeProofs.decode(reader, reader.uint32());
                                     break;
                                 case 3:
                                     message.signatureLlmqHash = reader.bytes();
@@ -495,9 +818,11 @@ $root.org = (function() {
                             if (message.rootTreeProof != null && message.hasOwnProperty("rootTreeProof"))
                                 if (!(message.rootTreeProof && typeof message.rootTreeProof.length === "number" || $util.isString(message.rootTreeProof)))
                                     return "rootTreeProof: buffer expected";
-                            if (message.storeTreeProof != null && message.hasOwnProperty("storeTreeProof"))
-                                if (!(message.storeTreeProof && typeof message.storeTreeProof.length === "number" || $util.isString(message.storeTreeProof)))
-                                    return "storeTreeProof: buffer expected";
+                            if (message.storeTreeProofs != null && message.hasOwnProperty("storeTreeProofs")) {
+                                var error = $root.org.dash.platform.dapi.v0.StoreTreeProofs.verify(message.storeTreeProofs);
+                                if (error)
+                                    return "storeTreeProofs." + error;
+                            }
                             if (message.signatureLlmqHash != null && message.hasOwnProperty("signatureLlmqHash"))
                                 if (!(message.signatureLlmqHash && typeof message.signatureLlmqHash.length === "number" || $util.isString(message.signatureLlmqHash)))
                                     return "signatureLlmqHash: buffer expected";
@@ -524,11 +849,11 @@ $root.org = (function() {
                                     $util.base64.decode(object.rootTreeProof, message.rootTreeProof = $util.newBuffer($util.base64.length(object.rootTreeProof)), 0);
                                 else if (object.rootTreeProof.length >= 0)
                                     message.rootTreeProof = object.rootTreeProof;
-                            if (object.storeTreeProof != null)
-                                if (typeof object.storeTreeProof === "string")
-                                    $util.base64.decode(object.storeTreeProof, message.storeTreeProof = $util.newBuffer($util.base64.length(object.storeTreeProof)), 0);
-                                else if (object.storeTreeProof.length >= 0)
-                                    message.storeTreeProof = object.storeTreeProof;
+                            if (object.storeTreeProofs != null) {
+                                if (typeof object.storeTreeProofs !== "object")
+                                    throw TypeError(".org.dash.platform.dapi.v0.Proof.storeTreeProofs: object expected");
+                                message.storeTreeProofs = $root.org.dash.platform.dapi.v0.StoreTreeProofs.fromObject(object.storeTreeProofs);
+                            }
                             if (object.signatureLlmqHash != null)
                                 if (typeof object.signatureLlmqHash === "string")
                                     $util.base64.decode(object.signatureLlmqHash, message.signatureLlmqHash = $util.newBuffer($util.base64.length(object.signatureLlmqHash)), 0);
@@ -563,13 +888,7 @@ $root.org = (function() {
                                     if (options.bytes !== Array)
                                         object.rootTreeProof = $util.newBuffer(object.rootTreeProof);
                                 }
-                                if (options.bytes === String)
-                                    object.storeTreeProof = "";
-                                else {
-                                    object.storeTreeProof = [];
-                                    if (options.bytes !== Array)
-                                        object.storeTreeProof = $util.newBuffer(object.storeTreeProof);
-                                }
+                                object.storeTreeProofs = null;
                                 if (options.bytes === String)
                                     object.signatureLlmqHash = "";
                                 else {
@@ -587,8 +906,8 @@ $root.org = (function() {
                             }
                             if (message.rootTreeProof != null && message.hasOwnProperty("rootTreeProof"))
                                 object.rootTreeProof = options.bytes === String ? $util.base64.encode(message.rootTreeProof, 0, message.rootTreeProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.rootTreeProof) : message.rootTreeProof;
-                            if (message.storeTreeProof != null && message.hasOwnProperty("storeTreeProof"))
-                                object.storeTreeProof = options.bytes === String ? $util.base64.encode(message.storeTreeProof, 0, message.storeTreeProof.length) : options.bytes === Array ? Array.prototype.slice.call(message.storeTreeProof) : message.storeTreeProof;
+                            if (message.storeTreeProofs != null && message.hasOwnProperty("storeTreeProofs"))
+                                object.storeTreeProofs = $root.org.dash.platform.dapi.v0.StoreTreeProofs.toObject(message.storeTreeProofs, options);
                             if (message.signatureLlmqHash != null && message.hasOwnProperty("signatureLlmqHash"))
                                 object.signatureLlmqHash = options.bytes === String ? $util.base64.encode(message.signatureLlmqHash, 0, message.signatureLlmqHash.length) : options.bytes === Array ? Array.prototype.slice.call(message.signatureLlmqHash) : message.signatureLlmqHash;
                             if (message.signature != null && message.hasOwnProperty("signature"))
@@ -4499,6 +4818,914 @@ $root.org = (function() {
                         };
 
                         return WaitForStateTransitionResultResponse;
+                    })();
+
+                    v0.ConsensusParamsBlock = (function() {
+
+                        /**
+                         * Properties of a ConsensusParamsBlock.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @interface IConsensusParamsBlock
+                         * @property {string|null} [maxBytes] ConsensusParamsBlock maxBytes
+                         * @property {string|null} [maxGas] ConsensusParamsBlock maxGas
+                         * @property {string|null} [timeIotaMs] ConsensusParamsBlock timeIotaMs
+                         */
+
+                        /**
+                         * Constructs a new ConsensusParamsBlock.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @classdesc Represents a ConsensusParamsBlock.
+                         * @implements IConsensusParamsBlock
+                         * @constructor
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsBlock=} [properties] Properties to set
+                         */
+                        function ConsensusParamsBlock(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * ConsensusParamsBlock maxBytes.
+                         * @member {string} maxBytes
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @instance
+                         */
+                        ConsensusParamsBlock.prototype.maxBytes = "";
+
+                        /**
+                         * ConsensusParamsBlock maxGas.
+                         * @member {string} maxGas
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @instance
+                         */
+                        ConsensusParamsBlock.prototype.maxGas = "";
+
+                        /**
+                         * ConsensusParamsBlock timeIotaMs.
+                         * @member {string} timeIotaMs
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @instance
+                         */
+                        ConsensusParamsBlock.prototype.timeIotaMs = "";
+
+                        /**
+                         * Creates a new ConsensusParamsBlock instance using the specified properties.
+                         * @function create
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsBlock=} [properties] Properties to set
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsBlock} ConsensusParamsBlock instance
+                         */
+                        ConsensusParamsBlock.create = function create(properties) {
+                            return new ConsensusParamsBlock(properties);
+                        };
+
+                        /**
+                         * Encodes the specified ConsensusParamsBlock message. Does not implicitly {@link org.dash.platform.dapi.v0.ConsensusParamsBlock.verify|verify} messages.
+                         * @function encode
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsBlock} message ConsensusParamsBlock message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ConsensusParamsBlock.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.maxBytes != null && Object.hasOwnProperty.call(message, "maxBytes"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.maxBytes);
+                            if (message.maxGas != null && Object.hasOwnProperty.call(message, "maxGas"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.maxGas);
+                            if (message.timeIotaMs != null && Object.hasOwnProperty.call(message, "timeIotaMs"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.timeIotaMs);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified ConsensusParamsBlock message, length delimited. Does not implicitly {@link org.dash.platform.dapi.v0.ConsensusParamsBlock.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsBlock} message ConsensusParamsBlock message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ConsensusParamsBlock.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a ConsensusParamsBlock message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsBlock} ConsensusParamsBlock
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ConsensusParamsBlock.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.org.dash.platform.dapi.v0.ConsensusParamsBlock();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.maxBytes = reader.string();
+                                    break;
+                                case 2:
+                                    message.maxGas = reader.string();
+                                    break;
+                                case 3:
+                                    message.timeIotaMs = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a ConsensusParamsBlock message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsBlock} ConsensusParamsBlock
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ConsensusParamsBlock.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a ConsensusParamsBlock message.
+                         * @function verify
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        ConsensusParamsBlock.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.maxBytes != null && message.hasOwnProperty("maxBytes"))
+                                if (!$util.isString(message.maxBytes))
+                                    return "maxBytes: string expected";
+                            if (message.maxGas != null && message.hasOwnProperty("maxGas"))
+                                if (!$util.isString(message.maxGas))
+                                    return "maxGas: string expected";
+                            if (message.timeIotaMs != null && message.hasOwnProperty("timeIotaMs"))
+                                if (!$util.isString(message.timeIotaMs))
+                                    return "timeIotaMs: string expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a ConsensusParamsBlock message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsBlock} ConsensusParamsBlock
+                         */
+                        ConsensusParamsBlock.fromObject = function fromObject(object) {
+                            if (object instanceof $root.org.dash.platform.dapi.v0.ConsensusParamsBlock)
+                                return object;
+                            var message = new $root.org.dash.platform.dapi.v0.ConsensusParamsBlock();
+                            if (object.maxBytes != null)
+                                message.maxBytes = String(object.maxBytes);
+                            if (object.maxGas != null)
+                                message.maxGas = String(object.maxGas);
+                            if (object.timeIotaMs != null)
+                                message.timeIotaMs = String(object.timeIotaMs);
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a ConsensusParamsBlock message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.ConsensusParamsBlock} message ConsensusParamsBlock
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        ConsensusParamsBlock.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.maxBytes = "";
+                                object.maxGas = "";
+                                object.timeIotaMs = "";
+                            }
+                            if (message.maxBytes != null && message.hasOwnProperty("maxBytes"))
+                                object.maxBytes = message.maxBytes;
+                            if (message.maxGas != null && message.hasOwnProperty("maxGas"))
+                                object.maxGas = message.maxGas;
+                            if (message.timeIotaMs != null && message.hasOwnProperty("timeIotaMs"))
+                                object.timeIotaMs = message.timeIotaMs;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this ConsensusParamsBlock to JSON.
+                         * @function toJSON
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsBlock
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        ConsensusParamsBlock.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return ConsensusParamsBlock;
+                    })();
+
+                    v0.ConsensusParamsEvidence = (function() {
+
+                        /**
+                         * Properties of a ConsensusParamsEvidence.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @interface IConsensusParamsEvidence
+                         * @property {string|null} [maxAgeNumBlocks] ConsensusParamsEvidence maxAgeNumBlocks
+                         * @property {string|null} [maxAgeDuration] ConsensusParamsEvidence maxAgeDuration
+                         * @property {string|null} [maxBytes] ConsensusParamsEvidence maxBytes
+                         */
+
+                        /**
+                         * Constructs a new ConsensusParamsEvidence.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @classdesc Represents a ConsensusParamsEvidence.
+                         * @implements IConsensusParamsEvidence
+                         * @constructor
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsEvidence=} [properties] Properties to set
+                         */
+                        function ConsensusParamsEvidence(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * ConsensusParamsEvidence maxAgeNumBlocks.
+                         * @member {string} maxAgeNumBlocks
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @instance
+                         */
+                        ConsensusParamsEvidence.prototype.maxAgeNumBlocks = "";
+
+                        /**
+                         * ConsensusParamsEvidence maxAgeDuration.
+                         * @member {string} maxAgeDuration
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @instance
+                         */
+                        ConsensusParamsEvidence.prototype.maxAgeDuration = "";
+
+                        /**
+                         * ConsensusParamsEvidence maxBytes.
+                         * @member {string} maxBytes
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @instance
+                         */
+                        ConsensusParamsEvidence.prototype.maxBytes = "";
+
+                        /**
+                         * Creates a new ConsensusParamsEvidence instance using the specified properties.
+                         * @function create
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsEvidence=} [properties] Properties to set
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsEvidence} ConsensusParamsEvidence instance
+                         */
+                        ConsensusParamsEvidence.create = function create(properties) {
+                            return new ConsensusParamsEvidence(properties);
+                        };
+
+                        /**
+                         * Encodes the specified ConsensusParamsEvidence message. Does not implicitly {@link org.dash.platform.dapi.v0.ConsensusParamsEvidence.verify|verify} messages.
+                         * @function encode
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsEvidence} message ConsensusParamsEvidence message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ConsensusParamsEvidence.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.maxAgeNumBlocks != null && Object.hasOwnProperty.call(message, "maxAgeNumBlocks"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.maxAgeNumBlocks);
+                            if (message.maxAgeDuration != null && Object.hasOwnProperty.call(message, "maxAgeDuration"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.maxAgeDuration);
+                            if (message.maxBytes != null && Object.hasOwnProperty.call(message, "maxBytes"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.maxBytes);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified ConsensusParamsEvidence message, length delimited. Does not implicitly {@link org.dash.platform.dapi.v0.ConsensusParamsEvidence.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IConsensusParamsEvidence} message ConsensusParamsEvidence message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ConsensusParamsEvidence.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a ConsensusParamsEvidence message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsEvidence} ConsensusParamsEvidence
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ConsensusParamsEvidence.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.maxAgeNumBlocks = reader.string();
+                                    break;
+                                case 2:
+                                    message.maxAgeDuration = reader.string();
+                                    break;
+                                case 3:
+                                    message.maxBytes = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a ConsensusParamsEvidence message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsEvidence} ConsensusParamsEvidence
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ConsensusParamsEvidence.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a ConsensusParamsEvidence message.
+                         * @function verify
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        ConsensusParamsEvidence.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.maxAgeNumBlocks != null && message.hasOwnProperty("maxAgeNumBlocks"))
+                                if (!$util.isString(message.maxAgeNumBlocks))
+                                    return "maxAgeNumBlocks: string expected";
+                            if (message.maxAgeDuration != null && message.hasOwnProperty("maxAgeDuration"))
+                                if (!$util.isString(message.maxAgeDuration))
+                                    return "maxAgeDuration: string expected";
+                            if (message.maxBytes != null && message.hasOwnProperty("maxBytes"))
+                                if (!$util.isString(message.maxBytes))
+                                    return "maxBytes: string expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a ConsensusParamsEvidence message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {org.dash.platform.dapi.v0.ConsensusParamsEvidence} ConsensusParamsEvidence
+                         */
+                        ConsensusParamsEvidence.fromObject = function fromObject(object) {
+                            if (object instanceof $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence)
+                                return object;
+                            var message = new $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence();
+                            if (object.maxAgeNumBlocks != null)
+                                message.maxAgeNumBlocks = String(object.maxAgeNumBlocks);
+                            if (object.maxAgeDuration != null)
+                                message.maxAgeDuration = String(object.maxAgeDuration);
+                            if (object.maxBytes != null)
+                                message.maxBytes = String(object.maxBytes);
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a ConsensusParamsEvidence message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.ConsensusParamsEvidence} message ConsensusParamsEvidence
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        ConsensusParamsEvidence.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.maxAgeNumBlocks = "";
+                                object.maxAgeDuration = "";
+                                object.maxBytes = "";
+                            }
+                            if (message.maxAgeNumBlocks != null && message.hasOwnProperty("maxAgeNumBlocks"))
+                                object.maxAgeNumBlocks = message.maxAgeNumBlocks;
+                            if (message.maxAgeDuration != null && message.hasOwnProperty("maxAgeDuration"))
+                                object.maxAgeDuration = message.maxAgeDuration;
+                            if (message.maxBytes != null && message.hasOwnProperty("maxBytes"))
+                                object.maxBytes = message.maxBytes;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this ConsensusParamsEvidence to JSON.
+                         * @function toJSON
+                         * @memberof org.dash.platform.dapi.v0.ConsensusParamsEvidence
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        ConsensusParamsEvidence.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return ConsensusParamsEvidence;
+                    })();
+
+                    v0.GetConsensusParamsRequest = (function() {
+
+                        /**
+                         * Properties of a GetConsensusParamsRequest.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @interface IGetConsensusParamsRequest
+                         * @property {number|Long|null} [height] GetConsensusParamsRequest height
+                         * @property {boolean|null} [prove] GetConsensusParamsRequest prove
+                         */
+
+                        /**
+                         * Constructs a new GetConsensusParamsRequest.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @classdesc Represents a GetConsensusParamsRequest.
+                         * @implements IGetConsensusParamsRequest
+                         * @constructor
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest=} [properties] Properties to set
+                         */
+                        function GetConsensusParamsRequest(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * GetConsensusParamsRequest height.
+                         * @member {number|Long} height
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @instance
+                         */
+                        GetConsensusParamsRequest.prototype.height = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                        /**
+                         * GetConsensusParamsRequest prove.
+                         * @member {boolean} prove
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @instance
+                         */
+                        GetConsensusParamsRequest.prototype.prove = false;
+
+                        /**
+                         * Creates a new GetConsensusParamsRequest instance using the specified properties.
+                         * @function create
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest=} [properties] Properties to set
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsRequest} GetConsensusParamsRequest instance
+                         */
+                        GetConsensusParamsRequest.create = function create(properties) {
+                            return new GetConsensusParamsRequest(properties);
+                        };
+
+                        /**
+                         * Encodes the specified GetConsensusParamsRequest message. Does not implicitly {@link org.dash.platform.dapi.v0.GetConsensusParamsRequest.verify|verify} messages.
+                         * @function encode
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest} message GetConsensusParamsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetConsensusParamsRequest.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.height != null && Object.hasOwnProperty.call(message, "height"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.height);
+                            if (message.prove != null && Object.hasOwnProperty.call(message, "prove"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.prove);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified GetConsensusParamsRequest message, length delimited. Does not implicitly {@link org.dash.platform.dapi.v0.GetConsensusParamsRequest.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsRequest} message GetConsensusParamsRequest message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetConsensusParamsRequest.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a GetConsensusParamsRequest message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsRequest} GetConsensusParamsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetConsensusParamsRequest.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.org.dash.platform.dapi.v0.GetConsensusParamsRequest();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.height = reader.int64();
+                                    break;
+                                case 2:
+                                    message.prove = reader.bool();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a GetConsensusParamsRequest message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsRequest} GetConsensusParamsRequest
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetConsensusParamsRequest.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a GetConsensusParamsRequest message.
+                         * @function verify
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        GetConsensusParamsRequest.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.height != null && message.hasOwnProperty("height"))
+                                if (!$util.isInteger(message.height) && !(message.height && $util.isInteger(message.height.low) && $util.isInteger(message.height.high)))
+                                    return "height: integer|Long expected";
+                            if (message.prove != null && message.hasOwnProperty("prove"))
+                                if (typeof message.prove !== "boolean")
+                                    return "prove: boolean expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a GetConsensusParamsRequest message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsRequest} GetConsensusParamsRequest
+                         */
+                        GetConsensusParamsRequest.fromObject = function fromObject(object) {
+                            if (object instanceof $root.org.dash.platform.dapi.v0.GetConsensusParamsRequest)
+                                return object;
+                            var message = new $root.org.dash.platform.dapi.v0.GetConsensusParamsRequest();
+                            if (object.height != null)
+                                if ($util.Long)
+                                    (message.height = $util.Long.fromValue(object.height)).unsigned = false;
+                                else if (typeof object.height === "string")
+                                    message.height = parseInt(object.height, 10);
+                                else if (typeof object.height === "number")
+                                    message.height = object.height;
+                                else if (typeof object.height === "object")
+                                    message.height = new $util.LongBits(object.height.low >>> 0, object.height.high >>> 0).toNumber();
+                            if (object.prove != null)
+                                message.prove = Boolean(object.prove);
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a GetConsensusParamsRequest message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.GetConsensusParamsRequest} message GetConsensusParamsRequest
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        GetConsensusParamsRequest.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                if ($util.Long) {
+                                    var long = new $util.Long(0, 0, false);
+                                    object.height = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                } else
+                                    object.height = options.longs === String ? "0" : 0;
+                                object.prove = false;
+                            }
+                            if (message.height != null && message.hasOwnProperty("height"))
+                                if (typeof message.height === "number")
+                                    object.height = options.longs === String ? String(message.height) : message.height;
+                                else
+                                    object.height = options.longs === String ? $util.Long.prototype.toString.call(message.height) : options.longs === Number ? new $util.LongBits(message.height.low >>> 0, message.height.high >>> 0).toNumber() : message.height;
+                            if (message.prove != null && message.hasOwnProperty("prove"))
+                                object.prove = message.prove;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this GetConsensusParamsRequest to JSON.
+                         * @function toJSON
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsRequest
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        GetConsensusParamsRequest.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return GetConsensusParamsRequest;
+                    })();
+
+                    v0.GetConsensusParamsResponse = (function() {
+
+                        /**
+                         * Properties of a GetConsensusParamsResponse.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @interface IGetConsensusParamsResponse
+                         * @property {org.dash.platform.dapi.v0.IConsensusParamsBlock|null} [block] GetConsensusParamsResponse block
+                         * @property {org.dash.platform.dapi.v0.IConsensusParamsEvidence|null} [evidence] GetConsensusParamsResponse evidence
+                         */
+
+                        /**
+                         * Constructs a new GetConsensusParamsResponse.
+                         * @memberof org.dash.platform.dapi.v0
+                         * @classdesc Represents a GetConsensusParamsResponse.
+                         * @implements IGetConsensusParamsResponse
+                         * @constructor
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsResponse=} [properties] Properties to set
+                         */
+                        function GetConsensusParamsResponse(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * GetConsensusParamsResponse block.
+                         * @member {org.dash.platform.dapi.v0.IConsensusParamsBlock|null|undefined} block
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @instance
+                         */
+                        GetConsensusParamsResponse.prototype.block = null;
+
+                        /**
+                         * GetConsensusParamsResponse evidence.
+                         * @member {org.dash.platform.dapi.v0.IConsensusParamsEvidence|null|undefined} evidence
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @instance
+                         */
+                        GetConsensusParamsResponse.prototype.evidence = null;
+
+                        /**
+                         * Creates a new GetConsensusParamsResponse instance using the specified properties.
+                         * @function create
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsResponse=} [properties] Properties to set
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsResponse} GetConsensusParamsResponse instance
+                         */
+                        GetConsensusParamsResponse.create = function create(properties) {
+                            return new GetConsensusParamsResponse(properties);
+                        };
+
+                        /**
+                         * Encodes the specified GetConsensusParamsResponse message. Does not implicitly {@link org.dash.platform.dapi.v0.GetConsensusParamsResponse.verify|verify} messages.
+                         * @function encode
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsResponse} message GetConsensusParamsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetConsensusParamsResponse.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.block != null && Object.hasOwnProperty.call(message, "block"))
+                                $root.org.dash.platform.dapi.v0.ConsensusParamsBlock.encode(message.block, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.evidence != null && Object.hasOwnProperty.call(message, "evidence"))
+                                $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence.encode(message.evidence, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified GetConsensusParamsResponse message, length delimited. Does not implicitly {@link org.dash.platform.dapi.v0.GetConsensusParamsResponse.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.IGetConsensusParamsResponse} message GetConsensusParamsResponse message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GetConsensusParamsResponse.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a GetConsensusParamsResponse message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsResponse} GetConsensusParamsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetConsensusParamsResponse.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.org.dash.platform.dapi.v0.GetConsensusParamsResponse();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.block = $root.org.dash.platform.dapi.v0.ConsensusParamsBlock.decode(reader, reader.uint32());
+                                    break;
+                                case 2:
+                                    message.evidence = $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a GetConsensusParamsResponse message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsResponse} GetConsensusParamsResponse
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GetConsensusParamsResponse.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a GetConsensusParamsResponse message.
+                         * @function verify
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        GetConsensusParamsResponse.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.block != null && message.hasOwnProperty("block")) {
+                                var error = $root.org.dash.platform.dapi.v0.ConsensusParamsBlock.verify(message.block);
+                                if (error)
+                                    return "block." + error;
+                            }
+                            if (message.evidence != null && message.hasOwnProperty("evidence")) {
+                                var error = $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence.verify(message.evidence);
+                                if (error)
+                                    return "evidence." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a GetConsensusParamsResponse message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {org.dash.platform.dapi.v0.GetConsensusParamsResponse} GetConsensusParamsResponse
+                         */
+                        GetConsensusParamsResponse.fromObject = function fromObject(object) {
+                            if (object instanceof $root.org.dash.platform.dapi.v0.GetConsensusParamsResponse)
+                                return object;
+                            var message = new $root.org.dash.platform.dapi.v0.GetConsensusParamsResponse();
+                            if (object.block != null) {
+                                if (typeof object.block !== "object")
+                                    throw TypeError(".org.dash.platform.dapi.v0.GetConsensusParamsResponse.block: object expected");
+                                message.block = $root.org.dash.platform.dapi.v0.ConsensusParamsBlock.fromObject(object.block);
+                            }
+                            if (object.evidence != null) {
+                                if (typeof object.evidence !== "object")
+                                    throw TypeError(".org.dash.platform.dapi.v0.GetConsensusParamsResponse.evidence: object expected");
+                                message.evidence = $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence.fromObject(object.evidence);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a GetConsensusParamsResponse message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @static
+                         * @param {org.dash.platform.dapi.v0.GetConsensusParamsResponse} message GetConsensusParamsResponse
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        GetConsensusParamsResponse.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.block = null;
+                                object.evidence = null;
+                            }
+                            if (message.block != null && message.hasOwnProperty("block"))
+                                object.block = $root.org.dash.platform.dapi.v0.ConsensusParamsBlock.toObject(message.block, options);
+                            if (message.evidence != null && message.hasOwnProperty("evidence"))
+                                object.evidence = $root.org.dash.platform.dapi.v0.ConsensusParamsEvidence.toObject(message.evidence, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this GetConsensusParamsResponse to JSON.
+                         * @function toJSON
+                         * @memberof org.dash.platform.dapi.v0.GetConsensusParamsResponse
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        GetConsensusParamsResponse.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return GetConsensusParamsResponse;
                     })();
 
                     return v0;
