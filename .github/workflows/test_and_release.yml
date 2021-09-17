@@ -55,10 +55,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Reconfigure git to use HTTPS authentication
-        run: >
-          git config --global url."https://github.com/".insteadOf ssh://git@github.com/
-
       - name: Check package version matches tag
         uses: geritol/match-tag-to-package-version@0.1.0
         env:
