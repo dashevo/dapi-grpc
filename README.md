@@ -100,6 +100,8 @@ Available methods :
 - subscribeToBlockHeadersWithChainLocks
 - subscribeToTransactionsWithProofs
 
+For streams, such as subscribeToTransactionsWithProofs and subscribeToBlockHeadersWithChainLocks, a [grpc-web stream](https://github.com/grpc/grpc-web) will be returned.
+More info on their usage can be read over their repository.
 
 ### Platform Client
 
