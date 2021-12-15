@@ -1,11 +1,6 @@
-# DAPI GRPC
+# DEPRECATED
 
-[![Build Status](https://github.com/dashevo/dapi-grpc/actions/workflows/test_and_release.yml/badge.svg)](https://github.com/dashevo/dapi-grpc/actions/workflows/test_and_release.yml)
-[![NPM version](https://img.shields.io/npm/v/@dashevo/dapi-grpc.svg)](https://npmjs.org/package/@dashevo/dapi-grpc)
-[![Release Date](https://img.shields.io/github/release-date/dashevo/dapi-grpc)](https://github.com/dashevo/dapi-grpc/releases/latest)
-[![license](https://img.shields.io/github/license/dashevo/dapi-grpc.svg)](LICENSE)
-
-Decentralized API GRPC definition files and generated clients
+**This repository moved to https://github.com/dashevo/platform/tree/v0.22-dev/packages/dapi-grpc**
 
 ## Table of Contents
 
